@@ -13,7 +13,8 @@ class Response:
 		self._response_hash = None
 		self._response_list_hash = None
 
-		if type(response) == str:
+		if type(response) == bytes:
+			response = response.decode("utf-8")
 			self._response_string = response
 
 		if type(response) == dict:
@@ -66,13 +67,13 @@ class Response:
 		if type(index) == str:
 			return self.as_hash()[index]
 		pass
-	
+
 	def code(self):
 		"""
 		Returns the response code
 		"""
 		return self.as_list_hash()["CODE"]
-	
+
 	def description(self):
 		"""
 		Returns the response description
@@ -90,13 +91,13 @@ class Response:
 		Returns the response runtime
 		"""
 		return self.as_list_hash()["RUNTIME"]
-	
+
 	def queuetime(self):
 		"""
 		Returns the response queuetime
 		"""
 		return self.as_list_hash()["QUEUETIME"]
-	
+
 	def property(self, index = None):
 		"""
 		Returns the property for a given index
@@ -110,7 +111,7 @@ class Response:
 				return None
 		else:
 			return properties
-		
+
 	def  is_success(self):
 		"""
 		Returns true if the results is a success
@@ -120,7 +121,7 @@ class Response:
 			return True
 		else:
 			return False
-		
+
 	def is_tmp_error(self):
 		"""
 		Returns true if the results is a tmp error
@@ -130,56 +131,56 @@ class Response:
 			return True
 		else:
 			return False
-		
-	def columns(self):	
+
+	def columns(self):
 		"""
 		Returns the columns
 		"""
 		return self.as_list_hash()["COLUMNS"]
-		
-	def first(self):	
+
+	def first(self):
 		"""
 		Returns the index of the first element
 		"""
 		return self.as_list_hash()["FIRST"]
-	
-	def last(self):	
+
+	def last(self):
 		"""
 		Returns the index of the last element
 		"""
 		return self.as_list_hash()["LAST"]
-	
+
 	def count(self):
 		"""
 		Returns the number of list elements returned (= last - first + 1)
-		"""	
+		"""
 		return self.as_list_hash()["COUNT"]
-	
-	def limit(self):	
+
+	def limit(self):
 		"""
 		Returns the limit of the response
 		"""
 		return self.as_list_hash()["LIMIT"]
-	
+
 	def total(self):
 		"""
 		Returns the total number of elements found (!= count)
-		"""	
+		"""
 		return self.as_list_hash()["TOTAL"]
-	
-	def pages(self):	
+
+	def pages(self):
 		"""
 		Returns the number of pages
 		"""
 		return self.as_list_hash()["PAGES"]
-	
-	def page(self):	
+
+	def page(self):
 		"""
 		Returns the number of the current page (starts with 1)
 		"""
 		return self.as_list_hash()["PAGE"]
-	
-	def prevpage(self):	
+
+	def prevpage(self):
 		"""
 		Returns the number of the previous page
 
@@ -188,8 +189,8 @@ class Response:
 			return self.as_list_hash()["PREVPAGE"]
 		except:
 			return None
-	
-	def prevpagefirst(self):	
+
+	def prevpagefirst(self):
 		"""
 		Returns the first index for the previous page
 		"""
@@ -197,20 +198,20 @@ class Response:
 			return self.as_list_hash()["PREVPAGEFIRST"]
 		except:
 			return None
-	
-	def nextpage(self):	
+
+	def nextpage(self):
 		"""
 		Returns the number of the next page
 		"""
 		return self.as_list_hash()["NEXTPAGE"]
-	
+
 	def nextpagefirst(self):
 		"""
 		Returns the first index for the next page
-		"""	
+		"""
 		return self.as_list_hash()["NEXTPAGEFIRST"]
-	
-	def lastpagefirst(self):	
+
+	def lastpagefirst(self):
 		"""
 		Returns the first index for the last page
 		"""

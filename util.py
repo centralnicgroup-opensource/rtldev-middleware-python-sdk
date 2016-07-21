@@ -16,10 +16,6 @@ def _command_encode(command):
 
 	if type(command) == int:
 		command = str(command)
-
-	if type(command) == unicode:
-		command = command.encode('utf-8')
-
 	if type(command) == str:
 		return ["=" + command]
 	elif type(command) == dict:
@@ -32,6 +28,7 @@ def _command_encode(command):
 				r.append(str(i) + v2)
 	else:
 		pass
+
 	return r
 
 
@@ -80,7 +77,7 @@ def response_to_list_hash(response):
 		'QUEUETIME': "",
 		'ITEMS': []
 	}
-	
+
 	if 'CODE' in response: list_hash['CODE'] = response['CODE']
 	if 'DESCRIPTION' in response: list_hash['DESCRIPTION'] = response['DESCRIPTION']
 	if 'RUNTIME' in response: list_hash['RUNTIME'] = response['RUNTIME']
@@ -123,14 +120,14 @@ def response_to_list_hash(response):
 			list_hash['PREVPAGEFIRST'] = (list_hash['PREVPAGE'] - 1) * list_hash['LIMIT']
 		list_hash['NEXTPAGE'] = list_hash['PAGE'] + 1
 		list_hash['NEXTPAGEFIRST'] = (list_hash['NEXTPAGE'] - 1) * list_hash['LIMIT']
-		
+
 	if 'TOTAL' in list_hash and 'LIMIT' in list_hash and list_hash['LIMIT'] > 0:
 		list_hash['PAGES'] = int(list_hash['TOTAL'] + list_hash['LIMIT'] - 1) / list_hash['LIMIT']
 		list_hash['LASTPAGEFIRST'] = (list_hash['PAGES'] - 1) * list_hash['LIMIT']
 		if 'NEXTPAGE' in list_hash and (list_hash['NEXTPAGE'] > list_hash['PAGES']):
 			list_hash['NEXTPAGE'] = None
 			list_hash['NEXTPAGEFIRST'] = None
-		
+
 	return list_hash
 
 
@@ -174,5 +171,4 @@ def base64_decode(string):
 	"""
 	Decodes data encoded with MIME base64
 	"""
-	return base64.b64decode(string)		
-
+	return base64.b64decode(string)
