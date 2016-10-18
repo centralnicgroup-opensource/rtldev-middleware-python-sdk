@@ -13,7 +13,12 @@ class Response:
 		self._response_hash = None
 		self._response_list_hash = None
 
-		if type(response) == bytes:
+		#try/except to support old versions of python, like python2.5
+		try:
+			if type(response) == bytes:
+				response = response.decode("utf-8")
+				self._response_string = response
+		except:
 			response = response.decode("utf-8")
 			self._response_string = response
 
