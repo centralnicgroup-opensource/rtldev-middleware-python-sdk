@@ -13,11 +13,14 @@ class Response:
 		self._response_hash = None
 		self._response_list_hash = None
 
-		#try/except to support old versions of python, like python2.5
+		#try/except to support old versions of python (python2.5)
 		try:
 			if type(response) == bytes:
 				response = response.decode("utf-8")
 				self._response_string = response
+		except UnicodeError:
+			response = response.decode("latin1")
+			self._response_string = response
 		except:
 			response = response.decode("utf-8")
 			self._response_string = response
@@ -85,12 +88,6 @@ class Response:
 		"""
 		return self.as_list_hash()["DESCRIPTION"]
 
-	def properties(self):
-		"""
-		Returns the response properties
-		"""
-		return self.as_list_hash()["PROPERTY"]
-
 	def runtime(self):
 		"""
 		Returns the response runtime
@@ -103,12 +100,18 @@ class Response:
 		"""
 		return self.as_list_hash()["QUEUETIME"]
 
+	def properties(self):
+		"""
+		Returns the response properties
+		"""
+		return self.as_hash()["PROPERTY"]
+
 	def property(self, index = None):
 		"""
 		Returns the property for a given index
 		If no index given, the complete property list is returned
 		"""
-		properties = self.as_list()
+		properties = self.properties()
 		if index:
 			try:
 				return properties[index]
