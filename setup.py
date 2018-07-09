@@ -6,12 +6,14 @@ import re
 
 from setuptools import setup, find_packages
 
+
 def read(*names, **kwargs):
     with io.open(
         os.path.join(os.path.dirname(__file__), *names),
         encoding=kwargs.get("encoding", "utf8")
     ) as fp:
         return fp.read()
+
 
 def find_version(*file_paths):
     version_file = read(*file_paths)
@@ -20,6 +22,7 @@ def find_version(*file_paths):
     if version_match:
         return version_match.group(1)
     raise RuntimeError("Unable to find version string.")
+
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -46,10 +49,10 @@ setup(name='hexonet.apiconnector',
       scripts=[],
       zip_safe=True,
       classifiers=(
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent"
+          "Programming Language :: Python :: 2",
+          "Programming Language :: Python :: 3",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent"
       ),
-      namespace_packages = ['hexonet']
-     )
+      namespace_packages=['hexonet']
+      )
