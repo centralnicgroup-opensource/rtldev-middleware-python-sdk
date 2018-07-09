@@ -1,7 +1,7 @@
 from six.moves.urllib import request
 from six.moves import urlparse
 import hexonet.apiconnector.util
-from hexonet.apiconnector import Response
+from hexonet.apiconnector.response import Response
 
 """
 APICONNECTOR Connection
