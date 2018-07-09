@@ -1,7 +1,7 @@
 import re
 import time
 import base64
-from six.moves import urlparse
+from six.moves.urllib.parse import quote, unquote
 from datetime import datetime
 
 
@@ -166,14 +166,14 @@ def url_encode(string):
     This function is convenient when encoding a string to be used in a query
     part of a URL
     """
-    return urlparse.quote(string)
+    return quote(string)
 
 
 def url_decode(string):
     """
     Decodes URL-encoded string Decodes any %## encoding in the given string.
     """
-    return urlparse.unquote(string)
+    return unquote(string)
 
 
 def base64_encode(string):
