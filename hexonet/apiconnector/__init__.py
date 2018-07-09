@@ -1,7 +1,7 @@
 from apiconnector import Connection
 from apiconnector import Response
 
-__version__ = '1.2.0'
+__version__ = '1.2.1'
 name = "apiconnector"
 
 
