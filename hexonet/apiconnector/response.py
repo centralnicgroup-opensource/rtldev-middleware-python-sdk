@@ -1,7 +1,7 @@
-import ispapi.util
+import apiconnector.util
 
 """
-ISPAPI Response
+APICONNECTOR Response
 
 """
 class Response:
@@ -41,7 +41,7 @@ class Response:
 		Returns the response as a hash
 		"""
 		if self._response_hash == None:
-			self._response_hash = ispapi.util.response_to_hash(self._response_string)
+			self._response_hash = apiconnector.util.response_to_hash(self._response_string)
 		return self._response_hash
 
 
@@ -50,7 +50,7 @@ class Response:
 		Returns the response as a list hash
 		"""
 		if self._response_list_hash == None:
-			self._response_list_hash = ispapi.util.response_to_list_hash(self.as_hash())
+			self._response_list_hash = apiconnector.util.response_to_list_hash(self.as_hash())
 		return self._response_list_hash
 
 

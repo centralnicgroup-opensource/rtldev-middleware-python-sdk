@@ -1,9 +1,12 @@
-from ispapi.connection import Connection
-from ispapi.response import Response
+from apiconnector.connection import Connection
+from apiconnector.response import Response
+
+__version__ = '1.0.0'
+name = "apiconnector"
 
 def connect(login=None, password=None, url=None, entity=None, user=None, role=None, config=None):
 	"""
-	Returns an instance of ispapi.Connection
+	Returns an instance of apiconnector.Connection
 	"""
 
 	if config == None:

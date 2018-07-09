@@ -1,7 +1,12 @@
 import re
 from datetime import datetime
 import time
-import urllib
+try:
+	# For Python 3.0 and later
+	from urllib import parse as urlparse
+except ImportError:
+	# Fall back to Python 2
+	from urlparse import urlparse
 import base64
 
 
@@ -152,13 +157,13 @@ def url_encode(string):
 	URL-encodes string
 	This function is convenient when encoding a string to be used in a query part of a URL
 	"""
-	return urllib.quote(string)
+	return urlparse.quote(string)
 
 def url_decode(string):
 	"""
 	Decodes URL-encoded string Decodes any %## encoding in the given string.
 	"""
-	return urllib.unquote(string)
+	return urlparse.unquote(string)
 
 def base64_encode(string):
 	"""
