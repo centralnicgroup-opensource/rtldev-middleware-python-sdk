@@ -1,13 +1,13 @@
-from apiconnector import Connection
-from apiconnector import Response
+from hexonet.apiconnector import Connection
+from hexonet.apiconnector import Response
 
 __version__ = '1.2.1'
-name = "apiconnector"
+name = "hexonet.apiconnector"
 
 
 def connect(login=None, password=None, url=None, entity=None, user=None, role=None, config=None):
     """
-    Returns an instance of apiconnector.Connection
+    Returns an instance of hexonet.apiconnector.Connection
     """
 
     if config is None:
