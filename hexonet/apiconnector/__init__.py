@@ -1,7 +1,7 @@
 from hexonet.apiconnector import Connection
 from hexonet.apiconnector import Response
 
-__version__ = '1.2.1'
+__version__ = '1.2.2'
 name = "hexonet.apiconnector"
 
 
