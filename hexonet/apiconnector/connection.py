@@ -1,7 +1,7 @@
 from six.moves.urllib import request
 from six.moves import urlparse
-import apiconnector.util
-from apiconnector.response import Response
+import hexonet.apiconnector.util
+from hexonet.apiconnector import Response
 
 """
 APICONNECTOR Connection
@@ -32,7 +32,7 @@ class Connection:
         if ('role' in self._config):
             post['s_login'] = self._config['login'] + "!" + self._config['role']
 
-        post['s_command'] = apiconnector.util.command_encode(command)
+        post['s_command'] = hexonet.apiconnector.util.command_encode(command)
         post = urlparse.urlencode(post)
         response = request.urlopen(self._config['url'], post.encode('UTF-8'))
         content = response.read()
