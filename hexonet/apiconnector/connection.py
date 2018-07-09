@@ -1,19 +1,7 @@
-import urllib
+from six.moves.urllib import request
+from six.moves import urlparse
 import apiconnector.util
 from apiconnector.response import Response
-try:
-    # For Python 3.0 and later
-    from urllib.request import urlopen
-except ImportError:
-    # Fall back to Python 2's urllib2
-    from urllib2 import urlopen
-try:
-    # For Python 3.0 and later
-    from urllib import parse as urlparse
-except ImportError:
-    # Fall back to Python 2
-    from urlparse import urlparse
-
 
 """
 APICONNECTOR Connection
@@ -46,7 +34,7 @@ class Connection:
 
         post['s_command'] = apiconnector.util.command_encode(command)
         post = urlparse.urlencode(post)
-        response = urlopen(self._config['url'], post.encode('UTF-8'))
+        response = request.urlopen(self._config['url'], post.encode('UTF-8'))
         content = response.read()
         return content
 

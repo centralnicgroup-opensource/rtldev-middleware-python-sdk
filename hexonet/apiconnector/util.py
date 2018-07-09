@@ -1,13 +1,8 @@
 import re
-from datetime import datetime
 import time
-try:
-    # For Python 3.0 and later
-    from urllib import parse as urlparse
-except ImportError:
-    # Fall back to Python 2
-    from urlparse import urlparse
 import base64
+from six.moves import urlparse
+from datetime import datetime
 
 
 def command_encode(command):
