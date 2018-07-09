@@ -1,5 +1,5 @@
-from six.moves.urllib import request
-from six.moves import urlparse
+from six.moves.urllib.request import urlopen
+from six.moves.urllib.parse import urlparse, urlencode
 import hexonet.apiconnector.util
 from hexonet.apiconnector.response import Response
 
@@ -33,8 +33,8 @@ class Connection:
             post['s_login'] = self._config['login'] + "!" + self._config['role']
 
         post['s_command'] = hexonet.apiconnector.util.command_encode(command)
-        post = urlparse.urlencode(post)
-        response = request.urlopen(self._config['url'], post.encode('UTF-8'))
+        post = urlencode(post)
+        response = urlopen(self._config['url'], post.encode('UTF-8'))
         content = response.read()
         return content
 
