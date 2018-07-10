@@ -1,2 +1,2 @@
 #!/bin/bash
-pep8 --first --show-source --show-pep8
+pycodestyle --first --show-source --show-pep8 setup.py hexonet/apiconnector/__init__.py hexonet/apiconnector/connection.py hexonet/apiconnector/response.py hexonet/apiconnector/util.py
