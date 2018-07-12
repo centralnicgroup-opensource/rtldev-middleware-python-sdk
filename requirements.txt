@@ -1,0 +1,7 @@
+'autopep8',
+'six',
+'guzzle_sphinx_theme',
+'pycodestyle',
+'sphinx',
+'sphinxcontrib-log-cabinet',
+'twine'
