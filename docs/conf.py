@@ -1,15 +1,34 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import os
+import io
+import re
 sys.path.append('~/.local/lib')
+
+def read(*names, **kwargs):
+    with io.open(
+        os.path.join(os.path.dirname(__file__), *names),
+        encoding=kwargs.get("encoding", "utf8")
+    ) as fp:
+        return fp.read()
+
+
+def find_version(*file_paths):
+    version_file = read(*file_paths)
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
+                              version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
 
 # Project --------------------------------------------------------------
 
 project = 'hexonet.apiconnector'
 copyright = '2018 by HEXONET GmbH'
 author = 'Anthony Schneider, Kai Schwarz'
-release = '1.2'
-version = '1.2.6'
+version = find_version('..', 'hexonet', 'apiconnector', '__init__.py')
+release = re.sub(r"\.[0-9]+$", "", version)
 
 # General --------------------------------------------------------------
 
