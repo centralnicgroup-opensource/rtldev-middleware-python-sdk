@@ -70,4 +70,4 @@ Builtin Configuration Values
 
 The following configuration values are used internally by hexonet.apiconnector:
 
-Up to now - none, but this might change in future as we are continously improve our SDKs.
+Up to now - none, but this might change in future as we are continously improving our SDKs.
