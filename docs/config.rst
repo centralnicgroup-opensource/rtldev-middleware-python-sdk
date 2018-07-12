@@ -46,24 +46,31 @@ or by using the :class:`hexonet.apiconnector.connection.Connection` class accord
 Environment and Debug Features
 ------------------------------
 
-HEXONET provides two different Backend Systems that you might consider to use:
+Debug Features, are up to now not available in our Python SDK, but planned.
 
-- Operational Test & Evaluation (OT&E) System (set 'entity' to '1234')
+HEXONET provides two different Backend Systems that you might consider to use.
+Both require a separate registration_ first.
+
+.. _registration: https://www.hexonet.net
+
+
+
+OT&E System
+^^^^^^^^^^^
+
+OT&E Sytem stands for Operational Test & Evaluation System.
 No costs, just for playing around with things. This system can be seen as a
 kind of sandbox system that allows to test your integration first before going
 live with it. This system and the use of our products and services is completely
 free of charge.
+To use this system, set configuration value for property `entity` to `1234`.
 
-- LIVE System (set 'entity' to '54cd')
+LIVE System
+^^^^^^^^^^^
+
 The real world system - This system and the use our services and products can lead
 to real costs depending on what you're exactly doing.
-
-Both systems need a separate registration_ first.
-
-.. _registration: https://www.hexonet.net
-
-Debug Features, are up to now not available at the hexonet.apiconnector, but planned.
-
+To use this system, set configuration value for property `entity` to `54cd`.
 
 Builtin Configuration Values
 ----------------------------

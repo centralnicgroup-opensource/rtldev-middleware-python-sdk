@@ -1,4 +1,3 @@
-Changelog
-=========
+.. _changelog:
 
 .. mdinclude:: ../HISTORY.md

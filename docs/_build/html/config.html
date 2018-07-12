@@ -83,9 +83,7 @@
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html#hexonet-developers">HEXONET Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html#id2">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contactus.html">Contact Us</a></li>
 </ul>
 
@@ -99,7 +97,11 @@
       <ul>
 <li><a class="reference internal" href="#">Configuration Handling</a><ul>
 <li><a class="reference internal" href="#configuration-basics">Configuration Basics</a></li>
-<li><a class="reference internal" href="#environment-and-debug-features">Environment and Debug Features</a></li>
+<li><a class="reference internal" href="#environment-and-debug-features">Environment and Debug Features</a><ul>
+<li><a class="reference internal" href="#ot-e-system">OT&amp;E System</a></li>
+<li><a class="reference internal" href="#live-system">LIVE System</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#builtin-configuration-values">Builtin Configuration Values</a></li>
 </ul>
 </li>
@@ -176,21 +178,24 @@ Using the <a class="reference internal" href="api/hexonet.apiconnector.html#hexo
 </div>
 <div class="section" id="environment-and-debug-features">
 <h2>Environment and Debug Features<a class="headerlink" href="#environment-and-debug-features" title="Permalink to this headline">¶</a></h2>
-<p>HEXONET provides two different Backend Systems that you might consider to use:</p>
-<ul class="simple">
-<li>Operational Test &amp; Evaluation (OT&amp;E) System (set ‘entity’ to ‘1234’)</li>
-</ul>
-<p>No costs, just for playing around with things. This system can be seen as a
+<p>Debug Features, are up to now not available in our Python SDK, but planned.</p>
+<p>HEXONET provides two different Backend Systems that you might consider to use.
+Both require a separate <a class="reference external" href="https://www.hexonet.net">registration</a> first.</p>
+<div class="section" id="ot-e-system">
+<h3>OT&amp;E System<a class="headerlink" href="#ot-e-system" title="Permalink to this headline">¶</a></h3>
+<p>OT&amp;E Sytem stands for Operational Test &amp; Evaluation System.
+No costs, just for playing around with things. This system can be seen as a
 kind of sandbox system that allows to test your integration first before going
 live with it. This system and the use of our products and services is completely
-free of charge.</p>
-<ul class="simple">
-<li>LIVE System (set ‘entity’ to ‘54cd’)</li>
-</ul>
+free of charge.
+To use this system, set configuration value for property <cite>entity</cite> to <cite>1234</cite>.</p>
+</div>
+<div class="section" id="live-system">
+<h3>LIVE System<a class="headerlink" href="#live-system" title="Permalink to this headline">¶</a></h3>
 <p>The real world system - This system and the use our services and products can lead
-to real costs depending on what you’re exactly doing.</p>
-<p>Both systems need a separate <a class="reference external" href="https://www.hexonet.net">registration</a> first.</p>
-<p>Debug Features, are up to now not available at the hexonet.apiconnector, but planned.</p>
+to real costs depending on what you’re exactly doing.
+To use this system, set configuration value for property <cite>entity</cite> to <cite>54cd</cite>.</p>
+</div>
 </div>
 <div class="section" id="builtin-configuration-values">
 <h2>Builtin Configuration Values<a class="headerlink" href="#builtin-configuration-values" title="Permalink to this headline">¶</a></h2>
