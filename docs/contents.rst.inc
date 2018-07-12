@@ -1,5 +1,5 @@
-User's Guide
-------------
+Usage Guide
+-----------
 
 This part of the documentation, which is mostly prose, begins with some
 background information about HEXONET and it's Backend API, then focuses
@@ -36,6 +36,7 @@ Design notes, legal information and changelog are here for the interested.
 
    upgrading
    changelog
-   license
    contributing
+   developmentguide
+   license
    contactus
