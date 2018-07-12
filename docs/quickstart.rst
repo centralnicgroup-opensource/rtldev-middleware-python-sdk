@@ -18,6 +18,10 @@ A minimal application using hexonet.apiconnector looks something like this:
     :encoding: utf-8
     :caption: Python SDK Demo App
 
+You can find this code also on _github.
+
+.. _github: https://github.com/hexonet/python-sdk-demo
+
 So what did that code do?
 
 1. First we imported the :mod:`hexonet.apiconnector`.
