@@ -12,8 +12,25 @@ This module is a connector library for the insanely fast HEXONET Backend API. Fo
 
 ## Resources
 
-* [Usage Guide](https://github.com/hexonet/php-sdk/blob/master/README.md#how-to-use-this-module-in-your-project)
-* [SDK Documenation](https://rawgit.com/hexonet/php-sdk/master/target/site/apidocs/net/hexonet/apiconnector/package-summary.html)
+* [Usage Guide](https://hexonet-python-sdk.readthedocs.io/en/latest/#usage-guide)
+* [SDK Documenation](https://hexonet-python-sdk.readthedocs.io/en/latest/#sdk-documentation)
 * [HEXONET Backend API Documentation](https://github.com/hexonet/hexonet-api-documentation/tree/master/API)
-* [Release Notes](https://github.com/hexonet/php-sdk/releases)
-* [Development Guide](https://github.com/hexonet/php-sdk/wiki/Development-Guide)
+* [Release Notes](https://github.com/hexonet/python-sdk/releases)
+* [Development Guide](https://hexonet-python-sdk.readthedocs.io/en/latest/developmentguide.html)
+
+## How to use this module in your project
+All you need to can be found [here](https://hexonet-python-sdk.readthedocs.io/en/latest/#usage-guide).
+
+## Contributing
+
+Please read [our development guide](https://hexonet-python-sdk.readthedocs.io/en/latest/developmentguide.html) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Authors
+
+List of responsible developers can be found [here](https://github.com/hexonet/python-sdk/blob/master/AUTHORS.md)
+
+See also the list of [contributors](https://github.com/hexonet/php-sdk/graphs/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
