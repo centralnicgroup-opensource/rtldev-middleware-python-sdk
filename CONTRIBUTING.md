@@ -7,9 +7,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Pull Request (PR) Process
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-2. Update the README.md with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations and container parameters.
-3. Address the PR to us, we care about further steps like versioning etc.
+Read [here](https://hexonet-python-sdk.readthedocs.io/en/latest/developmentguide.html#pull-request-pr-procedure).
 
 ## Code of Conduct
 
