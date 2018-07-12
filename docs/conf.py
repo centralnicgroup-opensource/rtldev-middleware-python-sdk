@@ -18,11 +18,12 @@ master_doc = 'index'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
-    'sphinxcontrib.log_cabinet'
+    'sphinxcontrib.log_cabinet',
+    'm2r'
 ]
 exclude_patterns = ['_build', '/docs/api/*.rst']
 
-source_suffix = ['.rst']
+source_suffix = ['.rst', '.md']
 
 intersphinx_mapping = {}
 

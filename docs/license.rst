@@ -13,7 +13,7 @@ The full license text can be found below (:ref:`mit-license`).
 Authors
 -------
 
-.. include:: ../AUTHORS.md
+.. mdinclude:: ../AUTHORS.md
 
 General License Definitions
 ---------------------------

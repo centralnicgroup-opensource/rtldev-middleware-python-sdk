@@ -3,4 +3,4 @@
 Contributing
 ============
 
-.. include:: ../CONTRIBUTING.md
+.. mdinclude:: ../CONTRIBUTING.md
