@@ -137,9 +137,9 @@
             
   <div class="section" id="quickstart">
 <span id="id1"></span><h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
-<p>Eager to get started?  This page gives a good introduction to hexonet.apiconnector.
-It assumes you already have it installed. If you do not, head over to the
-<a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a> section.</p>
+<p>Eager to get started?  This page gives a good introduction to
+hexonet.apiconnector. It assumes you already have it installed.
+If you do not, head over to the <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a> section.</p>
 <div class="section" id="a-minimal-application">
 <h2>A Minimal Application<a class="headerlink" href="#a-minimal-application" title="Permalink to this headline">¶</a></h2>
 <p>A minimal application using hexonet.apiconnector looks something like this:</p>
@@ -179,22 +179,30 @@ It assumes you already have it installed. If you do not, head over to the
 <p>So what did that code do?</p>
 <ol class="arabic simple">
 <li>First we imported the <a class="reference internal" href="api/hexonet.apiconnector.html#module-hexonet.apiconnector" title="hexonet.apiconnector"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hexonet.apiconnector</span></code></a>.</li>
-<li>Next we create an Connection to the HEXONET Backend System by using the <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.connect" title="hexonet.apiconnector.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">connect()</span></code></a>.</li>
-<li>We then use the <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.connection.Connection.call" title="hexonet.apiconnector.connection.Connection.call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">call()</span></code></a> to request a provided command to the backend system.</li>
-<li>The response is an instance of <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.response.Response" title="hexonet.apiconnector.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a>. It provides all necessary methods to access API response data.</li>
+<li>Next we create an Connection to the HEXONET Backend System by using the
+<a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.connect" title="hexonet.apiconnector.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">connect()</span></code></a>.</li>
+<li>We then use the <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.connection.Connection.call" title="hexonet.apiconnector.connection.Connection.call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">call()</span></code></a>
+to request a provided command to the backend system.</li>
+<li>The response is an instance of
+<a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.response.Response" title="hexonet.apiconnector.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a>. It provides all necessary
+methods to access API response data.</li>
 </ol>
 </div>
 <div class="section" id="what-to-do-if-the-backend-system-just-returns-an-error">
 <h2>What to do if the backend system just returns an error<a class="headerlink" href="#what-to-do-if-the-backend-system-just-returns-an-error" title="Permalink to this headline">¶</a></h2>
-<p>Well this in general needs some further analysis. Reasons might be that you have an ip filter defined and you do not provide your ip address through configuration option “remoteaddr”.
+<p>Well this in general needs some further analysis. Reasons might be that you
+have an ip filter defined and you do not provide your ip address through
+configuration option “remoteaddr”.
 It could also be that you provided an ip address that is blocked.
-Another issue can be that you connect using a role user that is not allowed to request this command as it got blocked by role user configuration.</p>
+Another issue can be that you connect using a role user that is not allowed
+to request this command as it got blocked by role user configuration.</p>
 <p>Feel free to <a class="reference internal" href="contactus.html#contact-us"><span class="std std-ref">Contact Us</span></a> if you need help.</p>
 </div>
 <div class="section" id="sessions">
 <h2>Sessions<a class="headerlink" href="#sessions" title="Permalink to this headline">¶</a></h2>
-<p>Session-based communication is not yet available in this SDK. This is a planned rewrite.
-The above application code shows how sessionless communication with the HEXONET Backend API works.</p>
+<p>Session-based communication is not yet available in this SDK. This is a planned
+rewrite. The above application code shows how sessionless communication with
+the HEXONET Backend API works.</p>
 </div>
 </div>
 

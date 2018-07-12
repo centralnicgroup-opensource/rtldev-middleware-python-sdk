@@ -1,7 +1,7 @@
 License
 =======
 
-hexonet.apiconnector is licensed under MIT License. 
+hexonet.apiconnector is licensed under MIT License.
 A short, permissive software license. Basically, you can do whatever you
 want as long as you include the original copyright and license notice in
 any copy of the software/source.
@@ -25,8 +25,8 @@ documentation.
     :ref:`authors` section.
 
 -   The ":ref:`mit-license`" applies to all the source code shipped as
-    part of hexonet.apiconnector (the module itself as well as the examples and the unittests)
-    as well as documentation.
+    part of hexonet.apiconnector (the module itself as well as the examples and
+    the unittests) as well as documentation.
 
 .. _mit-license:
 

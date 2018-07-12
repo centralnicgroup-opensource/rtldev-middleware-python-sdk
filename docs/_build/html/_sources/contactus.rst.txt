@@ -3,7 +3,8 @@
 Contact Us
 ==========
 
-There are several possibilities to get in touch with us, we list them in our preferred order.
+There are several possibilities to get in touch with us, we list them
+in our preferred order.
 
 - `Slack`_
 
@@ -18,6 +19,7 @@ There are several possibilities to get in touch with us, we list them in our pre
 .. _Support: https://hexonet.support
 
 Please file Bugs / Issues / Problems as `new github issue`_ to us.
-Please read our :ref:`contributing` first and use the search to check if this is already a known issue.
+Please read our :ref:`contributing` first and use the search to check
+if this is already a known issue.
 
 .. _new github issue: https://github.com/hexonet/python-sdk/issues/new
