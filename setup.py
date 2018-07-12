@@ -30,7 +30,13 @@ with open("README.md", "r") as fh:
 VERSION = find_version('hexonet', 'apiconnector', '__init__.py')
 
 requirements = [
-    'six'
+    'autopep8',
+    'six',
+    'guzzle_sphinx_theme',
+    'pycodestyle',
+    'sphinx',
+    'sphinxcontrib-log-cabinet',
+    'twine'
 ]
 
 setup(name='hexonet.apiconnector',
