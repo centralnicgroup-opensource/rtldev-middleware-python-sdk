@@ -8,6 +8,7 @@ from datetime import datetime
 def command_encode(command):
     """
     Encode the command array in a command-string
+    .. versionadded:: 1.0.0
     """
     return "\n".join(_command_encode(command))
 
@@ -36,6 +37,7 @@ def _command_encode(command):
 def response_to_hash(response):
     """
     Convert the response string as a hash
+    .. versionadded:: 1.0.0
     """
     r = {'PROPERTY': {}}
     re1 = re.compile(r'^([^\=]*[^\t\= ])[\t ]*=[\t ]*(.*)')
@@ -70,6 +72,7 @@ def response_to_hash(response):
 def response_to_list_hash(response):
     """
     Convert the response string as a list hash
+    .. versionadded:: 1.0.0
     """
     list_hash = {
         'CODE': "",
@@ -146,6 +149,7 @@ def sqltime(timestamp=None):
     """
     Convert the Unix-Timestamp to a SQL datetime
     If no timestamp given, returns the current datetime
+    .. versionadded:: 1.0.0
     """
     if timestamp:
         return datetime.fromtimestamp(int(timestamp)).strftime('%Y-%m-%d %H:%M:%S')
@@ -156,6 +160,7 @@ def sqltime(timestamp=None):
 def timesql(sqldatetime):
     """
     Convert the SQL datetime to Unix-Timestamp
+    .. versionadded:: 1.0.0
     """
     return int(time.mktime(datetime.strptime(sqldatetime, '%Y-%m-%d %H:%M:%S').timetuple()))
 
@@ -165,6 +170,7 @@ def url_encode(string):
     URL-encodes string
     This function is convenient when encoding a string to be used in a query
     part of a URL
+    .. versionadded:: 1.0.0
     """
     return quote(string)
 
@@ -172,6 +178,7 @@ def url_encode(string):
 def url_decode(string):
     """
     Decodes URL-encoded string Decodes any %## encoding in the given string.
+    .. versionadded:: 1.0.0
     """
     return unquote(string)
 
@@ -181,6 +188,7 @@ def base64_encode(string):
     Encodes data with MIME base64
     This encoding is designed to make binary data survive transport through transport layers that
     are not 8-bit clean, such as mail bodies.
+    .. versionadded:: 1.0.0
     """
     return base64.b64encode(string)
 
@@ -188,5 +196,6 @@ def base64_encode(string):
 def base64_decode(string):
     """
     Decodes data encoded with MIME base64
+    .. versionadded:: 1.0.0
     """
     return base64.b64decode(string)

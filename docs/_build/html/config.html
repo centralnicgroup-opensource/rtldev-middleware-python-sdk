@@ -1,0 +1,246 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Configuration Handling &#8212; hexonet.apiconnector 1.2 documentation</title>
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SDK Documentation" href="api.html" />
+    <link rel="prev" title="Debugging" href="debugging.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="SDK Documentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="debugging.html" title="Debugging"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    index.html" class="text-logo">hexonet.apiconnector 1.2.6</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-basics">Configuration Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-and-debug-features">Environment and Debug Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#builtin-configuration-values">Builtin Configuration Values</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">SDK Documentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contactus.html">Contact Us</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Contents</h2>
+    <div class="sidebar-localtoc">
+      <ul>
+<li><a class="reference internal" href="#">Configuration Handling</a><ul>
+<li><a class="reference internal" href="#configuration-basics">Configuration Basics</a></li>
+<li><a class="reference internal" href="#environment-and-debug-features">Environment and Debug Features</a></li>
+<li><a class="reference internal" href="#builtin-configuration-values">Builtin Configuration Values</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Configuration Handling</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="configuration-handling">
+<span id="config"></span><h1>Configuration Handling<a class="headerlink" href="#configuration-handling" title="Permalink to this headline">¶</a></h1>
+<p>Applications need some kind of configuration. There are different settings
+you might want to change depending on the application environment like
+toggling the debug mode, setting credentials etc.</p>
+<p>The way hexonet.apiconnector is designed usually requires the configuration to be
+provided at runtime when connecting to the HEXONET Backend API. You can hardcode
+the configuration in the code, which for many small scripts is for sure sufficient.
+Realtime applications and frontends need to cover some application logic around
+using this SDK like a login form and session management.</p>
+<div class="section" id="configuration-basics">
+<h2>Configuration Basics<a class="headerlink" href="#configuration-basics" title="Permalink to this headline">¶</a></h2>
+<p>The configuration can be provided in two ways.
+Using the <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.connect" title="hexonet.apiconnector.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hexonet.apiconnector.connect()</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hexonet.apiconnector</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">hexonet</span><span class="o">.</span><span class="n">apiconnector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="s2">&quot;test.user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;test.passw0rd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://coreapi.1api.net/api/call.cgi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;1234&quot;</span>
+    <span class="o">//</span><span class="p">,</span><span class="s2">&quot;hexotestman.com&quot;</span> <span class="o">//</span><span class="n">subuser</span> <span class="n">view</span>
+    <span class="o">//</span><span class="p">,</span><span class="s2">&quot;testrole&quot;</span> <span class="o">//</span><span class="n">specify</span> <span class="n">a</span> <span class="n">role</span> <span class="n">user</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>or by using the <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.connection.Connection" title="hexonet.apiconnector.connection.Connection"><code class="xref py py-class docutils literal notranslate"><span class="pre">hexonet.apiconnector.connection.Connection</span></code></a> class accordingly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hexonet.apiconnector.connection</span> <span class="k">import</span> <span class="n">Connection</span> <span class="k">as</span> <span class="n">HXClient</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">HXClient</span><span class="p">({</span>
+    <span class="s2">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;test.user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;test.passw0rd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://coreapi.1api.net/api/call.cgi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;entity&quot;</span><span class="p">:</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+    <span class="o">//</span><span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;hexotestman.com&quot;</span><span class="p">,</span><span class="o">//</span><span class="n">subuser</span> <span class="n">view</span>
+    <span class="o">//</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;testrole&quot;</span><span class="p">,</span><span class="o">//</span><span class="n">specify</span> <span class="n">a</span> <span class="n">role</span> <span class="n">user</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="environment-and-debug-features">
+<h2>Environment and Debug Features<a class="headerlink" href="#environment-and-debug-features" title="Permalink to this headline">¶</a></h2>
+<p>HEXONET provides two different Backend Systems that you might consider to use:</p>
+<ul class="simple">
+<li>Operational Test &amp; Evaluation (OT&amp;E) System (set ‘entity’ to ‘1234’)</li>
+</ul>
+<p>No costs, just for playing around with things. This system can be seen as a
+kind of sandbox system that allows to test your integration first before going
+live with it. This system and the use of our products and services is completely
+free of charge.</p>
+<ul class="simple">
+<li>LIVE System (set ‘entity’ to ‘54cd’)</li>
+</ul>
+<p>The real world system - This system and the use our services and products can lead
+to real costs depending on what you’re exactly doing.</p>
+<p>Both systems need a separate <a class="reference external" href="https://www.hexonet.net">registration</a> first.</p>
+<p>Debug Features, are up to now not available at the hexonet.apiconnector, but planned.</p>
+</div>
+<div class="section" id="builtin-configuration-values">
+<h2>Builtin Configuration Values<a class="headerlink" href="#builtin-configuration-values" title="Permalink to this headline">¶</a></h2>
+<p>The following configuration values are used internally by hexonet.apiconnector:</p>
+<p>Up to now - none, but this might change in future as we are continously improve our SDKs.</p>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="debugging.html" title="previous chapter (use the left arrow)">Debugging</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="api.html" title="next chapter (use the right arrow)">SDK Documentation</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="SDK Documentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="debugging.html" title="Debugging"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2018 by HEXONET GmbH. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>
