@@ -108,8 +108,8 @@ def response_to_list_hash(response):
             if prop in ['FIRST', 'LAST', 'LIMIT', 'COUNT', 'TOTAL']:
                 list_hash[prop] = int(response['PROPERTY'][prop][0])
             else:
-                if columns and not columns[prop]:
-                    continue
+                # if columns and not columns[prop]:
+                #    continue
                 list_hash['COLUMNS'].append(prop)
                 index = 0
                 for v in values:
