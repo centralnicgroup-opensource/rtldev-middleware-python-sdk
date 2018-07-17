@@ -9,6 +9,7 @@
 """
 import hexonet.apiconnector.util
 
+
 class Response:
     """The hexonet.apiconnector implements a communication API for the
     insanely fast HEXONET Backend API.
@@ -19,6 +20,7 @@ class Response:
         r = Response("[RESPONSE]\r\ncode=530\r\ndescription=Unauthorized\r\nEOF\r\n");
     :param response: the plain Backend API response test.
     """
+
     def __init__(self, response):
         #: Holds the response as plain text / string
         #: .. versionadded:: 1.0.0

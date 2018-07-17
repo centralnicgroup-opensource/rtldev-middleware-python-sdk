@@ -12,6 +12,7 @@ from six.moves.urllib.parse import urlparse, urlencode
 import hexonet.apiconnector.util
 from hexonet.apiconnector.response import Response
 
+
 class Connection:
     """The hexonet.apiconnector implements a communication API for the
     insanely fast HEXONET Backend API.
@@ -34,7 +35,7 @@ class Connection:
             "login": "test.user",
             "password": "test.passw0rd",
             "url": "https://coreapi.1api.net/api/call.cgi",
-            "entity": "1234",    
+            "entity": "1234",
             //"user": "hexotestman.com",//subuser view
             //"role": "testrole",//specify a role user
         });

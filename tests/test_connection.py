@@ -1,6 +1,7 @@
 from hexonet.apiconnector import connect
 from hexonet.apiconnector.connection import Connection
 
+
 def test_connectcommon():
     api = connect(
         "test.user",
@@ -12,6 +13,7 @@ def test_connectcommon():
     api.call({
         "COMMAND": "GetUserIndex"
     })
+
 
 def test_connectuserandrole():
     api = connect(
