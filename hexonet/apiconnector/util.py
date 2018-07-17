@@ -188,6 +188,8 @@ def base64_encode(string):
     Encodes data with MIME base64
     This encoding is designed to make binary data survive transport through transport layers that
     are not 8-bit clean, such as mail bodies.
+    parameter: musst be bytes not str for python3 at least
+    e.g. base64_encode(b"some string")
     .. versionadded:: 1.0.0
     """
     return base64.b64encode(string)
@@ -196,6 +198,8 @@ def base64_encode(string):
 def base64_decode(string):
     """
     Decodes data encoded with MIME base64
+    parameter: musst be bytes not str for python3 at least
+    e.g. base64_decode(b"ZGFzIHN0aW5rdCB6dW0gSGltbWVs")
     .. versionadded:: 1.0.0
     """
     return base64.b64decode(string)

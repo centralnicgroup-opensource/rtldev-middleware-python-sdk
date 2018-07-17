@@ -71,3 +71,10 @@ def test_listresponse():
     assert response.nextpagefirst() == None
     assert type(response.lastpagefirst()) is float
     assert response.lastpagefirst() == 9.0
+
+    Response(response.as_hash())
+    # to cover isinstance dict check branch
+
+    response = Response(b"[RESPONSE]\r\nCODE=421\r\nDESCRIPTION=Command failed due to server error. Client should try again\r\nEOF\r\n")
+    assert response.is_tmp_error() == True
+    

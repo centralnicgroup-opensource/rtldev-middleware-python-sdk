@@ -12,6 +12,7 @@ def test_utilmethods():
     )
     response = api.call({
         "COMMAND": "QueryDomainPendingDeleteList",
+        "ZONE": ["COM", "NET"],
         "LIMIT": 10,
         "FIRST": 20
     })
@@ -38,6 +39,7 @@ def test_utilmethods():
     assert dec == "+"
 
     # base64_encode / base64_decode
-    key = "das stinkt zum Himmel"
+    key = b"das stinkt zum Himmel"
     enc = base64_encode(key)
-    assert enc == "wirklich"
+    assert enc == b"ZGFzIHN0aW5rdCB6dW0gSGltbWVs"
+    assert base64_decode(enc) == key 
