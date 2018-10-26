@@ -1,28 +1,53 @@
 #!/usr/bin/python
 
 # Import the ispapi library
-import hexonet.apiconnector
+from hexonet.apiconnector.apiclient import APIClient as AC
 
-# Create a connection with the URL, entity, login and password
-# Use "1234" as entity for the OT&E, and "54cd" for productive use
-# Don't have a HEXONET Account yet? Get one here: www.hexonet.net/sign-up
-api = hexonet.apiconnector.connect(
-    url='https://coreapi.1api.net/api/call.cgi',
-    entity='1234',
-    login='test.user',
-    password='test.passw0rd'
-)
+# -------- SESSIONLESS COMMUNICATION -----------
+
+# Create a connection using the APIClient class and the appropriate
+# methods to configure the connection as necessary.
+# Don't have a HEXONET Account yet? Get one here:
+# - Live System Account: https://www.hexonet.net/sign-up
+# - Test/OT&E System Account: https://www.hexonet.net/signup-ote
+
+cl = AC()
+cl.useOTESystem()
+cl.setCredentials('test.user', 'test.passw0rd')
 
 # Call a command
-response = api.call({
+r = cl.request({
     'Command': "QueryDomainList", 'limit': 5
 })
 
 # Get the result in the format you want
-rlist = response.as_list()
-rhash = response.as_hash()
-rlisthash = response.as_list_hash()
+rlist = r.getListHash()
+rhash = r.getHash()
+rplain = r.getPlain()
 
 # Get the response code and the response description
-code = response.code()
-description = response.description()
+code = r.getCode()
+description = r.getDescription()
+
+# -------- SESSION-BASED COMMUNICATION -----------
+
+cl = AC()
+cl.useOTESystem()
+cl.setCredentials('test.user', 'test.passw0rd')
+
+# Call a command
+r = cl.login()
+# cl.login('12345678'); -> 2FA: one time password
+
+if (r.isSuccess()):
+    print("LOGIN SUCCEEDED!")
+    r = cl.request({
+        'Command': "QueryDomainList", 'limit': 5
+    })
+    rplain = r.getPlain()
+    # ... further commands ...
+    r = cl.logout()
+    if (r.isSuccess()):
+        print("LOGOUT SUCCEEDED!")
+
+    

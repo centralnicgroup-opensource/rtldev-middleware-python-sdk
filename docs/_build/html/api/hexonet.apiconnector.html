@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Upgrading to Newer Releases" href="../upgrading.html" />
-    <link rel="prev" title="SDK Documentation" href="../api.html" />
+    <link rel="prev" title="hexonet package" href="hexonet.html" />
   
    
 
@@ -44,10 +44,11 @@
           <a href="../upgrading.html" title="Upgrading to Newer Releases"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../api.html" title="SDK Documentation"
+          <a href="hexonet.html" title="hexonet package"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">hexonet.apiconnector 1.2 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../api.html" accesskey="U">SDK Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../api.html" >SDK Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="hexonet.html" accesskey="U">hexonet package</a> &#187;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -74,6 +75,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">SDK Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="hexonet.html">hexonet package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">hexonet.apiconnector package</a></li>
 </ul>
 </li>
@@ -96,7 +98,18 @@
     <div class="sidebar-localtoc">
       <ul>
 <li><a class="reference internal" href="#">hexonet.apiconnector package</a><ul>
-<li><a class="reference internal" href="#module-hexonet.apiconnector.connection">Submodules</a></li>
+<li><a class="reference internal" href="#hexonet-apiconnector">hexonet.apiconnector</a></li>
+<li><a class="reference internal" href="#module-hexonet.apiconnector.apiclient">Submodules</a><ul>
+<li><a class="reference internal" href="#hexonet-apiconnector-apiclient">hexonet.apiconnector.apiclient</a></li>
+<li><a class="reference internal" href="#hexonet-apiconnector-column">hexonet.apiconnector.column</a></li>
+<li><a class="reference internal" href="#hexonet-apiconnector-record">hexonet.apiconnector.record</a></li>
+<li><a class="reference internal" href="#hexonet-apiconnector-response">hexonet.apiconnector.response</a></li>
+<li><a class="reference internal" href="#hexonet-apiconnector-responseparser">hexonet.apiconnector.responseparser</a></li>
+<li><a class="reference internal" href="#hexonet-apiconnector-responsetemplate">hexonet.apiconnector.responsetemplate</a></li>
+<li><a class="reference internal" href="#hexonet-apiconnector-responsetemplatemanager">hexonet.apiconnector.responsetemplatemanager</a></li>
+<li><a class="reference internal" href="#hexonet-apiconnector-socketconfig">hexonet.apiconnector.socketconfig</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -128,6 +141,8 @@
               
                 <li><a href="../api.html">SDK Documentation</a></li>
               
+                <li><a href="hexonet.html">hexonet package</a></li>
+              
               <li>hexonet.apiconnector package</li>
             </ol>
           </div>
@@ -136,256 +151,635 @@
             
   <div class="section" id="module-hexonet.apiconnector">
 <span id="hexonet-apiconnector-package"></span><h1>hexonet.apiconnector package<a class="headerlink" href="#module-hexonet.apiconnector" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="hexonet.apiconnector.connect">
-<code class="descclassname">hexonet.apiconnector.</code><code class="descname">connect</code><span class="sig-paren">(</span><em>login=None</em>, <em>password=None</em>, <em>url=None</em>, <em>entity=None</em>, <em>user=None</em>, <em>role=None</em>, <em>config=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.connect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an instance of hexonet.apiconnector.Connection</p>
-</dd></dl>
-
-<div class="section" id="module-hexonet.apiconnector.connection">
-<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-hexonet.apiconnector.connection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hexonet-apiconnector">
+<h2>hexonet.apiconnector<a class="headerlink" href="#hexonet-apiconnector" title="Permalink to this headline">¶</a></h2>
+<p>A connector library for the insanely fast HEXONET Backend API.
+:copyright: © 2018 by HEXONET GmbH.
+:license: MIT, see LICENSE for more details.</p>
+</div>
+<div class="section" id="module-hexonet.apiconnector.apiclient">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-hexonet.apiconnector.apiclient" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hexonet-apiconnector-apiclient">
+<h3>hexonet.apiconnector.apiclient<a class="headerlink" href="#hexonet-apiconnector-apiclient" title="Permalink to this headline">¶</a></h3>
+<p>This module covers all necessary functionality for http communicatiton
+with our Backend System.
+:copyright: © 2018 by HEXONET GmbH.
+:license: MIT, see LICENSE for more details.</p>
 <dl class="class">
-<dt id="hexonet.apiconnector.connection.Connection">
-<em class="property">class </em><code class="descclassname">hexonet.apiconnector.connection.</code><code class="descname">Connection</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.connection.Connection" title="Permalink to this definition">¶</a></dt>
+<dt id="hexonet.apiconnector.apiclient.APIClient">
+<em class="property">class </em><code class="descclassname">hexonet.apiconnector.apiclient.</code><code class="descname">APIClient</code><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="method">
-<dt id="hexonet.apiconnector.connection.Connection.call">
-<code class="descname">call</code><span class="sig-paren">(</span><em>command</em>, <em>config=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.connection.Connection.call" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make a curl API call and returns the response as a response object</p>
+<dt id="hexonet.apiconnector.apiclient.APIClient.disableDebugMode">
+<code class="descname">disableDebugMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.disableDebugMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable Debug Output</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hexonet.apiconnector.connection.Connection.call_raw">
-<code class="descname">call_raw</code><span class="sig-paren">(</span><em>command</em>, <em>config=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.connection.Connection.call_raw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make a curl API call and returns the response as a string</p>
+<dt id="hexonet.apiconnector.apiclient.APIClient.enableDebugMode">
+<code class="descname">enableDebugMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.enableDebugMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable Debug Output to STDOUT</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hexonet.apiconnector.connection.Connection.call_raw_http">
-<code class="descname">call_raw_http</code><span class="sig-paren">(</span><em>command</em>, <em>config=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.connection.Connection.call_raw_http" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make a curl API call over HTTP(S) and returns the response as a string</p>
+<dt id="hexonet.apiconnector.apiclient.APIClient.getPOSTData">
+<code class="descname">getPOSTData</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.getPOSTData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize given command for POST request including connection configuration data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.getSession">
+<code class="descname">getSession</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.getSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the API Session that is currently set</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.getURL">
+<code class="descname">getURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.getURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the API connection url that is currently set</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.getVersion">
+<code class="descname">getVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.getVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current module version</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.login">
+<code class="descname">login</code><span class="sig-paren">(</span><em>otp=''</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform API login to start session-based communication</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.loginExtended">
+<code class="descname">loginExtended</code><span class="sig-paren">(</span><em>params</em>, <em>otp=''</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.loginExtended" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform API login to start session-based communication.
+Use given specific command parameters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.logout">
+<code class="descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform API logout to close API session in use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.request">
+<code class="descname">request</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform API request using the given command</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.requestAllResponsePages">
+<code class="descname">requestAllResponsePages</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.requestAllResponsePages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request all pages/entries for the given query command</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.requestNextResponsePage">
+<code class="descname">requestNextResponsePage</code><span class="sig-paren">(</span><em>rr</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.requestNextResponsePage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request the next page of list entries for the current list query
+Useful for tables</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.resetUserView">
+<code class="descname">resetUserView</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.resetUserView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset data view back from subuser to user</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.reuseSession">
+<code class="descname">reuseSession</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.reuseSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use existing configuration out of session
+to rebuild and reuse connection settings</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.saveSession">
+<code class="descname">saveSession</code><span class="sig-paren">(</span><em>session</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.saveSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply session data (session id and system entity) to given client request session</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.setCredentials">
+<code class="descname">setCredentials</code><span class="sig-paren">(</span><em>uid</em>, <em>pw</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.setCredentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Credentials to be used for API communication</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.setOTP">
+<code class="descname">setOTP</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.setOTP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set one time password to be used for API communication</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.setRemoteIPAddress">
+<code class="descname">setRemoteIPAddress</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.setRemoteIPAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an Remote IP Address to be used for API communication.
+To be used in case you have an active ip filter setting.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.setRoleCredentials">
+<code class="descname">setRoleCredentials</code><span class="sig-paren">(</span><em>uid</em>, <em>role</em>, <em>pw</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.setRoleCredentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Credentials to be used for API communication</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.setSession">
+<code class="descname">setSession</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.setSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an API session id to be used for API communication</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.setURL">
+<code class="descname">setURL</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.setURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set another connection url to be used for API communication</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.setUserView">
+<code class="descname">setUserView</code><span class="sig-paren">(</span><em>uid</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.setUserView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a data view to a given subuser</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.useLIVESystem">
+<code class="descname">useLIVESystem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.useLIVESystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set LIVE System for API communication (this is the default setting)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.useOTESystem">
+<code class="descname">useOTESystem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.useOTESystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set OT&amp;E System for API communication</p>
 </dd></dl>
 
 </dd></dl>
 
-<span class="target" id="module-hexonet.apiconnector.response"></span><dl class="class">
+</div>
+<span class="target" id="module-hexonet.apiconnector.column"></span><div class="section" id="hexonet-apiconnector-column">
+<h3>hexonet.apiconnector.column<a class="headerlink" href="#hexonet-apiconnector-column" title="Permalink to this headline">¶</a></h3>
+<p>This module covers all necessary functionality to
+work with a column and wrapped data.
+:copyright: © 2018 by HEXONET GmbH.
+:license: MIT, see LICENSE for more details.</p>
+<dl class="class">
+<dt id="hexonet.apiconnector.column.Column">
+<em class="property">class </em><code class="descclassname">hexonet.apiconnector.column.</code><code class="descname">Column</code><span class="sig-paren">(</span><em>key</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.column.Column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The Column class covers all you need to access column data of a Backend API response.</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.column.Column.getData">
+<code class="descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.column.Column.getData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get column data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.column.Column.getDataByIndex">
+<code class="descname">getDataByIndex</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.column.Column.getDataByIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get column data at given index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.column.Column.getKey">
+<code class="descname">getKey</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.column.Column.getKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get column name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.column.Column.hasDataIndex">
+<code class="descname">hasDataIndex</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.column.Column.hasDataIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if column has a given data index</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-hexonet.apiconnector.record"></span><div class="section" id="hexonet-apiconnector-record">
+<h3>hexonet.apiconnector.record<a class="headerlink" href="#hexonet-apiconnector-record" title="Permalink to this headline">¶</a></h3>
+<p>This module covers all necessary functionality to
+work with a record and wrapped data.
+:copyright: © 2018 by HEXONET GmbH.
+:license: MIT, see LICENSE for more details.</p>
+<dl class="class">
+<dt id="hexonet.apiconnector.record.Record">
+<em class="property">class </em><code class="descclassname">hexonet.apiconnector.record.</code><code class="descname">Record</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.record.Record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The Record class covers all you need to access record data of a Backend API response.</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.record.Record.getData">
+<code class="descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.record.Record.getData" title="Permalink to this definition">¶</a></dt>
+<dd><p>get row data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.record.Record.getDataByKey">
+<code class="descname">getDataByKey</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.record.Record.getDataByKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>get row data for given column name</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-hexonet.apiconnector.response"></span><div class="section" id="hexonet-apiconnector-response">
+<h3>hexonet.apiconnector.response<a class="headerlink" href="#hexonet-apiconnector-response" title="Permalink to this headline">¶</a></h3>
+<p>This module covers all necessary functionality to
+work with Backend API responses.
+:copyright: © 2018 by HEXONET GmbH.
+:license: MIT, see LICENSE for more details.</p>
+<dl class="class">
 <dt id="hexonet.apiconnector.response.Response">
-<em class="property">class </em><code class="descclassname">hexonet.apiconnector.response.</code><code class="descname">Response</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">hexonet.apiconnector.response.</code><code class="descname">Response</code><span class="sig-paren">(</span><em>raw</em>, <em>cmd=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate" title="hexonet.apiconnector.responsetemplate.ResponseTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">hexonet.apiconnector.responsetemplate.ResponseTemplate</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The Response class covers all necessary functionality to cover access to
+Backend API response data in a useful way.</p>
 <dl class="method">
-<dt id="hexonet.apiconnector.response.Response.as_hash">
-<code class="descname">as_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.as_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the response as a hash</p>
+<dt id="hexonet.apiconnector.response.Response.addColumn">
+<code class="descname">addColumn</code><span class="sig-paren">(</span><em>key</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.addColumn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a column to the column list</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hexonet.apiconnector.response.Response.as_list">
-<code class="descname">as_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.as_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the response as a list</p>
+<dt id="hexonet.apiconnector.response.Response.addRecord">
+<code class="descname">addRecord</code><span class="sig-paren">(</span><em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.addRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a record to the record list</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hexonet.apiconnector.response.Response.as_list_hash">
-<code class="descname">as_list_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.as_list_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the response as a list hash</p>
+<dt id="hexonet.apiconnector.response.Response.getColumn">
+<code class="descname">getColumn</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getColumn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get column by column name</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="hexonet.apiconnector.response.Response.as_string">
-<code class="descname">as_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.as_string" title="Permalink to this definition">¶</a></dt>
+<dt id="hexonet.apiconnector.response.Response.getColumnIndex">
+<code class="descname">getColumnIndex</code><span class="sig-paren">(</span><em>colkey</em>, <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getColumnIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Data by Column Name and Index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getColumnKeys">
+<code class="descname">getColumnKeys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getColumnKeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Column Names</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getColumns">
+<code class="descname">getColumns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getColumns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get List of Columns</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getCommand">
+<code class="descname">getCommand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Command used in this request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getCurrentPageNumber">
+<code class="descname">getCurrentPageNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getCurrentPageNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Page Number of current List Query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getCurrentRecord">
+<code class="descname">getCurrentRecord</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getCurrentRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Record of current record index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getFirstRecordIndex">
+<code class="descname">getFirstRecordIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getFirstRecordIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Index of first row in this response</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getLastRecordIndex">
+<code class="descname">getLastRecordIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getLastRecordIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get last record index of the current list query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getListHash">
+<code class="descname">getListHash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getListHash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Response as List Hash including useful meta data for tables</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getNextPageNumber">
+<code class="descname">getNextPageNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getNextPageNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Page Number of next list query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getNextRecord">
+<code class="descname">getNextRecord</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getNextRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get next record in record list</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getNumberOfPages">
+<code class="descname">getNumberOfPages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getNumberOfPages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of pages available for this list query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getPagination">
+<code class="descname">getPagination</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getPagination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get object containing all paging data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getPreviousPageNumber">
+<code class="descname">getPreviousPageNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getPreviousPageNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Page Number of previous list query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getPreviousRecord">
+<code class="descname">getPreviousRecord</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getPreviousRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get previous record in record list</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getRecord">
+<code class="descname">getRecord</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Record at given index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getRecords">
+<code class="descname">getRecords</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getRecords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all Records</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getRecordsCount">
+<code class="descname">getRecordsCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getRecordsCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get count of rows in this response</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getRecordsLimitation">
+<code class="descname">getRecordsLimitation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getRecordsLimitation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get limit(ation) setting of the current list query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.getRecordsTotalCount">
+<code class="descname">getRecordsTotalCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.getRecordsTotalCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get total count of records available for the list query</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.hasNextPage">
+<code class="descname">hasNextPage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.hasNextPage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if this list query has a next page</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.hasPreviousPage">
+<code class="descname">hasPreviousPage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.hasPreviousPage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if this list query has a previous page</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.response.Response.rewindRecordList">
+<code class="descname">rewindRecordList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.rewindRecordList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset index in record list back to zero</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-hexonet.apiconnector.responseparser"></span><div class="section" id="hexonet-apiconnector-responseparser">
+<h3>hexonet.apiconnector.responseparser<a class="headerlink" href="#hexonet-apiconnector-responseparser" title="Permalink to this headline">¶</a></h3>
+<p>This module covers all necessary functionality to
+parse a raw Backend API response and to serialize it back.
+:copyright: © 2018 by HEXONET GmbH.
+:license: MIT, see LICENSE for more details.</p>
+<dl class="function">
+<dt id="hexonet.apiconnector.responseparser.parse">
+<code class="descclassname">hexonet.apiconnector.responseparser.</code><code class="descname">parse</code><span class="sig-paren">(</span><em>raw</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responseparser.parse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the response as a string</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.code">
-<code class="descname">code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.code" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the response code</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.columns">
-<code class="descname">columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.columns" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the columns</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.count">
-<code class="descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the number of list elements returned (= last - first + 1)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.description">
-<code class="descname">description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the response description</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.first">
-<code class="descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.first" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the index of the first element</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.is_success">
-<code class="descname">is_success</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.is_success" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns true if the results is a success
-Success = response code starting with 2</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.is_tmp_error">
-<code class="descname">is_tmp_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.is_tmp_error" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns true if the results is a tmp error
-tmp error = response code starting with 4</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.last">
-<code class="descname">last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.last" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the index of the last element</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.lastpagefirst">
-<code class="descname">lastpagefirst</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.lastpagefirst" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the first index for the last page</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.limit">
-<code class="descname">limit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.limit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the limit of the response</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.nextpage">
-<code class="descname">nextpage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.nextpage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the number of the next page</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.nextpagefirst">
-<code class="descname">nextpagefirst</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.nextpagefirst" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the first index for the next page</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.page">
-<code class="descname">page</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.page" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the number of the current page (starts with 1)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.pages">
-<code class="descname">pages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.pages" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the number of pages</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.prevpage">
-<code class="descname">prevpage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.prevpage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the number of the previous page</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.prevpagefirst">
-<code class="descname">prevpagefirst</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.prevpagefirst" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the first index for the previous page</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.properties">
-<code class="descname">properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.properties" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the response properties</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.property">
-<code class="descname">property</code><span class="sig-paren">(</span><em>index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.property" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the property for a given index
-If no index given, the complete property list is returned</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.queuetime">
-<code class="descname">queuetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.queuetime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the response queuetime</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.runtime">
-<code class="descname">runtime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.runtime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the response runtime</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hexonet.apiconnector.response.Response.total">
-<code class="descname">total</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response.total" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the total number of elements found (!= count)</p>
-</dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-hexonet.apiconnector.util"></span><dl class="function">
-<dt id="hexonet.apiconnector.util.base64_decode">
-<code class="descclassname">hexonet.apiconnector.util.</code><code class="descname">base64_decode</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.util.base64_decode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decodes data encoded with MIME base64</p>
-</dd></dl>
-
 <dl class="function">
-<dt id="hexonet.apiconnector.util.base64_encode">
-<code class="descclassname">hexonet.apiconnector.util.</code><code class="descname">base64_encode</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.util.base64_encode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encodes data with MIME base64
-This encoding is designed to make binary data survive transport through transport layers that
-are not 8-bit clean, such as mail bodies.</p>
+<dt id="hexonet.apiconnector.responseparser.serialize">
+<code class="descclassname">hexonet.apiconnector.responseparser.</code><code class="descname">serialize</code><span class="sig-paren">(</span><em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responseparser.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dictionary represenation serialized back to plain text</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="hexonet.apiconnector.util.command_encode">
-<code class="descclassname">hexonet.apiconnector.util.</code><code class="descname">command_encode</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.util.command_encode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encode the command array in a command-string</p>
+</div>
+<span class="target" id="module-hexonet.apiconnector.responsetemplate"></span><div class="section" id="hexonet-apiconnector-responsetemplate">
+<h3>hexonet.apiconnector.responsetemplate<a class="headerlink" href="#hexonet-apiconnector-responsetemplate" title="Permalink to this headline">¶</a></h3>
+<p>This module covers all basic functionality to
+deal with Backend API responses.
+:copyright: © 2018 by HEXONET GmbH.
+:license: MIT, see LICENSE for more details.</p>
+<dl class="class">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate">
+<em class="property">class </em><code class="descclassname">hexonet.apiconnector.responsetemplate.</code><code class="descname">ResponseTemplate</code><span class="sig-paren">(</span><em>response=''</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The ResponseTemplate class is the base class for the Response Class that
+covers basic functionality to work with Backend API responses.</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate.getCode">
+<code class="descname">getCode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the API response code as integer</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="hexonet.apiconnector.util.response_to_hash">
-<code class="descclassname">hexonet.apiconnector.util.</code><code class="descname">response_to_hash</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.util.response_to_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert the response string as a hash</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate.getDescription">
+<code class="descname">getDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the API response description</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="hexonet.apiconnector.util.response_to_list_hash">
-<code class="descclassname">hexonet.apiconnector.util.</code><code class="descname">response_to_list_hash</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.util.response_to_list_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert the response string as a list hash</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate.getHash">
+<code class="descname">getHash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getHash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get API response as Hash</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="hexonet.apiconnector.util.sqltime">
-<code class="descclassname">hexonet.apiconnector.util.</code><code class="descname">sqltime</code><span class="sig-paren">(</span><em>timestamp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.util.sqltime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert the Unix-Timestamp to a SQL datetime
-If no timestamp given, returns the current datetime</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate.getPlain">
+<code class="descname">getPlain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getPlain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the plain API response</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="hexonet.apiconnector.util.timesql">
-<code class="descclassname">hexonet.apiconnector.util.</code><code class="descname">timesql</code><span class="sig-paren">(</span><em>sqldatetime</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.util.timesql" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert the SQL datetime to Unix-Timestamp</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate.getQueuetime">
+<code class="descname">getQueuetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getQueuetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Queuetime of API response as float value</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="hexonet.apiconnector.util.url_decode">
-<code class="descclassname">hexonet.apiconnector.util.</code><code class="descname">url_decode</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.util.url_decode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decodes URL-encoded string Decodes any %## encoding in the given string.</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate.getRuntime">
+<code class="descname">getRuntime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getRuntime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Runtime of API response as float value</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="hexonet.apiconnector.util.url_encode">
-<code class="descclassname">hexonet.apiconnector.util.</code><code class="descname">url_encode</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.util.url_encode" title="Permalink to this definition">¶</a></dt>
-<dd><p>URL-encodes string
-This function is convenient when encoding a string to be used in a query
-part of a URL</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate.isError">
+<code class="descname">isError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.isError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if current API response represents an error case (5xx)</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate.isSuccess">
+<code class="descname">isSuccess</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.isSuccess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if current API response represents a success case (2xx)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplate.ResponseTemplate.isTmpError">
+<code class="descname">isTmpError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.isTmpError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if current API response represents a temporary error case (4xx)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-hexonet.apiconnector.responsetemplatemanager"></span><div class="section" id="hexonet-apiconnector-responsetemplatemanager">
+<h3>hexonet.apiconnector.responsetemplatemanager<a class="headerlink" href="#hexonet-apiconnector-responsetemplatemanager" title="Permalink to this headline">¶</a></h3>
+<p>This module covers all functionality to
+manage response templates.
+:copyright: © 2018 by HEXONET GmbH.
+:license: MIT, see LICENSE for more details.</p>
+<dl class="class">
+<dt id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager">
+<em class="property">class </em><code class="descclassname">hexonet.apiconnector.responsetemplatemanager.</code><code class="descname">ResponseTemplateManager</code><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The ResponseTemplateManager class covers all functionality required to manage
+Response Templates.</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.addTemplate">
+<code class="descname">addTemplate</code><span class="sig-paren">(</span><em>id</em>, <em>plain</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.addTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add response template to template container</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.generateTemplate">
+<code class="descname">generateTemplate</code><span class="sig-paren">(</span><em>code</em>, <em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.generateTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a response template string for the given code and description</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.getInstance">
+<em class="property">static </em><code class="descname">getInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.getInstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the singleton instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.getTemplate">
+<code class="descname">getTemplate</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.getTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get response template instance from template container</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.getTemplates">
+<code class="descname">getTemplates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.getTemplates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all available response templates</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.hasTemplate">
+<code class="descname">hasTemplate</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.hasTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if given template exists in template container</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.isTemplateMatchHash">
+<code class="descname">isTemplateMatchHash</code><span class="sig-paren">(</span><em>tpl2</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.isTemplateMatchHash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if given API response hash matches a given template by code and description</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.isTemplateMatchPlain">
+<code class="descname">isTemplateMatchPlain</code><span class="sig-paren">(</span><em>plain</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.isTemplateMatchPlain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if given API plain response matches a given template by code and description</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span class="target" id="module-hexonet.apiconnector.socketconfig"></span><div class="section" id="hexonet-apiconnector-socketconfig">
+<h3>hexonet.apiconnector.socketconfig<a class="headerlink" href="#hexonet-apiconnector-socketconfig" title="Permalink to this headline">¶</a></h3>
+<p>This module covers all necessary functionality to
+pre-configure http communication with our Backend System.
+:copyright: © 2018 by HEXONET GmbH.
+:license: MIT, see LICENSE for more details.</p>
+<dl class="class">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig">
+<em class="property">class </em><code class="descclassname">hexonet.apiconnector.socketconfig.</code><code class="descname">SocketConfig</code><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The SocketConfig class helps to configure the http communcation with our Backend System.</p>
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.getPOSTData">
+<code class="descname">getPOSTData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.getPOSTData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create POST data string out of connection data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.getSession">
+<code class="descname">getSession</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.getSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get API Session ID in use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.getSystemEntity">
+<code class="descname">getSystemEntity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.getSystemEntity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get API System Entity in use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.setLogin">
+<code class="descname">setLogin</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.setLogin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set account name to use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.setOTP">
+<code class="descname">setOTP</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.setOTP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set one time password to use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.setPassword">
+<code class="descname">setPassword</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.setPassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set account password to use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.setRemoteAddress">
+<code class="descname">setRemoteAddress</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.setRemoteAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Remote IP Address to use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.setSession">
+<code class="descname">setSession</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.setSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set API Session ID to use</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.setSystemEntity">
+<code class="descname">setSystemEntity</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.setSystemEntity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set API System Entity to use. This is set to 54cd / LIVE System by default.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.socketconfig.SocketConfig.setUser">
+<code class="descname">setUser</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig.setUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set subuser account name (for subuser data view)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 </div>
 
@@ -395,7 +789,7 @@ part of a URL</p>
   <div class="footer-relations">
     
       <div class="pull-left">
-        <a class="btn btn-default" href="../api.html" title="previous chapter (use the left arrow)">SDK Documentation</a>
+        <a class="btn btn-default" href="hexonet.html" title="previous chapter (use the left arrow)">hexonet package</a>
       </div>
     
       <div class="pull-right">
@@ -420,10 +814,11 @@ part of a URL</p>
           <a href="../upgrading.html" title="Upgrading to Newer Releases"
              >next</a> |</li>
         <li class="right" >
-          <a href="../api.html" title="SDK Documentation"
+          <a href="hexonet.html" title="hexonet package"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">hexonet.apiconnector 1.2 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../api.html" >SDK Documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../api.html" >SDK Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="hexonet.html" >hexonet package</a> &#187;</li> 
       </ul>
     </div>
 <script type="text/javascript">

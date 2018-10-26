@@ -142,52 +142,68 @@ hexonet.apiconnector. It assumes you already have it installed.
 If you do not, head over to the <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a> section.</p>
 <div class="section" id="a-minimal-application">
 <h2>A Minimal Application<a class="headerlink" href="#a-minimal-application" title="Permalink to this headline">¶</a></h2>
-<p>A minimal application using hexonet.apiconnector looks something like this:</p>
+<p>A minimal application using hexonet.apiconnector looks something like follows.
+We provided two short examples: one for sessionless communication and one for
+session-based communication.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Python SDK Demo App</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 
 <span class="c1"># Import the ispapi library</span>
-<span class="kn">import</span> <span class="nn">hexonet.apiconnector</span>
+<span class="kn">from</span> <span class="nn">hexonet.apiconnector.apiclient</span> <span class="kn">import</span> <span class="n">APIClient</span> <span class="k">as</span> <span class="n">AC</span>
 
-<span class="c1"># Create a connection with the URL, entity, login and password</span>
-<span class="c1"># Use &quot;1234&quot; as entity for the OT&amp;E, and &quot;54cd&quot; for productive use</span>
-<span class="c1"># Don&#39;t have a HEXONET Account yet? Get one here: www.hexonet.net/sign-up</span>
-<span class="n">api</span> <span class="o">=</span> <span class="n">hexonet</span><span class="o">.</span><span class="n">apiconnector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://coreapi.1api.net/api/call.cgi&#39;</span><span class="p">,</span>
-    <span class="n">entity</span><span class="o">=</span><span class="s1">&#39;1234&#39;</span><span class="p">,</span>
-    <span class="n">login</span><span class="o">=</span><span class="s1">&#39;test.user&#39;</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="s1">&#39;test.passw0rd&#39;</span>
-<span class="p">)</span>
+<span class="c1"># -------- SESSIONLESS COMMUNICATION -----------</span>
+
+<span class="c1"># Create a connection using the APIClient class and the appropriate</span>
+<span class="c1"># methods to configure the connection as necessary.</span>
+<span class="c1"># Don&#39;t have a HEXONET Account yet? Get one here:</span>
+<span class="c1"># - Live System Account: https://www.hexonet.net/sign-up</span>
+<span class="c1"># - Test/OT&amp;E System Account: https://www.hexonet.net/signup-ote</span>
+
+<span class="n">cl</span> <span class="o">=</span> <span class="n">AC</span><span class="p">()</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">useOTESystem</span><span class="p">()</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">setCredentials</span><span class="p">(</span><span class="s1">&#39;test.user&#39;</span><span class="p">,</span> <span class="s1">&#39;test.passw0rd&#39;</span><span class="p">)</span>
 
 <span class="c1"># Call a command</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">call</span><span class="p">({</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
     <span class="s1">&#39;Command&#39;</span><span class="p">:</span> <span class="s2">&quot;QueryDomainList&quot;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">5</span>
 <span class="p">})</span>
 
 <span class="c1"># Get the result in the format you want</span>
-<span class="n">rlist</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span>
-<span class="n">rhash</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">as_hash</span><span class="p">()</span>
-<span class="n">rlisthash</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">as_list_hash</span><span class="p">()</span>
+<span class="n">rlist</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getListHash</span><span class="p">()</span>
+<span class="n">rhash</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getHash</span><span class="p">()</span>
+<span class="n">rplain</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getPlain</span><span class="p">()</span>
 
 <span class="c1"># Get the response code and the response description</span>
-<span class="n">code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">code</span><span class="p">()</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+<span class="n">code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getCode</span><span class="p">()</span>
+<span class="n">description</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getDescription</span><span class="p">()</span>
+
+<span class="c1"># -------- SESSION-BASED COMMUNICATION -----------</span>
+
+<span class="n">cl</span> <span class="o">=</span> <span class="n">AC</span><span class="p">()</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">useOTESystem</span><span class="p">()</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">setCredentials</span><span class="p">(</span><span class="s1">&#39;test.user&#39;</span><span class="p">,</span> <span class="s1">&#39;test.passw0rd&#39;</span><span class="p">)</span>
+
+<span class="c1"># Call a command</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+<span class="c1"># cl.login(&#39;12345678&#39;); -&gt; 2FA: one time password</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">isSuccess</span><span class="p">()):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;LOGIN SUCCEEDED!&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
+        <span class="s1">&#39;Command&#39;</span><span class="p">:</span> <span class="s2">&quot;QueryDomainList&quot;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">5</span>
+    <span class="p">})</span>
+    <span class="n">rplain</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getPlain</span><span class="p">()</span>
+    <span class="c1"># ... further commands ...</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">isSuccess</span><span class="p">()):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;LOGOUT SUCCEEDED!&quot;</span><span class="p">)</span>
+
+    
 </pre></div>
 </div>
 </div>
-<p>You can find this code also on _github.</p>
-<p>So what did that code do?</p>
-<ol class="arabic simple">
-<li>First we imported the <a class="reference internal" href="api/hexonet.apiconnector.html#module-hexonet.apiconnector" title="hexonet.apiconnector"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hexonet.apiconnector</span></code></a>.</li>
-<li>Next we create an Connection to the HEXONET Backend System by using the
-<a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.connect" title="hexonet.apiconnector.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">connect()</span></code></a>.</li>
-<li>We then use the <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.connection.Connection.call" title="hexonet.apiconnector.connection.Connection.call"><code class="xref py py-meth docutils literal notranslate"><span class="pre">call()</span></code></a>
-to request a provided command to the backend system.</li>
-<li>The response is an instance of
-<a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.response.Response" title="hexonet.apiconnector.response.Response"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a>. It provides all necessary
-methods to access API response data.</li>
-</ol>
+<p>You can find this code also on <a class="reference external" href="https://github.com/hexonet/python-sdk-demo">github</a>.</p>
 </div>
 <div class="section" id="what-to-do-if-the-backend-system-just-returns-an-error">
 <h2>What to do if the backend system just returns an error<a class="headerlink" href="#what-to-do-if-the-backend-system-just-returns-an-error" title="Permalink to this headline">¶</a></h2>
@@ -201,9 +217,10 @@ to request this command as it got blocked by role user configuration.</p>
 </div>
 <div class="section" id="sessions">
 <h2>Sessions<a class="headerlink" href="#sessions" title="Permalink to this headline">¶</a></h2>
-<p>Session-based communication is not yet available in this SDK. This is a planned
-rewrite. The above application code shows how sessionless communication with
-the HEXONET Backend API works.</p>
+<p>Session-based communication is available in this SDK, see above.
+Use <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.apiclient.APIClient.saveSession" title="hexonet.apiconnector.apiclient.APIClient.saveSession"><code class="xref py py-meth docutils literal notranslate"><span class="pre">saveSession()</span></code></a> and
+<a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.apiclient.APIClient.reuseSession" title="hexonet.apiconnector.apiclient.APIClient.reuseSession"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reuseSession()</span></code></a> if you
+plan to build your own frontend on top using session handling.</p>
 </div>
 </div>
 

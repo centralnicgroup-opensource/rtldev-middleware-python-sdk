@@ -116,9 +116,16 @@
             
   <div class="section" id="debugging">
 <span id="id1"></span><h1>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h1>
-<p>There’s no debug feature available in hexonet.apiconnector up to now.
-This is a planned feature and will come in near future as we continously
-improve our SDKs.</p>
+<p>Debug Features are also available in our Python SDK:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># activate debug mode</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">enableDebugMode</span><span class="p">()</span>
+
+<span class="c1"># disable debug mode</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">disableDebugMode</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This results in displaying the API Connection’s used http url,
+POST data and plain text response.</p>
 </div>
 
 
