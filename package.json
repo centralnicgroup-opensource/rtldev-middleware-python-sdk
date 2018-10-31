@@ -106,6 +106,14 @@
             "path": "dist/hexonet.apiconnector-${nextRelease.version}.tar.gz"
           }
         ]
+      },
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "./scripts/uploaddistribution_test.sh"
+      },
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "./scripts/uploaddistribution_live.sh"
       }
     ]
   },
