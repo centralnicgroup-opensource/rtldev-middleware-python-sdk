@@ -1,115 +1,116 @@
 {
-    "name": "python-sdk",
-    "description": "Python SDK for the insanely fast HEXONET API",
-    "version": "0.0.0-development",
-    "private": true,
-    "author": {
+  "name": "python-sdk",
+  "description": "Python SDK for the insanely fast HEXONET API",
+  "version": "0.0.0-development",
+  "private": true,
+  "author": {
+    "name": "Kai Schwarz",
+    "email": "kschwarz@hexonet.net"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "homepage": "https://github.com/hexonet/python-sdk",
+  "repository": "https://github.com/hexonet/python-sdk.git",
+  "bugs": "https://github.com/hexonet/python-sdk/issues",
+  "maintainers": [
+    {
       "name": "Kai Schwarz",
       "email": "kschwarz@hexonet.net"
     },
-    "license": "MIT",
-    "engines": {
-      "node": ">=8.3.0"
+    {
+      "name": "Anthony Schneider",
+      "url": "https://github.com/anthonyschn"
     },
-    "homepage": "https://github.com/hexonet/python-sdk",
-    "repository": "github:hexonet/python-sdk",
-    "bugs": "https://github.com/hexonet/python-sdk/issues",
-    "maintainers": [
+    {
+      "name": "Tulasi Seelamkurthi",
+      "url": "https://github.com/tulsi91"
+    }
+  ],
+  "keywords": [
+    "hexonet",
+    "domain",
+    "api",
+    "connector",
+    "isp",
+    "ispapi",
+    "ssl",
+    "cert",
+    "dns",
+    "backorder",
+    "premium",
+    "preregistration",
+    "registration",
+    "application"
+  ],
+  "devDependencies": {
+    "@semantic-release/changelog": "3.0.1",
+    "@semantic-release/commit-analyzer": "6.1.0",
+    "@semantic-release/exec": "3.3.0",
+    "@semantic-release/git": "7.0.5",
+    "@semantic-release/github": "5.2.1",
+    "conventional-changelog": "2.0.3",
+    "semantic-release": "^15.10.6",
+    "travis-deploy-once": "^5.0.9"
+  },
+  "dependencies": {},
+  "release": {
+    "debug": false,
+    "analyzeCommits": {
+      "preset": "angular"
+    },
+    "generateNotes": {
+      "preset": "angular"
+    },
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ],
+    "prepare": [
       {
-        "name": "Kai Schwarz",
-        "email": "kschwarz@hexonet.net"
+        "path": "@semantic-release/changelog",
+        "changelogFile": "HISTORY.md"
       },
       {
-        "name": "Anthony Schneider",
-        "url": "https://github.com/anthonyschn"
+        "path": "@semantic-release/exec",
+        "cmd": "./updateVersion.sh ${nextRelease.version} ${options.branch}"
       },
       {
-        "name": "Tulasi Seelamkurthi",
-        "url": "https://github.com/tulsi91"
+        "path": "@semantic-release/exec",
+        "cmd": "./scripts/generatedocs.sh"
+      },
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "./scripts/createdistribution.sh"
+      },
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "HISTORY.md",
+          "package.json",
+          "docs",
+          "hexonet/apiconnector/__init__.py",
+          "hexonet/apiconnector/apiclient.py"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
-    "keywords": [
-      "hexonet",
-      "domain",
-      "api",
-      "connector",
-      "isp",
-      "ispapi",
-      "ssl",
-      "cert",
-      "dns",
-      "backorder",
-      "premium",
-      "preregistration",
-      "registration",
-      "application"
-    ],
-    "devDependencies": {
-      "@semantic-release/changelog": "3.0.1",
-      "@semantic-release/commit-analyzer": "6.1.0",
-      "@semantic-release/exec": "3.3.0",
-      "@semantic-release/git": "7.0.5",
-      "@semantic-release/github": "5.2.1",
-      "conventional-changelog": "2.0.3",
-      "semantic-release": "15.10.6",
-      "travis-deploy-once": "5.0.9"
-    },
-    "release": {
-      "debug": false,
-      "analyzeCommits": {
-        "preset": "angular"
-      },
-      "generateNotes": {
-        "preset": "angular"
-      },
-      "verifyConditions": [
-        "@semantic-release/changelog",
-        "@semantic-release/git",
-        "@semantic-release/github"
-      ],
-      "prepare": [
-        {
-          "path": "@semantic-release/changelog",
-          "changelogFile": "HISTORY.md"
-        },
-        {
-          "path": "@semantic-release/exec",
-          "cmd": "./updateVersion.sh ${nextRelease.version} ${options.branch}"
-        },
-        {
-            "path": "@semantic-release/exec",
-            "cmd": "./scripts/generatedocs.sh"
-        },
-        {
-            "path": "@semantic-release/exec",
-            "cmd": "./scripts/createdistribution.sh"
-        },
-        {
-          "path": "@semantic-release/git",
-          "assets": [
-            "HISTORY.md",
-            "package.json",
-            "docs",
-            "hexonet/apiconnector/__init__.py",
-            "hexonet/apiconnector/apiclient.py"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }
-      ],
-      "publish": [
+    "publish": [
+      {
+        "path": "@semantic-release/github",
+        "assets": [
           {
-              "path": "@semantic-release/github",
-              "assets": [
-                {
-                  "label": "hexonet.apiconnector (tar.gz)",
-                  "path": "dist/hexonet.apiconnector-${nextRelease.version}.tar.gz"
-                }
-              ]
+            "label": "hexonet.apiconnector (tar.gz)",
+            "path": "dist/hexonet.apiconnector-${nextRelease.version}.tar.gz"
           }
-      ]
-    },
-    "scripts": {
-      "semantic-release": "semantic-release",
-      "travis-deploy-once": "travis-deploy-once"
-    }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   }
+}
