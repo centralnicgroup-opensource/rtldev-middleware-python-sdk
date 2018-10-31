@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/hexonet/python-sdk.git/compare/v2.0.0...v2.0.1) (2018-10-31)
+
+
+### Bug Fixes
+
+* **releasing:** moved travis deploy step into semantic release ([c1a3415](https://github.com/hexonet/python-sdk.git/commit/c1a3415))
+
 # [2.0.0](https://github.com/hexonet/python-sdk.git/compare/v1.2.7...v2.0.0) (2018-10-31)
 
 
