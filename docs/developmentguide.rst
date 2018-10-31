@@ -18,22 +18,17 @@ You can install them by
 
 .. code-block:: bash
 
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt --user
 
 NOTE: Make sure to have also all the extensions listed in the `docs/conf.py`
 that are required for the SDK Documentation.
 
 .. _docs/conf.py: https://rawgit.com/hexonet/python-sdk/master/docs/conf.py
 
-In addition, you need nodejs/npm with globally installed module
-*auto-changelog* in case you want to generate an update changelog version.
-We suggest to use nvm_.
-
 We suggest to use `Visual Studio Code`_ with installed plugins for Python
 Development described here_. But if you prefer any other IDE / Editor, it
 is fine.
 
-.. _nvm: https://github.com/creationix/nvm
 .. _Visual Studio Code: https://code.visualstudio.com
 .. _here: https://code.visualstudio.com/docs/languages/python
 
@@ -42,26 +37,29 @@ is fine.
 Run Tests and Code Validation
 -----------------------------
 
-There are up to no automated tests realized, but planned to come in short.
+If you open a Pull Request (PR), we will trigger automated tests and pep8 style
+check in Travis CI. So nothing you have to worry about in your development.
+You can open your PR and prefix its title with WIP "Work In Progress" to access
+these checks in advance.
 
-Code validation and auto-fixing can be run by
+If there's anything breaking, be so kind to fix it. If you're not able to do it
+- feel free to ask for help.
+
+Try to auto-fix pep8 styling issues by
 
 .. code-block:: bash
 
-    ./scripts/pep8fix.sh
     # to autofix possible issues
+    ./scripts/pep8fix.sh
 
-    ./scripts/pep9check.sh
     # to check for issues left
-
-Please fix all issues before creating a PR.
+    ./scripts/pep8check.sh
 
 Pull Request (PR) Procedure
 ---------------------------
 * fork our project and create a new branch.
 * clone it and check this branch out
 * apply your desired changes / extensions
-* :ref:`run tests and code validation<testsnvalidation>`
 * commit and push it to remote
 * open a pull request (PR)
 
@@ -79,7 +77,8 @@ Versioning
 ----------
 
 We use SemVer_ for versioning. For the versions available, see the
-`tags on this repository`_.
+`tags on this repository`_. New version numbers will be set automatically
+through npm module semantic-release which is part of our CI/CD.
 
 .. _SemVer: http://semver.org/
 .. _tags on this repository: https://github.com/hexonet/python-sdk/tags
@@ -87,43 +86,17 @@ We use SemVer_ for versioning. For the versions available, see the
 Releasing
 ---------
 
-Merge the desired changes in case tests and code validation succeed.
-Then create a new tag version by
+Our Travis CI integration cares about checking the PR for issues. If all
+looks fine, please care about rebasing and if applicable about squashing.
+Now you can merge the PR into master branch. Travis CI and semantic-release
+care about releasing and uploading. This also includes automatic update of
+changelog and source code documentation.
 
-.. code-block:: bash
-
-    git tag -a v1.2.3 master
-    # please replace the semver version accordingly
-
-    git push --tags
-    # push the tags to remote
-
-Create a new release out of that new tag and provide release details about
-the changes applied in the `git interface`_. In case of breaking changes,
-describe what has changed and how to migrate.
-
-.. _git interface: https://github.com/hexonet/python-sdk/releases
-
-Changes will be auto-deployed by a webhook to readthedocs.org_ and
-automatically updated on `github pages`_.
+Changes to the documentation will be auto-deployed by a webhook to
+readthedocs.org_ and to `github pages`_.
 
 .. _readthedocs.org: https://hexonet-python-sdk.readthedocs.io
 .. _github pages: https://hexonet.github.io/python-sdk
-
-Publish your changes to the Python Package Index (PyPi_) by
-
-.. _PyPi: https://pypi.org/
-
-.. code-block:: bash
-
-    ./scripts/createdistribution.sh
-    # to create packages of the new distribution
-
-    ./scripts/uploaddistribution_test.sh
-    # to upload the generated packages to the PyPi Test Index (test.pypi.org)
-
-    ./scripts/uploaddistribution_live.sh
-    # to upload the generated packages to the PyPi Index (pypi.org)
 
 The module can be accessed on the `PyPi (Live) Index`_ and the
 `PyPi (Test) Index`_.
@@ -131,8 +104,8 @@ The module can be accessed on the `PyPi (Live) Index`_ and the
 .. _PyPi (Live) Index: https://pypi.org/project/hexonet.apiconnector/
 .. _PyPi (Test) Index: https://test.pypi.org/project/hexonet.apiconnector/
 
-Generate SDK Documentation
---------------------------
+SDK Documentation
+-----------------
 
 Have an eye on the generated :ref:`api`.
 
@@ -144,15 +117,5 @@ the below script:
     ./scripts/generatedocs.sh
 
 The generated files are then available in subfolder "docs/_build/html".
-Commit and push the changes.
-
-Update Changelog
-----------------
-
-After having changes merged and released, run
-
-.. code-block:: bash
-
-    ./scripts/changelog.sh
-
-Commit and push the changes.
+We regenerate the SDK Documentation whenever a new tag commit reaches
+the master branch.

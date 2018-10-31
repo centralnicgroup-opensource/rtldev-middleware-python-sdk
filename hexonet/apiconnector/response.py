@@ -7,261 +7,330 @@
     :copyright: © 2018 by HEXONET GmbH.
     :license: MIT, see LICENSE for more details.
 """
-import hexonet.apiconnector.util
+from hexonet.apiconnector.responsetemplate import ResponseTemplate as RT
+from hexonet.apiconnector.column import Column
+from hexonet.apiconnector.record import Record
+
+import math
 
 
-class Response:
-    """The hexonet.apiconnector implements a communication API for the
-    insanely fast HEXONET Backend API.
-    The Response class is what you get from Connection object's call method
-    which is the default function to use for API requests.
-    See :file:`connection.py`, :meth:`~hexonet.apiconnector.connection.Connection.call`
-    An Instance can be created in the usual way e.g.::
-        r = Response("[RESPONSE]\r\ncode=530\r\ndescription=Unauthorized\r\nEOF\r\n");
-    :param response: the plain Backend API response test.
+class Response(RT, object):
+    """
+    The Response class covers all necessary functionality to cover access to
+    Backend API response data in a useful way.
     """
 
-    def __init__(self, response):
-        #: Holds the response as plain text / string
-        #: .. versionadded:: 1.0.0
-        self._response_string = None
-        #: Holds the response as hash
-        #: .. versionadded:: 1.0.0
-        self._response_hash = None
-        #: Holds the response as plain list hash
-        #: .. versionadded:: 1.0.0
-        self._response_list_hash = None
+    def __init__(self, raw, cmd=None):
+        super(Response, self).__init__(raw)
+        # The API Command used within this request
+        self.__command = cmd
+        # Column names available in this responsse.
+        # NOTE: this includes also FIRST, LAST, LIMIT, COUNT, TOTAL
+        # and maybe further specific columns in case of a list query
+        self.__columnkeys = []
+        # Container of Column Instances
+        self.__columns = []
+        # Record Index we currently point to in record list
+        self.__recordIndex = 0
+        # Record List (List of rows)
+        self.__records = []
 
-        # try/except to support old versions of python (python2.5)
-        try:
-            if isinstance(response, bytes):
-                response = response.decode("utf-8")
-                self._response_string = response
-        except UnicodeError:
-            response = response.decode("latin1")
-            self._response_string = response
-        except BaseException:
-            response = response.decode("utf-8")
-            self._response_string = response
+        h = self.getHash()
+        print(raw)
+        print(self.getPlain())
+        print(self.__columnkeys)
+        if ("PROPERTY" in h):
+            colKeys = h["PROPERTY"].keys()
+            count = 0
+            for c in colKeys:
+                d = h["PROPERTY"][c]
+                self.addColumn(c, d)
+                mylen = len(d)
+                if (mylen > count):
+                    count = mylen
+            for i in range(count):
+                d = {}
+                for k in colKeys:
+                    col = self.getColumn(k)
+                    if (col is not None):
+                        v = col.getDataByIndex(i)
+                        if (v is not None):
+                            d[k] = v
+                self.addRecord(d)
 
-        if isinstance(response, dict):
-            self._response_hash = response
+    def addColumn(self, key, data):
+        """
+        Add a column to the column list
+        """
+        col = Column(key, data)
+        self.__columns.append(col)
+        self.__columnkeys.append(key)
+        return self
 
-    def as_string(self):
+    def addRecord(self, h):
         """
-        Returns the response as a string
-        .. versionadded:: 1.0.0
+        Add a record to the record list
         """
-        return self._response_string
+        self.__records.append(Record(h))
+        return self
 
-    def as_hash(self):
+    def getColumn(self, key):
         """
-        Returns the response as a hash
-        .. versionadded:: 1.0.0
+        Get column by column name
         """
-        if self._response_hash is None:
-            self._response_hash = hexonet.apiconnector.util.response_to_hash(self._response_string)
-        return self._response_hash
+        if (self.__hasColumn(key)):
+            return self.__columns[self.__columnkeys.index(key)]
+        return None
 
-    def as_list_hash(self):
+    def getColumnIndex(self, colkey, index):
         """
-        Returns the response as a list hash
-        .. versionadded:: 1.0.0
+        Get Data by Column Name and Index
         """
-        if self._response_list_hash is None:
-            self._response_list_hash = hexonet.apiconnector.util.response_to_list_hash(self.as_hash())
-        return self._response_list_hash
+        col = self.getColumn(colkey)
+        return col.getDataByIndex(index) if (col is not None) else None
 
-    def as_list(self):
+    def getColumnKeys(self):
         """
-        Returns the response as a list
-        .. versionadded:: 1.0.0
+        Get Column Names
         """
-        return self.as_list_hash()["ITEMS"]
+        return self.__columnkeys
 
-    def __len__(self):
+    def getColumns(self):
         """
-        Returns the number of items
-        .. versionadded:: 1.0.0
+        Get List of Columns
         """
-        return self.as_list_hash()["COUNT"]
+        return self.__columns
 
-    def __getitem__(self, index):
+    def getCommand(self):
         """
-        Returns the item for the given index
-        .. versionadded:: 1.0.0
+        Get Command used in this request
         """
-        if isinstance(index, int):
-            return self.as_list()[index]
-        if isinstance(index, str):
-            return self.as_hash()[index]
-        pass
+        return self.__command
 
-    def code(self):
+    def getCurrentPageNumber(self):
         """
-        Returns the response code
-        .. versionadded:: 1.0.0
+        Get Page Number of current List Query
         """
-        return self.as_list_hash()["CODE"]
+        first = self.getFirstRecordIndex()
+        limit = self.getRecordsLimitation()
+        if (first is not None) and (limit):
+            return math.floor(first / limit) + 1
+        return None
 
-    def description(self):
+    def getCurrentRecord(self):
         """
-        Returns the response description
-        .. versionadded:: 1.0.0
+        Get Record of current record index
         """
-        return self.as_list_hash()["DESCRIPTION"]
+        return self.__records[self.__recordIndex] if (self.__hasCurrentRecord()) else None
 
-    def runtime(self):
+    def getFirstRecordIndex(self):
         """
-        Returns the response runtime
-        .. versionadded:: 1.0.0
+        Get Index of first row in this response
         """
-        return self.as_list_hash()["RUNTIME"]
+        col = self.getColumn("FIRST")
+        if (col is not None):
+            f = col.getDataByIndex(0)
+            if (f is not None):
+                return int(f)
+        if (len(self.__records)):
+            return 0
+        return None
 
-    def queuetime(self):
+    def getLastRecordIndex(self):
         """
-        Returns the response queuetime
-        .. versionadded:: 1.0.0
+        Get last record index of the current list query
         """
-        return self.as_list_hash()["QUEUETIME"]
+        col = self.getColumn("LAST")
+        if (col is not None):
+            data = col.getDataByIndex(0)
+            if (data is not None):
+                return int(data)
+        len = self.getRecordsCount()
+        if (len):
+            return (len - 1)
+        return None
 
-    def properties(self):
+    def getListHash(self):
         """
-        Returns the response properties
-        .. versionadded:: 1.0.0
+        Get Response as List Hash including useful meta data for tables
         """
-        return self.as_hash()["PROPERTY"]
+        lh = []
+        for rec in self.getRecords():
+            lh.append(rec.getData())
+        return {
+            "LIST": lh,
+            "meta": {
+                "columns": self.getColumnKeys(),
+                "pg": self.getPagination()
+            }
+        }
 
-    def property(self, index=None):
+    def getNextRecord(self):
         """
-        Returns the property for a given index
-        If no index given, the complete property list is returned
-        .. versionadded:: 1.0.0
+        Get next record in record list
         """
-        properties = self.properties()
-        if index:
-            try:
-                return properties[index]
-            except BaseException:
-                return None
-        else:
-            return properties
+        if (self.__hasNextRecord()):
+            self.__recordIndex += 1
+            return self.__records[self.__recordIndex]
+        return None
 
-    def is_success(self):
+    def getNextPageNumber(self):
         """
-        Returns true if the results is a success
-        Success = response code starting with 2
-        .. versionadded:: 1.0.0
+        Get Page Number of next list query
         """
-        if str(self.code()).startswith("2"):
-            return True
-        else:
-            return False
-
-    def is_tmp_error(self):
-        """
-        Returns true if the results is a tmp error
-        tmp error = response code starting with 4
-        .. versionadded:: 1.0.0
-        """
-        if str(self.code()).startswith("4"):
-            return True
-        else:
-            return False
-
-    def columns(self):
-        """
-        Returns the columns
-        .. versionadded:: 1.0.0
-        """
-        return self.as_list_hash()["COLUMNS"]
-
-    def first(self):
-        """
-        Returns the index of the first element
-        .. versionadded:: 1.0.0
-        """
-        return self.as_list_hash()["FIRST"]
-
-    def last(self):
-        """
-        Returns the index of the last element
-        .. versionadded:: 1.0.0
-        """
-        return self.as_list_hash()["LAST"]
-
-    def count(self):
-        """
-        Returns the number of list elements returned (= last - first + 1)
-        .. versionadded:: 1.0.0
-        """
-        return self.as_list_hash()["COUNT"]
-
-    def limit(self):
-        """
-        Returns the limit of the response
-        .. versionadded:: 1.0.0
-        """
-        return self.as_list_hash()["LIMIT"]
-
-    def total(self):
-        """
-        Returns the total number of elements found (!= count)
-        .. versionadded:: 1.0.0
-        """
-        return self.as_list_hash()["TOTAL"]
-
-    def pages(self):
-        """
-        Returns the number of pages
-        .. versionadded:: 1.0.0
-        """
-        return self.as_list_hash()["PAGES"]
-
-    def page(self):
-        """
-        Returns the number of the current page (starts with 1)
-        .. versionadded:: 1.0.0
-        """
-        return self.as_list_hash()["PAGE"]
-
-    def prevpage(self):
-        """
-        Returns the number of the previous page
-        .. versionadded:: 1.0.0
-        """
-        try:
-            return self.as_list_hash()["PREVPAGE"]
-        except BaseException:
+        cp = self.getCurrentPageNumber()
+        if (cp is None):
             return None
+        page = cp + 1
+        pages = self.getNumberOfPages()
+        return page if (page <= pages) else pages
 
-    def prevpagefirst(self):
+    def getNumberOfPages(self):
         """
-        Returns the first index for the previous page
-        .. versionadded:: 1.0.0
+        Get the number of pages available for this list query
+        """
+        t = self.getRecordsTotalCount()
+        limit = self.getRecordsLimitation()
+        if (t and limit):
+            return math.ceil(t / self.getRecordsLimitation())
+        return 0
+
+    def getPagination(self):
+        """
+        Get object containing all paging data
+        """
+        return {
+            "COUNT": self.getRecordsCount(),
+            "CURRENTPAGE": self.getCurrentPageNumber(),
+            "FIRST": self.getFirstRecordIndex(),
+            "LAST": self.getLastRecordIndex(),
+            "LIMIT": self.getRecordsLimitation(),
+            "NEXTPAGE": self.getNextPageNumber(),
+            "PAGES": self.getNumberOfPages(),
+            "PREVIOUSPAGE": self.getPreviousPageNumber(),
+            "TOTAL": self.getRecordsTotalCount()
+        }
+
+    def getPreviousPageNumber(self):
+        """
+        Get Page Number of previous list query
+        """
+        cp = self.getCurrentPageNumber()
+        if (cp is not None):
+            cp = cp - 1
+            if (cp):
+                return cp
+        return None
+
+    def getPreviousRecord(self):
+        """
+        Get previous record in record list
+        """
+        if (self.__hasPreviousRecord()):
+            self.__recordIndex -= 1
+            return self.__records[self.__recordIndex]
+        return None
+
+    def getRecord(self, idx):
+        """
+        Get Record at given index
+        """
+        if (idx >= 0 and len(self.__records) > idx):
+            return self.__records[idx]
+        return None
+
+    def getRecords(self):
+        """
+        Get all Records
+        """
+        return self.__records
+
+    def getRecordsCount(self):
+        """
+        Get count of rows in this response
+        """
+        return len(self.__records)
+
+    def getRecordsTotalCount(self):
+        """
+        Get total count of records available for the list query
+        """
+        col = self.getColumn("TOTAL")
+        if (col is not None):
+            t = col.getDataByIndex(0)
+            if (t is not None):
+                return int(t)
+        return self.getRecordsCount()
+
+    def getRecordsLimitation(self):
+        """
+        Get limit(ation) setting of the current list query
+        """
+        col = self.getColumn("LIMIT")
+        if (col is not None):
+            data = col.getDataByIndex(0)
+            if (data is not None):
+                return int(data)
+        return self.getRecordsCount()
+
+    def hasNextPage(self):
+        """
+        Check if this list query has a next page
+        """
+        cp = self.getCurrentPageNumber()
+        if (cp is None):
+            return False
+        return ((cp + 1) <= self.getNumberOfPages())
+
+    def hasPreviousPage(self):
+        """
+        Check if this list query has a previous page
+        """
+        cp = self.getCurrentPageNumber()
+        if (cp is None):
+            return False
+        return ((cp - 1) > 0)
+
+    def rewindRecordList(self):
+        """
+        Reset index in record list back to zero
+        """
+        self.__recordIndex = 0
+        return self
+
+    def __hasColumn(self, key):
+        """
+        Check if column exists in response
         """
         try:
-            return self.as_list_hash()["PREVPAGEFIRST"]
-        except BaseException:
-            return None
+            self.__columnkeys.index(key)
+        except ValueError:
+            return False
+        return True
 
-    def nextpage(self):
+    def __hasCurrentRecord(self):
         """
-        Returns the number of the next page
-        .. versionadded:: 1.0.0
+        Check if the record list contains a record for the
+        current record index in use
         """
-        return self.as_list_hash()["NEXTPAGE"]
+        tlen = len(self.__records)
+        return (
+            tlen > 0 and
+            self.__recordIndex >= 0 and
+            self.__recordIndex < tlen
+        )
 
-    def nextpagefirst(self):
+    def __hasNextRecord(self):
         """
-        Returns the first index for the next page
-        .. versionadded:: 1.0.0
+        Check if the record list contains a next record for the
+        current record index in use
         """
-        return self.as_list_hash()["NEXTPAGEFIRST"]
+        next = self.__recordIndex + 1
+        return (self.__hasCurrentRecord() and (next < len(self.__records)))
 
-    def lastpagefirst(self):
+    def __hasPreviousRecord(self):
         """
-        Returns the first index for the last page
-        .. versionadded:: 1.0.0
+        Check if the record list contains a previous record for the
+        current record index in use
         """
-        return self.as_list_hash()["LASTPAGEFIRST"]
+        return (self.__recordIndex > 0 and self.__hasCurrentRecord())

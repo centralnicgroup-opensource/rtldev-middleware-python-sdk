@@ -18,22 +18,21 @@ You can install them by
 
 .. code-block:: bash
 
-    pip3 install -r requirements.txt
+    # for python3
+    pip3 install -r requirements.txt --user
+
+    # for python2
+    pip install -r requirements.txt --user
 
 NOTE: Make sure to have also all the extensions listed in the `docs/conf.py`
 that are required for the SDK Documentation.
 
 .. _docs/conf.py: https://rawgit.com/hexonet/python-sdk/master/docs/conf.py
 
-In addition, you need nodejs/npm with globally installed module
-*auto-changelog* in case you want to generate an update changelog version.
-We suggest to use nvm_.
-
 We suggest to use `Visual Studio Code`_ with installed plugins for Python
 Development described here_. But if you prefer any other IDE / Editor, it
 is fine.
 
-.. _nvm: https://github.com/creationix/nvm
 .. _Visual Studio Code: https://code.visualstudio.com
 .. _here: https://code.visualstudio.com/docs/languages/python
 
@@ -42,17 +41,21 @@ is fine.
 Run Tests and Code Validation
 -----------------------------
 
-There are up to no automated tests realized, but planned to come in short.
+Automated tests can be triggered by
+
+.. code-block:: bash
+
+    ./scripts/coverage.sh
 
 Code validation and auto-fixing can be run by
 
 .. code-block:: bash
 
-    ./scripts/pep8fix.sh
     # to autofix possible issues
+    ./scripts/pep8fix.sh
 
-    ./scripts/pep9check.sh
     # to check for issues left
+    ./scripts/pep8check.sh
 
 Please fix all issues before creating a PR.
 
@@ -79,7 +82,8 @@ Versioning
 ----------
 
 We use SemVer_ for versioning. For the versions available, see the
-`tags on this repository`_.
+`tags on this repository`_. New version numbers will be set automatically
+through npm module semantic-release which is part of our CI/CD.
 
 .. _SemVer: http://semver.org/
 .. _tags on this repository: https://github.com/hexonet/python-sdk/tags
@@ -87,22 +91,11 @@ We use SemVer_ for versioning. For the versions available, see the
 Releasing
 ---------
 
-Merge the desired changes in case tests and code validation succeed.
-Then create a new tag version by
-
-.. code-block:: bash
-
-    git tag -a v1.2.3 master
-    # please replace the semver version accordingly
-
-    git push --tags
-    # push the tags to remote
-
-Create a new release out of that new tag and provide release details about
-the changes applied in the `git interface`_. In case of breaking changes,
-describe what has changed and how to migrate.
-
-.. _git interface: https://github.com/hexonet/python-sdk/releases
+Our Travis CI integration cares about checking the PR for issues. If all
+looks fine, please care about rebasing to current HEAD of master branch.
+Now you can merge the PR into master branch. Travis CI and semantic-release
+care about releasing and uploading. This also includes automatic update of
+changelog and source code documentation.
 
 Changes will be auto-deployed by a webhook to readthedocs.org_ and
 automatically updated on `github pages`_.
@@ -131,8 +124,8 @@ The module can be accessed on the `PyPi (Live) Index`_ and the
 .. _PyPi (Live) Index: https://pypi.org/project/hexonet.apiconnector/
 .. _PyPi (Test) Index: https://test.pypi.org/project/hexonet.apiconnector/
 
-Generate SDK Documentation
---------------------------
+SDK Documentation
+-----------------
 
 Have an eye on the generated :ref:`api`.
 
@@ -144,15 +137,3 @@ the below script:
     ./scripts/generatedocs.sh
 
 The generated files are then available in subfolder "docs/_build/html".
-Commit and push the changes.
-
-Update Changelog
-----------------
-
-After having changes merged and released, run
-
-.. code-block:: bash
-
-    ./scripts/changelog.sh
-
-Commit and push the changes.

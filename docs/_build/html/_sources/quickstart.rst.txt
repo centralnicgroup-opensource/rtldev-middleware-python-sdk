@@ -11,30 +11,18 @@ If you do not, head over to the :ref:`installation` section.
 A Minimal Application
 ---------------------
 
-A minimal application using hexonet.apiconnector looks something like this:
+A minimal application using hexonet.apiconnector looks something like follows.
+We provided two short examples: one for sessionless communication and one for
+session-based communication.
 
 .. literalinclude:: app.py
     :language: python
     :encoding: utf-8
     :caption: Python SDK Demo App
 
-You can find this code also on _github.
+You can find this code also on github_.
 
 .. _github: https://github.com/hexonet/python-sdk-demo
-
-So what did that code do?
-
-1. First we imported the :mod:`hexonet.apiconnector`.
-
-2. Next we create an Connection to the HEXONET Backend System by using the
-   :meth:`~hexonet.apiconnector.connect`.
-
-3. We then use the :meth:`~hexonet.apiconnector.connection.Connection.call`
-   to request a provided command to the backend system.
-
-4. The response is an instance of
-   :class:`~hexonet.apiconnector.response.Response`. It provides all necessary
-   methods to access API response data.
 
 What to do if the backend system just returns an error
 ------------------------------------------------------
@@ -51,6 +39,7 @@ Feel free to :ref:`contact-us` if you need help.
 Sessions
 --------
 
-Session-based communication is not yet available in this SDK. This is a planned
-rewrite. The above application code shows how sessionless communication with
-the HEXONET Backend API works.
+Session-based communication is available in this SDK, see above.
+Use :meth:`~hexonet.apiconnector.apiclient.APIClient.saveSession` and
+:meth:`~hexonet.apiconnector.apiclient.APIClient.reuseSession` if you
+plan to build your own frontend on top using session handling.

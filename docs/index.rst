@@ -4,7 +4,7 @@ Welcome to hexonet.apiconnector
 ===============================
 
 .. image:: _static/hexonet.png
-    :alt: hexonet.apiconnector: Connector library for the HEXONET Backend API
+    :alt: hexonet.apiconnector: Connector library for the insanely fast HEXONET Backend API
     :align: right
 
 Welcome to hexonet.apiconnector's documentation. Get started with

@@ -3,6 +3,13 @@
 Debugging
 =========
 
-There's no debug feature available in hexonet.apiconnector up to now.
-This is a planned feature and will come in near future as we continously
-improve our SDKs.
+Debug Features are also available in our Python SDK::
+
+    # activate debug mode
+    cl.enableDebugMode()
+
+    # disable debug mode
+    cl.disableDebugMode()
+
+This results in displaying the API Connection's used http url,
+POST data and plain text response.

@@ -84,8 +84,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#pull-request-pr-procedure">Pull Request (PR) Procedure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#versioning">Versioning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#releasing">Releasing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#generate-sdk-documentation">Generate SDK Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#update-changelog">Update Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sdk-documentation">SDK Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -106,8 +105,7 @@
 <li><a class="reference internal" href="#pull-request-pr-procedure">Pull Request (PR) Procedure</a></li>
 <li><a class="reference internal" href="#versioning">Versioning</a></li>
 <li><a class="reference internal" href="#releasing">Releasing</a></li>
-<li><a class="reference internal" href="#generate-sdk-documentation">Generate SDK Documentation</a></li>
-<li><a class="reference internal" href="#update-changelog">Update Changelog</a></li>
+<li><a class="reference internal" href="#sdk-documentation">SDK Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -149,42 +147,47 @@
 <div class="section" id="requirements">
 <span id="id1"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>You can find any required library for this project in the <em>requirements.txt</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">autopep8</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">5</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">autopep8</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">2</span>
 <span class="n">docutils</span><span class="o">==</span><span class="mf">0.14</span>
 <span class="n">guzzle</span><span class="o">-</span><span class="n">sphinx</span><span class="o">-</span><span class="n">theme</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">11</span>
-<span class="o">-</span><span class="n">e</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">miyakogi</span><span class="o">/</span><span class="n">m2r</span><span class="nd">@dev</span><span class="c1">#egg=m2r</span>
+<span class="n">m2r</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">1</span>
 <span class="n">pep8</span><span class="o">==</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">1</span>
 <span class="n">pycodestyle</span><span class="o">==</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">0</span>
-<span class="n">pytestcov</span><span class="o">==</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">1</span>
+<span class="o">-</span><span class="n">e</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pytest</span><span class="o">-</span><span class="n">dev</span><span class="o">/</span><span class="n">pytest</span><span class="o">-</span><span class="n">cov</span><span class="nd">@master</span><span class="c1">#egg=pytestcov</span>
 <span class="n">six</span><span class="o">==</span><span class="mf">1.11</span><span class="o">.</span><span class="mi">0</span>
-<span class="n">Sphinx</span><span class="o">==</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">Sphinx</span><span class="o">==</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">1</span>
 <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">log</span><span class="o">-</span><span class="n">cabinet</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span>
 <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">websupport</span><span class="o">==</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">0</span>
-<span class="n">twine</span><span class="o">==</span><span class="mf">1.11</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pip</span><span class="o">==</span><span class="mf">18.1</span>
+<span class="n">twine</span><span class="o">==</span><span class="mf">1.12</span><span class="o">.</span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>You can install them by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3 install -r requirements.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># for python3</span>
+pip3 install -r requirements.txt --user
+
+<span class="c1"># for python2</span>
+pip install -r requirements.txt --user
 </pre></div>
 </div>
 <p>NOTE: Make sure to have also all the extensions listed in the <cite>docs/conf.py</cite>
 that are required for the SDK Documentation.</p>
-<p>In addition, you need nodejs/npm with globally installed module
-<em>auto-changelog</em> in case you want to generate an update changelog version.
-We suggest to use <a class="reference external" href="https://github.com/creationix/nvm">nvm</a>.</p>
 <p>We suggest to use <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a> with installed plugins for Python
 Development described <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">here</a>. But if you prefer any other IDE / Editor, it
 is fine.</p>
 </div>
 <div class="section" id="run-tests-and-code-validation">
 <span id="testsnvalidation"></span><h2>Run Tests and Code Validation<a class="headerlink" href="#run-tests-and-code-validation" title="Permalink to this headline">¶</a></h2>
-<p>There are up to no automated tests realized, but planned to come in short.</p>
+<p>Automated tests can be triggered by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/coverage.sh
+</pre></div>
+</div>
 <p>Code validation and auto-fixing can be run by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/pep8fix.sh
-<span class="c1"># to autofix possible issues</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># to autofix possible issues</span>
+./scripts/pep8fix.sh
 
-./scripts/pep9check.sh
 <span class="c1"># to check for issues left</span>
+./scripts/pep8check.sh
 </pre></div>
 </div>
 <p>Please fix all issues before creating a PR.</p>
@@ -210,22 +213,16 @@ if we can role out that PR as we want to keep all our SDKs aligned.</p>
 <div class="section" id="versioning">
 <h2>Versioning<a class="headerlink" href="#versioning" title="Permalink to this headline">¶</a></h2>
 <p>We use <a class="reference external" href="http://semver.org/">SemVer</a> for versioning. For the versions available, see the
-<a class="reference external" href="https://github.com/hexonet/python-sdk/tags">tags on this repository</a>.</p>
+<a class="reference external" href="https://github.com/hexonet/python-sdk/tags">tags on this repository</a>. New version numbers will be set automatically
+through npm module semantic-release which is part of our CI/CD.</p>
 </div>
 <div class="section" id="releasing">
 <h2>Releasing<a class="headerlink" href="#releasing" title="Permalink to this headline">¶</a></h2>
-<p>Merge the desired changes in case tests and code validation succeed.
-Then create a new tag version by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git tag -a v1.2.3 master
-<span class="c1"># please replace the semver version accordingly</span>
-
-git push --tags
-<span class="c1"># push the tags to remote</span>
-</pre></div>
-</div>
-<p>Create a new release out of that new tag and provide release details about
-the changes applied in the <a class="reference external" href="https://github.com/hexonet/python-sdk/releases">git interface</a>. In case of breaking changes,
-describe what has changed and how to migrate.</p>
+<p>Our Travis CI integration cares about checking the PR for issues. If all
+looks fine, please care about rebasing to current HEAD of master branch.
+Now you can merge the PR into master branch. Travis CI and semantic-release
+care about releasing and uploading. This also includes automatic update of
+changelog and source code documentation.</p>
 <p>Changes will be auto-deployed by a webhook to <a class="reference external" href="https://hexonet-python-sdk.readthedocs.io">readthedocs.org</a> and
 automatically updated on <a class="reference external" href="https://hexonet.github.io/python-sdk">github pages</a>.</p>
 <p>Publish your changes to the Python Package Index (<a class="reference external" href="https://pypi.org/">PyPi</a>) by</p>
@@ -242,24 +239,15 @@ automatically updated on <a class="reference external" href="https://hexonet.git
 <p>The module can be accessed on the <a class="reference external" href="https://pypi.org/project/hexonet.apiconnector/">PyPi (Live) Index</a> and the
 <a class="reference external" href="https://test.pypi.org/project/hexonet.apiconnector/">PyPi (Test) Index</a>.</p>
 </div>
-<div class="section" id="generate-sdk-documentation">
-<h2>Generate SDK Documentation<a class="headerlink" href="#generate-sdk-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sdk-documentation">
+<h2>SDK Documentation<a class="headerlink" href="#sdk-documentation" title="Permalink to this headline">¶</a></h2>
 <p>Have an eye on the generated <a class="reference internal" href="api.html#api"><span class="std std-ref">SDK Documentation</span></a>.</p>
 <p>If you want to generate it from scratch out of the sources, please use
 the below script:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/generatedocs.sh
 </pre></div>
 </div>
-<p>The generated files are then available in subfolder “docs/_build/html”.
-Commit and push the changes.</p>
-</div>
-<div class="section" id="update-changelog">
-<h2>Update Changelog<a class="headerlink" href="#update-changelog" title="Permalink to this headline">¶</a></h2>
-<p>After having changes merged and released, run</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/changelog.sh
-</pre></div>
-</div>
-<p>Commit and push the changes.</p>
+<p>The generated files are then available in subfolder “docs/_build/html”.</p>
 </div>
 </div>
 

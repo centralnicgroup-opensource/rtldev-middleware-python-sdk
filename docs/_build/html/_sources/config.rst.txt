@@ -19,42 +19,28 @@ Configuration Basics
 --------------------
 
 The configuration can be provided in two ways.
-Using the :meth:`hexonet.apiconnector.connect`::
+Using the :class:`~hexonet.apiconnector.APIClient`:
 
-    import hexonet.apiconnector
-    api = hexonet.apiconnector.connect(
-        "test.user",
-        "test.passw0rd",
-        "https://coreapi.1api.net/api/call.cgi",
-        "1234"
-        //,"hexotestman.com" //subuser view
-        //,"testrole" //specify a role user
-    );
-
-or by using the :class:`hexonet.apiconnector.connection.Connection` class accordingly::
-
-    from hexonet.apiconnector.connection import Connection as HXClient
-    api = HXClient({
-        "login": "test.user",
-        "password": "test.passw0rd",
-        "url": "https://coreapi.1api.net/api/call.cgi",
-        "entity": "1234",
-        //"user": "hexotestman.com",//subuser view
-        //"role": "testrole",//specify a role user
-    });
-
+.. literalinclude:: app.py
+    :language: python
+    :encoding: utf-8
+    :caption: Python SDK Demo App
 
 Environment and Debug Features
 ------------------------------
 
-Debug Features, are up to now not available in our Python SDK, but planned.
+Debug Features are also available in our Python SDK::
+
+    # activate debug mode
+    cl.enableDebugMode()
+
+    # disable debug mode
+    cl.disableDebugMode()
 
 HEXONET provides two different Backend Systems that you might consider to use.
-Both require a separate registration_ first.
-
-.. _registration: https://www.hexonet.net
-
-
+Both require a separate Registration:
+- `Live System Registration <https://www.hexonet.net/sign-up>`_ and
+- `OT&E System Registration <https://www.hexonet.net/signup-ote>`_.
 
 OT&E System
 ^^^^^^^^^^^
@@ -64,14 +50,16 @@ No costs, just for playing around with things. This system can be seen as a
 kind of sandbox system that allows to test your integration first before going
 live with it. This system and the use of our products and services is
 completely free of charge.
-To use this system, set configuration value for property `entity` to `1234`.
+To use this system, use APIClient's method `cl.useOTESystem()`.
+Otherwise Live System will be used by default.
 
 LIVE System
 ^^^^^^^^^^^
 
 The real world system - This system and the use our services and products can
 lead to real costs depending on what you're exactly doing.
-To use this system, set configuration value for property `entity` to `54cd`.
+Live System will be used by default, but you can also use APIClient's method
+`cl.useLIVESystem()` to add it in source code for reference.
 
 Builtin Configuration Values
 ----------------------------

@@ -1,82 +1,165 @@
-from hexonet.apiconnector import connect
-from hexonet.apiconnector.response import Response
+from hexonet.apiconnector.response import Response as R
+import hexonet.apiconnector.responseparser as RP
+from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
 
 
-def test_response():
-    api = connect(
-        "test.user",
-        # wrong password
-        "test.password",
-        "https://coreapi.1api.net/api/call.cgi",
-        "1234"
+def test_responsemethods():
+    rtm = RTM.getInstance()
+    rtm.addTemplate(
+        'listP0',
+        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=2701\r\nPROPERTY[FIRST][0]=0\r\nP' +
+        'ROPERTY[DOMAIN][0]=0-60motorcycletimes.com\r\nPROPERTY[DOMAIN][1]=' +
+        '0-be-s01-0.com\r\nPROPERTY[COUNT][0]=2\r\nPROPERTY[LAST][0]=1\r\nP' +
+        'ROPERTY[LIMIT][0]=2\r\nDESCRIPTION=Command completed successfully' +
+        '\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.023\r\nEOF\r\n'
     )
-    response = api.call({
-        "COMMAND": "GetUserIndex"
-    })
-    assert isinstance(response, Response)
-    assert response.description() == "Authentication failed"
-    assert response.code() == 530
-    assert isinstance(response.as_string(), str)
-    assert isinstance(response.as_list_hash(), dict)
-    assert isinstance(response.as_list(), list)
-    assert len(response) == 0
-    assert response["CODE"] == 530
-    assert response.is_success() == False
-
-
-def test_listresponse():
-    api = connect(
-        "test.user",
-        "test.passw0rd",
-        "https://coreapi.1api.net/api/call.cgi",
-        "1234"
+    rtm.addTemplate(
+        'OK',
+        rtm.generateTemplate('200', 'Command completed successfully')
     )
-    response = api.call({
-        "COMMAND": "QueryDomainList",
-        "VERSION": 2,
-        "NOTOTAL": 1,  # TOTAL to have value from total to equal to count
-        "LIMIT": 10,
-        "FIRST": 0
-    })
-    assert isinstance(response, Response)
-    assert response.description() == "Command completed successfully"
-    assert response.code() == 200
-    assert len(response) == 10
-    assert isinstance(response[0], dict)
-    assert isinstance(response.runtime(), float)
-    assert isinstance(response.queuetime(), float)
-    assert isinstance(response.properties(), dict)
-    assert response.property("DOMAIN") is None
-    assert isinstance(response.property("OBJECTID"), list)
-    assert isinstance(response.property(), dict)
-    assert response.property() == response.properties()
-    assert response.is_success()
-    assert response.is_tmp_error() == False
-    assert isinstance(response.columns(), list)
-    assert isinstance(response.first(), int)
-    assert response.first() == 0
-    assert isinstance(response.last(), int)
-    assert response.last() == 9
-    assert isinstance(response.count(), int)
-    assert response.count() == 10
-    assert isinstance(response.limit(), int)
-    assert response.limit() == 10
-    assert isinstance(response.total(), int)
-    assert response.total() == 10
-    assert isinstance(response.pages(), float)  # TODO int makes more sense
-    assert response.pages() == 1.9  # doesn't make sense, should be 1 in this case
-    assert isinstance(response.page(), int)
-    assert response.page() == 1
-    assert response.prevpage() is None
-    assert response.prevpagefirst() is None
-    assert response.nextpage() is None
-    assert response.nextpagefirst() is None
-    assert isinstance(response.lastpagefirst(), float)
-    assert response.lastpagefirst() == 9.0
 
-    Response(response.as_hash())
-    # to cover isinstance dict check branch
+    # #.getCurrentPageNumber()
+    # [w/ entries in response]
+    r = R(rtm.getTemplate('listP0').getPlain())
+    assert r.getCurrentPageNumber() == 1
 
-    response = Response(
-        b"[RESPONSE]\r\nCODE=421\r\nDESCRIPTION=Command failed due to server error. Client should try again\r\nEOF\r\n")
-    assert response.is_tmp_error()
+    # [w/o entries in response]
+    r = R(rtm.getTemplate('OK').getPlain())
+    assert r.getCurrentPageNumber() is None
+
+    # #.getFirstRecordIndex()
+    # [w/o FIRST in response, no rows]
+    r = R(rtm.getTemplate('OK').getPlain())
+    assert r.getFirstRecordIndex() is None
+
+    # [w/o FIRST in response, rows]
+    h = rtm.getTemplate('OK').getHash()
+    h["PROPERTY"] = {
+        "DOMAIN": ['mydomain1.com', 'mydomain2.com']
+    }
+    r = R(RP.serialize(h))
+    assert r.getFirstRecordIndex() == 0
+
+    # #.getColumns()
+    r = R(rtm.getTemplate('listP0').getPlain())
+    cols = r.getColumns()
+    assert len(cols) == 6
+
+    # #.getColumnIndex()
+    # [colum exists]
+    r = R(rtm.getTemplate('listP0').getPlain())
+    assert r.getColumnIndex('DOMAIN', 0) == '0-60motorcycletimes.com'
+
+    # [colum does not exist]
+    assert r.getColumnIndex('COLUMN_NOT_EXISTS', 0) is None
+
+    # #.getColumnKeys()
+    colkeys = r.getColumnKeys()
+    assert len(colkeys) == 6
+    assert sorted(colkeys) == sorted(['COUNT', 'DOMAIN', 'FIRST', 'LAST', 'LIMIT', 'TOTAL'])
+
+    # #.getCurrentRecord()
+    # [records available]
+    rec = r.getCurrentRecord()
+    assert rec.getData() == {
+        'COUNT': '2',
+        'DOMAIN': '0-60motorcycletimes.com',
+        'FIRST': '0',
+        'LAST': '1',
+        'LIMIT': '2',
+        'TOTAL': '2701'
+    }
+
+    # [no records available]
+    r = R(rtm.getTemplate('OK').getPlain())
+    assert r.getCurrentRecord() is None
+
+    # #.getListHash()
+    r = R(rtm.getTemplate('listP0').getPlain())
+    lh = r.getListHash()
+    assert len(lh["LIST"]) == 2
+    assert lh["meta"]["columns"] is r.getColumnKeys()
+    assert lh["meta"]["pg"] == r.getPagination()
+
+    # #.getNextRecord()
+    rec = r.getNextRecord()
+    assert rec.getData() == {'DOMAIN': '0-be-s01-0.com'}
+    rec = r.getNextRecord()
+    assert rec is None
+
+    # #.getPagination()
+    pager = r.getPagination()
+    assert sorted(pager.keys()) == sorted(['COUNT', 'CURRENTPAGE', 'FIRST',
+                                           'LAST', 'LIMIT', 'NEXTPAGE', 'PAGES', 'PREVIOUSPAGE', 'TOTAL'])
+
+    # #.getPreviousRecord()
+    r.getNextRecord()
+    assert r.getPreviousRecord().getData() == {
+        'COUNT': '2',
+        'DOMAIN': '0-60motorcycletimes.com',
+        'FIRST': '0',
+        'LAST': '1',
+        'LIMIT': '2',
+        'TOTAL': '2701'
+    }
+    assert r.getPreviousRecord() is None
+
+    # #.hasNextPage()
+    # [no rows]
+    r = R(rtm.getTemplate('OK').getPlain())
+    assert r.hasNextPage() is False
+
+    # [rows]
+    r = R(rtm.getTemplate('listP0').getPlain())
+    assert r.hasNextPage() is True
+
+    # #.hasPreviousPage()
+    # [no rows]
+    r = R(rtm.getTemplate('OK').getPlain())
+    assert r.hasPreviousPage() is False
+
+    # [rows]
+    r = R(rtm.getTemplate('listP0').getPlain())
+    assert r.hasPreviousPage() is False
+
+    # #.getLastRecordIndex()
+    # [no rows]
+    r = R(rtm.getTemplate('OK').getPlain())
+    assert r.getLastRecordIndex() is None
+
+    # [rows]
+    h = rtm.getTemplate('OK').getHash()
+    h["PROPERTY"] = {
+        "DOMAIN": ['mydomain1.com', 'mydomain2.com']
+    }
+    r = R(RP.serialize(h))
+    assert r.getLastRecordIndex() == 1
+
+    # #.getNextPageNumber()
+    # [no rows]
+    r = R(rtm.getTemplate('OK').getPlain())
+    assert r.getNextPageNumber() is None
+
+    # [rows]
+    r = R(rtm.getTemplate('listP0').getPlain())
+    assert r.getNextPageNumber() == 2
+
+    # #.getNumberOfPages()
+    r = R(rtm.getTemplate('OK').getPlain())
+    assert r.getNumberOfPages() == 0
+
+    # #.getPreviousPageNumber()
+    # [no rows]
+    r = R(rtm.getTemplate('OK').getPlain())
+    assert r.getPreviousPageNumber() is None
+
+    # [rows]
+    r = R(rtm.getTemplate('listP0').getPlain())
+    assert r.getPreviousPageNumber() is None
+
+    # #.rewindRecordList()
+    r = R(rtm.getTemplate('listP0').getPlain())
+    assert r.getPreviousRecord() is None
+    assert r.getNextRecord() is not None
+    assert r.getNextRecord() is None
+    assert r.rewindRecordList().getPreviousRecord() is None
