@@ -15,13 +15,14 @@
   <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Development Guide &#8212; hexonet.apiconnector 1.2 documentation</title>
+    <title>Development Guide &#8212; hexonet.apiconnector 2.0 documentation</title>
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -46,7 +47,7 @@
         <li class="right" >
           <a href="contributing.html" title="Contributing"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 1.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -56,7 +57,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 1.2.7</a>
+    index.html" class="text-logo">hexonet.apiconnector 2.0.0</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -77,6 +78,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id3">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Development Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
@@ -163,11 +165,7 @@
 </pre></div>
 </div>
 <p>You can install them by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># for python3</span>
-pip3 install -r requirements.txt --user
-
-<span class="c1"># for python2</span>
-pip install -r requirements.txt --user
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt --user
 </pre></div>
 </div>
 <p>NOTE: Make sure to have also all the extensions listed in the <cite>docs/conf.py</cite>
@@ -178,11 +176,13 @@ is fine.</p>
 </div>
 <div class="section" id="run-tests-and-code-validation">
 <span id="testsnvalidation"></span><h2>Run Tests and Code Validation<a class="headerlink" href="#run-tests-and-code-validation" title="Permalink to this headline">¶</a></h2>
-<p>Automated tests can be triggered by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/coverage.sh
-</pre></div>
-</div>
-<p>Code validation and auto-fixing can be run by</p>
+<p>If you open a Pull Request (PR), we will trigger automated tests and pep8 style
+check in Travis CI. So nothing you have to worry about in your development.
+You can open your PR and prefix its title with WIP “Work In Progress” to access
+these checks in advance.</p>
+<p>If there’s anything breaking, be so kind to fix it. If you’re not able to do it
+- feel free to ask for help.</p>
+<p>Try to auto-fix pep8 styling issues by</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># to autofix possible issues</span>
 ./scripts/pep8fix.sh
 
@@ -190,7 +190,6 @@ is fine.</p>
 ./scripts/pep8check.sh
 </pre></div>
 </div>
-<p>Please fix all issues before creating a PR.</p>
 </div>
 <div class="section" id="pull-request-pr-procedure">
 <h2>Pull Request (PR) Procedure<a class="headerlink" href="#pull-request-pr-procedure" title="Permalink to this headline">¶</a></h2>
@@ -198,7 +197,6 @@ is fine.</p>
 <li>fork our project and create a new branch.</li>
 <li>clone it and check this branch out</li>
 <li>apply your desired changes / extensions</li>
-<li><a class="reference internal" href="#testsnvalidation"><span class="std std-ref">run tests and code validation</span></a></li>
 <li>commit and push it to remote</li>
 <li>open a pull request (PR)</li>
 </ul>
@@ -219,23 +217,12 @@ through npm module semantic-release which is part of our CI/CD.</p>
 <div class="section" id="releasing">
 <h2>Releasing<a class="headerlink" href="#releasing" title="Permalink to this headline">¶</a></h2>
 <p>Our Travis CI integration cares about checking the PR for issues. If all
-looks fine, please care about rebasing to current HEAD of master branch.
+looks fine, please care about rebasing and if applicable about squashing.
 Now you can merge the PR into master branch. Travis CI and semantic-release
 care about releasing and uploading. This also includes automatic update of
 changelog and source code documentation.</p>
-<p>Changes will be auto-deployed by a webhook to <a class="reference external" href="https://hexonet-python-sdk.readthedocs.io">readthedocs.org</a> and
-automatically updated on <a class="reference external" href="https://hexonet.github.io/python-sdk">github pages</a>.</p>
-<p>Publish your changes to the Python Package Index (<a class="reference external" href="https://pypi.org/">PyPi</a>) by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/createdistribution.sh
-<span class="c1"># to create packages of the new distribution</span>
-
-./scripts/uploaddistribution_test.sh
-<span class="c1"># to upload the generated packages to the PyPi Test Index (test.pypi.org)</span>
-
-./scripts/uploaddistribution_live.sh
-<span class="c1"># to upload the generated packages to the PyPi Index (pypi.org)</span>
-</pre></div>
-</div>
+<p>Changes to the documentation will be auto-deployed by a webhook to
+<a class="reference external" href="https://hexonet-python-sdk.readthedocs.io">readthedocs.org</a> and to <a class="reference external" href="https://hexonet.github.io/python-sdk">github pages</a>.</p>
 <p>The module can be accessed on the <a class="reference external" href="https://pypi.org/project/hexonet.apiconnector/">PyPi (Live) Index</a> and the
 <a class="reference external" href="https://test.pypi.org/project/hexonet.apiconnector/">PyPi (Test) Index</a>.</p>
 </div>
@@ -247,7 +234,9 @@ the below script:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/generatedocs.sh
 </pre></div>
 </div>
-<p>The generated files are then available in subfolder “docs/_build/html”.</p>
+<p>The generated files are then available in subfolder “docs/_build/html”.
+We regenerate the SDK Documentation whenever a new tag commit reaches
+the master branch.</p>
 </div>
 </div>
 
@@ -284,7 +273,7 @@ the below script:</p>
         <li class="right" >
           <a href="contributing.html" title="Contributing"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 1.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
 <script type="text/javascript">

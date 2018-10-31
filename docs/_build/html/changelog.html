@@ -15,13 +15,14 @@
   <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Changelog &#8212; hexonet.apiconnector 1.2 documentation</title>
+    <title>Changelog &#8212; hexonet.apiconnector 2.0 documentation</title>
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -46,7 +47,7 @@
         <li class="right" >
           <a href="upgrading.html" title="Upgrading to Newer Releases"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 1.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -56,7 +57,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 1.2.7</a>
+    index.html" class="text-logo">hexonet.apiconnector 2.0.0</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -76,17 +77,11 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#july-2018">1.2.7 (17 July 2018)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">1.2.6 (12 July 2018)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">1.2.5 (9 July 2018)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">1.2.4 (9 July 2018)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">1.2.3 (9 July 2018)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id12">1.2.2 (9 July 2018)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">1.2.1 (9 July 2018)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id16">1.2.0 (9 July 2018)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id18">1.1.0 (9 July 2018)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id19">1.0.0 (9 July 2018)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id3">2.0.0 (2018-10-31)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-refactoring">Code Refactoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#breaking-changes">BREAKING CHANGES</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -103,17 +98,23 @@
     <h2>Contents</h2>
     <div class="sidebar-localtoc">
       <ul>
-<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#">Changelog</a></li>
+<li><a class="reference internal" href="#id3">2.0.0 (2018-10-31)</a><ul>
+<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li><a class="reference internal" href="#code-refactoring">Code Refactoring</a></li>
+<li><a class="reference internal" href="#breaking-changes">BREAKING CHANGES</a><ul>
 <li><a class="reference internal" href="#july-2018">1.2.7 (17 July 2018)</a></li>
-<li><a class="reference internal" href="#id4">1.2.6 (12 July 2018)</a></li>
-<li><a class="reference internal" href="#id6">1.2.5 (9 July 2018)</a></li>
-<li><a class="reference internal" href="#id8">1.2.4 (9 July 2018)</a></li>
-<li><a class="reference internal" href="#id10">1.2.3 (9 July 2018)</a></li>
-<li><a class="reference internal" href="#id12">1.2.2 (9 July 2018)</a></li>
-<li><a class="reference internal" href="#id14">1.2.1 (9 July 2018)</a></li>
-<li><a class="reference internal" href="#id16">1.2.0 (9 July 2018)</a></li>
-<li><a class="reference internal" href="#id18">1.1.0 (9 July 2018)</a></li>
-<li><a class="reference internal" href="#id19">1.0.0 (9 July 2018)</a></li>
+<li><a class="reference internal" href="#id6">1.2.6 (12 July 2018)</a></li>
+<li><a class="reference internal" href="#id8">1.2.5 (9 July 2018)</a></li>
+<li><a class="reference internal" href="#id10">1.2.4 (9 July 2018)</a></li>
+<li><a class="reference internal" href="#id12">1.2.3 (9 July 2018)</a></li>
+<li><a class="reference internal" href="#id14">1.2.2 (9 July 2018)</a></li>
+<li><a class="reference internal" href="#id16">1.2.1 (9 July 2018)</a></li>
+<li><a class="reference internal" href="#id18">1.2.0 (9 July 2018)</a></li>
+<li><a class="reference internal" href="#id20">1.1.0 (9 July 2018)</a></li>
+<li><a class="reference internal" href="#id21">1.0.0 (9 July 2018)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -151,9 +152,29 @@
             
   <div class="section" id="changelog">
 <span id="id1"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="id3">
+<h1><a class="reference external" href="https://github.com/hexonet/python-sdk.git/compare/v1.2.7...v2.0.0">2.0.0</a> (2018-10-31)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>semantic-release:</strong> missing setup (<a class="reference external" href="https://github.com/hexonet/python-sdk.git/commit/f100c3e">f100c3e</a>)</li>
+</ul>
+</div>
+<div class="section" id="code-refactoring">
+<h2>Code Refactoring<a class="headerlink" href="#code-refactoring" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>pkg:</strong> migrate to cross-SDK UML diagram (<a class="reference external" href="https://github.com/hexonet/python-sdk.git/commit/52a78a2">52a78a2</a>)</li>
+</ul>
+</div>
+<div class="section" id="breaking-changes">
+<h2>BREAKING CHANGES<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>pkg:</strong> rewrite from scratch to align the structure of our SDKs; downward incompatible</li>
+</ul>
 <p>All notable changes to this project will be documented in this file. Dates are displayed in UTC.</p>
 <div class="section" id="july-2018">
-<h2><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.6...1.2.7">1.2.7</a> (17 July 2018)<a class="headerlink" href="#july-2018" title="Permalink to this headline">¶</a></h2>
+<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.6...1.2.7">1.2.7</a> (17 July 2018)<a class="headerlink" href="#july-2018" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>added tests and coverage reporting <cite>``7440bce`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/7440bce90542b66382d9cee85e84c335286d0e0c">https://github.com/hexonet/python-sdk/commit/7440bce90542b66382d9cee85e84c335286d0e0c</a>&gt;`_</li>
 <li>updated docs <cite>``6cacf3f`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/6cacf3f5467fb44743784632ce316b58036fdfef">https://github.com/hexonet/python-sdk/commit/6cacf3f5467fb44743784632ce316b58036fdfef</a>&gt;`_</li>
@@ -167,8 +188,8 @@
 <li>Update README.md <cite>``97e9500`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/97e950030a63d3ac8c0706a7a30c096957703ae8">https://github.com/hexonet/python-sdk/commit/97e950030a63d3ac8c0706a7a30c096957703ae8</a>&gt;`_</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.5...1.2.6">1.2.6</a> (12 July 2018)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.5...1.2.6">1.2.6</a> (12 July 2018)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>minor code review; migrated to sphinx documenation <cite>``da40a40`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/da40a40e81217bc4218d5de95adcc12ab95c3cb7">https://github.com/hexonet/python-sdk/commit/da40a40e81217bc4218d5de95adcc12ab95c3cb7</a>&gt;`_</li>
 <li>added development guide <cite>``ffb6b7c`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/ffb6b7cd129e794f75dcf6bbc3b2ca32248fb736">https://github.com/hexonet/python-sdk/commit/ffb6b7cd129e794f75dcf6bbc3b2ca32248fb736</a>&gt;`_</li>
@@ -193,52 +214,52 @@
 <li>linted contents.rst.inc <cite>``9f93c48`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/9f93c48d5f112f948320bc50069f404fa02ea607">https://github.com/hexonet/python-sdk/commit/9f93c48d5f112f948320bc50069f404fa02ea607</a>&gt;`_</li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.4...1.2.5">1.2.5</a> (9 July 2018)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.4...1.2.5">1.2.5</a> (9 July 2018)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>fix six import path <cite>``a9ec1a1`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/a9ec1a1547637535220b33eb86a8172a53634879">https://github.com/hexonet/python-sdk/commit/a9ec1a1547637535220b33eb86a8172a53634879</a>&gt;`_</li>
 <li>updated changelog <cite>``9e775a8`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/9e775a850af227ecfd227b3b838f989daf63edff">https://github.com/hexonet/python-sdk/commit/9e775a850af227ecfd227b3b838f989daf63edff</a>&gt;`_</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h2><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.3...1.2.4">1.2.4</a> (9 July 2018)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.3...1.2.4">1.2.4</a> (9 July 2018)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>updated changelog <cite>``c5601be`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/c5601beb264c7b7e763e88e11aafcc93da310edd">https://github.com/hexonet/python-sdk/commit/c5601beb264c7b7e763e88e11aafcc93da310edd</a>&gt;`_</li>
 <li>fix six import paths <cite>``e304262`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/e3042628792eefce6168b93220308b138647c8f0">https://github.com/hexonet/python-sdk/commit/e3042628792eefce6168b93220308b138647c8f0</a>&gt;`_</li>
 <li>set version 1.2.4 <cite>``655b886`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/655b88658c9c0b1db1be39af8700eb900a19ec87">https://github.com/hexonet/python-sdk/commit/655b88658c9c0b1db1be39af8700eb900a19ec87</a>&gt;`_</li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h2><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.2...1.2.3">1.2.3</a> (9 July 2018)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.2...1.2.3">1.2.3</a> (9 July 2018)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>import renaming <cite>``bd7dc80`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/bd7dc80c9decaccb480333aa4fe51db0c3722389">https://github.com/hexonet/python-sdk/commit/bd7dc80c9decaccb480333aa4fe51db0c3722389</a>&gt;`_</li>
 <li>set version to 1.2.2 <cite>``5642b54`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/5642b54c25dd3410f699fb54e0f97a4ee1957109">https://github.com/hexonet/python-sdk/commit/5642b54c25dd3410f699fb54e0f97a4ee1957109</a>&gt;`_</li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h2><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.1...1.2.2">1.2.2</a> (9 July 2018)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.1...1.2.2">1.2.2</a> (9 July 2018)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>try import renaming <cite>``d3fa6ae`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/d3fa6ae84e8bc0c6ec941964445085b5ea3f3da6">https://github.com/hexonet/python-sdk/commit/d3fa6ae84e8bc0c6ec941964445085b5ea3f3da6</a>&gt;`_</li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h2><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.0...1.2.1">1.2.1</a> (9 July 2018)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.2.0...1.2.1">1.2.1</a> (9 July 2018)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>test renamed imports <cite>``0999708`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/09997081ddf7c65a6f25fa1827cfb07fd68f82c5">https://github.com/hexonet/python-sdk/commit/09997081ddf7c65a6f25fa1827cfb07fd68f82c5</a>&gt;`_</li>
 <li>updated changelog <cite>``eb5e6d4`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/eb5e6d408f088b34172414ed9283fb0fc20e3df3">https://github.com/hexonet/python-sdk/commit/eb5e6d408f088b34172414ed9283fb0fc20e3df3</a>&gt;`_</li>
 <li>set version 1.2.1 <cite>``2d98115`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/2d9811500081c0940e3f340af9265b1c66f36893">https://github.com/hexonet/python-sdk/commit/2d9811500081c0940e3f340af9265b1c66f36893</a>&gt;`_</li>
 </ul>
 </div>
-<div class="section" id="id16">
-<h2><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.1.0...1.2.0">1.2.0</a> (9 July 2018)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.1.0...1.2.0">1.2.0</a> (9 July 2018)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>introduced six for py2 and py3 support <cite>``fa7403a`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/fa7403a9b18dc11b9cf8c74da603c12cee01477a">https://github.com/hexonet/python-sdk/commit/fa7403a9b18dc11b9cf8c74da603c12cee01477a</a>&gt;`_</li>
 <li>updated changelog <cite>``a0f7e2f`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/a0f7e2f3418d238f2d4884d786c0d62383d3d0c9">https://github.com/hexonet/python-sdk/commit/a0f7e2f3418d238f2d4884d786c0d62383d3d0c9</a>&gt;`_</li>
 <li>apiconnector version 1.2.0 <cite>``85ec52f`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/85ec52f18007de6a9d37889cd1b20711968749fa">https://github.com/hexonet/python-sdk/commit/85ec52f18007de6a9d37889cd1b20711968749fa</a>&gt;`_</li>
 </ul>
 </div>
-<div class="section" id="id18">
-<h2><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.0.0...1.1.0">1.1.0</a> (9 July 2018)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/1.0.0...1.1.0">1.1.0</a> (9 July 2018)<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>added pep8 scripts and code refactoring <cite>``95e0199`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/95e0199073c19f842778d133ceea8d11a7f64ded">https://github.com/hexonet/python-sdk/commit/95e0199073c19f842778d133ceea8d11a7f64ded</a>&gt;`_</li>
 <li>added sdk documentation and generator script <cite>``01fe1e0`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/01fe1e0b858690ad95a3e611b9871067af3132be">https://github.com/hexonet/python-sdk/commit/01fe1e0b858690ad95a3e611b9871067af3132be</a>&gt;`_</li>
@@ -246,8 +267,8 @@
 <li>update apiconnector version <cite>``f1804eb`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/f1804eb7bbb48c6e338f5b065dc935820ddcc595">https://github.com/hexonet/python-sdk/commit/f1804eb7bbb48c6e338f5b065dc935820ddcc595</a>&gt;`_</li>
 </ul>
 </div>
-<div class="section" id="id19">
-<h2>1.0.0 (9 July 2018)<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id21">
+<h3>1.0.0 (9 July 2018)<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>initial PyPi package release <cite>``eb2ac4c`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/eb2ac4c6458a3620938e429878582e0b1ab93f00">https://github.com/hexonet/python-sdk/commit/eb2ac4c6458a3620938e429878582e0b1ab93f00</a>&gt;`_</li>
 <li>ignore .vscode subfolder <cite>``67430e3`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/67430e3419237823839b2946c324a93d7d8de22c">https://github.com/hexonet/python-sdk/commit/67430e3419237823839b2946c324a93d7d8de22c</a>&gt;`_</li>
@@ -259,6 +280,7 @@
 <li>support for python &gt; 3; also backward compatible <cite>``2756429`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/27564296dcd0e0a388ce45b0e77c467e6d927a31">https://github.com/hexonet/python-sdk/commit/27564296dcd0e0a388ce45b0e77c467e6d927a31</a>&gt;`_</li>
 <li>Initial commit <cite>``c89c917`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/c89c917845cda5cef9e4f3a4fb5dc9d022e48006">https://github.com/hexonet/python-sdk/commit/c89c917845cda5cef9e4f3a4fb5dc9d022e48006</a>&gt;`_</li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -295,7 +317,7 @@
         <li class="right" >
           <a href="upgrading.html" title="Upgrading to Newer Releases"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 1.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
 <script type="text/javascript">

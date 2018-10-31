@@ -14,6 +14,9 @@ from hexonet.apiconnector.apiclient import APIClient as AC
 cl = AC()
 cl.useOTESystem()
 cl.setCredentials('test.user', 'test.passw0rd')
+# use the below method in case you have an active
+# ip filter setting
+cl.setRemoteIPAddress('1.2.3.4') 
 
 # Call a command
 r = cl.request({
@@ -34,6 +37,7 @@ description = r.getDescription()
 cl = AC()
 cl.useOTESystem()
 cl.setCredentials('test.user', 'test.passw0rd')
+cl.setRemoteIPAddress('1.2.3.4')
 
 # Call a command
 r = cl.login()
