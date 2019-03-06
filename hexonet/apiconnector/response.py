@@ -36,9 +36,6 @@ class Response(RT, object):
         self.__records = []
 
         h = self.getHash()
-        print(raw)
-        print(self.getPlain())
-        print(self.__columnkeys)
         if ("PROPERTY" in h):
             colKeys = h["PROPERTY"].keys()
             count = 0
