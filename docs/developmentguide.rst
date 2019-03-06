@@ -60,8 +60,10 @@ Pull Request (PR) Procedure
 * fork our project and create a new branch.
 * clone it and check this branch out
 * apply your desired changes / extensions
-* commit and push it to remote
-* open a pull request (PR)
+* commit and push it to remote. Please follow these format rules_.
+  We suggest to use commitizen_.
+* open a pull request (PR) - check results of Travis CI.
+  There are possibly Code issues you can correct.
 
 **We care then about the rest** - no need to worry about things like
 building current realease and versioning.
@@ -72,6 +74,9 @@ The below sections are just for our reference.
 TIA for your PR and thus for your support of this project. As we have
 further SDKs in other languages, it might take a bit of time to check
 if we can role out that PR as we want to keep all our SDKs aligned.
+
+.. _rules: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines)
+.. _commitizen:  https://github.com/commitizen/cz-cli/blob/master/README.md
 
 Versioning
 ----------
