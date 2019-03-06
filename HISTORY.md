@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/hexonet/python-sdk/compare/v2.0.1...v2.0.2) (2019-03-06)
+
+
+### Bug Fixes
+
+* **response:** remove deprecated debug outputs ([70dbe7e](https://github.com/hexonet/python-sdk/commit/70dbe7e))
+
 ## [2.0.1](https://github.com/hexonet/python-sdk.git/compare/v2.0.0...v2.0.1) (2018-10-31)
 
 

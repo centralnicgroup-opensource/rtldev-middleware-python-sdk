@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -57,7 +57,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 2.0.1</a>
+    index.html" class="text-logo">hexonet.apiconnector 2.0.2</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -78,7 +78,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id5">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id8">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Development Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
@@ -149,18 +149,18 @@
 <div class="section" id="requirements">
 <span id="id1"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>You can find any required library for this project in the <em>requirements.txt</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">autopep8</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">autopep8</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">3</span>
 <span class="n">docutils</span><span class="o">==</span><span class="mf">0.14</span>
 <span class="n">guzzle</span><span class="o">-</span><span class="n">sphinx</span><span class="o">-</span><span class="n">theme</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">11</span>
 <span class="n">m2r</span><span class="o">==</span><span class="mf">0.2</span><span class="o">.</span><span class="mi">1</span>
 <span class="n">pep8</span><span class="o">==</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">1</span>
-<span class="n">pycodestyle</span><span class="o">==</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pycodestyle</span><span class="o">==</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">0</span>
 <span class="o">-</span><span class="n">e</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pytest</span><span class="o">-</span><span class="n">dev</span><span class="o">/</span><span class="n">pytest</span><span class="o">-</span><span class="n">cov</span><span class="nd">@master</span><span class="c1">#egg=pytestcov</span>
-<span class="n">six</span><span class="o">==</span><span class="mf">1.11</span><span class="o">.</span><span class="mi">0</span>
-<span class="n">Sphinx</span><span class="o">==</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">six</span><span class="o">==</span><span class="mf">1.12</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">Sphinx</span><span class="o">==</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">4</span>
 <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">log</span><span class="o">-</span><span class="n">cabinet</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span>
 <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">websupport</span><span class="o">==</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">0</span>
-<span class="n">pip</span><span class="o">==</span><span class="mf">18.1</span>
+<span class="n">pip</span><span class="o">==</span><span class="mf">19.0</span><span class="o">.</span><span class="mi">3</span>
 <span class="n">twine</span><span class="o">==</span><span class="mf">1.12</span><span class="o">.</span><span class="mi">1</span>
 </pre></div>
 </div>
@@ -197,8 +197,10 @@ these checks in advance.</p>
 <li>fork our project and create a new branch.</li>
 <li>clone it and check this branch out</li>
 <li>apply your desired changes / extensions</li>
-<li>commit and push it to remote</li>
-<li>open a pull request (PR)</li>
+<li>commit and push it to remote. Please follow these format <a class="reference external" href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines)">rules</a>.
+We suggest to use <a class="reference external" href="https://github.com/commitizen/cz-cli/blob/master/README.md">commitizen</a>.</li>
+<li>open a pull request (PR) - check results of Travis CI.
+There are possibly Code issues you can correct.</li>
 </ul>
 <p><strong>We care then about the rest</strong> - no need to worry about things like
 building current realease and versioning.</p>
