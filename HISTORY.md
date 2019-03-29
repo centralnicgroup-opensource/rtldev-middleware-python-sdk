@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/hexonet/python-sdk/compare/v2.0.2...v2.1.0) (2019-03-29)
+
+
+### Features
+
+* **apiclient:** review useragent support ([4b4d9a7](https://github.com/hexonet/python-sdk/commit/4b4d9a7))
+
 ## [2.0.2](https://github.com/hexonet/python-sdk/compare/v2.0.1...v2.0.2) (2019-03-06)
 
 

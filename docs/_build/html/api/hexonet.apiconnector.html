@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>hexonet.apiconnector package &#8212; hexonet.apiconnector 2.0 documentation</title>
+    <title>hexonet.apiconnector package &#8212; hexonet.apiconnector 2.1 documentation</title>
     <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -47,7 +47,7 @@
         <li class="right" >
           <a href="hexonet.html" title="hexonet package"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">hexonet.apiconnector 2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">hexonet.apiconnector 2.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../api.html" >SDK Documentation</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="hexonet.html" accesskey="U">hexonet package</a> &#187;</li> 
       </ul>
@@ -59,7 +59,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../index.html" class="text-logo">hexonet.apiconnector 2.0.2</a>
+    ../index.html" class="text-logo">hexonet.apiconnector 2.1.0</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -84,7 +84,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id8">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id3">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id10">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developmentguide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
@@ -202,6 +203,12 @@ with our Backend System.
 </dd></dl>
 
 <dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.getUserAgent">
+<code class="descname">getUserAgent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.getUserAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the User Agent</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hexonet.apiconnector.apiclient.APIClient.getVersion">
 <code class="descname">getVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.getVersion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current module version</p>
@@ -299,6 +306,12 @@ To be used in case you have an active ip filter setting.</p>
 <dt id="hexonet.apiconnector.apiclient.APIClient.setURL">
 <code class="descname">setURL</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.setURL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set another connection url to be used for API communication</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hexonet.apiconnector.apiclient.APIClient.setUserAgent">
+<code class="descname">setUserAgent</code><span class="sig-paren">(</span><em>pid</em>, <em>rv</em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient.setUserAgent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Possibility to customize default user agent to fit your needs by given string and revision</p>
 </dd></dl>
 
 <dl class="method">
@@ -818,7 +831,7 @@ pre-configure http communication with our Backend System.
         <li class="right" >
           <a href="hexonet.html" title="hexonet package"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">hexonet.apiconnector 2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">hexonet.apiconnector 2.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../api.html" >SDK Documentation</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="hexonet.html" >hexonet package</a> &#187;</li> 
       </ul>
