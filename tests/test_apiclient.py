@@ -111,7 +111,7 @@ def test_apiclientmethods():
     pyv = platform.python_version()
     pf = platform.system()
     arch = platform.architecture()[0]
-    ua = "%s (%s %s rv:%s) python/%s" % (pid, pf, arch, cl.getVersion(), pyv)
+    ua = "%s (%s; %s; rv:%s) python/%s" % (pid, pf, arch, cl.getVersion(), pyv)
     assert cl.getUserAgent() == ua
 
     # #.setUserAgent()
@@ -121,7 +121,7 @@ def test_apiclientmethods():
     pyv = platform.python_version()
     pf = platform.system()
     arch = platform.architecture()[0]
-    ua = "%s (%s %s rv:%s) %s/%s python/%s" % (pid, pf, arch, rv, pid2, cl.getVersion(), pyv)
+    ua = "%s (%s; %s; rv:%s) %s/%s python/%s" % (pid, pf, arch, rv, pid2, cl.getVersion(), pyv)
     cl.setUserAgent(pid, rv)
     assert cl.getUserAgent() == ua
 

@@ -84,7 +84,7 @@ class APIClient(object):
             pyv = platform.python_version()
             pf = platform.system()
             arch = platform.architecture()[0]
-            self.__ua = "%s (%s %s rv:%s) python/%s" % (pid, pf, arch, self.getVersion(), pyv)
+            self.__ua = "%s (%s; %s; rv:%s) python/%s" % (pid, pf, arch, self.getVersion(), pyv)
         return self.__ua
 
     def setUserAgent(self, pid, rv):
@@ -94,7 +94,7 @@ class APIClient(object):
         pyv = platform.python_version()
         pf = platform.system()
         arch = platform.architecture()[0]
-        self.__ua = "%s (%s %s rv:%s) python-sdk/%s python/%s" % (pid, pf, arch, rv, self.getVersion(), pyv)
+        self.__ua = "%s (%s; %s; rv:%s) python-sdk/%s python/%s" % (pid, pf, arch, rv, self.getVersion(), pyv)
 
     def getVersion(self):
         """
