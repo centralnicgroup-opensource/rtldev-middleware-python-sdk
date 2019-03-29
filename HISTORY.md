@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/hexonet/python-sdk/compare/v2.1.0...v2.1.1) (2019-03-29)
+
+
+### Bug Fixes
+
+* **apiclient:** fix useragent string. missing semicolon ([8161b41](https://github.com/hexonet/python-sdk/commit/8161b41))
+
 # [2.1.0](https://github.com/hexonet/python-sdk/compare/v2.0.2...v2.1.0) (2019-03-29)
 
 
