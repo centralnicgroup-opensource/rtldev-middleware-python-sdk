@@ -17,6 +17,7 @@ import re
 from six.moves.urllib.request import urlopen, Request
 from six.moves.urllib.parse import urlparse, urlencode
 import copy
+import platform
 
 rtm = RTM()
 
@@ -33,6 +34,8 @@ class APIClient(object):
         # API connection timeout setting
         self.__socketTimeout = 300000
         self.useLIVESystem()
+        # user agent setting
+        self.__ua = ""
 
     def enableDebugMode(self):
         """
@@ -71,6 +74,27 @@ class APIClient(object):
         Get the API connection url that is currently set
         """
         return self.__socketURL
+
+    def getUserAgent(self):
+        """
+        Get the User Agent
+        """
+        if (len(self.__ua) == 0):
+            pid = "PYTHON-SDK"
+            pyv = platform.python_version()
+            pf = platform.system()
+            arch = platform.architecture()[0]
+            self.__ua = "%s (%s %s rv:%s) python/%s" % (pid, pf, arch, self.getVersion(), pyv)
+        return self.__ua
+
+    def setUserAgent(self, pid, rv):
+        """
+        Possibility to customize default user agent to fit your needs by given string and revision
+        """
+        pyv = platform.python_version()
+        pf = platform.system()
+        arch = platform.architecture()[0]
+        self.__ua = "%s (%s %s rv:%s) python-sdk/%s python/%s" % (pid, pf, arch, rv, self.getVersion(), pyv)
 
     def getVersion(self):
         """
