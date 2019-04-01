@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Welcome to hexonet.apiconnector &#8212; hexonet.apiconnector 2.1 documentation</title>
+    <title>Welcome to hexonet.apiconnector &#8212; hexonet.apiconnector 3.0 documentation</title>
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="foreword.html" title="Foreword"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">hexonet.apiconnector 2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">hexonet.apiconnector 3.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -53,7 +53,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    #" class="text-logo">hexonet.apiconnector 2.1.2</a>
+    #" class="text-logo">hexonet.apiconnector 3.0.0</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -74,8 +74,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id8">2.1.0 (2019-03-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id16">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id3">3.0.0 (2019-04-01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id10">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id18">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developmentguide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -193,17 +194,26 @@ method, this part of the documentation is for you.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">2.1.2 (2019-04-01)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">2.1.1 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id3">3.0.0 (2019-04-01)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#code-refactoring">Code Refactoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#breaking-changes">BREAKING CHANGES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">Bug Fixes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id8">2.1.0 (2019-03-29)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">2.0.2 (2019-03-06)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">2.0.1 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id10">2.1.0 (2019-03-29)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id16">Bug Fixes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id16">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id18">2.0.0 (2018-10-31)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id19">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id20">Code Refactoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id21">BREAKING CHANGES</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-process">Pull Request Process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#code-of-conduct">Code of Conduct</a></li>
@@ -256,7 +266,7 @@ method, this part of the documentation is for you.</p>
         <li class="right" >
           <a href="foreword.html" title="Foreword"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">hexonet.apiconnector 2.1 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">hexonet.apiconnector 3.0 documentation</a> &#187;</li> 
       </ul>
     </div>
 <script type="text/javascript">

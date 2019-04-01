@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/hexonet/python-sdk/compare/v2.1.2...v3.0.0) (2019-04-01)
+
+
+### Code Refactoring
+
+* **pkg:** python 2 support removal ([11351aa](https://github.com/hexonet/python-sdk/commit/11351aa))
+
+
+### BREAKING CHANGES
+
+* **pkg:** drop python 2 support
+
 ## [2.1.2](https://github.com/hexonet/python-sdk/compare/v2.1.1...v2.1.2) (2019-04-01)
 
 
