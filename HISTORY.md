@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/hexonet/python-sdk/compare/v2.1.1...v2.1.2) (2019-04-01)
+
+
+### Bug Fixes
+
+* **apiclient:** fix usage of user agent header field ([bbd9095](https://github.com/hexonet/python-sdk/commit/bbd9095))
+
 ## [2.1.1](https://github.com/hexonet/python-sdk/compare/v2.1.0...v2.1.1) (2019-03-29)
 
 
