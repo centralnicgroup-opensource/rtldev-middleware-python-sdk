@@ -1,5 +1,5 @@
 language: python
-dist: trusty
+dist: xenial
 notifications:
   email:
     recipients:
@@ -12,8 +12,10 @@ notifications:
     on_success: always
     on_failure: always
 python:
-  - '2.7'
+  - '3.4'
+  - '3.5'
   - '3.6'
+  - '3.7'
 cache:
   directories:
   - "~/.npm"
