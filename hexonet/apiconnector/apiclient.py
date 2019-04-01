@@ -212,7 +212,7 @@ class APIClient(object):
         # TODO: 300s (to be sure to get an API response)
         try:
             req = Request(self.__socketURL, data, {
-                'User-Agent': 'python-sdk::' + self.getVersion()
+                'User-Agent': self.getUserAgent()
             })
             body = urlopen(req, timeout=self.__socketTimeout).read()
             if (self.__debugMode):
