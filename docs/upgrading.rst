@@ -14,11 +14,7 @@ hexonet.apiconnector. Such breaking changes are covered through major releases.
 Use the :command:`pip` command to upgrade your existing hexonet.apiconnector
 installation by providing the ``--upgrade`` parameter::
 
-    $ pip install --upgrade hexonet.apiconnector --user
-    # for python 2.x
-
-    $ pip3 install --upgrade hexonet.apiconnector --user
-    # for python 3.x
+    $ pip3 install --upgrade hexonet.apiconnector
 
 See the how to migrate your code by reading the `release notes`_.
 We publish there any information on how to migrate.
