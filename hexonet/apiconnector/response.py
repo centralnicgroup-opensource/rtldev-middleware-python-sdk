@@ -37,7 +37,7 @@ class Response(RT, object):
 
         h = self.getHash()
         if ("PROPERTY" in h):
-            colKeys = h["PROPERTY"].keys()
+            colKeys = list(h["PROPERTY"].keys())
             count = 0
             for c in colKeys:
                 d = h["PROPERTY"][c]

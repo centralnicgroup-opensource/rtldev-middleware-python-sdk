@@ -8,7 +8,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from six.moves.urllib.parse import quote, unquote
+from urllib.parse import quote, unquote
 
 
 class SocketConfig(object):

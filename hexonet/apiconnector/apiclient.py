@@ -11,11 +11,9 @@
 from hexonet.apiconnector.response import Response
 from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
 from hexonet.apiconnector.socketconfig import SocketConfig
-from six.moves.urllib.parse import quote, unquote
-from six import string_types
+from urllib.parse import quote, unquote, urlparse, urlencode
+from urllib.request import urlopen, Request
 import re
-from six.moves.urllib.request import urlopen, Request
-from six.moves.urllib.parse import urlparse, urlencode
 import copy
 import platform
 
@@ -57,8 +55,8 @@ class APIClient(object):
         """
         data = self.__socketConfig.getPOSTData()
         tmp = ""
-        if not isinstance(cmd, string_types):
-            for key in cmd.keys():
+        if not isinstance(cmd, str):
+            for key in sorted(cmd.keys()):
                 if (cmd[key] is not None):
                     tmp += ("{0}={1}\n").format(key, re.sub('[\r\n]', '', str(cmd[key])))
         return ("{0}{1}={2}").format(data, quote('s_command'), quote(re.sub('\n$', '', tmp)))
@@ -216,11 +214,11 @@ class APIClient(object):
             })
             body = urlopen(req, timeout=self.__socketTimeout).read()
             if (self.__debugMode):
-                print(self.__socketURL, data, body, '\n', '\n')
+                print((self.__socketURL, data, body, '\n', '\n'))
         except Exception:
             body = rtm.getTemplate("httperror").getPlain()
             if (self.__debugMode):
-                print(self.__socketURL, data, "HTTP communication failed", body, '\n', '\n')
+                print((self.__socketURL, data, "HTTP communication failed", body, '\n', '\n'))
         return Response(body, cmd)
 
     def requestNextResponsePage(self, rr):
@@ -293,6 +291,6 @@ class APIClient(object):
         Translate all command parameter names to uppercase
         """
         newcmd = {}
-        for k in cmd.keys():
+        for k in list(cmd.keys()):
             newcmd[k.upper()] = cmd[k]
         return newcmd

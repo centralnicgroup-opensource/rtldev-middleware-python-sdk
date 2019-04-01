@@ -42,7 +42,6 @@ setup(
     url='https://github.com/hexonet/python-sdk/',
     install_require=[
         'autopep8',
-        'six',
         'guzzle_sphinx_theme',
         'pycodestyle',
         'sphinx',
@@ -51,7 +50,6 @@ setup(
     ],
     setup_requires=[
         'autopep8',
-        'six',
         'guzzle_sphinx_theme',
         'pycodestyle',
         'sphinx',
@@ -63,7 +61,6 @@ setup(
     scripts=[],
     zip_safe=True,
     classifiers=(
-        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent"

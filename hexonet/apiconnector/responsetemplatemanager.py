@@ -70,7 +70,7 @@ class ResponseTemplateManager(object):
         Return all available response templates
         """
         tpls = {}
-        for key in self.__templates.keys():
+        for key in list(self.__templates.keys()):
             tpls[key] = RT(self.__templates[key])
         return tpls
 

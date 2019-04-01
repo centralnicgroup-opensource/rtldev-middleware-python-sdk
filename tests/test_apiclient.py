@@ -10,10 +10,10 @@ def test_apiclientmethods():
     rtm = RTM.getInstance()
     rtm.addTemplate(
         'login200',
-        '[RESPONSE]\r\nPROPERTY[SESSION][0]=h8JLZZHdF2WgWWXlwbKWzEG3XrzoW4y'
-        + 'shhvtqyg0LCYiX55QnhgYX9cB0W4mlpbx\r\nDESCRIPTION=Command completed'
-        + ' successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.169\r\nEOF\r'
-        + '\n'
+        '[RESPONSE]\r\nPROPERTY[SESSION][0]=h8JLZZHdF2WgWWXlwbKWzEG3XrzoW4y' +
+        'shhvtqyg0LCYiX55QnhgYX9cB0W4mlpbx\r\nDESCRIPTION=Command completed' +
+        ' successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.169\r\nEOF\r' +
+        '\n'
     )
     rtm.addTemplate(
         'login500',
@@ -25,50 +25,50 @@ def test_apiclientmethods():
     )
     rtm.addTemplate(
         'listP0',
-        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=2701\r\nPROPERTY[FIRST][0]=0\r\nP'
-        + 'ROPERTY[DOMAIN][0]=0-60motorcycletimes.com\r\nPROPERTY[DOMAIN][1]='
-        + '0-be-s01-0.com\r\nPROPERTY[COUNT][0]=2\r\nPROPERTY[LAST][0]=1\r\nP'
-        + 'ROPERTY[LIMIT][0]=2\r\nDESCRIPTION=Command completed successfully'
-        + '\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.023\r\nEOF\r\n'
+        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=2701\r\nPROPERTY[FIRST][0]=0\r\nP' +
+        'ROPERTY[DOMAIN][0]=0-60motorcycletimes.com\r\nPROPERTY[DOMAIN][1]=' +
+        '0-be-s01-0.com\r\nPROPERTY[COUNT][0]=2\r\nPROPERTY[LAST][0]=1\r\nP' +
+        'ROPERTY[LIMIT][0]=2\r\nDESCRIPTION=Command completed successfully' +
+        '\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.023\r\nEOF\r\n'
     )
     rtm.addTemplate(
         'listP1',
-        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=2701\r\nPROPERTY[FIRST][0]=2\r\nP'
-        + 'ROPERTY[DOMAIN][0]=0-qas-ao17-0.org\r\nPROPERTY[DOMAIN][1]=0-sunny'
-        + 'da222y.com\r\nPROPERTY[COUNT][0]=2\r\nPROPERTY[LAST][0]=3\r\nPROPE'
-        + 'RTY[LIMIT][0]=2\r\nDESCRIPTION=Command completed successfully\r\nC'
-        + 'ODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.032\r\nEOF\r\n'
+        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=2701\r\nPROPERTY[FIRST][0]=2\r\nP' +
+        'ROPERTY[DOMAIN][0]=0-qas-ao17-0.org\r\nPROPERTY[DOMAIN][1]=0-sunny' +
+        'da222y.com\r\nPROPERTY[COUNT][0]=2\r\nPROPERTY[LAST][0]=3\r\nPROPE' +
+        'RTY[LIMIT][0]=2\r\nDESCRIPTION=Command completed successfully\r\nC' +
+        'ODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.032\r\nEOF\r\n'
     )
     rtm.addTemplate(
         'listFP0',
-        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=3\r\nPROPERTY[FIRST][0]=0\r\nPROP'
-        + 'ERTY[DOMAIN][0]=0-60motorcycletimes.com\r\nPROPERTY[COUNT][0]=1\r'
-        + '\nPROPERTY[LAST][0]=1\r\nPROPERTY[LIMIT][0]=1\r\nDESCRIPTION=Comma'
-        + 'nd completed successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.'
-        + '023\r\nEOF\r\n'
+        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=3\r\nPROPERTY[FIRST][0]=0\r\nPROP' +
+        'ERTY[DOMAIN][0]=0-60motorcycletimes.com\r\nPROPERTY[COUNT][0]=1\r' +
+        '\nPROPERTY[LAST][0]=1\r\nPROPERTY[LIMIT][0]=1\r\nDESCRIPTION=Comma' +
+        'nd completed successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.' +
+        '023\r\nEOF\r\n'
     )
     rtm.addTemplate(
         'listFP1',
-        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=3\r\nPROPERTY[FIRST][0]=1\r\nPROP'
-        + 'ERTY[DOMAIN][0]=0-be-s01-0.com\r\nPROPERTY[COUNT][0]=1\r\nPROPERTY'
-        + '[LAST][0]=2\r\nPROPERTY[LIMIT][0]=1\r\nDESCRIPTION=Command complet'
-        + 'ed successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.032\r\nEOF'
-        + '\r\n'
+        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=3\r\nPROPERTY[FIRST][0]=1\r\nPROP' +
+        'ERTY[DOMAIN][0]=0-be-s01-0.com\r\nPROPERTY[COUNT][0]=1\r\nPROPERTY' +
+        '[LAST][0]=2\r\nPROPERTY[LIMIT][0]=1\r\nDESCRIPTION=Command complet' +
+        'ed successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.032\r\nEOF' +
+        '\r\n'
     )
     rtm.addTemplate(
         'listFP2',
-        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=3\r\nPROPERTY[FIRST][0]=2\r\nPROP'
-        + 'ERTY[DOMAIN][0]=0-qas-ao17-0.org\r\nPROPERTY[COUNT][0]=2\r\nPROPER'
-        + 'TY[LAST][0]=3\r\nPROPERTY[LIMIT][0]=1\r\nDESCRIPTION=Command compl'
-        + 'eted successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.032\r\nE'
-        + 'OF\r\n'
+        '[RESPONSE]\r\nPROPERTY[TOTAL][0]=3\r\nPROPERTY[FIRST][0]=2\r\nPROP' +
+        'ERTY[DOMAIN][0]=0-qas-ao17-0.org\r\nPROPERTY[COUNT][0]=2\r\nPROPER' +
+        'TY[LAST][0]=3\r\nPROPERTY[LIMIT][0]=1\r\nDESCRIPTION=Command compl' +
+        'eted successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.032\r\nE' +
+        'OF\r\n'
     )
 
     # #.getPOSTData()
     # test object input with special chars
     validate = (
-        's_entity=54cd&s_command=COMMAND%3DModifyDomain%0AAUTH%3Dgwrgwqg%25'
-        + '%26%5C44t3%2A'
+        's_entity=54cd&s_command=AUTH%3Dgwrgwqg%25' +
+        '%26%5C44t3%2A%0ACOMMAND%3DModifyDomain'
     )
     enc = cl.getPOSTData({
         'COMMAND': 'ModifyDomain',
@@ -193,8 +193,7 @@ def test_apiclientmethods():
         'COMMAND': 'StatusAccount'
     })
     exp = (
-        's_entity=54cd&s_remoteaddr=10.10.10.10&s_command=COMMAND%3DStatusA'
-        + 'ccount'
+        's_entity=54cd&s_remoteaddr=10.10.10.10&s_command=COMMAND%3DStatusAccount'
     )
     assert tmp == exp
 
@@ -212,8 +211,7 @@ def test_apiclientmethods():
         'COMMAND': 'StatusAccount'
     })
     exp = (
-        's_entity=54cd&s_login=myaccountid&s_pw=mypassword&s_command=COMMAN'
-        + 'D%3DStatusAccount'
+        's_entity=54cd&s_login=myaccountid&s_pw=mypassword&s_command=COMMAND%3DStatusAccount'
     )
     assert tmp == exp
 
@@ -231,8 +229,7 @@ def test_apiclientmethods():
         'COMMAND': 'StatusAccount'
     })
     exp = (
-        's_entity=54cd&s_login=myaccountid%21myroleid&s_pw=mypassword&s_com'
-        + 'mand=COMMAND%3DStatusAccount'
+        's_entity=54cd&s_login=myaccountid%21myroleid&s_pw=mypassword&s_command=COMMAND%3DStatusAccount'
     )
     assert tmp == exp
 
