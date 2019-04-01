@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/hexonet/python-sdk/compare/v3.0.0...v3.0.1) (2019-04-01)
+
+
+### Bug Fixes
+
+* **docs:** remove python 2 documentation from docs ([81a4586](https://github.com/hexonet/python-sdk/commit/81a4586))
+
 # [3.0.0](https://github.com/hexonet/python-sdk/compare/v2.1.2...v3.0.0) (2019-04-01)
 
 

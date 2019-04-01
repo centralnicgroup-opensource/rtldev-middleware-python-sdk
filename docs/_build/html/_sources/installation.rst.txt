@@ -9,6 +9,9 @@ Python Version
 We recommend using the latest version of Python 3. hexonet.apiconnector
 supports Python 3.x and 2.7.
 
+NOTE: Since v3.x (2019-04-01, yes no joke!), we removed python 2.7
+ compatibility.
+
 
 Dependencies
 ------------
@@ -28,11 +31,7 @@ hexonet.apiconnector:
 
 .. code-block:: sh
 
-    pip install hexonet.apiconnector
-    # for python 2.x
-
     pip3 install hexonet.apiconnector
-    # for python 3.x
 
 The connector library is now installed. Check out the
 :doc:`/quickstart` or go to the
