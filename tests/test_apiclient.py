@@ -122,7 +122,8 @@ def test_apiclientmethods():
     pf = platform.system()
     arch = platform.architecture()[0]
     ua = "%s (%s; %s; rv:%s) %s/%s python/%s" % (pid, pf, arch, rv, pid2, cl.getVersion(), pyv)
-    cl.setUserAgent(pid, rv)
+    cl2 = cl.setUserAgent(pid, rv)
+    assert isinstance(cl2, AC) is True
     assert cl.getUserAgent() == ua
 
     # #.setURL()

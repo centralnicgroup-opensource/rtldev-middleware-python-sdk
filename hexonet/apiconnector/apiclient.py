@@ -93,6 +93,7 @@ class APIClient(object):
         pf = platform.system()
         arch = platform.architecture()[0]
         self.__ua = "%s (%s; %s; rv:%s) python-sdk/%s python/%s" % (pid, pf, arch, rv, self.getVersion(), pyv)
+        return self
 
     def getVersion(self):
         """
