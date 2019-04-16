@@ -28,8 +28,8 @@ def test_responsetemplatemethods():
 
     # #.isPending
     # [not in api response]
-    assert tpl.isPending() == False
+    assert tpl.isPending() is False
     # [in api response]
     tpl2 = ResponseTemplate(
         '[RESPONSE]\r\ncode=423\r\ndescription=Empty API response\r\npending=1\r\nEOF\r\n')
-    assert tpl2.isPending()
+    assert tpl2.isPending() is True
