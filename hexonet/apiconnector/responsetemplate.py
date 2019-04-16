@@ -95,3 +95,11 @@ class ResponseTemplate(object):
         Check if current API response represents a temporary error case (4xx)
         """
         return self.__hash["CODE"][0] == "4"
+
+    def isPending(self):
+        """
+        Check if current operation is returned as pending
+        """
+        if 'PENDING' in self.__hash:
+            return self.__hash["PENDING"] == "1"
+        return False

@@ -25,3 +25,11 @@ def test_responsetemplatemethods():
     assert tpl.getRuntime() == 0.00
     # [in api response]
     assert tpl2.getRuntime() == 0.12
+
+    # #.isPending
+    # [not in api response]
+    assert tpl.isPending() == False
+    # [in api response]
+    tpl2 = ResponseTemplate(
+        '[RESPONSE]\r\ncode=423\r\ndescription=Empty API response\r\npending=1\r\nEOF\r\n')
+    assert tpl2.isPending()
