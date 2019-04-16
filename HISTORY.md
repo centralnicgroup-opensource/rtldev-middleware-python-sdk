@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/hexonet/python-sdk/compare/v3.0.2...v3.1.0) (2019-04-16)
+
+
+### Features
+
+* **responsetemplate:** add isPending method ([c429972](https://github.com/hexonet/python-sdk/commit/c429972))
+
 ## [3.0.2](https://github.com/hexonet/python-sdk/compare/v3.0.1...v3.0.2) (2019-04-04)
 
 
