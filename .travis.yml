@@ -11,25 +11,31 @@ notifications:
       secure: aOQtp4LspmuOoqhLU+e8TPV4OZljA233513ksPl3+c/4i2DfWwkgAIwENa7R8kMzE6p3moNH48p5Wr53KdioON/6AXUoUuJRZYgXIVzHxN1/ef0d0prBsJq6OzRuySv48ZF+aWrY/pyGOn9mQuYz/WiTX7li/V5aeb0JWYyr7QtiMxMYKsG1heYcV0JOa119Q3V1ELry4rxazp4jWsJxuCgUGzyIJYXgzLEF75rj00gQeiGEbpSpaIGTKZk36hX8vUKu0dN0MwycNnBkSPI8hn2oH9eEh0i0UEKkFdCxyIkMTiiMYq3eRlbxQvWFQJgBWhfSzaTTAWLZg81Ml61nS0srMiiUX0v57MSjOPDh6L1JXayUydVPleOoClOkgk+C6lUswVm1uV0mge4apyVOrNs0HidOwT3Ox/qGvr3lx4319NAHDaN0SGr+YxrV5L9RoLx3MIpCLwPNw3mMPea7HtVvn8rujEN6cajphu0mRWy1MM2A2HvkOCbiqQisoJgLbaG+68PheZxyf+tsrg+P54f3SjrtrbmccD4HkzqmxwJnN6pHL0S/VUOuGBAwUpR/KfMBbCvCGtI/12OGe0hsvBXuvTefZVeR1dQfTPT+cq08MVQN6PDwYhGqBUQujKrOfyVUxSQC/s+eZrjM4xYtKslqufa+h3OUNBZ5+/OMTK4=
     on_success: always
     on_failure: always
-python:
-  - '3.5'
-  - '3.6'
-  - '3.7'
 cache:
   directories:
   - "~/.npm"
   - node_modules
+python:
+  - '3.5'
+  - '3.6'
+  - '3.7'
+# Trigger a push build on master and dependabot branches + PRs build on every branches
+# Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
+branches:
+  only:
+    - master
+    - /^dependabot.*$/
 install:
-- pip install -r requirements.txt
+- travis_retry pip install -r requirements.txt
 - pip install -e .
 script:
 - "./scripts/pep8check.sh"
 - "./scripts/coverage.sh"
-after_success:
-- if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]]; then
-  git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
-  && git fetch --tags && nvm install lts/* && nvm use lts/* && npm prune && npm i
-  && npx travis-deploy-once "npx semantic-release" ; fi
-branches:
-  except:
-  - "/^v\\d+\\.\\d+\\.\\d+$/"
+jobs:
+  include:
+    - stage: release
+      node_js: lts/*
+      script:
+        - npm prune
+        - npm i
+        - npx semantic-release
