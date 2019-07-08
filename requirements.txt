@@ -6,7 +6,7 @@ pep8==1.7.1
 pycodestyle==2.5.0
 -e git://github.com/pytest-dev/pytest-cov@master#egg=pytestcov
 Sphinx==2.1.2
-sphinxcontrib-log-cabinet==1.0.0
+sphinxcontrib-log-cabinet==1.0.1
 sphinxcontrib-websupport==1.1.2
 pip==19.1.1
 twine==1.13.0
