@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/hexonet/python-sdk/compare/v3.1.0...v3.1.1) (2019-08-16)
+
+
+### Bug Fixes
+
+* **APIClient:** update default SDK url ([758bf13](https://github.com/hexonet/python-sdk/commit/758bf13))
+
 # [3.1.0](https://github.com/hexonet/python-sdk/compare/v3.0.2...v3.1.0) (2019-04-16)
 
 
