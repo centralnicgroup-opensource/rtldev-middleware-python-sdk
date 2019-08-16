@@ -1,5 +1,5 @@
 autopep8==1.4.4
-docutils==0.14
+docutils==0.15.2
 guzzle-sphinx-theme==0.7.11
 m2r==0.2.1
 pep8==1.7.1
@@ -8,5 +8,5 @@ pycodestyle==2.5.0
 Sphinx==2.1.2
 sphinxcontrib-log-cabinet==1.0.1
 sphinxcontrib-websupport==1.1.2
-pip==19.1.1
+pip==19.2.2
 twine==1.13.0

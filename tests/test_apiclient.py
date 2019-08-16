@@ -104,7 +104,7 @@ def test_apiclientmethods():
     cl.setSession('')
 
     # #.getURL()
-    assert cl.getURL() == 'https://coreapi.1api.net/api/call.cgi'
+    assert cl.getURL() == 'https://api.ispapi.net/api/call.cgi'
 
     # #.getUserAgent()
     pid = "PYTHON-SDK"
@@ -127,10 +127,10 @@ def test_apiclientmethods():
     assert cl.getUserAgent() == ua
 
     # #.setURL()
-    tmp = 'http://coreapi.1api.net/api/call.cgi'
+    tmp = 'http://api.ispapi.net/api/call.cgi'
     url = cl.setURL(tmp).getURL()
     assert url is tmp
-    cl.setURL('https://coreapi.1api.net/api/call.cgi')
+    cl.setURL('https://api.ispapi.net/api/call.cgi')
 
     # #.setOTP()
     # [otp set]

@@ -24,7 +24,7 @@ class APIClient(object):
 
     def __init__(self):
         # API connection url
-        self.setURL("https://coreapi.1api.net/api/call.cgi")
+        self.setURL("https://api.ispapi.net/api/call.cgi")
         # Object covering API connection data
         self.__socketConfig = SocketConfig()
         # activity flag for debug mode
