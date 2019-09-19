@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/hexonet/python-sdk/compare/v3.1.1...v3.1.2) (2019-09-19)
+
+
+### Bug Fixes
+
+* **release process:** migrate configuration ([9fcd7d1](https://github.com/hexonet/python-sdk/commit/9fcd7d1))
+
 ## [3.1.1](https://github.com/hexonet/python-sdk/compare/v3.1.0...v3.1.1) (2019-08-16)
 
 
