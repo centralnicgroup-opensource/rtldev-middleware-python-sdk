@@ -20,10 +20,6 @@
       "email": "kschwarz@hexonet.net"
     },
     {
-      "name": "Anthony Schneider",
-      "url": "https://github.com/anthonyschn"
-    },
-    {
       "name": "Tulasi Seelamkurthi",
       "url": "https://github.com/tulsi91"
     }
@@ -45,78 +41,9 @@
     "application"
   ],
   "devDependencies": {
-    "@semantic-release/changelog": "^3.0.4",
-    "@semantic-release/commit-analyzer": "^6.2.0",
-    "@semantic-release/exec": "^3.3.6",
-    "@semantic-release/git": "^7.0.16",
-    "@semantic-release/github": "^5.4.3",
-    "conventional-changelog": "^3.1.10",
+    "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/exec": "3.3.6",
+    "@semantic-release/git": "7.0.16",
     "semantic-release": "^15.13.12"
-  },
-  "dependencies": {},
-  "release": {
-    "debug": false,
-    "analyzeCommits": {
-      "preset": "angular"
-    },
-    "generateNotes": {
-      "preset": "angular"
-    },
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/git",
-      "@semantic-release/github"
-    ],
-    "prepare": [
-      {
-        "path": "@semantic-release/changelog",
-        "changelogFile": "HISTORY.md"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "./updateVersion.sh ${nextRelease.version} ${options.branch}"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "./scripts/generatedocs.sh"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "./scripts/createdistribution.sh"
-      },
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "HISTORY.md",
-          "package.json",
-          "docs",
-          "hexonet/apiconnector/__init__.py",
-          "hexonet/apiconnector/apiclient.py"
-        ],
-        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }
-    ],
-    "publish": [
-      {
-        "path": "@semantic-release/github",
-        "assets": [
-          {
-            "label": "hexonet.apiconnector (tar.gz)",
-            "path": "dist/hexonet.apiconnector-${nextRelease.version}.tar.gz"
-          }
-        ]
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "./scripts/uploaddistribution_test.sh"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "./scripts/uploaddistribution_live.sh"
-      }
-    ]
-  },
-  "scripts": {
-    "semantic-release": "semantic-release"
   }
 }

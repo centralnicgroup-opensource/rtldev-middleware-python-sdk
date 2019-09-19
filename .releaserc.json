@@ -1,0 +1,42 @@
+{
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        [
+            "@semantic-release/changelog",
+            {
+                "changelogFile": "HISTORY.md"
+            }
+        ],
+        [
+            "@semantic-release/exec",
+            {
+                "prepareCmd": "./updateVersion.sh ${nextRelease.version} ${options.branch} && ./scripts/generatedocs.sh && ./scripts/createdistribution.sh",
+                "publishCmd": "./scripts/uploaddistribution_test.sh && ./scripts/uploaddistribution_live.sh"
+            }
+        ],
+        [
+            "@semantic-release/git",
+            {
+                "assets": [
+                    "HISTORY.md",
+                    "package.json",
+                    "docs",
+                    "hexonet/apiconnector/__init__.py",
+                    "hexonet/apiconnector/apiclient.py"
+                ]
+            }
+        ],
+        [
+            "@semantic-release/github",
+            {
+                "assets": [
+                    {
+                        "label": "hexonet.apiconnector (tar.gz)",
+                        "path": "dist/hexonet.apiconnector-${nextRelease.version}.tar.gz"
+                    }
+                ]
+            }
+        ]
+    ]
+}
