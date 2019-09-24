@@ -1,3 +1,11 @@
+## [3.1.3](https://github.com/hexonet/python-sdk/compare/v3.1.2...v3.1.3) (2019-09-24)
+
+
+### Bug Fixes
+
+* **Travis:** fixed pip calls ([479cd06](https://github.com/hexonet/python-sdk/commit/479cd06))
+* **Travis:** upgrade packages in build ([3756193](https://github.com/hexonet/python-sdk/commit/3756193))
+
 ## [3.1.2](https://github.com/hexonet/python-sdk/compare/v3.1.1...v3.1.2) (2019-09-19)
 
 
