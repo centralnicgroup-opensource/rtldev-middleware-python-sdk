@@ -19,8 +19,8 @@ branches:
 install:
 - travis_retry pip install --upgrade pip
 - pip -V
-- travis_retry pip install -r requirements.txt
-- travis_retry pip install -e .
+- travis_retry pip install -r --upgrade requirements.txt
+- travis_retry pip install -e --upgrade .
 script:
 - "./scripts/pep8check.sh"
 - "./scripts/coverage.sh"
