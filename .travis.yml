@@ -17,8 +17,10 @@ branches:
     - master
     - /^dependabot.*$/
 install:
+- travis_retry pip install --upgrade pip
+- pip -V
 - travis_retry pip install -r requirements.txt
-- pip install -e .
+- travis_retry pip install -e .
 script:
 - "./scripts/pep8check.sh"
 - "./scripts/coverage.sh"
