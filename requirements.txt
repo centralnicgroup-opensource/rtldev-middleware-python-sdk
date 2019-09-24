@@ -1,11 +1,11 @@
-autopep8~=1.4
-docutils~=0.15
-guzzle-sphinx-theme~=0.7
-m2r~=0.2
-pep8~=1.7
-pycodestyle~=2.5
+autopep8==1.*
+docutils==0.*
+guzzle-sphinx-theme==0.*
+m2r==0.*
+pep8==1.*
+pycodestyle==2.*
 -e git://github.com/pytest-dev/pytest-cov@master#egg=pytestcov
-Sphinx~=2.2
-sphinxcontrib-log-cabinet~=1.0
-sphinxcontrib-websupport~=1.1
-twine~=1.15
+Sphinx==2.*
+sphinxcontrib-log-cabinet==1.*
+sphinxcontrib-websupport==1.*
+twine==1.*
