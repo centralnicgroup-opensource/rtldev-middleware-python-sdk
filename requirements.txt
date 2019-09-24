@@ -8,5 +8,4 @@ pycodestyle~=2.5
 Sphinx~=2.2
 sphinxcontrib-log-cabinet~=1.0
 sphinxcontrib-websupport~=1.1
-pip~=19.2
 twine~=1.15
