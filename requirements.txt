@@ -8,4 +8,4 @@ pycodestyle==2.*
 Sphinx==2.*
 sphinxcontrib-log-cabinet==1.*
 sphinxcontrib-websupport==1.*
-twine==1.*
+twine==2.*
