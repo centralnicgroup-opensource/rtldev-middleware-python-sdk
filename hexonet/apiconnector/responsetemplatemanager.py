@@ -29,7 +29,7 @@ class ResponseTemplateManager(object):
         ResponseTemplateManager.__templates = {
             "404": rtm.generateTemplate("421", "Page not found"),
             "500": rtm.generateTemplate("500", "Internal server error"),
-            "empty": rtm.generateTemplate("423", "Empty API response"),
+            "empty": rtm.generateTemplate("423", "Empty API response. Probably unreachable API end point"),
             "error": rtm.generateTemplate("421", "Command failed due to server error. Client should try again"),
             "expired": rtm.generateTemplate("530", "SESSION NOT FOUND"),
             "httperror": rtm.generateTemplate("421", "Command failed due to HTTP communication error"),
