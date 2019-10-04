@@ -1,3 +1,11 @@
+## [3.1.4](https://github.com/hexonet/python-sdk/compare/v3.1.3...v3.1.4) (2019-10-04)
+
+
+### Bug Fixes
+
+* **responsetemplate/mgr:** improve description for `423 Empty API response` [HM-577] ([7bbcee9](https://github.com/hexonet/python-sdk/commit/7bbcee9))
+* **responsetemplate/mgr:** pep8 review of response description usage ([1410e58](https://github.com/hexonet/python-sdk/commit/1410e58))
+
 ## [3.1.3](https://github.com/hexonet/python-sdk/compare/v3.1.2...v3.1.3) (2019-09-24)
 
 
