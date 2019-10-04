@@ -2,22 +2,24 @@ from hexonet.apiconnector.responsetemplate import ResponseTemplate
 
 
 def test_responsetemplatemethods():
+    descr = "Empty API response. Probably unreachable API end point"
     # check instance [raw empty string]
     tpl = ResponseTemplate()
     assert tpl.getCode() == 423
-    assert tpl.getDescription() == 'Empty API response. Probably unreachable API end point'
+    assert tpl.getDescription() == descr
 
     # #.getHash
     h = tpl.getHash()
     assert h["CODE"] == '423'
-    assert h["DESCRIPTION"] == 'Empty API response. Probably unreachable API end point'
+    assert h["DESCRIPTION"] == descr
 
     # #.getQueuetime
     # [not in api response]
     assert tpl.getQueuetime() == 0.00
     # [in api response]
     tpl2 = ResponseTemplate(
-        '[RESPONSE]\r\ncode=423\r\ndescription=Empty API response. Probably unreachable API end point\r\nqueuetime=0\r\nruntime=0.12\r\nEOF\r\n')
+        '[RESPONSE]\r\ncode=423\r\ndescription=%s\r\nqueuetime=0\r\nruntime=0.12\r\nEOF\r\n' % (descr)
+    )
     assert tpl2.getQueuetime() == 0.00
 
     # #.getRuntime
@@ -31,5 +33,6 @@ def test_responsetemplatemethods():
     assert tpl.isPending() is False
     # [in api response]
     tpl2 = ResponseTemplate(
-        '[RESPONSE]\r\ncode=423\r\ndescription=Empty API response. Probably unreachable API end point\r\npending=1\r\nEOF\r\n')
+        '[RESPONSE]\r\ncode=423\r\ndescription=%s\r\npending=1\r\nEOF\r\n' % (descr)
+    )
     assert tpl2.isPending() is True
