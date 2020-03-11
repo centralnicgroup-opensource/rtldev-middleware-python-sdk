@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/hexonet/python-sdk/compare/v3.1.4...v3.2.0) (2020-03-11)
+
+
+### Features
+
+* **apiclient:** support bulk parameters through nested array in API command ([1e4b8e7](https://github.com/hexonet/python-sdk/commit/1e4b8e76f0f695e5e2780619b26aa0017b419b46))
+
 ## [3.1.4](https://github.com/hexonet/python-sdk/compare/v3.1.3...v3.1.4) (2019-10-04)
 
 
