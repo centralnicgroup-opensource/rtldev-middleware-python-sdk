@@ -58,7 +58,13 @@ class APIClient(object):
         if not isinstance(cmd, str):
             for key in sorted(cmd.keys()):
                 if (cmd[key] is not None):
-                    tmp += ("{0}={1}\n").format(key, re.sub('[\r\n]', '', str(cmd[key])))
+                    if isinstance(cmd[key], list):
+                        i = 0
+                        while i < len(cmd[key]):
+                            tmp += ("{0}{1}={2}\n").format(key, i, re.sub('[\r\n]', '', str(cmd[key][i])))
+                            i += 1
+                    else:
+                        tmp += ("{0}={1}\n").format(key, re.sub('[\r\n]', '', str(cmd[key])))
         return ("{0}{1}={2}").format(data, quote('s_command'), quote(re.sub('\n$', '', tmp)))
 
     def getSession(self):

@@ -88,6 +88,17 @@ def test_apiclientmethods():
     })
     assert enc == validate
 
+    # support bulk parameters also as nested array
+    validate = 's_entity=54cd&s_command=COMMAND%3DQueryDomainOptions%0ADOMAIN0%3Dexample1.com%0ADOMAIN1%3Dexample2.com'
+    enc = cl.getPOSTData({
+        "COMMAND": 'QueryDomainOptions',
+        "DOMAIN": [
+            'example1.com',
+            'example2.com'
+        ]
+    })
+    assert enc == validate
+
     # #.enableDebugMode()
     cl.enableDebugMode()
     cl.disableDebugMode()

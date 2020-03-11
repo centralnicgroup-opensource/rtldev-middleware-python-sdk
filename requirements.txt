@@ -4,7 +4,7 @@ guzzle-sphinx-theme==0.*
 m2r==0.*
 pep8==1.*
 pycodestyle==2.*
--e git://github.com/pytest-dev/pytest-cov@master#egg=pytestcov
+pytest-cov==2.*
 Sphinx==2.*
 sphinxcontrib-log-cabinet==1.*
 sphinxcontrib-websupport==1.*
