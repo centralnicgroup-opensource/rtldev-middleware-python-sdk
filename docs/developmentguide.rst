@@ -19,6 +19,7 @@ You can install them by
 .. code-block:: bash
 
     pip install -r requirements.txt --user
+    pip install . --user
 
 NOTE: Make sure to have also all the extensions listed in the `docs/conf.py`
 that are required for the SDK Documentation.
@@ -54,6 +55,9 @@ Try to auto-fix pep8 styling issues by
 
     # to check for issues left
     ./scripts/pep8check.sh
+
+    # run unit tests
+    ./scripts/coverage.sh
 
 Pull Request (PR) Procedure
 ---------------------------

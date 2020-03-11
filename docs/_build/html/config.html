@@ -16,11 +16,11 @@
     <title>Configuration Handling &#8212; hexonet.apiconnector 3.1 documentation</title>
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -172,7 +172,7 @@ Using the <code class="xref py py-class docutils literal notranslate"><span clas
 <span class="c1"># - Live System Account: https://www.hexonet.net/sign-up</span>
 <span class="c1"># - Test/OT&amp;E System Account: https://www.hexonet.net/signup-ote</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;---- SESSIONLESS COMMUNICATION ----&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- SESSIONLESS COMMUNICATION ----&quot;</span><span class="p">)</span>
 <span class="n">cl</span> <span class="o">=</span> <span class="n">AC</span><span class="p">()</span>
 <span class="n">cl</span><span class="o">.</span><span class="n">useOTESystem</span><span class="p">()</span>
 <span class="n">cl</span><span class="o">.</span><span class="n">setCredentials</span><span class="p">(</span><span class="s1">&#39;test.user&#39;</span><span class="p">,</span> <span class="s1">&#39;test.passw0rd&#39;</span><span class="p">)</span>
@@ -204,10 +204,10 @@ Using the <code class="xref py py-class docutils literal notranslate"><span clas
 <span class="c1"># Get the response code and the response description</span>
 <span class="n">code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getCode</span><span class="p">()</span>
 <span class="n">description</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getDescription</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">description</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">description</span><span class="p">)</span>
 
 <span class="c1"># -------- SESSION-BASED COMMUNICATION -----------</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;---- SESSION-BASED COMMUNICATION ----&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- SESSION-BASED COMMUNICATION ----&quot;</span><span class="p">)</span>
 <span class="n">cl</span> <span class="o">=</span> <span class="n">AC</span><span class="p">()</span>
 <span class="n">cl</span><span class="o">.</span><span class="n">useOTESystem</span><span class="p">()</span>
 <span class="n">cl</span><span class="o">.</span><span class="n">setCredentials</span><span class="p">(</span><span class="s1">&#39;test.user&#39;</span><span class="p">,</span> <span class="s1">&#39;test.passw0rd&#39;</span><span class="p">)</span>
@@ -218,18 +218,18 @@ Using the <code class="xref py py-class docutils literal notranslate"><span clas
 <span class="c1"># cl.login(&#39;12345678&#39;); -&gt; 2FA: one time password</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">isSuccess</span><span class="p">()):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;LOGIN SUCCEEDED!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LOGIN SUCCEEDED!&quot;</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
         <span class="s1">&#39;Command&#39;</span><span class="p">:</span> <span class="s2">&quot;QueryDomainList&quot;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">5</span>
     <span class="p">})</span>
     <span class="n">rplain</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getPlain</span><span class="p">()</span>
     <span class="n">code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getCode</span><span class="p">()</span>
     <span class="n">description</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getDescription</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">description</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">description</span><span class="p">)</span>
     <span class="c1"># ... further commands ...</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">isSuccess</span><span class="p">()):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;LOGOUT SUCCEEDED!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LOGOUT SUCCEEDED!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
