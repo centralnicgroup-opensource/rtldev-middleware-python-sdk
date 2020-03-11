@@ -1,3 +1,10 @@
+## [3.2.2](https://github.com/hexonet/python-sdk/compare/v3.2.1...v3.2.2) (2020-03-11)
+
+
+### Bug Fixes
+
+* **travis:** remove branch verification in updateVersion.sh as releasing happens on master ([4eb327e](https://github.com/hexonet/python-sdk/commit/4eb327e85e22f78d24048edaae3a175f74b3f314))
+
 ## [3.2.1](https://github.com/hexonet/python-sdk/compare/v3.2.0...v3.2.1) (2020-03-11)
 
 

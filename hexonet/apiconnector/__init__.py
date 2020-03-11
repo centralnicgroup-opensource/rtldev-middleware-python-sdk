@@ -7,5 +7,5 @@
     :license: MIT, see LICENSE for more details.
 """
 
-__version__ = "3.2.0"
+__version__ = "3.2.2"
 name = "hexonet.apiconnector"
