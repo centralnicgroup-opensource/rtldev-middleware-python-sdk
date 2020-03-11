@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/hexonet/python-sdk/compare/v3.2.0...v3.2.1) (2020-03-11)
+
+
+### Bug Fixes
+
+* **travis:** fixed node env usage in ci/release process ([6e8f9e0](https://github.com/hexonet/python-sdk/commit/6e8f9e0ee483e3d3d053805982e1d14647a07cc7))
+
 # [3.2.0](https://github.com/hexonet/python-sdk/compare/v3.1.4...v3.2.0) (2020-03-11)
 
 
