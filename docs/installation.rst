@@ -26,7 +26,7 @@ our build process.
 Installation
 -------------
 
-Within the your environment, use the following command to install
+Within your environment, use the following command to install
 hexonet.apiconnector:
 
 .. code-block:: sh
