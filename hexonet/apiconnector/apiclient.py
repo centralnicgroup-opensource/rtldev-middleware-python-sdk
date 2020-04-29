@@ -58,13 +58,7 @@ class APIClient(object):
         if not isinstance(cmd, str):
             for key in sorted(cmd.keys()):
                 if (cmd[key] is not None):
-                    if isinstance(cmd[key], list):
-                        i = 0
-                        while i < len(cmd[key]):
-                            tmp += ("{0}{1}={2}\n").format(key, i, re.sub('[\r\n]', '', str(cmd[key][i])))
-                            i += 1
-                    else:
-                        tmp += ("{0}={1}\n").format(key, re.sub('[\r\n]', '', str(cmd[key])))
+                    tmp += ("{0}={1}\n").format(key, re.sub('[\r\n]', '', str(cmd[key])))
         return ("{0}{1}={2}").format(data, quote('s_command'), quote(re.sub('\n$', '', tmp)))
 
     def getSession(self):
@@ -213,7 +207,13 @@ class APIClient(object):
         """
         Perform API request using the given command
         """
-        data = self.getPOSTData(cmd).encode('UTF-8')
+        # flatten nested api command bulk parameters
+        newcmd = self.__flattenCommand(cmd)
+        # auto convert umlaut names to punycode
+        newcmd = self.__autoIDNConvert(newcmd)
+
+        # request command to API
+        data = self.getPOSTData(newcmd).encode('UTF-8')
         # TODO: 300s (to be sure to get an API response)
         try:
             req = Request(self.__socketURL, data, {
@@ -226,19 +226,19 @@ class APIClient(object):
             body = rtm.getTemplate("httperror").getPlain()
             if (self.__debugMode):
                 print((self.__socketURL, data, "HTTP communication failed", body, '\n', '\n'))
-        return Response(body, cmd)
+        return Response(body, newcmd)
 
     def requestNextResponsePage(self, rr):
         """
         Request the next page of list entries for the current list query
         Useful for tables
         """
-        mycmd = self.__toUpperCaseKeys(rr.getCommand())
+        mycmd = rr.getCommand()
         if ("LAST" in mycmd):
             raise Exception("Parameter LAST in use. Please remove it to avoid issues in requestNextPage.")
         first = 0
         if ("FIRST" in mycmd):
-            first = mycmd["FIRST"]
+            first = int(mycmd["FIRST"])
         total = rr.getRecordsTotalCount()
         limit = rr.getRecordsLimitation()
         first += limit
@@ -293,11 +293,54 @@ class APIClient(object):
         self.__socketConfig.setSystemEntity("54cd")
         return self
 
-    def __toUpperCaseKeys(self, cmd):
+    def __flattenCommand(self, cmd):
         """
-        Translate all command parameter names to uppercase
+        Flatten API command to handle it easier later on (nested array for bulk params)
         """
         newcmd = {}
-        for k in list(cmd.keys()):
-            newcmd[k.upper()] = cmd[k]
+        for key in list(cmd.keys()):
+            newKey = key.upper()
+            val = cmd[key]
+            if val is None:
+                continue
+            if isinstance(val, list):
+                i = 0
+                while i < len(val):
+                    newcmd[newKey + str(i)] = re.sub(r'[\r\n]', '', str(val[i]))
+                    i += 1
+            else:
+                newcmd[newKey] = re.sub(r'[\r\n]', '', str(val))
         return newcmd
+
+    def __autoIDNConvert(self, cmd):
+        """
+        Auto convert API command parameters to punycode, if necessary.
+        """
+        # don't convert for convertidn command to avoid endless loop
+        # and ignore commands in string format(even deprecated)
+        if isinstance(cmd, str) or re.match(r'^CONVERTIDN$', cmd["COMMAND"], re.IGNORECASE):
+            return cmd
+
+        toconvert = []
+        keys = []
+        for key in cmd:
+            if re.match(r'^(DOMAIN|NAMESERVER|DNSZONE)([0-9]*)$', key, re.IGNORECASE):
+                keys.append(key)
+        if not keys.count:
+            return cmd
+        idxs = []
+        for key in keys:
+            if not re.match(r'^[a-z0-9.-]+$', cmd[key], re.IGNORECASE):
+                toconvert.append(cmd[key])
+                idxs.append(key)
+
+        r = self.request({
+            "COMMAND": "ConvertIDN",
+            "DOMAIN": toconvert
+        })
+        if r.isSuccess():
+            col = r.getColumn("ACE")
+            if col is not None:
+                for idx, pc in enumerate(col.getData()):
+                    cmd[idxs[idx]] = pc
+        return cmd

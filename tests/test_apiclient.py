@@ -88,17 +88,6 @@ def test_apiclientmethods():
     })
     assert enc == validate
 
-    # support bulk parameters also as nested array
-    validate = 's_entity=54cd&s_command=COMMAND%3DQueryDomainOptions%0ADOMAIN0%3Dexample1.com%0ADOMAIN1%3Dexample2.com'
-    enc = cl.getPOSTData({
-        "COMMAND": 'QueryDomainOptions',
-        "DOMAIN": [
-            'example1.com',
-            'example2.com'
-        ]
-    })
-    assert enc == validate
-
     # #.enableDebugMode()
     cl.enableDebugMode()
     cl.disableDebugMode()
@@ -263,6 +252,42 @@ def test_apiclientmethods():
     rec = r.getRecord(0)
     assert rec is not None
     assert rec.getDataByKey('SESSION') is not None
+
+    # support bulk parameters also as nested array (flattenCommand)
+    r = cl.request({
+        'COMMAND': 'CheckDomains',
+        'DOMAIN': ['example.com', 'example.net']
+    })
+    assert isinstance(r, R) is True
+    assert r.isSuccess() is True
+    assert r.getCode() is 200
+    assert r.getDescription() == "Command completed successfully"
+    cmd = r.getCommand()
+    keys = cmd.keys()
+    assert ("DOMAIN0" in keys) is True
+    assert ("DOMAIN1" in keys) is True
+    assert ("DOMAIN" in keys) is False
+    assert cmd["DOMAIN0"] == "example.com"
+    assert cmd["DOMAIN1"] == "example.net"
+
+    # support autoIDNConvert
+    r = cl.request({
+        'COMMAND': 'CheckDomains',
+        'DOMAIN': ['example.com', 'dömäin.example', 'example.net']
+    })
+    assert isinstance(r, R) is True
+    assert r.isSuccess() is True
+    assert r.getCode() is 200
+    assert r.getDescription() == "Command completed successfully"
+    cmd = r.getCommand()
+    keys = cmd.keys()
+    assert ("DOMAIN0" in keys) is True
+    assert ("DOMAIN1" in keys) is True
+    assert ("DOMAIN2" in keys) is True
+    assert ("DOMAIN" in keys) is False
+    assert cmd["DOMAIN0"] == "example.com"
+    assert cmd["DOMAIN1"] == "xn--dmin-moa0i.example"
+    assert cmd["DOMAIN2"] == "example.net"
 
     # [login succeeded; role used]
     cl.useOTESystem()
