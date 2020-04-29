@@ -39,9 +39,6 @@ def parse(raw):
             r['PROPERTY'][prop].append(value)
         else:
             r[attr.upper()] = value
-
-    if 'DESCRIPTION' not in r:
-        r['DESCRIPTION'] = ""
     return r
 
 

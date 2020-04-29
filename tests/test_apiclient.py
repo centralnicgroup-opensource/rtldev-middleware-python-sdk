@@ -4,10 +4,11 @@ from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager
 import pytest
 import platform
 
+rtm = RTM()
+
 
 def test_apiclientmethods():
     cl = AC()
-    rtm = RTM.getInstance()
     rtm.addTemplate(
         'login200',
         '[RESPONSE]\r\nPROPERTY[SESSION][0]=h8JLZZHdF2WgWWXlwbKWzEG3XrzoW4y' +

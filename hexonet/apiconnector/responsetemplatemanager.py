@@ -33,6 +33,7 @@ class ResponseTemplateManager(object):
             "error": rtm.generateTemplate("421", "Command failed due to server error. Client should try again"),
             "expired": rtm.generateTemplate("530", "SESSION NOT FOUND"),
             "httperror": rtm.generateTemplate("421", "Command failed due to HTTP communication error"),
+            "invalid": rtm.generateTemplate("423", "Invalid API response. Contact Support"),
             "unauthorized": rtm.generateTemplate("530", "Unauthorized"),
         }
         return rtm

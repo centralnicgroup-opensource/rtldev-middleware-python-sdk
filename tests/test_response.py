@@ -4,7 +4,7 @@ from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager
 
 
 def test_responsemethods():
-    rtm = RTM.getInstance()
+    rtm = RTM()
     rtm.addTemplate(
         'listP0',
         '[RESPONSE]\r\nPROPERTY[TOTAL][0]=2701\r\nPROPERTY[FIRST][0]=0\r\nP' +

@@ -2,6 +2,11 @@ from hexonet.apiconnector.responsetemplate import ResponseTemplate
 
 
 def test_responsetemplatemethods():
+    # check invalid api response
+    tpl = ResponseTemplate("[RESPONSE]\r\nqueuetime=0\r\nEOF\r\n")
+    assert tpl.getCode() == 423
+    assert tpl.getDescription() == "Invalid API response. Contact Support"
+
     descr = "Empty API response. Probably unreachable API end point"
     # check instance [raw empty string]
     tpl = ResponseTemplate()

@@ -4,15 +4,11 @@ from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager
 
 
 def test_rpmethods():
-    rtm = RTM.getInstance()
+    rtm = RTM()
     rtm.addTemplate(
         'OK',
         rtm.generateTemplate('200', 'Command completed successfully')
     )
-
-    # #.parse()
-    plain = re.sub(r'/\r\nDESCRIPTION=/', '', rtm.generateTemplate('421', ''))
-    assert RP.parse(plain)["DESCRIPTION"] is ""
 
     # #.serialize()
     # [w/ PROPERTY]

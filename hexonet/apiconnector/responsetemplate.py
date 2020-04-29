@@ -39,6 +39,10 @@ class ResponseTemplate(object):
             #: Holds the response as hash
             self.__hash = RP.parse(self.__raw)
 
+        if ('CODE' not in self.__hash) or ('DESCRIPTION' not in self.__hash):
+            self.__raw = '[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=Invalid API response. Contact Support\r\nEOF\r\n'
+            self.__hash = RP.parse(self.__raw)
+
     def getCode(self):
         """
         Returns the API response code as integer
