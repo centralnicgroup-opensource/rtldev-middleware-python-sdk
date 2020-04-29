@@ -21,9 +21,9 @@ class ResponseTemplateManager(object):
     __instance = None
     __templates = None
 
-    def __new__(self):
+    def __new__(cls):
         if ResponseTemplateManager.__instance is None:
-            ResponseTemplateManager.__instance = object.__new__(self)
+            ResponseTemplateManager.__instance = object.__new__(cls)
         rtm = ResponseTemplateManager.__instance
 
         ResponseTemplateManager.__templates = {
