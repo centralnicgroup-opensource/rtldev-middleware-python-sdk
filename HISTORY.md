@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/hexonet/python-sdk/compare/v3.3.0...v3.4.0) (2020-04-29)
+
+
+### Features
+
+* **apiclient:** support the `High Performance Proxy Setup`. see README.md ([d66d495](https://github.com/hexonet/python-sdk/commit/d66d495b0033bb9e6adcf7e9b7adb27c4eda63dd))
+
 # [3.3.0](https://github.com/hexonet/python-sdk/compare/v3.2.2...v3.3.0) (2020-04-29)
 
 
