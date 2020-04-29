@@ -1,3 +1,10 @@
+## [3.4.2](https://github.com/hexonet/python-sdk/compare/v3.4.1...v3.4.2) (2020-04-29)
+
+
+### Bug Fixes
+
+* **responsetemplatemanager:** fixed namingconventions self vs. cls ([b52b22d](https://github.com/hexonet/python-sdk/commit/b52b22d4a51c1a498870bf5b0e9a9ab73ab8ddbd))
+
 ## [3.4.1](https://github.com/hexonet/python-sdk/compare/v3.4.0...v3.4.1) (2020-04-29)
 
 
