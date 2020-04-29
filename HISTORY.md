@@ -1,3 +1,10 @@
+## [3.4.1](https://github.com/hexonet/python-sdk/compare/v3.4.0...v3.4.1) (2020-04-29)
+
+
+### Bug Fixes
+
+* **messaging:** return a specific error template if API response' code or description are missing ([7cd33b4](https://github.com/hexonet/python-sdk/commit/7cd33b4cae237ae1657599a1f662ec69388971a3))
+
 # [3.4.0](https://github.com/hexonet/python-sdk/compare/v3.3.0...v3.4.0) (2020-04-29)
 
 
