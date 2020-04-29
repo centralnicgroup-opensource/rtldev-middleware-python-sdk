@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/hexonet/python-sdk/compare/v3.2.2...v3.3.0) (2020-04-29)
+
+
+### Features
+
+* **apiclient:** automatic IDN conversion of API command parameters to punycode ([6562f26](https://github.com/hexonet/python-sdk/commit/6562f26c8741efa54bcf293331b8a6687b198828))
+
 ## [3.2.2](https://github.com/hexonet/python-sdk/compare/v3.2.1...v3.2.2) (2020-03-11)
 
 

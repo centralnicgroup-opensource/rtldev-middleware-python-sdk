@@ -10,5 +10,6 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 2
 
    hexonet.apiconnector
