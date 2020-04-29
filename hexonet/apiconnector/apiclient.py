@@ -19,12 +19,15 @@ import platform
 
 rtm = RTM()
 
+ISPAPI_CONNECTION_URL_PROXY = "http://127.0.0.1/api/call.cgi"
+ISPAPI_CONNECTION_URL = "https://api.ispapi.net/api/call.cgi"
+
 
 class APIClient(object):
 
     def __init__(self):
         # API connection url
-        self.setURL("https://api.ispapi.net/api/call.cgi")
+        self.setURL(ISPAPI_CONNECTION_URL)
         # Object covering API connection data
         self.__socketConfig = SocketConfig()
         # activity flag for debug mode
@@ -34,6 +37,44 @@ class APIClient(object):
         self.useLIVESystem()
         # user agent setting
         self.__ua = ""
+        # additional connection settings
+        self.__curlopts = {}
+
+    def setProxy(self, proxy):
+        """
+        Set Proxy to use for API communication
+        """
+        if proxy == '':
+            self.__curlopts.pop('PROXY', None)
+        else:
+            self.__curlopts["PROXY"] = proxy
+        return self
+
+    def getProxy(self):
+        """
+        Get Proxy configuration value for API communication
+        """
+        if "PROXY" in self.__curlopts:
+            return self.__curlopts["PROXY"]
+        return None
+
+    def setReferer(self, referer):
+        """
+        Set the Referer Header to use for API communication
+        """
+        if referer == '':
+            self.__curlopts.pop('REFERER', None)
+        else:
+            self.__curlopts["REFERER"] = referer
+        return self
+
+    def getReferer(self):
+        """
+        Get the Referer Header configuration value
+        """
+        if "REFERER" in self.__curlopts:
+            return self.__curlopts["REFERER"]
+        return None
 
     def enableDebugMode(self):
         """
@@ -216,9 +257,15 @@ class APIClient(object):
         data = self.getPOSTData(newcmd).encode('UTF-8')
         # TODO: 300s (to be sure to get an API response)
         try:
-            req = Request(self.__socketURL, data, {
+            headers = {
                 'User-Agent': self.getUserAgent()
-            })
+            }
+            if "REFERER" in self.__curlopts:
+                headers['Referer'] = self.__curlopts["REFERER"]
+            req = Request(self.__socketURL, data, headers)
+            if "PROXY" in self.__curlopts:
+                proxyurl = urlparse(self.__curlopts["PROXY"])
+                req.set_proxy(proxyurl.netloc, proxyurl.scheme)
             body = urlopen(req, timeout=self.__socketTimeout).read()
             if (self.__debugMode):
                 print((self.__socketURL, data, body, '\n', '\n'))
@@ -277,6 +324,20 @@ class APIClient(object):
         Reset data view back from subuser to user
         """
         self.__socketConfig.setUser(None)
+        return self
+
+    def useHighPerformanceConnectionSetup(self):
+        """
+        Activate High Performance Setup
+        """
+        self.setURL(ISPAPI_CONNECTION_URL_PROXY)
+        return self
+
+    def useDefaultConnectionSetup(self):
+        """
+        Activate Default Connection Setup (which is the default anyways)
+        """
+        self.setURL(ISPAPI_CONNECTION_URL)
         return self
 
     def useOTESystem(self):

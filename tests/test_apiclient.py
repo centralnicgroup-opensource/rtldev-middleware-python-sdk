@@ -1,4 +1,4 @@
-from hexonet.apiconnector.apiclient import APIClient as AC
+from hexonet.apiconnector.apiclient import APIClient as AC, ISPAPI_CONNECTION_URL, ISPAPI_CONNECTION_URL_PROXY
 from hexonet.apiconnector.response import Response as R
 from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
 import pytest
@@ -104,7 +104,7 @@ def test_apiclientmethods():
     cl.setSession('')
 
     # #.getURL()
-    assert cl.getURL() == 'https://api.ispapi.net/api/call.cgi'
+    assert cl.getURL() == ISPAPI_CONNECTION_URL
 
     # #.getUserAgent()
     pid = "PYTHON-SDK"
@@ -127,10 +127,10 @@ def test_apiclientmethods():
     assert cl.getUserAgent() == ua
 
     # #.setURL()
-    tmp = 'http://api.ispapi.net/api/call.cgi'
+    tmp = ISPAPI_CONNECTION_URL_PROXY
     url = cl.setURL(tmp).getURL()
     assert url is tmp
-    cl.setURL('https://api.ispapi.net/api/call.cgi')
+    cl.setURL(ISPAPI_CONNECTION_URL)
 
     # #.setOTP()
     # [otp set]
@@ -443,3 +443,21 @@ def test_apiclientmethods():
     r = cl.request({'COMMAND': 'GetUserIndex'})
     assert isinstance(r, R) is True
     assert r.isSuccess() is True
+
+    # #.setProxy
+    cl.setProxy('https://127.0.0.1:8080')
+    assert cl.getProxy() == 'https://127.0.0.1:8080'
+    cl.setProxy('')
+
+    # #.setReferer
+    cl.setReferer('https://www.hexonet.net/')
+    assert cl.getReferer() == 'https://www.hexonet.net/'
+    cl.setReferer('')
+
+    # #.useHighPerformanceConnectionSetup
+    cl.useHighPerformanceConnectionSetup()
+    assert cl.getURL() == ISPAPI_CONNECTION_URL_PROXY
+
+    # #.useDefaultConnectionSetup
+    cl.useDefaultConnectionSetup()
+    assert cl.getURL() == ISPAPI_CONNECTION_URL
