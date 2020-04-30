@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/hexonet/python-sdk/compare/v3.4.2...v3.5.0) (2020-04-30)
+
+
+### Features
+
+* **response:** added getCommandPlain (getting used command in plain text) ([2efab17](https://github.com/hexonet/python-sdk/commit/2efab17a99402a849ad6ef712458b32a9b4594b9))
+
 ## [3.4.2](https://github.com/hexonet/python-sdk/compare/v3.4.1...v3.4.2) (2020-04-29)
 
 
