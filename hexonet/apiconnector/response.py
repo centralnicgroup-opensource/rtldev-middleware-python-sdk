@@ -24,6 +24,8 @@ class Response(RT, object):
         super(Response, self).__init__(raw)
         # The API Command used within this request
         self.__command = cmd
+        if (self.__command is not None) and ('PASSWORD' in self.__command):
+            self.__command['PASSWORD'] = '***'
         # Column names available in this responsse.
         # NOTE: this includes also FIRST, LAST, LIMIT, COUNT, TOTAL
         # and maybe further specific columns in case of a list query

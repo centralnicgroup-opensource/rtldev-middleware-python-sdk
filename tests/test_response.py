@@ -41,12 +41,22 @@ def test_responsemethods():
     assert r.getFirstRecordIndex() == 0
 
     # #.getCommandPlain()
+    # case 1
     r = R("", {
         "COMMAND": "QueryDomainOptions",
         "DOMAIN0": "example.com",
         "DOMAIN1": "example.net"
     })
     expected = "COMMAND = QueryDomainOptions\nDOMAIN0 = example.com\nDOMAIN1 = example.net\n"
+    assert r.getCommandPlain() == expected
+
+    # case secured
+    r = R("", {
+        "COMMAND": "CheckAuthentication",
+        "PASSWORD": "test.passw0rd",
+        "SUBUSER": "test.user"
+    })
+    expected = "COMMAND = CheckAuthentication\nPASSWORD = ***\nSUBUSER = test.user\n"
     assert r.getCommandPlain() == expected
 
     # #.getColumns()

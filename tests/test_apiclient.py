@@ -79,7 +79,7 @@ def test_apiclientmethods():
 
     # test string input
     enc = cl.getPOSTData('gregergege')
-    assert enc == 's_entity=54cd&s_command='
+    assert enc == 's_entity=54cd&s_command=gregergege'
 
     # test object input with null value in parameter
     validate = 's_entity=54cd&s_command=COMMAND%3DModifyDomain'
@@ -88,6 +88,20 @@ def test_apiclientmethods():
         "AUTH": None
     })
     assert enc == validate
+
+    # test secured passwords
+    cl.setCredentials('test.user', 'test.passw0rd')
+    enc = cl.getPOSTData({
+        'COMMAND': 'CheckAuthentication',
+        'SUBUSER': 'test.user',
+        'PASSWORD': 'test.passw0rd'
+    }, True)
+    cl.setCredentials('', '')
+    expected = (
+        's_entity=54cd&s_login=test.user&s_pw=***&' +
+        's_command=COMMAND%3DCheckAuthentication%0APASSWORD%3D%2A%2A%2A%0ASUBUSER%3Dtest.user'
+    )
+    assert expected == enc
 
     # #.enableDebugMode()
     cl.enableDebugMode()

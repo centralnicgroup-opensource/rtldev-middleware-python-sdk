@@ -90,16 +90,23 @@ class APIClient(object):
         self.__debugMode = False
         return self
 
-    def getPOSTData(self, cmd):
+    def getPOSTData(self, cmd, secured=False):
         """
         Serialize given command for POST request including connection configuration data
         """
         data = self.__socketConfig.getPOSTData()
+        if secured:
+            data = re.sub(r's_pw=[^&]+', 's_pw=***', data)
         tmp = ""
         if not isinstance(cmd, str):
             for key in sorted(cmd.keys()):
                 if (cmd[key] is not None):
                     tmp += ("{0}={1}\n").format(key, re.sub('[\r\n]', '', str(cmd[key])))
+        else:
+            tmp = cmd
+        tmp = tmp.rstrip('\n')
+        if secured:
+            tmp = re.sub(r'PASSWORD=[^\n]+', 'PASSWORD=***', tmp)
         return ("{0}{1}={2}").format(data, quote('s_command'), quote(re.sub('\n$', '', tmp)))
 
     def getSession(self):
@@ -255,6 +262,7 @@ class APIClient(object):
 
         # request command to API
         data = self.getPOSTData(newcmd).encode('UTF-8')
+        secured = self.getPOSTData(newcmd, True).encode('UTF-8')
         # TODO: 300s (to be sure to get an API response)
         try:
             headers = {
@@ -268,11 +276,11 @@ class APIClient(object):
                 req.set_proxy(proxyurl.netloc, proxyurl.scheme)
             body = urlopen(req, timeout=self.__socketTimeout).read()
             if (self.__debugMode):
-                print((self.__socketURL, data, body, '\n', '\n'))
+                print((self.__socketURL, secured, body, '\n', '\n'))
         except Exception:
             body = rtm.getTemplate("httperror").getPlain()
             if (self.__debugMode):
-                print((self.__socketURL, data, "HTTP communication failed", body, '\n', '\n'))
+                print((self.__socketURL, secured, "HTTP communication failed", body, '\n', '\n'))
         return Response(body, newcmd)
 
     def requestNextResponsePage(self, rr):
