@@ -104,6 +104,15 @@ class Response(RT, object):
         """
         return self.__command
 
+    def getCommandPlain(self):
+        """
+        Get Command used in this request in plain text
+        """
+        tmp = ''
+        for key, val in self.__command.items():
+            tmp += "%s = %s\n" % (key, val)
+        return tmp
+
     def getCurrentPageNumber(self):
         """
         Get Page Number of current List Query

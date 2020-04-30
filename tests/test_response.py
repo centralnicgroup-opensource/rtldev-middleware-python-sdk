@@ -40,6 +40,15 @@ def test_responsemethods():
     r = R(RP.serialize(h))
     assert r.getFirstRecordIndex() == 0
 
+    # #.getCommandPlain()
+    r = R("", {
+        "COMMAND": "QueryDomainOptions",
+        "DOMAIN0": "example.com",
+        "DOMAIN1": "example.net"
+    })
+    expected = "COMMAND = QueryDomainOptions\nDOMAIN0 = example.com\nDOMAIN1 = example.net\n"
+    assert r.getCommandPlain() == expected
+
     # #.getColumns()
     r = R(rtm.getTemplate('listP0').getPlain())
     cols = r.getColumns()
