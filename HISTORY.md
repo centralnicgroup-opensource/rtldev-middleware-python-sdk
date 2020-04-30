@@ -1,3 +1,10 @@
+## [3.5.1](https://github.com/hexonet/python-sdk/compare/v3.5.0...v3.5.1) (2020-04-30)
+
+
+### Bug Fixes
+
+* **security:** replace passwords whereever they could be used for output ([9215b87](https://github.com/hexonet/python-sdk/commit/9215b87e5353cbd2c9ce43c24099b1732104a879))
+
 # [3.5.0](https://github.com/hexonet/python-sdk/compare/v3.4.2...v3.5.0) (2020-04-30)
 
 
