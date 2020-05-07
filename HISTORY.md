@@ -1,3 +1,10 @@
+# [3.8.0](https://github.com/hexonet/python-sdk/compare/v3.7.0...v3.8.0) (2020-05-07)
+
+
+### Features
+
+* **logger:** possibility to override debug mode's default logging mechanism ([944d9de](https://github.com/hexonet/python-sdk/commit/944d9de24e9f391511ace3ce582bb49b0d8be347))
+
 # [3.7.0](https://github.com/hexonet/python-sdk/compare/v3.6.0...v3.7.0) (2020-05-07)
 
 

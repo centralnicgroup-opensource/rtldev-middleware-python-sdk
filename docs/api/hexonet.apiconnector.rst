@@ -22,6 +22,18 @@ Submodules
    :show-inheritance:
 
 
+.. automodule:: hexonet.apiconnector.customlogger
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+.. automodule:: hexonet.apiconnector.logger
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 .. automodule:: hexonet.apiconnector.record
    :members:
    :undoc-members:
