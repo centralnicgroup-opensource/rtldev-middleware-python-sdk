@@ -12,6 +12,7 @@ from hexonet.apiconnector.column import Column
 from hexonet.apiconnector.record import Record
 
 import math
+import re
 
 
 class Response(RT, object):
@@ -20,8 +21,15 @@ class Response(RT, object):
     Backend API response data in a useful way.
     """
 
-    def __init__(self, raw, cmd=None):
+    def __init__(self, raw, cmd=None, cfg={}):
         super(Response, self).__init__(raw)
+
+        if re.search(r"\{[A-Z_]+\}", self._raw):
+            for key, value in cfg.items():
+                self._raw = self._raw.replace("{%s}" % (key), value)
+            self._raw = re.sub(r"\{[A-Z_]+\}", "", self._raw)
+            super(Response, self).__init__(self._raw)
+
         # The API Command used within this request
         self.__command = cmd
         if (self.__command is not None) and ('PASSWORD' in self.__command):

@@ -18,30 +18,30 @@ class ResponseTemplate(object):
     """
 
     def __init__(self, response=""):
-        descr = "Empty API response. Probably unreachable API end point"
         #: Holds the response as plain text / string
-        self.__raw = response
+        self._raw = response
         if (response is "") or (response is None):
-            self.__raw = "[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=%s\r\nEOF\r\n" % (descr)
+            descr = "Empty API response. Probably unreachable API end point {CONNECTION_URL}"
+            self._raw = "[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=%s\r\nEOF\r\n" % (descr)
 
         # try/except to support old versions of python (python2.5)
         try:
-            if isinstance(self.__raw, bytes):
-                self.__raw = self.__raw.decode("utf-8")
+            if isinstance(self._raw, bytes):
+                self._raw = self._raw.decode("utf-8")
         except UnicodeError:
-            self.__raw = self.__raw.decode("latin1")
+            self._raw = self._raw.decode("latin1")
         except BaseException:
-            self.__raw = self.__raw.decode("utf-8")
+            self._raw = self._raw.decode("utf-8")
 
         if isinstance(response, dict):
             raise TypeError('Type "dict" is not allowed for parameter "response". Use type "string" instead.')
         else:
             #: Holds the response as hash
-            self.__hash = RP.parse(self.__raw)
+            self.__hash = RP.parse(self._raw)
 
         if ('CODE' not in self.__hash) or ('DESCRIPTION' not in self.__hash):
-            self.__raw = '[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=Invalid API response. Contact Support\r\nEOF\r\n'
-            self.__hash = RP.parse(self.__raw)
+            self._raw = '[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=Invalid API response. Contact Support\r\nEOF\r\n'
+            self.__hash = RP.parse(self._raw)
 
     def getCode(self):
         """
@@ -59,7 +59,7 @@ class ResponseTemplate(object):
         """
         Returns the plain API response
         """
-        return self.__raw
+        return self._raw
 
     def getQueuetime(self):
         """

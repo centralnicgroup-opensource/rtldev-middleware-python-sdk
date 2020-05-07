@@ -7,7 +7,7 @@ def test_responsetemplatemethods():
     assert tpl.getCode() == 423
     assert tpl.getDescription() == "Invalid API response. Contact Support"
 
-    descr = "Empty API response. Probably unreachable API end point"
+    descr = "Empty API response. Probably unreachable API end point {CONNECTION_URL}"
     # check instance [raw empty string]
     tpl = ResponseTemplate()
     assert tpl.getCode() == 423

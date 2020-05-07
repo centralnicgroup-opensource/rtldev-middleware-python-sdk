@@ -1,6 +1,7 @@
 from hexonet.apiconnector.response import Response as R
 import hexonet.apiconnector.responseparser as RP
 from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
+import re
 
 
 def test_responsemethods():
@@ -39,6 +40,13 @@ def test_responsemethods():
     }
     r = R(RP.serialize(h))
     assert r.getFirstRecordIndex() == 0
+
+    # #.constructor [place holder replacements]
+    r = R("")
+    assert re.search(r"\{[A-Z_]+\}", r.getDescription()) is None
+
+    r = R("", {"COMMAND": "StatusAccount"}, {"CONNECTION_URL": "123HXPHFOUND123"})
+    assert re.search(r"123HXPHFOUND123", r.getDescription()) is not None
 
     # #.getCommandPlain()
     # case 1

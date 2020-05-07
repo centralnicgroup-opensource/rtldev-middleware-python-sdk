@@ -265,16 +265,18 @@ class APIClient(object):
         newcmd = self.__autoIDNConvert(newcmd)
 
         # request command to API
+        cfg = {
+            "CONNECTION_URL": self.__socketURL
+        }
         data = self.getPOSTData(newcmd).encode('UTF-8')
         secured = self.getPOSTData(newcmd, True).encode('UTF-8')
-        # TODO: 300s (to be sure to get an API response)
         try:
             headers = {
                 'User-Agent': self.getUserAgent()
             }
             if "REFERER" in self.__curlopts:
                 headers['Referer'] = self.__curlopts["REFERER"]
-            req = Request(self.__socketURL, data, headers)
+            req = Request(cfg["CONNECTION_URL"], data, headers)
             if "PROXY" in self.__curlopts:
                 proxyurl = urlparse(self.__curlopts["PROXY"])
                 req.set_proxy(proxyurl.netloc, proxyurl.scheme)
@@ -285,7 +287,7 @@ class APIClient(object):
             body = rtm.getTemplate("httperror").getPlain()
             if (self.__debugMode):
                 print((self.__socketURL, secured, "HTTP communication failed", body, '\n', '\n'))
-        return Response(body, newcmd)
+        return Response(body, newcmd, cfg)
 
     def requestNextResponsePage(self, rr):
         """
