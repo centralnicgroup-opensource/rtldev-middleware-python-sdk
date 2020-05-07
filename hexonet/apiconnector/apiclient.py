@@ -8,6 +8,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
+from hexonet.apiconnector.logger import Logger
 from hexonet.apiconnector.response import Response
 from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
 from hexonet.apiconnector.socketconfig import SocketConfig
@@ -39,6 +40,22 @@ class APIClient(object):
         self.__ua = ""
         # additional connection settings
         self.__curlopts = {}
+        # logger class instance
+        self.setDefaultLogger()
+
+    def setCustomLogger(self, logger):
+        """
+        Set custom logger to use instead of the default one
+        """
+        self.__logger = logger
+        return self
+
+    def setDefaultLogger(self):
+        """
+        Set default logger to use
+        """
+        self.__logger = Logger()
+        return self
 
     def setProxy(self, proxy):
         """
@@ -270,6 +287,7 @@ class APIClient(object):
         }
         data = self.getPOSTData(newcmd).encode('UTF-8')
         secured = self.getPOSTData(newcmd, True).encode('UTF-8')
+        error = None
         try:
             headers = {
                 'User-Agent': self.getUserAgent()
@@ -281,13 +299,13 @@ class APIClient(object):
                 proxyurl = urlparse(self.__curlopts["PROXY"])
                 req.set_proxy(proxyurl.netloc, proxyurl.scheme)
             body = urlopen(req, timeout=self.__socketTimeout).read()
-            if (self.__debugMode):
-                print((self.__socketURL, secured, body, '\n', '\n'))
-        except Exception:
+        except Exception as e:
+            error = str(e)
             body = rtm.getTemplate("httperror").getPlain()
-            if (self.__debugMode):
-                print((self.__socketURL, secured, "HTTP communication failed", body, '\n', '\n'))
-        return Response(body, newcmd, cfg)
+        r = Response(body, newcmd, cfg)
+        if (self.__debugMode):
+            self.__logger.log(secured, r, error)
+        return r
 
     def requestNextResponsePage(self, rr):
         """
