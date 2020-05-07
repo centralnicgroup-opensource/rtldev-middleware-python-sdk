@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/hexonet/python-sdk/compare/v3.5.1...v3.6.0) (2020-05-07)
+
+
+### Features
+
+* **apiclient:** allow to specify additional libraries via setUserAgent ([3100656](https://github.com/hexonet/python-sdk/commit/310065612ac70376c93d93dc6fecb257bd6340b1))
+
 ## [3.5.1](https://github.com/hexonet/python-sdk/compare/v3.5.0...v3.5.1) (2020-04-30)
 
 
