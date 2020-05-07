@@ -141,6 +141,12 @@ def test_apiclientmethods():
     assert isinstance(cl2, AC) is True
     assert cl.getUserAgent() == ua
 
+    mods = ["reg/2.6.2", "ssl/7.2.2", "dc/8.2.2"]
+    ua = "%s (%s; %s; rv:%s) %s %s/%s python/%s" % (pid, pf, arch, rv, " ".join(mods), pid2, cl.getVersion(), pyv)
+    cl2 = cl.setUserAgent(pid, rv, mods)
+    assert isinstance(cl2, AC) is True
+    assert cl.getUserAgent() == ua
+
     # #.setURL()
     tmp = ISPAPI_CONNECTION_URL_PROXY
     url = cl.setURL(tmp).getURL()

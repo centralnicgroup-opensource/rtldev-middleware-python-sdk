@@ -133,14 +133,18 @@ class APIClient(object):
             self.__ua = "%s (%s; %s; rv:%s) python/%s" % (pid, pf, arch, self.getVersion(), pyv)
         return self.__ua
 
-    def setUserAgent(self, pid, rv):
+    def setUserAgent(self, pid, rv, modules=[]):
         """
         Possibility to customize default user agent to fit your needs by given string and revision
         """
+        s = " "
+        mods = ""
+        if len(modules) > 0:
+            mods += " " + s.join(modules)
         pyv = platform.python_version()
         pf = platform.system()
         arch = platform.architecture()[0]
-        self.__ua = "%s (%s; %s; rv:%s) python-sdk/%s python/%s" % (pid, pf, arch, rv, self.getVersion(), pyv)
+        self.__ua = "%s (%s; %s; rv:%s)%s python-sdk/%s python/%s" % (pid, pf, arch, rv, mods, self.getVersion(), pyv)
         return self
 
     def getVersion(self):
