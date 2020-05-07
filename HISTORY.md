@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/hexonet/python-sdk/compare/v3.6.0...v3.7.0) (2020-05-07)
+
+
+### Features
+
+* **response:** possibility of placeholder vars in standard responses to improve error details ([393f20c](https://github.com/hexonet/python-sdk/commit/393f20cd48dbb5e88a08114eca4b972f395ce805))
+
 # [3.6.0](https://github.com/hexonet/python-sdk/compare/v3.5.1...v3.6.0) (2020-05-07)
 
 
