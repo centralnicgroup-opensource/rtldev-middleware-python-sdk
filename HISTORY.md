@@ -1,3 +1,10 @@
+## [3.8.1](https://github.com/hexonet/python-sdk/compare/v3.8.0...v3.8.1) (2020-05-23)
+
+
+### Bug Fixes
+
+* **apiclient:** fixed empty ConvertIDN request ([8d4e96d](https://github.com/hexonet/python-sdk/commit/8d4e96df2600069fb78d2c098a8219a4fed730cc))
+
 # [3.8.0](https://github.com/hexonet/python-sdk/compare/v3.7.0...v3.8.0) (2020-05-07)
 
 
