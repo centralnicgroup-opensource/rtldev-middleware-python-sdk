@@ -419,13 +419,13 @@ class APIClient(object):
         for key in cmd:
             if re.match(r'^(DOMAIN|NAMESERVER|DNSZONE)([0-9]*)$', key, re.IGNORECASE):
                 keys.append(key)
-        if not keys.count:
-            return cmd
         idxs = []
         for key in keys:
             if not re.match(r'^[a-z0-9.-]+$', cmd[key], re.IGNORECASE):
                 toconvert.append(cmd[key])
                 idxs.append(key)
+        if not toconvert:
+            return cmd
 
         r = self.request({
             "COMMAND": "ConvertIDN",
