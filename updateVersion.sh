@@ -5,7 +5,10 @@
 # semantic-release. SEE package.json
 
 # version format: X.Y.Z
-newversion="$1";
+newversion="$1"
 
-sed -i "s/return \"[0-9]\+\.[0-9]\+\.[0-9]\+\"/return \"${newversion}\"/g" hexonet/apiconnector/apiclient.py
-sed -i "s/__version__ = \"[0-9]\+\.[0-9]\+\.[0-9]\+\"/__version__ = \"${newversion}\"/g" hexonet/apiconnector/__init__.py
+printf -v sed_script 's/return "[0-9]\+\.[0-9]\+\.[0-9]\+"/return "%s"/g' "${newversion}"
+sed -i -e "${sed_script}" hexonet/apiconnector/apiclient.py
+
+printf -v sed_script 's/__version__ = "[0-9]\+\.[0-9]\+\.[0-9]\+"/__version__ = "%s"/g' "${newversion}"
+sed -i -e "${sed_script}" hexonet/apiconnector/__init__.py
