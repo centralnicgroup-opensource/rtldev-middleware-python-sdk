@@ -312,13 +312,13 @@ def test_apiclientmethods():
 
     # [login succeeded; role used]
     # cl.useOTESystem()
-    #cl.setRoleCredentials('test.user', 'testrole', 'test.passw0rd')
-    #r = cl.login()
-    #assert isinstance(r, R)
-    #assert r.isSuccess() is True, ("{0} {1}").format(r.getCode(), r.getDescription())
-    #rec = r.getRecord(0)
-    #assert rec is not None
-    #assert rec.getDataByKey('SESSION') is not None
+    # cl.setRoleCredentials('test.user', 'testrole', 'test.passw0rd')
+    # r = cl.login()
+    # assert isinstance(r, R)
+    # assert r.isSuccess() is True, ("{0} {1}").format(r.getCode(), r.getDescription())
+    # rec = r.getRecord(0)
+    # assert rec is not None
+    # assert rec.getDataByKey('SESSION') is not None
 
     # [login failed; wrong credentials]
     cl.setCredentials('test.user', 'WRONGPASSWORD')
