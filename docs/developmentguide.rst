@@ -83,7 +83,7 @@ if we can role out that PR as we want to keep all our SDKs aligned.
 .. _commitizen:  https://github.com/commitizen/cz-cli/blob/master/README.md
 
 Changes to the documentation will be auto-deployed by a webhook to
-readthedocs.org_ and to `github pages`_.
+readthedocs.org_.
 
 .. _readthedocs.org: https://hexonet-python-sdk.readthedocs.io
 .. _github pages: https://hexonet.github.io/python-sdk
