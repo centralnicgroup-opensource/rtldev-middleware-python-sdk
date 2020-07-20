@@ -61,45 +61,26 @@ Try to auto-fix pep8 styling issues by
 
 Pull Request (PR) Procedure
 ---------------------------
-* fork our project and create a new branch.
+* fork our project and create a new branch
 * clone it and check this branch out
 * apply your desired changes / extensions
-* commit and push it to remote. Please follow these format rules_.
-  We suggest to use commitizen_.
-* open a pull request (PR) - check results of Travis CI.
-  There are possibly Code issues you can correct.
+* commit and push it to remote. Please follow these [commit guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).  We suggest to use [commitizen](https://github.com/commitizen/cz-cli/blob/master/README.md).
+* open a pull request (PR).
+* check if the Travis CI build check fails. If so, review your code (feel free to ask for help).
+* squash your commits as far as it makes sense
+* rebase your branch
 
 **We care then about the rest** - no need to worry about things like
 building current realease and versioning.
 
 **You can stop here.**
 
-The below sections are just for our reference.
 TIA for your PR and thus for your support of this project. As we have
 further SDKs in other languages, it might take a bit of time to check
 if we can role out that PR as we want to keep all our SDKs aligned.
 
 .. _rules: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines)
 .. _commitizen:  https://github.com/commitizen/cz-cli/blob/master/README.md
-
-Versioning
-----------
-
-We use SemVer_ for versioning. For the versions available, see the
-`tags on this repository`_. New version numbers will be set automatically
-through npm module semantic-release which is part of our CI/CD.
-
-.. _SemVer: http://semver.org/
-.. _tags on this repository: https://github.com/hexonet/python-sdk/tags
-
-Releasing
----------
-
-Our Travis CI integration cares about checking the PR for issues. If all
-looks fine, please care about rebasing and if applicable about squashing.
-Now you can merge the PR into master branch. Travis CI and semantic-release
-care about releasing and uploading. This also includes automatic update of
-changelog and source code documentation.
 
 Changes to the documentation will be auto-deployed by a webhook to
 readthedocs.org_ and to `github pages`_.
