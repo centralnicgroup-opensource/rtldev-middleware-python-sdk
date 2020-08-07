@@ -22,8 +22,6 @@ jobs:
   include:
     - stage: release
       node_js: lts/*
-      before_install:
-        - export TRAVIS_NODE_VERSION="lts/*"
       install:
         - rm -rf ~/.nvm
         - git clone https://github.com/creationix/nvm.git ~/.nvm
