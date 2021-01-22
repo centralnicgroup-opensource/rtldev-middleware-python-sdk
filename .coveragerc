@@ -1,0 +1,4 @@
+[run]
+omit = 
+    hexonet/__init__.py
+    hexonet/apiconnector/__init__.py

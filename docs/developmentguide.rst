@@ -10,16 +10,15 @@ Please read our :ref:`Contributing guide lines <contributing>` first.
 Requirements
 ------------
 
-You can find any required library for this project in the *requirements.txt*:
+You can find any required library for this project listed in the *setup.cfg*:
 
-.. literalinclude:: ../requirements.txt
+.. literalinclude:: ../setup.cfg
 
-You can install them by
+You can install all you need by
 
 .. code-block:: bash
 
-    pip install -r requirements.txt --user
-    pip install . --user
+    pip install --user --upgrade -e .
 
 NOTE: Make sure to have also all the extensions listed in the `docs/conf.py`
 that are required for the SDK Documentation.
@@ -39,7 +38,7 @@ Run Tests and Code Validation
 -----------------------------
 
 If you open a Pull Request (PR), we will trigger automated tests and pep8 style
-check in Travis CI. So nothing you have to worry about in your development.
+check in CI process. So nothing you have to worry about in your development.
 You can open your PR and prefix its title with WIP "Work In Progress" to access
 these checks in advance.
 
@@ -66,7 +65,7 @@ Pull Request (PR) Procedure
 * apply your desired changes / extensions
 * commit and push it to remote. Please follow these [commit guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).  We suggest to use [commitizen](https://github.com/commitizen/cz-cli/blob/master/README.md).
 * open a pull request (PR).
-* check if the Travis CI build check fails. If so, review your code (feel free to ask for help).
+* check if the CI process fails. If so, review your code (feel free to ask for help).
 * squash your commits as far as it makes sense
 * rebase your branch
 

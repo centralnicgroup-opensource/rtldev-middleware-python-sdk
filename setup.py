@@ -40,23 +40,26 @@ setup(
     maintainer='Kai Schwarz',
     maintainer_email='kschwarz@hexonet.net',
     url='https://github.com/hexonet/python-sdk/',
-    install_require=[
-        'autopep8',
-        'guzzle_sphinx_theme',
-        'pycodestyle',
-        'sphinx',
-        'sphinxcontrib-log-cabinet',
-        'twine'
+    install_requires=[
+        'autopep8==1.*',
+        'docutils==0.*',
+        'guzzle-sphinx-theme==0.*',
+        'm2r2==0.*',
+        'pep8==1.*',
+        'pycodestyle==2.*',
+        'pytest-cov==2.*',
+        'sphinx==3.*',
+        'sphinxcontrib-log-cabinet==1.*',
+        'sphinxcontrib-websupport==1.*',
+        'twine==3.*'
     ],
     setup_requires=[
-        'autopep8',
-        'guzzle_sphinx_theme',
-        'pycodestyle',
-        'sphinx',
-        'sphinxcontrib-log-cabinet',
-        'twine'
+        'pytest-runner'
     ],
-    tests_require=['six'],
+    tests_require=[
+        'pytest',
+        'pytest-cov'
+    ],
     license="MIT",
     scripts=[],
     zip_safe=True,
