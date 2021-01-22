@@ -6,6 +6,7 @@ import io
 import re
 sys.path.append('~/.local/lib')
 
+
 def read(*names, **kwargs):
     with io.open(
         os.path.join(os.path.dirname(__file__), *names),
@@ -24,6 +25,7 @@ def find_version(*file_paths):
 
 # Project --------------------------------------------------------------
 
+
 project = 'hexonet.apiconnector'
 copyright = '2018 by HEXONET GmbH'
 author = 'Anthony Schneider, Kai Schwarz'
@@ -38,7 +40,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
     'sphinxcontrib.log_cabinet',
-    'm2r'
+    'm2r2'
 ]
 exclude_patterns = ['_build', '/docs/api/*.rst']
 
