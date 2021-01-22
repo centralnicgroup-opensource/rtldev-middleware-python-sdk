@@ -1,7 +1,7 @@
 autopep8==1.*
 docutils==0.*
 guzzle-sphinx-theme==0.*
-m2r==0.*
+m2r2==0.*
 pep8==1.*
 pycodestyle==2.*
 pytest-cov==2.*
