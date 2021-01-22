@@ -56,7 +56,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 3.8.1</a>
+    index.html" class="text-logo">hexonet.apiconnector 3.8.2</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -77,17 +77,17 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id5">3.8.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id7">3.7.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id9">3.6.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id15">3.5.0 (2020-04-30)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id23">3.4.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id25">3.3.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id33">3.2.0 (2020-03-11)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id48">3.1.0 (2019-04-16)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id57">3.0.0 (2019-04-01)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id65">2.1.0 (2019-03-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id73">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id8">3.8.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id10">3.7.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id12">3.6.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id18">3.5.0 (2020-04-30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id26">3.4.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id28">3.3.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id36">3.2.0 (2020-03-11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id51">3.1.0 (2019-04-16)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id60">3.0.0 (2019-04-01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id68">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id76">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Development Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
@@ -153,23 +153,31 @@
 <p>Please read our <a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">Contributing guide lines</span></a> first.</p>
 <div class="section" id="requirements">
 <span id="id1"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>You can find any required library for this project in the <em>requirements.txt</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">autopep8</span><span class="o">==</span><span class="mf">1.</span><span class="o">*</span>
-<span class="n">docutils</span><span class="o">==</span><span class="mf">0.</span><span class="o">*</span>
-<span class="n">guzzle</span><span class="o">-</span><span class="n">sphinx</span><span class="o">-</span><span class="n">theme</span><span class="o">==</span><span class="mf">0.</span><span class="o">*</span>
-<span class="n">m2r2</span><span class="o">==</span><span class="mf">0.</span><span class="o">*</span>
-<span class="n">pep8</span><span class="o">==</span><span class="mf">1.</span><span class="o">*</span>
-<span class="n">pycodestyle</span><span class="o">==</span><span class="mf">2.</span><span class="o">*</span>
-<span class="n">pytest</span><span class="o">-</span><span class="n">cov</span><span class="o">==</span><span class="mf">2.</span><span class="o">*</span>
-<span class="n">Sphinx</span><span class="o">==</span><span class="mf">3.</span><span class="o">*</span>
-<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">log</span><span class="o">-</span><span class="n">cabinet</span><span class="o">==</span><span class="mf">1.</span><span class="o">*</span>
-<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">websupport</span><span class="o">==</span><span class="mf">1.</span><span class="o">*</span>
-<span class="n">twine</span><span class="o">==</span><span class="mf">3.</span><span class="o">*</span>
+<p>You can find any required library for this project listed in the <em>setup.cfg</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">bdist_wheel</span><span class="p">]</span>
+<span class="n">universal</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="p">[</span><span class="n">metadata</span><span class="p">]</span>
+<span class="n">license_file</span> <span class="o">=</span> <span class="n">LICENSE</span>
+
+<span class="p">[</span><span class="n">pycodestyle</span><span class="p">]</span>
+<span class="nb">max</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">length</span> <span class="o">=</span> <span class="mi">120</span>
+
+<span class="p">[</span><span class="n">flake8</span><span class="p">]</span>
+<span class="nb">max</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">length</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">ignore</span> <span class="o">=</span> <span class="n">F401</span><span class="p">,</span><span class="n">E402</span><span class="p">,</span><span class="n">F403</span>
+<span class="n">exclude</span> <span class="o">=</span> <span class="n">venv</span>
+
+<span class="p">[</span><span class="n">tool</span><span class="p">:</span><span class="n">pytest</span><span class="p">]</span>
+<span class="n">addopts</span> <span class="o">=</span> <span class="o">--</span><span class="n">strict</span> <span class="o">--</span><span class="n">cov</span><span class="o">-</span><span class="n">config</span><span class="o">=.</span><span class="n">coveragerc</span> <span class="o">--</span><span class="n">cov</span><span class="o">=</span><span class="n">hexonet</span> <span class="o">--</span><span class="n">cov</span><span class="o">-</span><span class="n">report</span> <span class="n">html</span> <span class="o">--</span><span class="n">cache</span><span class="o">-</span><span class="n">clear</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">testpaths</span> <span class="o">=</span> <span class="n">tests</span><span class="o">/</span>
+
+<span class="p">[</span><span class="n">aliases</span><span class="p">]</span>
+<span class="n">test</span><span class="o">=</span><span class="n">pytest</span>
 </pre></div>
 </div>
-<p>You can install them by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt --user
-pip install . --user
+<p>You can install all you need by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --user --upgrade -e .
 </pre></div>
 </div>
 <p>NOTE: Make sure to have also all the extensions listed in the <cite>docs/conf.py</cite>
@@ -181,7 +189,7 @@ is fine.</p>
 <div class="section" id="run-tests-and-code-validation">
 <span id="testsnvalidation"></span><h2>Run Tests and Code Validation<a class="headerlink" href="#run-tests-and-code-validation" title="Permalink to this headline">¶</a></h2>
 <p>If you open a Pull Request (PR), we will trigger automated tests and pep8 style
-check in Travis CI. So nothing you have to worry about in your development.
+check in CI process. So nothing you have to worry about in your development.
 You can open your PR and prefix its title with WIP “Work In Progress” to access
 these checks in advance.</p>
 <p>If there’s anything breaking, be so kind to fix it. If you’re not able to do it
@@ -206,7 +214,7 @@ these checks in advance.</p>
 <li><p>apply your desired changes / extensions</p></li>
 <li><p>commit and push it to remote. Please follow these [commit guidelines](<a class="reference external" href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines">https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines</a>).  We suggest to use [commitizen](<a class="reference external" href="https://github.com/commitizen/cz-cli/blob/master/README.md">https://github.com/commitizen/cz-cli/blob/master/README.md</a>).</p></li>
 <li><p>open a pull request (PR).</p></li>
-<li><p>check if the Travis CI build check fails. If so, review your code (feel free to ask for help).</p></li>
+<li><p>check if the CI process fails. If so, review your code (feel free to ask for help).</p></li>
 <li><p>squash your commits as far as it makes sense</p></li>
 <li><p>rebase your branch</p></li>
 </ul>

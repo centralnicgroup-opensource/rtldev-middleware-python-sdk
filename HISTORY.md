@@ -1,3 +1,13 @@
+## [3.8.2](https://github.com/hexonet/python-sdk/compare/v3.8.1...v3.8.2) (2021-01-22)
+
+
+### Bug Fixes
+
+* **ci:** migration from Travis CI to github actions ([d74edcd](https://github.com/hexonet/python-sdk/commit/d74edcd5dbfaf010d2fc91f2525dcc4c65955b79))
+* **ci:** missing replacement of m2r with m2r2 in docs/conf.py ([4a1ec74](https://github.com/hexonet/python-sdk/commit/4a1ec7416a66a0cafb9b710b71687322ab9d3600))
+* **ci:** replace m2r (abandoned) with m2r2 ([1e048c5](https://github.com/hexonet/python-sdk/commit/1e048c5b017fd7d476b4f883c714e24bb70e0b3a))
+* **test & coverage:** reviewed dependency management, coverage reporting and configs ([2bd868a](https://github.com/hexonet/python-sdk/commit/2bd868a9c40cb9d5dbb48328e4c1344702d2f022))
+
 ## [3.8.1](https://github.com/hexonet/python-sdk/compare/v3.8.0...v3.8.1) (2020-05-23)
 
 
