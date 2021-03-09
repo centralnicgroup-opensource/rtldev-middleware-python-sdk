@@ -38,10 +38,18 @@ class SocketConfig(object):
         """
         data = ""
         tpl = "{0}={1}&"
-        for key in ['__entity', '__login', '__otp', '__pw', '__remoteaddr', '__session', '__user']:
-            item = getattr(self, '_SocketConfig' + key)
-            if (item is not None and item is not ""):
-                data += tpl.format(quote('s_' + key[2:]), quote(item))
+        for key in [
+            "__entity",
+            "__login",
+            "__otp",
+            "__pw",
+            "__remoteaddr",
+            "__session",
+            "__user",
+        ]:
+            item = getattr(self, "_SocketConfig" + key)
+            if item is not None and item is not "":
+                data += tpl.format(quote("s_" + key[2:]), quote(item))
         return data
 
     def getSession(self):

@@ -34,26 +34,28 @@ class ResponseTemplate(object):
             self._raw = self._raw.decode("utf-8")
 
         if isinstance(response, dict):
-            raise TypeError('Type "dict" is not allowed for parameter "response". Use type "string" instead.')
+            raise TypeError(
+                'Type "dict" is not allowed for parameter "response". Use type "string" instead.'
+            )
         else:
             #: Holds the response as hash
             self.__hash = RP.parse(self._raw)
 
-        if ('CODE' not in self.__hash) or ('DESCRIPTION' not in self.__hash):
-            self._raw = '[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=Invalid API response. Contact Support\r\nEOF\r\n'
+        if ("CODE" not in self.__hash) or ("DESCRIPTION" not in self.__hash):
+            self._raw = "[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=Invalid API response. Contact Support\r\nEOF\r\n"
             self.__hash = RP.parse(self._raw)
 
     def getCode(self):
         """
         Returns the API response code as integer
         """
-        return int(self.__hash['CODE'])
+        return int(self.__hash["CODE"])
 
     def getDescription(self):
         """
         Returns the API response description
         """
-        return self.__hash['DESCRIPTION']
+        return self.__hash["DESCRIPTION"]
 
     def getPlain(self):
         """
@@ -65,7 +67,7 @@ class ResponseTemplate(object):
         """
         Get Queuetime of API response as float value
         """
-        if ("QUEUETIME" in self.__hash):
+        if "QUEUETIME" in self.__hash:
             return float(self.__hash["QUEUETIME"])
         return 0.00
 
@@ -79,7 +81,7 @@ class ResponseTemplate(object):
         """
         Get Runtime of API response as float value
         """
-        if ("RUNTIME" in self.__hash):
+        if "RUNTIME" in self.__hash:
             return float(self.__hash["RUNTIME"])
         return 0.00
 
@@ -105,6 +107,6 @@ class ResponseTemplate(object):
         """
         Check if current operation is returned as pending
         """
-        if 'PENDING' in self.__hash:
+        if "PENDING" in self.__hash:
             return self.__hash["PENDING"] == "1"
         return False

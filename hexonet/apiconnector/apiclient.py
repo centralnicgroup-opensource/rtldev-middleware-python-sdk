@@ -25,7 +25,6 @@ ISPAPI_CONNECTION_URL = "https://api.ispapi.net/api/call.cgi"
 
 
 class APIClient(object):
-
     def __init__(self):
         # API connection url
         self.setURL(ISPAPI_CONNECTION_URL)
@@ -61,8 +60,8 @@ class APIClient(object):
         """
         Set Proxy to use for API communication
         """
-        if proxy == '':
-            self.__curlopts.pop('PROXY', None)
+        if proxy == "":
+            self.__curlopts.pop("PROXY", None)
         else:
             self.__curlopts["PROXY"] = proxy
         return self
@@ -79,8 +78,8 @@ class APIClient(object):
         """
         Set the Referer Header to use for API communication
         """
-        if referer == '':
-            self.__curlopts.pop('REFERER', None)
+        if referer == "":
+            self.__curlopts.pop("REFERER", None)
         else:
             self.__curlopts["REFERER"] = referer
         return self
@@ -113,18 +112,22 @@ class APIClient(object):
         """
         data = self.__socketConfig.getPOSTData()
         if secured:
-            data = re.sub(r's_pw=[^&]+', 's_pw=***', data)
+            data = re.sub(r"s_pw=[^&]+", "s_pw=***", data)
         tmp = ""
         if not isinstance(cmd, str):
             for key in sorted(cmd.keys()):
-                if (cmd[key] is not None):
-                    tmp += ("{0}={1}\n").format(key, re.sub('[\r\n]', '', str(cmd[key])))
+                if cmd[key] is not None:
+                    tmp += ("{0}={1}\n").format(
+                        key, re.sub("[\r\n]", "", str(cmd[key]))
+                    )
         else:
             tmp = cmd
-        tmp = tmp.rstrip('\n')
+        tmp = tmp.rstrip("\n")
         if secured:
-            tmp = re.sub(r'PASSWORD=[^\n]+', 'PASSWORD=***', tmp)
-        return ("{0}{1}={2}").format(data, quote('s_command'), quote(re.sub('\n$', '', tmp)))
+            tmp = re.sub(r"PASSWORD=[^\n]+", "PASSWORD=***", tmp)
+        return ("{0}{1}={2}").format(
+            data, quote("s_command"), quote(re.sub("\n$", "", tmp))
+        )
 
     def getSession(self):
         """
@@ -142,12 +145,18 @@ class APIClient(object):
         """
         Get the User Agent
         """
-        if (len(self.__ua) == 0):
+        if len(self.__ua) == 0:
             pid = "PYTHON-SDK"
             pyv = platform.python_version()
             pf = platform.system()
             arch = platform.architecture()[0]
-            self.__ua = "%s (%s; %s; rv:%s) python/%s" % (pid, pf, arch, self.getVersion(), pyv)
+            self.__ua = "%s (%s; %s; rv:%s) python/%s" % (
+                pid,
+                pf,
+                arch,
+                self.getVersion(),
+                pyv,
+            )
         return self.__ua
 
     def setUserAgent(self, pid, rv, modules=[]):
@@ -161,7 +170,15 @@ class APIClient(object):
         pyv = platform.python_version()
         pf = platform.system()
         arch = platform.architecture()[0]
-        self.__ua = "%s (%s; %s; rv:%s)%s python-sdk/%s python/%s" % (pid, pf, arch, rv, mods, self.getVersion(), pyv)
+        self.__ua = "%s (%s; %s; rv:%s)%s python-sdk/%s python/%s" % (
+            pid,
+            pf,
+            arch,
+            rv,
+            mods,
+            self.getVersion(),
+            pyv,
+        )
         return self
 
     def getVersion(self):
@@ -176,7 +193,7 @@ class APIClient(object):
         """
         session["socketcfg"] = {
             "entity": self.__socketConfig.getSystemEntity(),
-            "session": self.__socketConfig.getSession()
+            "session": self.__socketConfig.getSession(),
         }
         return self
 
@@ -230,7 +247,7 @@ class APIClient(object):
         """
         Set Credentials to be used for API communication
         """
-        if (role == ''):
+        if role == "":
             return self.setCredentials(uid, pw)
         return self.setCredentials(("{0}!{1}").format(uid, role), pw)
 
@@ -240,7 +257,7 @@ class APIClient(object):
         """
         self.setOTP(otp)
         rr = self.request({"COMMAND": "StartSession"})
-        if (rr.isSuccess()):
+        if rr.isSuccess():
             col = rr.getColumn("SESSION")
             self.setSession(col.getData()[0] if (col is not None) else None)
         return rr
@@ -251,12 +268,10 @@ class APIClient(object):
         Use given specific command parameters.
         """
         self.setOTP(otp)
-        cmd = {
-            "COMMAND": "StartSession"
-        }
+        cmd = {"COMMAND": "StartSession"}
         cmd.update(params)
         rr = self.request(cmd)
-        if (rr.isSuccess()):
+        if rr.isSuccess():
             col = rr.getColumn("SESSION")
             self.setSession(col.getData()[0] if (col is not None) else None)
         return rr
@@ -265,10 +280,12 @@ class APIClient(object):
         """
         Perform API logout to close API session in use
         """
-        rr = self.request({
-            "COMMAND": "EndSession",
-        })
-        if (rr.isSuccess()):
+        rr = self.request(
+            {
+                "COMMAND": "EndSession",
+            }
+        )
+        if rr.isSuccess():
             self.setSession(None)
         return rr
 
@@ -282,18 +299,14 @@ class APIClient(object):
         newcmd = self.__autoIDNConvert(newcmd)
 
         # request command to API
-        cfg = {
-            "CONNECTION_URL": self.__socketURL
-        }
-        data = self.getPOSTData(newcmd).encode('UTF-8')
-        secured = self.getPOSTData(newcmd, True).encode('UTF-8')
+        cfg = {"CONNECTION_URL": self.__socketURL}
+        data = self.getPOSTData(newcmd).encode("UTF-8")
+        secured = self.getPOSTData(newcmd, True).encode("UTF-8")
         error = None
         try:
-            headers = {
-                'User-Agent': self.getUserAgent()
-            }
+            headers = {"User-Agent": self.getUserAgent()}
             if "REFERER" in self.__curlopts:
-                headers['Referer'] = self.__curlopts["REFERER"]
+                headers["Referer"] = self.__curlopts["REFERER"]
             req = Request(cfg["CONNECTION_URL"], data, headers)
             if "PROXY" in self.__curlopts:
                 proxyurl = urlparse(self.__curlopts["PROXY"])
@@ -303,7 +316,7 @@ class APIClient(object):
             error = str(e)
             body = rtm.getTemplate("httperror").getPlain()
         r = Response(body, newcmd, cfg)
-        if (self.__debugMode):
+        if self.__debugMode:
             self.__logger.log(secured, r, error)
         return r
 
@@ -313,15 +326,17 @@ class APIClient(object):
         Useful for tables
         """
         mycmd = rr.getCommand()
-        if ("LAST" in mycmd):
-            raise Exception("Parameter LAST in use. Please remove it to avoid issues in requestNextPage.")
+        if "LAST" in mycmd:
+            raise Exception(
+                "Parameter LAST in use. Please remove it to avoid issues in requestNextPage."
+            )
         first = 0
-        if ("FIRST" in mycmd):
+        if "FIRST" in mycmd:
             first = int(mycmd["FIRST"])
         total = rr.getRecordsTotalCount()
         limit = rr.getRecordsLimitation()
         first += limit
-        if (first < total):
+        if first < total:
             mycmd["FIRST"] = first
             mycmd["LIMIT"] = limit
             return self.request(mycmd)
@@ -399,10 +414,10 @@ class APIClient(object):
             if isinstance(val, list):
                 i = 0
                 while i < len(val):
-                    newcmd[newKey + str(i)] = re.sub(r'[\r\n]', '', str(val[i]))
+                    newcmd[newKey + str(i)] = re.sub(r"[\r\n]", "", str(val[i]))
                     i += 1
             else:
-                newcmd[newKey] = re.sub(r'[\r\n]', '', str(val))
+                newcmd[newKey] = re.sub(r"[\r\n]", "", str(val))
         return newcmd
 
     def __autoIDNConvert(self, cmd):
@@ -411,26 +426,25 @@ class APIClient(object):
         """
         # don't convert for convertidn command to avoid endless loop
         # and ignore commands in string format(even deprecated)
-        if isinstance(cmd, str) or re.match(r'^CONVERTIDN$', cmd["COMMAND"], re.IGNORECASE):
+        if isinstance(cmd, str) or re.match(
+            r"^CONVERTIDN$", cmd["COMMAND"], re.IGNORECASE
+        ):
             return cmd
 
         toconvert = []
         keys = []
         for key in cmd:
-            if re.match(r'^(DOMAIN|NAMESERVER|DNSZONE)([0-9]*)$', key, re.IGNORECASE):
+            if re.match(r"^(DOMAIN|NAMESERVER|DNSZONE)([0-9]*)$", key, re.IGNORECASE):
                 keys.append(key)
         idxs = []
         for key in keys:
-            if not re.match(r'^[a-z0-9.-]+$', cmd[key], re.IGNORECASE):
+            if not re.match(r"^[a-z0-9.-]+$", cmd[key], re.IGNORECASE):
                 toconvert.append(cmd[key])
                 idxs.append(key)
         if not toconvert:
             return cmd
 
-        r = self.request({
-            "COMMAND": "ConvertIDN",
-            "DOMAIN": toconvert
-        })
+        r = self.request({"COMMAND": "ConvertIDN", "DOMAIN": toconvert})
         if r.isSuccess():
             col = r.getColumn("ACE")
             if col is not None:
