@@ -27,7 +27,7 @@ class Record(object):
         """
         get row data for given column name
         """
-        if (self.__hasData(key)):
+        if self.__hasData(key):
             return self.__data[key]
         return None
 

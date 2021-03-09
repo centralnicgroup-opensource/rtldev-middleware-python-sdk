@@ -17,6 +17,7 @@ class ResponseTemplateManager(object):
     The ResponseTemplateManager class covers all functionality required to manage
     Response Templates.
     """
+
     # to keep the singleton instance
     __instance = None
     __templates = None
@@ -30,12 +31,19 @@ class ResponseTemplateManager(object):
             "404": rtm.generateTemplate("421", "Page not found"),
             "500": rtm.generateTemplate("500", "Internal server error"),
             "empty": rtm.generateTemplate(
-                "423", "Empty API response. Probably unreachable API end point {CONNECTION_URL}"
+                "423",
+                "Empty API response. Probably unreachable API end point {CONNECTION_URL}",
             ),
-            "error": rtm.generateTemplate("421", "Command failed due to server error. Client should try again"),
+            "error": rtm.generateTemplate(
+                "421", "Command failed due to server error. Client should try again"
+            ),
             "expired": rtm.generateTemplate("530", "SESSION NOT FOUND"),
-            "httperror": rtm.generateTemplate("421", "Command failed due to HTTP communication error"),
-            "invalid": rtm.generateTemplate("423", "Invalid API response. Contact Support"),
+            "httperror": rtm.generateTemplate(
+                "421", "Command failed due to HTTP communication error"
+            ),
+            "invalid": rtm.generateTemplate(
+                "423", "Invalid API response. Contact Support"
+            ),
             "unauthorized": rtm.generateTemplate("530", "Unauthorized"),
         }
         return rtm
@@ -51,7 +59,9 @@ class ResponseTemplateManager(object):
         """
         Returns a response template string for the given code and description
         """
-        return ('[RESPONSE]\r\nCODE={0}\r\nDESCRIPTION={1}\r\nEOF\r\n').format(code, description)
+        return ("[RESPONSE]\r\nCODE={0}\r\nDESCRIPTION={1}\r\nEOF\r\n").format(
+            code, description
+        )
 
     def addTemplate(self, id, plain):
         """
@@ -64,7 +74,7 @@ class ResponseTemplateManager(object):
         """
         Get response template instance from template container
         """
-        if (self.hasTemplate(id)):
+        if self.hasTemplate(id):
             return RT(self.__templates[id])
         return RT(self.generateTemplate("500", "Response Template not found"))
 
@@ -81,17 +91,14 @@ class ResponseTemplateManager(object):
         """
         Check if given template exists in template container
         """
-        return (id in self.__templates)
+        return id in self.__templates
 
     def isTemplateMatchHash(self, tpl2, id):
         """
         Check if given API response hash matches a given template by code and description
         """
         h = self.getTemplate(id).getHash()
-        return (
-            (h["CODE"] == tpl2["CODE"]) and
-            (h["DESCRIPTION"] == tpl2["DESCRIPTION"])
-        )
+        return (h["CODE"] == tpl2["CODE"]) and (h["DESCRIPTION"] == tpl2["DESCRIPTION"])
 
     def isTemplateMatchPlain(self, plain, id):
         """
@@ -99,7 +106,4 @@ class ResponseTemplateManager(object):
         """
         h = self.getTemplate(id).getHash()
         tpl2 = RP.parse(plain)
-        return (
-            (h["CODE"] == tpl2["CODE"]) and
-            (h["DESCRIPTION"] == tpl2["DESCRIPTION"])
-        )
+        return (h["CODE"] == tpl2["CODE"]) and (h["DESCRIPTION"] == tpl2["DESCRIPTION"])

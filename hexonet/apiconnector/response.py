@@ -32,8 +32,8 @@ class Response(RT, object):
 
         # The API Command used within this request
         self.__command = cmd
-        if (self.__command is not None) and ('PASSWORD' in self.__command):
-            self.__command['PASSWORD'] = '***'
+        if (self.__command is not None) and ("PASSWORD" in self.__command):
+            self.__command["PASSWORD"] = "***"
         # Column names available in this responsse.
         # NOTE: this includes also FIRST, LAST, LIMIT, COUNT, TOTAL
         # and maybe further specific columns in case of a list query
@@ -46,22 +46,22 @@ class Response(RT, object):
         self.__records = []
 
         h = self.getHash()
-        if ("PROPERTY" in h):
+        if "PROPERTY" in h:
             colKeys = list(h["PROPERTY"].keys())
             count = 0
             for c in colKeys:
                 d = h["PROPERTY"][c]
                 self.addColumn(c, d)
                 mylen = len(d)
-                if (mylen > count):
+                if mylen > count:
                     count = mylen
             for i in range(count):
                 d = {}
                 for k in colKeys:
                     col = self.getColumn(k)
-                    if (col is not None):
+                    if col is not None:
                         v = col.getDataByIndex(i)
-                        if (v is not None):
+                        if v is not None:
                             d[k] = v
                 self.addRecord(d)
 
@@ -85,7 +85,7 @@ class Response(RT, object):
         """
         Get column by column name
         """
-        if (self.__hasColumn(key)):
+        if self.__hasColumn(key):
             return self.__columns[self.__columnkeys.index(key)]
         return None
 
@@ -118,7 +118,7 @@ class Response(RT, object):
         """
         Get Command used in this request in plain text
         """
-        tmp = ''
+        tmp = ""
         for key, val in self.__command.items():
             tmp += "%s = %s\n" % (key, val)
         return tmp
@@ -137,18 +137,20 @@ class Response(RT, object):
         """
         Get Record of current record index
         """
-        return self.__records[self.__recordIndex] if (self.__hasCurrentRecord()) else None
+        return (
+            self.__records[self.__recordIndex] if (self.__hasCurrentRecord()) else None
+        )
 
     def getFirstRecordIndex(self):
         """
         Get Index of first row in this response
         """
         col = self.getColumn("FIRST")
-        if (col is not None):
+        if col is not None:
             f = col.getDataByIndex(0)
-            if (f is not None):
+            if f is not None:
                 return int(f)
-        if (len(self.__records)):
+        if len(self.__records):
             return 0
         return None
 
@@ -157,13 +159,13 @@ class Response(RT, object):
         Get last record index of the current list query
         """
         col = self.getColumn("LAST")
-        if (col is not None):
+        if col is not None:
             data = col.getDataByIndex(0)
-            if (data is not None):
+            if data is not None:
                 return int(data)
         len = self.getRecordsCount()
-        if (len):
-            return (len - 1)
+        if len:
+            return len - 1
         return None
 
     def getListHash(self):
@@ -175,17 +177,14 @@ class Response(RT, object):
             lh.append(rec.getData())
         return {
             "LIST": lh,
-            "meta": {
-                "columns": self.getColumnKeys(),
-                "pg": self.getPagination()
-            }
+            "meta": {"columns": self.getColumnKeys(), "pg": self.getPagination()},
         }
 
     def getNextRecord(self):
         """
         Get next record in record list
         """
-        if (self.__hasNextRecord()):
+        if self.__hasNextRecord():
             self.__recordIndex += 1
             return self.__records[self.__recordIndex]
         return None
@@ -195,7 +194,7 @@ class Response(RT, object):
         Get Page Number of next list query
         """
         cp = self.getCurrentPageNumber()
-        if (cp is None):
+        if cp is None:
             return None
         page = cp + 1
         pages = self.getNumberOfPages()
@@ -207,7 +206,7 @@ class Response(RT, object):
         """
         t = self.getRecordsTotalCount()
         limit = self.getRecordsLimitation()
-        if (t and limit):
+        if t and limit:
             return math.ceil(t / self.getRecordsLimitation())
         return 0
 
@@ -224,7 +223,7 @@ class Response(RT, object):
             "NEXTPAGE": self.getNextPageNumber(),
             "PAGES": self.getNumberOfPages(),
             "PREVIOUSPAGE": self.getPreviousPageNumber(),
-            "TOTAL": self.getRecordsTotalCount()
+            "TOTAL": self.getRecordsTotalCount(),
         }
 
     def getPreviousPageNumber(self):
@@ -232,9 +231,9 @@ class Response(RT, object):
         Get Page Number of previous list query
         """
         cp = self.getCurrentPageNumber()
-        if (cp is not None):
+        if cp is not None:
             cp = cp - 1
-            if (cp):
+            if cp:
                 return cp
         return None
 
@@ -242,7 +241,7 @@ class Response(RT, object):
         """
         Get previous record in record list
         """
-        if (self.__hasPreviousRecord()):
+        if self.__hasPreviousRecord():
             self.__recordIndex -= 1
             return self.__records[self.__recordIndex]
         return None
@@ -251,7 +250,7 @@ class Response(RT, object):
         """
         Get Record at given index
         """
-        if (idx >= 0 and len(self.__records) > idx):
+        if idx >= 0 and len(self.__records) > idx:
             return self.__records[idx]
         return None
 
@@ -272,9 +271,9 @@ class Response(RT, object):
         Get total count of records available for the list query
         """
         col = self.getColumn("TOTAL")
-        if (col is not None):
+        if col is not None:
             t = col.getDataByIndex(0)
-            if (t is not None):
+            if t is not None:
                 return int(t)
         return self.getRecordsCount()
 
@@ -283,9 +282,9 @@ class Response(RT, object):
         Get limit(ation) setting of the current list query
         """
         col = self.getColumn("LIMIT")
-        if (col is not None):
+        if col is not None:
             data = col.getDataByIndex(0)
-            if (data is not None):
+            if data is not None:
                 return int(data)
         return self.getRecordsCount()
 
@@ -294,18 +293,18 @@ class Response(RT, object):
         Check if this list query has a next page
         """
         cp = self.getCurrentPageNumber()
-        if (cp is None):
+        if cp is None:
             return False
-        return ((cp + 1) <= self.getNumberOfPages())
+        return (cp + 1) <= self.getNumberOfPages()
 
     def hasPreviousPage(self):
         """
         Check if this list query has a previous page
         """
         cp = self.getCurrentPageNumber()
-        if (cp is None):
+        if cp is None:
             return False
-        return ((cp - 1) > 0)
+        return (cp - 1) > 0
 
     def rewindRecordList(self):
         """
@@ -330,11 +329,7 @@ class Response(RT, object):
         current record index in use
         """
         tlen = len(self.__records)
-        return (
-            tlen > 0 and
-            self.__recordIndex >= 0 and
-            self.__recordIndex < tlen
-        )
+        return tlen > 0 and self.__recordIndex >= 0 and self.__recordIndex < tlen
 
     def __hasNextRecord(self):
         """
@@ -342,11 +337,11 @@ class Response(RT, object):
         current record index in use
         """
         next = self.__recordIndex + 1
-        return (self.__hasCurrentRecord() and (next < len(self.__records)))
+        return self.__hasCurrentRecord() and (next < len(self.__records))
 
     def __hasPreviousRecord(self):
         """
         Check if the record list contains a previous record for the
         current record index in use
         """
-        return (self.__recordIndex > 0 and self.__hasCurrentRecord())
+        return self.__recordIndex > 0 and self.__hasCurrentRecord()

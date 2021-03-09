@@ -15,7 +15,7 @@ def test_responsetemplatemethods():
 
     # #.getHash
     h = tpl.getHash()
-    assert h["CODE"] == '423'
+    assert h["CODE"] == "423"
     assert h["DESCRIPTION"] == descr
 
     # #.getQueuetime
@@ -23,7 +23,8 @@ def test_responsetemplatemethods():
     assert tpl.getQueuetime() == 0.00
     # [in api response]
     tpl2 = ResponseTemplate(
-        '[RESPONSE]\r\ncode=423\r\ndescription=%s\r\nqueuetime=0\r\nruntime=0.12\r\nEOF\r\n' % (descr)
+        "[RESPONSE]\r\ncode=423\r\ndescription=%s\r\nqueuetime=0\r\nruntime=0.12\r\nEOF\r\n"
+        % (descr)
     )
     assert tpl2.getQueuetime() == 0.00
 
@@ -38,6 +39,6 @@ def test_responsetemplatemethods():
     assert tpl.isPending() is False
     # [in api response]
     tpl2 = ResponseTemplate(
-        '[RESPONSE]\r\ncode=423\r\ndescription=%s\r\npending=1\r\nEOF\r\n' % (descr)
+        "[RESPONSE]\r\ncode=423\r\ndescription=%s\r\npending=1\r\nEOF\r\n" % (descr)
     )
     assert tpl2.isPending() is True
