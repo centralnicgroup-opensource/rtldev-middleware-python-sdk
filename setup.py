@@ -41,7 +41,7 @@ setup(
     maintainer_email="kschwarz@hexonet.net",
     url="https://github.com/hexonet/python-sdk/",
     install_requires=[
-        "black==21.5b2",
+        "black==21.6b0",
         "docutils==0.*",
         "guzzle-sphinx-theme==0.*",
         "m2r2==0.*",
