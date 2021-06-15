@@ -23,6 +23,7 @@ rtm = RTM()
 ISPAPI_CONNECTION_URL_PROXY = "http://127.0.0.1/api/call.cgi"
 ISPAPI_CONNECTION_URL = "https://api.ispapi.net/api/call.cgi"
 
+# testing PR jobs
 
 class APIClient(object):
     def __init__(self):
