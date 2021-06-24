@@ -41,7 +41,6 @@ setup(
     maintainer_email="kschwarz@hexonet.net",
     url="https://github.com/hexonet/python-sdk/",
     install_requires=[
-        "black==21.6b0",
         "docutils==0.*",
         "guzzle-sphinx-theme==0.*",
         "m2r2==0.*",
@@ -50,6 +49,7 @@ setup(
         "sphinxcontrib-log-cabinet==1.*",
         "sphinxcontrib-websupport==1.*",
         "twine==3.*",
+        "black",
     ],
     setup_requires=["pytest-runner"],
     tests_require=["pytest", "pytest-cov"],
@@ -63,4 +63,5 @@ setup(
     ),
     namespace_packages=["hexonet"],
     packages=find_packages(),
+    dependency_links=["git+git://github.com/psf/black.git@stable#egg=black"],
 )
