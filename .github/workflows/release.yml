@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.x" # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          python-version: "3.6" # Version range or exact version of a Python version to use, using SemVer's version range syntax
       - name: Install dependencies
         run: |
           pip install --upgrade pip
@@ -53,7 +53,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.x"
+          python-version: "3.6"
       - name: Install dependencies
         run: |
           pip install --upgrade pip testresources setuptools wheel
