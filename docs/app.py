@@ -52,7 +52,7 @@ cl.setRemoteIPAddress("1.2.3.4")
 
 # Call a command
 r = cl.login()
-# cl.login('12345678'); -> 2FA: one time password
+# cl.login("12345678"); -> 2FA: one time password
 
 if r.isSuccess():
     print("LOGIN SUCCEEDED!")

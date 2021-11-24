@@ -183,15 +183,13 @@ Using the <code class="xref py py-class docutils literal notranslate"><span clas
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- SESSIONLESS COMMUNICATION ----&quot;</span><span class="p">)</span>
 <span class="n">cl</span> <span class="o">=</span> <span class="n">AC</span><span class="p">()</span>
 <span class="n">cl</span><span class="o">.</span><span class="n">useOTESystem</span><span class="p">()</span>
-<span class="n">cl</span><span class="o">.</span><span class="n">setCredentials</span><span class="p">(</span><span class="s1">&#39;test.user&#39;</span><span class="p">,</span> <span class="s1">&#39;test.passw0rd&#39;</span><span class="p">)</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">setCredentials</span><span class="p">(</span><span class="s2">&quot;test.user&quot;</span><span class="p">,</span> <span class="s2">&quot;test.passw0rd&quot;</span><span class="p">)</span>
 <span class="c1"># use the below method in case you have an active</span>
 <span class="c1"># ip filter setting</span>
-<span class="n">cl</span><span class="o">.</span><span class="n">setRemoteIPAddress</span><span class="p">(</span><span class="s1">&#39;1.2.3.4&#39;</span><span class="p">)</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">setRemoteIPAddress</span><span class="p">(</span><span class="s2">&quot;1.2.3.4&quot;</span><span class="p">)</span>
 
 <span class="c1"># Call a command</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
-    <span class="s1">&#39;Command&#39;</span><span class="p">:</span> <span class="s2">&quot;QueryDomainList&quot;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">5</span>
-<span class="p">})</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">request</span><span class="p">({</span><span class="s2">&quot;Command&quot;</span><span class="p">:</span> <span class="s2">&quot;QueryDomainList&quot;</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
 
 <span class="c1"># Get the result in the format you want</span>
 <span class="n">rlist</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getListHash</span><span class="p">()</span>
@@ -218,25 +216,23 @@ Using the <code class="xref py py-class docutils literal notranslate"><span clas
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- SESSION-BASED COMMUNICATION ----&quot;</span><span class="p">)</span>
 <span class="n">cl</span> <span class="o">=</span> <span class="n">AC</span><span class="p">()</span>
 <span class="n">cl</span><span class="o">.</span><span class="n">useOTESystem</span><span class="p">()</span>
-<span class="n">cl</span><span class="o">.</span><span class="n">setCredentials</span><span class="p">(</span><span class="s1">&#39;test.user&#39;</span><span class="p">,</span> <span class="s1">&#39;test.passw0rd&#39;</span><span class="p">)</span>
-<span class="n">cl</span><span class="o">.</span><span class="n">setRemoteIPAddress</span><span class="p">(</span><span class="s1">&#39;1.2.3.4&#39;</span><span class="p">)</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">setCredentials</span><span class="p">(</span><span class="s2">&quot;test.user&quot;</span><span class="p">,</span> <span class="s2">&quot;test.passw0rd&quot;</span><span class="p">)</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">setRemoteIPAddress</span><span class="p">(</span><span class="s2">&quot;1.2.3.4&quot;</span><span class="p">)</span>
 
 <span class="c1"># Call a command</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
-<span class="c1"># cl.login(&#39;12345678&#39;); -&gt; 2FA: one time password</span>
+<span class="c1"># cl.login(&quot;12345678&quot;); -&gt; 2FA: one time password</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">isSuccess</span><span class="p">()):</span>
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">isSuccess</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LOGIN SUCCEEDED!&quot;</span><span class="p">)</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
-        <span class="s1">&#39;Command&#39;</span><span class="p">:</span> <span class="s2">&quot;QueryDomainList&quot;</span><span class="p">,</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">5</span>
-    <span class="p">})</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">request</span><span class="p">({</span><span class="s2">&quot;Command&quot;</span><span class="p">:</span> <span class="s2">&quot;QueryDomainList&quot;</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
     <span class="n">rplain</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getPlain</span><span class="p">()</span>
     <span class="n">code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getCode</span><span class="p">()</span>
     <span class="n">description</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">getDescription</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">description</span><span class="p">)</span>
     <span class="c1"># ... further commands ...</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">isSuccess</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">isSuccess</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LOGOUT SUCCEEDED!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
