@@ -14,15 +14,13 @@ from hexonet.apiconnector.apiclient import APIClient as AC
 print("---- SESSIONLESS COMMUNICATION ----")
 cl = AC()
 cl.useOTESystem()
-cl.setCredentials('test.user', 'test.passw0rd')
+cl.setCredentials("test.user", "test.passw0rd")
 # use the below method in case you have an active
 # ip filter setting
-cl.setRemoteIPAddress('1.2.3.4')
+cl.setRemoteIPAddress("1.2.3.4")
 
 # Call a command
-r = cl.request({
-    'Command': "QueryDomainList", 'limit': 5
-})
+r = cl.request({"Command": "QueryDomainList", "limit": 5})
 
 # Get the result in the format you want
 rlist = r.getListHash()
@@ -49,23 +47,21 @@ print(str(code) + " " + description)
 print("---- SESSION-BASED COMMUNICATION ----")
 cl = AC()
 cl.useOTESystem()
-cl.setCredentials('test.user', 'test.passw0rd')
-cl.setRemoteIPAddress('1.2.3.4')
+cl.setCredentials("test.user", "test.passw0rd")
+cl.setRemoteIPAddress("1.2.3.4")
 
 # Call a command
 r = cl.login()
 # cl.login('12345678'); -> 2FA: one time password
 
-if (r.isSuccess()):
+if r.isSuccess():
     print("LOGIN SUCCEEDED!")
-    r = cl.request({
-        'Command': "QueryDomainList", 'limit': 5
-    })
+    r = cl.request({"Command": "QueryDomainList", "limit": 5})
     rplain = r.getPlain()
     code = r.getCode()
     description = r.getDescription()
     print(str(code) + " " + description)
     # ... further commands ...
     r = cl.logout()
-    if (r.isSuccess()):
+    if r.isSuccess():
         print("LOGOUT SUCCEEDED!")
