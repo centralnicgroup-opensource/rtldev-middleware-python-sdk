@@ -1,6 +1,6 @@
 from hexonet.apiconnector.apiclient import (
     APIClient as AC,
-    ISPAPI_CONNECTION_URL,
+    ISPAPI_CONNECTION_URL_LIVE,
     ISPAPI_CONNECTION_URL_PROXY,
 )
 from hexonet.apiconnector.response import Response as R
@@ -114,7 +114,7 @@ def test_apiclientmethods():
     cl.setSession("")
 
     # #.getURL()
-    assert cl.getURL() == ISPAPI_CONNECTION_URL
+    assert cl.getURL() == ISPAPI_CONNECTION_URL_LIVE
 
     # #.getUserAgent()
     pid = "PYTHON-SDK"
@@ -163,7 +163,7 @@ def test_apiclientmethods():
     tmp = ISPAPI_CONNECTION_URL_PROXY
     url = cl.setURL(tmp).getURL()
     assert url is tmp
-    cl.setURL(ISPAPI_CONNECTION_URL)
+    cl.setURL(ISPAPI_CONNECTION_URL_LIVE)
 
     # #.setOTP()
     # [otp set]
@@ -458,4 +458,4 @@ def test_apiclientmethods():
 
     # #.useDefaultConnectionSetup
     cl.useDefaultConnectionSetup()
-    assert cl.getURL() == ISPAPI_CONNECTION_URL
+    assert cl.getURL() == ISPAPI_CONNECTION_URL_LIVE

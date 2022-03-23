@@ -21,13 +21,14 @@ import platform
 rtm = RTM()
 
 ISPAPI_CONNECTION_URL_PROXY = "http://127.0.0.1/api/call.cgi"
-ISPAPI_CONNECTION_URL = "https://api.ispapi.net/api/call.cgi"
+ISPAPI_CONNECTION_URL_LIVE = "https://api.ispapi.net/api/call.cgi"
+ISPAPI_CONNECTION_URL_OTE = "https://api-ote.ispapi.net/api/call.cgi"
 
 
 class APIClient(object):
     def __init__(self):
         # API connection url
-        self.setURL(ISPAPI_CONNECTION_URL)
+        self.setURL(ISPAPI_CONNECTION_URL_LIVE)
         # Object covering API connection data
         self.__socketConfig = SocketConfig()
         # activity flag for debug mode
@@ -384,13 +385,14 @@ class APIClient(object):
         """
         Activate Default Connection Setup (which is the default anyways)
         """
-        self.setURL(ISPAPI_CONNECTION_URL)
+        self.setURL(ISPAPI_CONNECTION_URL_LIVE)
         return self
 
     def useOTESystem(self):
         """
         Set OT&E System for API communication
         """
+        self.setURL(ISPAPI_CONNECTION_URL_OTE)
         self.__socketConfig.setSystemEntity("1234")
         return self
 
@@ -398,6 +400,7 @@ class APIClient(object):
         """
         Set LIVE System for API communication (this is the default setting)
         """
+        self.setURL(ISPAPI_CONNECTION_URL_LIVE)
         self.__socketConfig.setSystemEntity("54cd")
         return self
 
