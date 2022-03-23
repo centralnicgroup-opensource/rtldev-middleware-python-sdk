@@ -1,3 +1,10 @@
+## [3.8.3](https://github.com/hexonet/python-sdk/compare/v3.8.2...v3.8.3) (2022-03-23)
+
+
+### Bug Fixes
+
+* **ot&e:** url updated for OT&E environment ([6bdebc8](https://github.com/hexonet/python-sdk/commit/6bdebc8427cb7f55495fc831f7a42a5baa7e9ae8))
+
 ## [3.8.2](https://github.com/hexonet/python-sdk/compare/v3.8.1...v3.8.2) (2021-01-22)
 
 

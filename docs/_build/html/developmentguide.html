@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
@@ -15,9 +16,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <title>Development Guide &#8212; hexonet.apiconnector 3.8 documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -56,7 +57,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 3.8.2</a>
+    index.html" class="text-logo">hexonet.apiconnector 3.8.3</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -77,17 +78,17 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id8">3.8.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id10">3.7.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id12">3.6.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id18">3.5.0 (2020-04-30)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id26">3.4.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id28">3.3.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id36">3.2.0 (2020-03-11)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id51">3.1.0 (2019-04-16)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id60">3.0.0 (2019-04-01)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id68">2.1.0 (2019-03-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id76">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id11">3.8.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id13">3.7.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id15">3.6.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id21">3.5.0 (2020-04-30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id29">3.4.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id31">3.3.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id39">3.2.0 (2020-03-11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id54">3.1.0 (2019-04-16)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id63">3.0.0 (2019-04-01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id71">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id79">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Development Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
@@ -148,10 +149,10 @@
           
           <div class="document clearer body">
             
-  <div class="section" id="development-guide">
+  <section id="development-guide">
 <span id="developmentguide"></span><h1>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h1>
 <p>Please read our <a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">Contributing guide lines</span></a> first.</p>
-<div class="section" id="requirements">
+<section id="requirements">
 <span id="id1"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>You can find any required library for this project listed in the <em>setup.cfg</em>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">bdist_wheel</span><span class="p">]</span>
@@ -182,8 +183,8 @@ that are required for the SDK Documentation.</p>
 <p>We suggest to use <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a> with installed plugins for Python
 Development described <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">here</a>. But if you prefer any other IDE / Editor, it
 is fine.</p>
-</div>
-<div class="section" id="run-tests-and-code-validation">
+</section>
+<section id="run-tests-and-code-validation">
 <span id="testsnvalidation"></span><h2>Run Tests and Code Validation<a class="headerlink" href="#run-tests-and-code-validation" title="Permalink to this headline">¶</a></h2>
 <p>If you open a Pull Request (PR), we will trigger automated tests and pep8 style
 check in CI process. So nothing you have to worry about in your development.
@@ -202,8 +203,8 @@ these checks in advance.</p>
 ./scripts/coverage.sh
 </pre></div>
 </div>
-</div>
-<div class="section" id="pull-request-pr-procedure">
+</section>
+<section id="pull-request-pr-procedure">
 <h2>Pull Request (PR) Procedure<a class="headerlink" href="#pull-request-pr-procedure" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>fork our project and create a new branch</p></li>
@@ -225,8 +226,8 @@ if we can role out that PR as we want to keep all our SDKs aligned.</p>
 <a class="reference external" href="https://hexonet-python-sdk.readthedocs.io">readthedocs.org</a>.</p>
 <p>The module can be accessed on the <a class="reference external" href="https://pypi.org/project/hexonet.apiconnector/">PyPi (Live) Index</a> and the
 <a class="reference external" href="https://test.pypi.org/project/hexonet.apiconnector/">PyPi (Test) Index</a>.</p>
-</div>
-<div class="section" id="sdk-documentation">
+</section>
+<section id="sdk-documentation">
 <h2>SDK Documentation<a class="headerlink" href="#sdk-documentation" title="Permalink to this headline">¶</a></h2>
 <p>Have an eye on the generated <a class="reference internal" href="api.html#api"><span class="std std-ref">SDK Documentation</span></a>.</p>
 <p>If you want to generate it from scratch out of the sources, please use
@@ -237,8 +238,8 @@ the below script:</p>
 <p>The generated files are then available in subfolder “docs/_build/html”.
 We regenerate the SDK Documentation whenever a new tag commit reaches
 the master branch.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
@@ -15,9 +16,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <title>Configuration Handling &#8212; hexonet.apiconnector 3.8 documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -56,7 +57,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 3.8.2</a>
+    index.html" class="text-logo">hexonet.apiconnector 3.8.3</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -82,17 +83,17 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id8">3.8.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id10">3.7.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id12">3.6.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id18">3.5.0 (2020-04-30)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id26">3.4.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id28">3.3.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id36">3.2.0 (2020-03-11)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id51">3.1.0 (2019-04-16)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id60">3.0.0 (2019-04-01)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id68">2.1.0 (2019-03-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id76">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id11">3.8.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id13">3.7.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id15">3.6.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id21">3.5.0 (2020-04-30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id29">3.4.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id31">3.3.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id39">3.2.0 (2020-03-11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id54">3.1.0 (2019-04-16)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id63">3.0.0 (2019-04-01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id71">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id79">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developmentguide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -150,7 +151,7 @@
           
           <div class="document clearer body">
             
-  <div class="section" id="configuration-handling">
+  <section id="configuration-handling">
 <span id="config"></span><h1>Configuration Handling<a class="headerlink" href="#configuration-handling" title="Permalink to this headline">¶</a></h1>
 <p>Applications need some kind of configuration. There are different settings
 you might want to change depending on the application environment like
@@ -161,7 +162,7 @@ can hardcode the configuration in the code, which for many small scripts is
 for sure sufficient. Realtime applications and frontends need to cover some
 application logic around using this SDK like a login form and session
 management.</p>
-<div class="section" id="configuration-basics">
+<section id="configuration-basics">
 <h2>Configuration Basics<a class="headerlink" href="#configuration-basics" title="Permalink to this headline">¶</a></h2>
 <p>The configuration can be provided in two ways.
 Using the <code class="xref py py-class docutils literal notranslate"><span class="pre">APIClient</span></code>:</p>
@@ -237,8 +238,8 @@ Using the <code class="xref py py-class docutils literal notranslate"><span clas
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="environment-and-debug-features">
+</section>
+<section id="environment-and-debug-features">
 <h2>Environment and Debug Features<a class="headerlink" href="#environment-and-debug-features" title="Permalink to this headline">¶</a></h2>
 <p>Debug Features are also available in our Python SDK:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># activate debug mode</span>
@@ -252,7 +253,7 @@ Using the <code class="xref py py-class docutils literal notranslate"><span clas
 Both require a separate Registration:
 - <a class="reference external" href="https://www.hexonet.net/sign-up">Live System Registration</a> and
 - <a class="reference external" href="https://www.hexonet.net/signup-ote">OT&amp;E System Registration</a>.</p>
-<div class="section" id="ot-e-system">
+<section id="ot-e-system">
 <h3>OT&amp;E System<a class="headerlink" href="#ot-e-system" title="Permalink to this headline">¶</a></h3>
 <p>OT&amp;E Sytem stands for Operational Test &amp; Evaluation System.
 No costs, just for playing around with things. This system can be seen as a
@@ -261,22 +262,22 @@ live with it. This system and the use of our products and services is
 completely free of charge.
 To use this system, use APIClient’s method <cite>cl.useOTESystem()</cite>.
 Otherwise Live System will be used by default.</p>
-</div>
-<div class="section" id="live-system">
+</section>
+<section id="live-system">
 <h3>LIVE System<a class="headerlink" href="#live-system" title="Permalink to this headline">¶</a></h3>
 <p>The real world system - This system and the use our services and products can
 lead to real costs depending on what you’re exactly doing.
 Live System will be used by default, but you can also use APIClient’s method
 <cite>cl.useLIVESystem()</cite> to add it in source code for reference.</p>
-</div>
-</div>
-<div class="section" id="builtin-configuration-values">
+</section>
+</section>
+<section id="builtin-configuration-values">
 <h2>Builtin Configuration Values<a class="headerlink" href="#builtin-configuration-values" title="Permalink to this headline">¶</a></h2>
 <p>The following configuration values are used internally by hexonet.apiconnector:</p>
 <p>Up to now - none, but this might change in future as we are continously
 improving our SDKs.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
