@@ -48,7 +48,7 @@ setup(
         "sphinx>=3,<5",
         "sphinxcontrib-log-cabinet==1.*",
         "sphinxcontrib-websupport==1.*",
-        "twine==4.*",
+        "twine>=4,<5",
         "black",
     ],
     setup_requires=["pytest-runner"],
