@@ -1,3 +1,10 @@
+## [3.8.4](https://github.com/hexonet/python-sdk/compare/v3.8.3...v3.8.4) (2022-04-01)
+
+
+### Bug Fixes
+
+* **dep bump:** trigger new version as of twine 4.0 ([abd3472](https://github.com/hexonet/python-sdk/commit/abd34724f36574cb5119b0ab9f13c8139186a206))
+
 ## [3.8.3](https://github.com/hexonet/python-sdk/compare/v3.8.2...v3.8.3) (2022-03-23)
 
 
