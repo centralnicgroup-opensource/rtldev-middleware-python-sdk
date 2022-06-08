@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/hexonet/python-sdk/compare/v3.8.4...v4.0.0) (2022-06-08)
+
+
+### chore
+
+* **dep-bump:** upgrade dev-deps and test release process ([33f4309](https://github.com/hexonet/python-sdk/commit/33f4309e44eb141e6577d5199f69bb220c8d94bb))
+
+
+### BREAKING CHANGES
+
+* **dep-bump:** semantic-release v19
+
 ## [3.8.4](https://github.com/hexonet/python-sdk/compare/v3.8.3...v3.8.4) (2022-04-01)
 
 
