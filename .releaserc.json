@@ -20,7 +20,7 @@
       {
         "assets": [
           "HISTORY.md",
-          "package.json",
+          "package?(-lock).json",
           "docs",
           "hexonet/apiconnector/__init__.py",
           "hexonet/apiconnector/apiclient.py",
