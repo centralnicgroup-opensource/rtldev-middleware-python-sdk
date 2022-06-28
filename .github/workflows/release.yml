@@ -30,10 +30,17 @@ jobs:
           pip install --upgrade pip
           pip -V
           pip install --upgrade -e .
-      - name: Validate & Coverage Report
-        run: |
-          "./scripts/black.sh"
-          "./scripts/coverage.sh"
+      - name: Super Linter Code Base
+        uses: github/super-linter@v4
+        env:
+          FILTER_REGEX_INCLUDE: "/hexonet/*|/scripts/*|updateVersion.sh|setup.py"
+          DEFAULT_BRANCH: master
+          VALIDATE_PYTHON_BLACK: true
+          VALIDATE_BASH: true
+          VALIDATE_ALL_CODEBASE: false
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Unit & Coverage Report
+        run: "./scripts/coverage.sh"
       - name: Upload htmlcov folder
         uses: actions/upload-artifact@v3
         with:
