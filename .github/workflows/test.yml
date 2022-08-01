@@ -15,6 +15,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Python version
+        run: |
+          echo "Python version: "
+          echo ${{ secrets.PYTHON_MIN_VERSION }} | sed 's/./&‎/g'
       - name: Super Linter Code Base
         uses: github/super-linter@v4
         env:
@@ -31,7 +35,6 @@ jobs:
         python-version:
           - "3.9"
           - "3.8"
-
     runs-on: ubuntu-latest
     needs: test
     name: Test @ Python ${{ matrix.python-version }}
