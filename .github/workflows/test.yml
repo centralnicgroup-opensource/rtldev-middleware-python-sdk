@@ -1,4 +1,4 @@
-name: Test
+name: Linting & Coverage
 
 on:
   pull_request:
@@ -15,12 +15,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - name: Python version
         run: |
           echo "Python version: "
           echo ${{ secrets.PYTHON_MIN_VERSION }} | sed 's/./&‎/g'
       - name: Super Linter Code Base
-        uses: github/super-linter@v4
+        uses: github/super-linter/slim@v4
         env:
           FILTER_REGEX_INCLUDE: "/hexonet/*|/scripts/*|updateVersion.sh|setup.py"
           DEFAULT_BRANCH: master
@@ -42,6 +45,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - name: Python @ ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
