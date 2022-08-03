@@ -20,8 +20,9 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
+          check-latest: true
           python-version: ${{ secrets.PYTHON_MIN_VERSION }}
       - name: Install dependencies
         run: |
