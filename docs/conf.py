@@ -60,7 +60,7 @@ extensions.append("guzzle_sphinx_theme")
 
 # Guzzle theme options (see theme.conf for more information)
 html_theme_options = {
-    "base_url": "https://rawgit.com/hexonet/python-sdk/master/docs/",
+    "base_url": "https://rawgit.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/master/docs/",
     "project_nav_name": "hexonet.apiconnector " + version,
 }
 

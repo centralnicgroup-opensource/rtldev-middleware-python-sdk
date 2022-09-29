@@ -1,766 +1,2663 @@
-
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="generator"
+      content="Docutils 0.17.1: http://docutils.sourceforge.net/"
+    />
 
-  
-  <!-- Licensed under the Apache 2.0 License -->
-  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
-  <!-- Licensed under the SIL Open Font License -->
-  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
-  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+    <!-- Licensed under the Apache 2.0 License -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="_static/fonts/open-sans/stylesheet.css"
+    />
+    <!-- Licensed under the SIL Open Font License -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="_static/fonts/source-serif-pro/source-serif-pro.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="_static/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="_static/css/bootstrap-theme.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Changelog &#8212; hexonet.apiconnector 4.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script
+      data-url_root="./"
+      id="documentation_options"
+      src="_static/documentation_options.js"
+    ></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
+    <link rel="shortcut icon" href="_static/hexonet-favicon.ico" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Contributing" href="contributing.html" />
-    <link rel="prev" title="Upgrading to Newer Releases" href="upgrading.html" />
-  
-   
-
-  </head><body>
+    <link
+      rel="prev"
+      title="Upgrading to Newer Releases"
+      href="upgrading.html"
+    />
+  </head>
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="contributing.html" title="Contributing"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="upgrading.html" title="Upgrading to Newer Releases"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 4.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Changelog</a></li> 
+          <a href="genindex.html" title="General Index" accesskey="I">index</a>
+        </li>
+        <li class="right">
+          <a href="py-modindex.html" title="Python Module Index">modules</a> |
+        </li>
+        <li class="right">
+          <a href="contributing.html" title="Contributing" accesskey="N"
+            >next</a
+          >
+          |
+        </li>
+        <li class="right">
+          <a
+            href="upgrading.html"
+            title="Upgrading to Newer Releases"
+            accesskey="P"
+            >previous</a
+          >
+          |
+        </li>
+        <li class="nav-item nav-item-0">
+          <a href="index.html">hexonet.apiconnector 4.0 documentation</a> &#187;
+        </li>
+        <li class="nav-item nav-item-this"><a href="">Changelog</a></li>
       </ul>
     </div>
     <div class="container-wrapper">
-
       <div id="mobile-toggle">
-        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+        <a href="#"
+          ><span
+            class="glyphicon glyphicon-align-justify"
+            aria-hidden="true"
+          ></span
+        ></a>
       </div>
-  <div id="left-column">
-    <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 4.0.0</a>
-<div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <h2>Table Of Contents</h2>
-  </div>
-  <div class="sidebar-toc">
-    
-    
-      <ul>
-<li class="toctree-l1"><a class="reference internal" href="foreword.html">Foreword</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Handling</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api.html">SDK Documentation</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#id3">4.0.0 (2022-06-08)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#chore">chore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#breaking-changes">BREAKING CHANGES</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id16">3.8.0 (2020-05-07)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id18">3.7.0 (2020-05-07)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id19">Features</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id21">3.6.0 (2020-05-07)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id22">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id26">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id28">3.5.0 (2020-04-30)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id29">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id32">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id35">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id37">3.4.0 (2020-04-29)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id38">Features</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id40">3.3.0 (2020-04-29)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id41">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id44">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id47">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id49">3.2.0 (2020-03-11)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id50">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id53">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id56">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id60">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id63">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id65">3.1.0 (2019-04-16)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id66">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id69">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id73">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id75">3.0.0 (2019-04-01)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#code-refactoring">Code Refactoring</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id76">BREAKING CHANGES</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id79">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id82">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id84">2.1.0 (2019-03-29)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id85">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id88">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id91">Bug Fixes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#id93">2.0.0 (2018-10-31)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id94">Bug Fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id95">Code Refactoring</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id96">BREAKING CHANGES</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developmentguide.html">Development Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contactus.html">Contact Us</a></li>
-</ul>
-
-    
-  </div>
-</div>
-<div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <h2>Contents</h2>
-    <div class="sidebar-localtoc">
-      <ul>
-<li><a class="reference internal" href="#">Changelog</a></li>
-<li><a class="reference internal" href="#id3">4.0.0 (2022-06-08)</a><ul>
-<li><a class="reference internal" href="#chore">chore</a></li>
-<li><a class="reference internal" href="#breaking-changes">BREAKING CHANGES</a><ul>
-<li><a class="reference internal" href="#id5">3.8.4 (2022-04-01)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id7">3.8.3 (2022-03-23)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id8">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id10">3.8.2 (2021-01-22)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id11">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id13">3.8.1 (2020-05-23)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id14">Bug Fixes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id16">3.8.0 (2020-05-07)</a><ul>
-<li><a class="reference internal" href="#features">Features</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id18">3.7.0 (2020-05-07)</a><ul>
-<li><a class="reference internal" href="#id19">Features</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id21">3.6.0 (2020-05-07)</a><ul>
-<li><a class="reference internal" href="#id22">Features</a><ul>
-<li><a class="reference internal" href="#id25">3.5.1 (2020-04-30)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id26">Bug Fixes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id28">3.5.0 (2020-04-30)</a><ul>
-<li><a class="reference internal" href="#id29">Features</a><ul>
-<li><a class="reference internal" href="#id31">3.4.2 (2020-04-29)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id32">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id34">3.4.1 (2020-04-29)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id35">Bug Fixes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id37">3.4.0 (2020-04-29)</a><ul>
-<li><a class="reference internal" href="#id38">Features</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id40">3.3.0 (2020-04-29)</a><ul>
-<li><a class="reference internal" href="#id41">Features</a><ul>
-<li><a class="reference internal" href="#id43">3.2.2 (2020-03-11)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id44">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id46">3.2.1 (2020-03-11)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id47">Bug Fixes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id49">3.2.0 (2020-03-11)</a><ul>
-<li><a class="reference internal" href="#id50">Features</a><ul>
-<li><a class="reference internal" href="#id52">3.1.4 (2019-10-04)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id53">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id55">3.1.3 (2019-09-24)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id56">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id59">3.1.2 (2019-09-19)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id60">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id62">3.1.1 (2019-08-16)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id63">Bug Fixes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id65">3.1.0 (2019-04-16)</a><ul>
-<li><a class="reference internal" href="#id66">Features</a><ul>
-<li><a class="reference internal" href="#id68">3.0.2 (2019-04-04)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id69">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id72">3.0.1 (2019-04-01)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id73">Bug Fixes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id75">3.0.0 (2019-04-01)</a><ul>
-<li><a class="reference internal" href="#code-refactoring">Code Refactoring</a></li>
-<li><a class="reference internal" href="#id76">BREAKING CHANGES</a><ul>
-<li><a class="reference internal" href="#id78">2.1.2 (2019-04-01)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id79">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id81">2.1.1 (2019-03-29)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id82">Bug Fixes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id84">2.1.0 (2019-03-29)</a><ul>
-<li><a class="reference internal" href="#id85">Features</a><ul>
-<li><a class="reference internal" href="#id87">2.0.2 (2019-03-06)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id88">Bug Fixes</a><ul>
-<li><a class="reference internal" href="#id90">2.0.1 (2018-10-31)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id91">Bug Fixes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id93">2.0.0 (2018-10-31)</a><ul>
-<li><a class="reference internal" href="#id94">Bug Fixes</a></li>
-<li><a class="reference internal" href="#id95">Code Refactoring</a></li>
-<li><a class="reference internal" href="#id96">BREAKING CHANGES</a></li>
-</ul>
-</li>
-</ul>
-
-    </div>
-  </div>
-</div>
-<div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <div id="main-search">
-      <form class="form-inline" action="search.html" method="GET" role="form">
-        <div class="input-group">
-          <input name="q" type="text" class="form-control" placeholder="Search...">
-        </div>
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
-    </div>
-  </div>
-</div>
-      
-    </div>
-  </div>
-        <div id="right-column">
-          
-          <div role="navigation" aria-label="breadcrumbs navigation">
-            <ol class="breadcrumb">
-              <li><a href="index.html">Docs</a></li>
-              
-              <li>Changelog</li>
-            </ol>
+      <div id="left-column">
+        <div class="sphinxsidebar">
+          <a
+            href="
+    index.html"
+            class="text-logo"
+            >hexonet.apiconnector 4.0.0</a
+          >
+          <div class="sidebar-block">
+            <div class="sidebar-wrapper">
+              <h2>Table Of Contents</h2>
+            </div>
+            <div class="sidebar-toc">
+              <ul>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="foreword.html"
+                    >Foreword</a
+                  >
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="installation.html"
+                    >Installation</a
+                  >
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="quickstart.html"
+                    >Quickstart</a
+                  >
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="debugging.html"
+                    >Debugging</a
+                  >
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="config.html"
+                    >Configuration Handling</a
+                  >
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="api.html"
+                    >SDK Documentation</a
+                  >
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1">
+                  <a class="reference internal" href="upgrading.html"
+                    >Upgrading to Newer Releases</a
+                  >
+                </li>
+                <li class="toctree-l1 current">
+                  <a class="current reference internal" href="#">Changelog</a>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id3"
+                    >4.0.0 (2022-06-08)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#chore">chore</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#breaking-changes"
+                        >BREAKING CHANGES</a
+                      >
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#bug-fixes"
+                        >Bug Fixes</a
+                      >
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id8">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id11">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id14">Bug Fixes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id16"
+                    >3.8.0 (2020-05-07)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#features"
+                        >Features</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id18"
+                    >3.7.0 (2020-05-07)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id19">Features</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id21"
+                    >3.6.0 (2020-05-07)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id22">Features</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id26">Bug Fixes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id28"
+                    >3.5.0 (2020-04-30)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id29">Features</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id32">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id35">Bug Fixes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id37"
+                    >3.4.0 (2020-04-29)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id38">Features</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id40"
+                    >3.3.0 (2020-04-29)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id41">Features</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id44">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id47">Bug Fixes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id49"
+                    >3.2.0 (2020-03-11)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id50">Features</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id53">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id56">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id60">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id63">Bug Fixes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id65"
+                    >3.1.0 (2019-04-16)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id66">Features</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id69">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id73">Bug Fixes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id75"
+                    >3.0.0 (2019-04-01)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#code-refactoring"
+                        >Code Refactoring</a
+                      >
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id76"
+                        >BREAKING CHANGES</a
+                      >
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id79">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id82">Bug Fixes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id84"
+                    >2.1.0 (2019-03-29)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id85">Features</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id88">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id91">Bug Fixes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="#id93"
+                    >2.0.0 (2018-10-31)</a
+                  >
+                  <ul>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id94">Bug Fixes</a>
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id95"
+                        >Code Refactoring</a
+                      >
+                    </li>
+                    <li class="toctree-l2">
+                      <a class="reference internal" href="#id96"
+                        >BREAKING CHANGES</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="contributing.html"
+                    >Contributing</a
+                  >
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="developmentguide.html"
+                    >Development Guide</a
+                  >
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="license.html">License</a>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="contactus.html"
+                    >Contact Us</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
-          
-          <div class="document clearer body">
-            
-  <section id="changelog">
-<span id="id1"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-</section>
-<section id="id3">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.8.4...v4.0.0">4.0.0</a> (2022-06-08)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
-<section id="chore">
-<h2>chore<a class="headerlink" href="#chore" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>dep-bump:</strong> upgrade dev-deps and test release process (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/33f4309e44eb141e6577d5199f69bb220c8d94bb">33f4309</a>)</p></li>
-</ul>
-</section>
-<section id="breaking-changes">
-<h2>BREAKING CHANGES<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>dep-bump:</strong> semantic-release v19</p></li>
-</ul>
-<section id="id5">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.8.3...v3.8.4">3.8.4</a> (2022-04-01)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="bug-fixes">
-<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>dep bump:</strong> trigger new version as of twine 4.0 (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/abd34724f36574cb5119b0ab9f13c8139186a206">abd3472</a>)</p></li>
-</ul>
-<section id="id7">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.8.2...v3.8.3">3.8.3</a> (2022-03-23)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id8">
-<h2>Bug Fixes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>ot&amp;e:</strong> url updated for OT&amp;E environment (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/6bdebc8427cb7f55495fc831f7a42a5baa7e9ae8">6bdebc8</a>)</p></li>
-</ul>
-<section id="id10">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.8.1...v3.8.2">3.8.2</a> (2021-01-22)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id11">
-<h2>Bug Fixes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>ci:</strong> migration from Travis CI to github actions (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/d74edcd5dbfaf010d2fc91f2525dcc4c65955b79">d74edcd</a>)</p></li>
-<li><p><strong>ci:</strong> missing replacement of m2r with m2r2 in docs/conf.py (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/4a1ec7416a66a0cafb9b710b71687322ab9d3600">4a1ec74</a>)</p></li>
-<li><p><strong>ci:</strong> replace m2r (abandoned) with m2r2 (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/1e048c5b017fd7d476b4f883c714e24bb70e0b3a">1e048c5</a>)</p></li>
-<li><p><strong>test &amp; coverage:</strong> reviewed dependency management, coverage reporting and configs (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/2bd868a9c40cb9d5dbb48328e4c1344702d2f022">2bd868a</a>)</p></li>
-</ul>
-<section id="id13">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.8.0...v3.8.1">3.8.1</a> (2020-05-23)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id14">
-<h2>Bug Fixes<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>apiclient:</strong> fixed empty ConvertIDN request (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/8d4e96df2600069fb78d2c098a8219a4fed730cc">8d4e96d</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id16">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.7.0...v3.8.0">3.8.0</a> (2020-05-07)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h1>
-<section id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>logger:</strong> possibility to override debug mode’s default logging mechanism (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/944d9de24e9f391511ace3ce582bb49b0d8be347">944d9de</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id18">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.6.0...v3.7.0">3.7.0</a> (2020-05-07)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h1>
-<section id="id19">
-<h2>Features<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>response:</strong> possibility of placeholder vars in standard responses to improve error details (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/393f20cd48dbb5e88a08114eca4b972f395ce805">393f20c</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id21">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.5.1...v3.6.0">3.6.0</a> (2020-05-07)<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h1>
-<section id="id22">
-<h2>Features<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>apiclient:</strong> allow to specify additional libraries via setUserAgent (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/310065612ac70376c93d93dc6fecb257bd6340b1">3100656</a>)</p></li>
-</ul>
-<section id="id25">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.5.0...v3.5.1">3.5.1</a> (2020-04-30)<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id26">
-<h2>Bug Fixes<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>security:</strong> replace passwords whereever they could be used for output (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/9215b87e5353cbd2c9ce43c24099b1732104a879">9215b87</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id28">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.4.2...v3.5.0">3.5.0</a> (2020-04-30)<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h1>
-<section id="id29">
-<h2>Features<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>response:</strong> added getCommandPlain (getting used command in plain text) (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/2efab17a99402a849ad6ef712458b32a9b4594b9">2efab17</a>)</p></li>
-</ul>
-<section id="id31">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.4.1...v3.4.2">3.4.2</a> (2020-04-29)<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id32">
-<h2>Bug Fixes<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>responsetemplatemanager:</strong> fixed namingconventions self vs. cls (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/b52b22d4a51c1a498870bf5b0e9a9ab73ab8ddbd">b52b22d</a>)</p></li>
-</ul>
-<section id="id34">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.4.0...v3.4.1">3.4.1</a> (2020-04-29)<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id35">
-<h2>Bug Fixes<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>messaging:</strong> return a specific error template if API response’ code or description are missing (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/7cd33b4cae237ae1657599a1f662ec69388971a3">7cd33b4</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id37">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.3.0...v3.4.0">3.4.0</a> (2020-04-29)<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h1>
-<section id="id38">
-<h2>Features<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>apiclient:</strong> support the <code class="docutils literal notranslate"><span class="pre">High</span> <span class="pre">Performance</span> <span class="pre">Proxy</span> <span class="pre">Setup</span></code>. see README.md (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/d66d495b0033bb9e6adcf7e9b7adb27c4eda63dd">d66d495</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id40">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.2.2...v3.3.0">3.3.0</a> (2020-04-29)<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h1>
-<section id="id41">
-<h2>Features<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>apiclient:</strong> automatic IDN conversion of API command parameters to punycode (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/6562f26c8741efa54bcf293331b8a6687b198828">6562f26</a>)</p></li>
-</ul>
-<section id="id43">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.2.1...v3.2.2">3.2.2</a> (2020-03-11)<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id44">
-<h2>Bug Fixes<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>travis:</strong> remove branch verification in updateVersion.sh as releasing happens on master (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/4eb327e85e22f78d24048edaae3a175f74b3f314">4eb327e</a>)</p></li>
-</ul>
-<section id="id46">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.2.0...v3.2.1">3.2.1</a> (2020-03-11)<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id47">
-<h2>Bug Fixes<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>travis:</strong> fixed node env usage in ci/release process (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/6e8f9e0ee483e3d3d053805982e1d14647a07cc7">6e8f9e0</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id49">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.1.4...v3.2.0">3.2.0</a> (2020-03-11)<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h1>
-<section id="id50">
-<h2>Features<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>apiclient:</strong> support bulk parameters through nested array in API command (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/1e4b8e76f0f695e5e2780619b26aa0017b419b46">1e4b8e7</a>)</p></li>
-</ul>
-<section id="id52">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.1.3...v3.1.4">3.1.4</a> (2019-10-04)<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id53">
-<h2>Bug Fixes<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>responsetemplate/mgr:</strong> improve description for <code class="docutils literal notranslate"><span class="pre">423</span> <span class="pre">Empty</span> <span class="pre">API</span> <span class="pre">response</span></code> [HM-577] (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/7bbcee9">7bbcee9</a>)</p></li>
-<li><p><strong>responsetemplate/mgr:</strong> pep8 review of response description usage (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/1410e58">1410e58</a>)</p></li>
-</ul>
-<section id="id55">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.1.2...v3.1.3">3.1.3</a> (2019-09-24)<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id56">
-<h2>Bug Fixes<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>Travis:</strong> fixed pip calls (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/479cd06">479cd06</a>)</p></li>
-<li><p><strong>Travis:</strong> upgrade packages in build (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/3756193">3756193</a>)</p></li>
-</ul>
-<section id="id59">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.1.1...v3.1.2">3.1.2</a> (2019-09-19)<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id60">
-<h2>Bug Fixes<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>release process:</strong> migrate configuration (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/9fcd7d1">9fcd7d1</a>)</p></li>
-</ul>
-<section id="id62">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.1.0...v3.1.1">3.1.1</a> (2019-08-16)<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id63">
-<h2>Bug Fixes<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>APIClient:</strong> update default SDK url (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/758bf13">758bf13</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id65">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.0.2...v3.1.0">3.1.0</a> (2019-04-16)<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h1>
-<section id="id66">
-<h2>Features<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>responsetemplate:</strong> add isPending method (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/c429972">c429972</a>)</p></li>
-</ul>
-<section id="id68">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.0.1...v3.0.2">3.0.2</a> (2019-04-04)<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id69">
-<h2>Bug Fixes<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>APIClient:</strong> return APIClient instance in setUserAgent method (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/2169891">2169891</a>)</p></li>
-</ul>
-<section id="id72">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v3.0.0...v3.0.1">3.0.1</a> (2019-04-01)<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id73">
-<h2>Bug Fixes<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>docs:</strong> remove python 2 documentation from docs (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/81a4586">81a4586</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id75">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v2.1.2...v3.0.0">3.0.0</a> (2019-04-01)<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h1>
-<section id="code-refactoring">
-<h2>Code Refactoring<a class="headerlink" href="#code-refactoring" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>pkg:</strong> python 2 support removal (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/11351aa">11351aa</a>)</p></li>
-</ul>
-</section>
-<section id="id76">
-<h2>BREAKING CHANGES<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>pkg:</strong> drop python 2 support</p></li>
-</ul>
-<section id="id78">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v2.1.1...v2.1.2">2.1.2</a> (2019-04-01)<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id79">
-<h2>Bug Fixes<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>apiclient:</strong> fix usage of user agent header field (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/bbd9095">bbd9095</a>)</p></li>
-</ul>
-<section id="id81">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v2.1.0...v2.1.1">2.1.1</a> (2019-03-29)<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id82">
-<h2>Bug Fixes<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>apiclient:</strong> fix useragent string. missing semicolon (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/8161b41">8161b41</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id84">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v2.0.2...v2.1.0">2.1.0</a> (2019-03-29)<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h1>
-<section id="id85">
-<h2>Features<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>apiclient:</strong> review useragent support (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/4b4d9a7">4b4d9a7</a>)</p></li>
-</ul>
-<section id="id87">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk/compare/v2.0.1...v2.0.2">2.0.2</a> (2019-03-06)<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id88">
-<h2>Bug Fixes<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>response:</strong> remove deprecated debug outputs (<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/70dbe7e">70dbe7e</a>)</p></li>
-</ul>
-<section id="id90">
-<h3><a class="reference external" href="https://github.com/hexonet/python-sdk.git/compare/v2.0.0...v2.0.1">2.0.1</a> (2018-10-31)<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="id91">
-<h2>Bug Fixes<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>releasing:</strong> moved travis deploy step into semantic release (<a class="reference external" href="https://github.com/hexonet/python-sdk.git/commit/c1a3415">c1a3415</a>)</p></li>
-</ul>
-</section>
-</section>
-<section id="id93">
-<h1><a class="reference external" href="https://github.com/hexonet/python-sdk.git/compare/v1.2.7...v2.0.0">2.0.0</a> (2018-10-31)<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h1>
-<section id="id94">
-<h2>Bug Fixes<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>semantic-release:</strong> missing setup (<a class="reference external" href="https://github.com/hexonet/python-sdk.git/commit/f100c3e">f100c3e</a>)</p></li>
-</ul>
-</section>
-<section id="id95">
-<h2>Code Refactoring<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>pkg:</strong> migrate to cross-SDK UML diagram (<a class="reference external" href="https://github.com/hexonet/python-sdk.git/commit/52a78a2">52a78a2</a>)</p></li>
-</ul>
-</section>
-<section id="id96">
-<h2>BREAKING CHANGES<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>pkg:</strong> rewrite from scratch to align the structure of our SDKs; downward incompatible</p></li>
-</ul>
-<p>All notable changes to this project will be documented in this file. Dates are displayed in UTC.</p>
-<ul class="simple">
-<li><p>added tests and coverage reporting <cite>``7440bce`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/7440bce90542b66382d9cee85e84c335286d0e0c">https://github.com/hexonet/python-sdk/commit/7440bce90542b66382d9cee85e84c335286d0e0c</a>&gt;`_</p></li>
-<li><p>updated docs <cite>``6cacf3f`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/6cacf3f5467fb44743784632ce316b58036fdfef">https://github.com/hexonet/python-sdk/commit/6cacf3f5467fb44743784632ce316b58036fdfef</a>&gt;`_</p></li>
-<li><p>revalidated source code <cite>``8e35832`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/8e35832328091a8574a9038f3ae234f8a8ec1e6f">https://github.com/hexonet/python-sdk/commit/8e35832328091a8574a9038f3ae234f8a8ec1e6f</a>&gt;`_</p></li>
-<li><p>generate version and release dynamically in conf.py <cite>``de67279`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/de67279491f538e19ef024aeec4b38013a888341">https://github.com/hexonet/python-sdk/commit/de67279491f538e19ef024aeec4b38013a888341</a>&gt;`_</p></li>
-<li><p>updated sdk reference <cite>``989284e`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/989284e67c039ad5b285d415f8d6b5d98864cbbf">https://github.com/hexonet/python-sdk/commit/989284e67c039ad5b285d415f8d6b5d98864cbbf</a>&gt;`_</p></li>
-<li><p>corrected release version in docs <cite>``9fd0ed5`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/9fd0ed58501349a725de7fb509ee9edad83ff12c">https://github.com/hexonet/python-sdk/commit/9fd0ed58501349a725de7fb509ee9edad83ff12c</a>&gt;`_</p></li>
-<li><p>updated changelog <cite>``b738293`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/b738293d9b313e046382f0ae77801c02f6bb2977">https://github.com/hexonet/python-sdk/commit/b738293d9b313e046382f0ae77801c02f6bb2977</a>&gt;`_</p></li>
-<li><p>finalized tests <cite>``195837f`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/195837f845a299407a69a6436a7e8e69fb20ab1c">https://github.com/hexonet/python-sdk/commit/195837f845a299407a69a6436a7e8e69fb20ab1c</a>&gt;`_</p></li>
-<li><p>increased version number <cite>``fab7e18`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/fab7e18eeef91e0c2c716f560f075e6c187601c6">https://github.com/hexonet/python-sdk/commit/fab7e18eeef91e0c2c716f560f075e6c187601c6</a>&gt;`_</p></li>
-<li><p>Update README.md <cite>``97e9500`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/97e950030a63d3ac8c0706a7a30c096957703ae8">https://github.com/hexonet/python-sdk/commit/97e950030a63d3ac8c0706a7a30c096957703ae8</a>&gt;`_</p></li>
-</ul>
-<ul class="simple">
-<li><p>minor code review; migrated to sphinx documenation <cite>``da40a40`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/da40a40e81217bc4218d5de95adcc12ab95c3cb7">https://github.com/hexonet/python-sdk/commit/da40a40e81217bc4218d5de95adcc12ab95c3cb7</a>&gt;`_</p></li>
-<li><p>added development guide <cite>``ffb6b7c`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/ffb6b7cd129e794f75dcf6bbc3b2ca32248fb736">https://github.com/hexonet/python-sdk/commit/ffb6b7cd129e794f75dcf6bbc3b2ca32248fb736</a>&gt;`_</p></li>
-<li><p>linted .rst files; reviewed development guide <cite>``ba27b08`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/ba27b080ccaba06c49c159fde11bd8336ef86714">https://github.com/hexonet/python-sdk/commit/ba27b080ccaba06c49c159fde11bd8336ef86714</a>&gt;`_</p></li>
-<li><p>use of m2r and mdincludes - WOW <cite>``82e5e3c`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/82e5e3c6454d8d736a10dca61b19624490d00733">https://github.com/hexonet/python-sdk/commit/82e5e3c6454d8d736a10dca61b19624490d00733</a>&gt;`_</p></li>
-<li><p>reviewed headline issues <cite>``a0a644f`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/a0a644fe750215937f3aa28e0a4c9d0477d7322f">https://github.com/hexonet/python-sdk/commit/a0a644fe750215937f3aa28e0a4c9d0477d7322f</a>&gt;`_</p></li>
-<li><p>freezed deps into requirements.txt <cite>``4312f11`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/4312f114524880af0ae498dbed67c711c75d0fa8">https://github.com/hexonet/python-sdk/commit/4312f114524880af0ae498dbed67c711c75d0fa8</a>&gt;`_</p></li>
-<li><p>cleaned requirements.txt <cite>``d4c3671`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/d4c36712fe3b813e9e719e9d2fb9103d3b0a8683">https://github.com/hexonet/python-sdk/commit/d4c36712fe3b813e9e719e9d2fb9103d3b0a8683</a>&gt;`_</p></li>
-<li><p>Update README.md <cite>``295445b`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/295445b91ddc626161f70b0770d17fbbf2645654">https://github.com/hexonet/python-sdk/commit/295445b91ddc626161f70b0770d17fbbf2645654</a>&gt;`_</p></li>
-<li><p>Update README.md <cite>``ebbe309`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/ebbe3098bca572f337208310e8872be21e9b2184">https://github.com/hexonet/python-sdk/commit/ebbe3098bca572f337208310e8872be21e9b2184</a>&gt;`_</p></li>
-<li><p>updated docs <cite>``9829d01`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/9829d015ec9ad72bee40defe05d32ca4b21136ed">https://github.com/hexonet/python-sdk/commit/9829d015ec9ad72bee40defe05d32ca4b21136ed</a>&gt;`_</p></li>
-<li><p>added index.html for github pages <cite>``bfeebcb`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/bfeebcb05e5023a7f7415b8b9d30dd118144e19d">https://github.com/hexonet/python-sdk/commit/bfeebcb05e5023a7f7415b8b9d30dd118144e19d</a>&gt;`_</p></li>
-<li><p>try out setup.py update for readthedocs.org <cite>``5a9659f`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/5a9659f2290de0fa282d9f350c12c4f4aefd92d8">https://github.com/hexonet/python-sdk/commit/5a9659f2290de0fa282d9f350c12c4f4aefd92d8</a>&gt;`_</p></li>
-<li><p>updated changelog <cite>``b92ab41`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/b92ab41eff6a6e5f963830d4064096e5db488ead">https://github.com/hexonet/python-sdk/commit/b92ab41eff6a6e5f963830d4064096e5db488ead</a>&gt;`_</p></li>
-<li><p>added requirements.txt <cite>``4e28994`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/4e289943ee9297c7485f7b894e9025fbdbe84da7">https://github.com/hexonet/python-sdk/commit/4e289943ee9297c7485f7b894e9025fbdbe84da7</a>&gt;`_</p></li>
-<li><p>migrate from pep9 to pycodestyle <cite>``8f5019d`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/8f5019d130e7c10c599d2d0897b92e48ad59e2f0">https://github.com/hexonet/python-sdk/commit/8f5019d130e7c10c599d2d0897b92e48ad59e2f0</a>&gt;`_</p></li>
-<li><p>added .nojekyll file to allow folders starting with underline <cite>``c4fe9bf`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/c4fe9bf78fe3a0505ad56e9e037adb6ce7887844">https://github.com/hexonet/python-sdk/commit/c4fe9bf78fe3a0505ad56e9e037adb6ce7887844</a>&gt;`_</p></li>
-<li><p>minor change to trigger github pages update <cite>``7bd035c`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/7bd035c04c5f6b114e15f6ccf4bc6ba781146649">https://github.com/hexonet/python-sdk/commit/7bd035c04c5f6b114e15f6ccf4bc6ba781146649</a>&gt;`_</p></li>
-<li><p>updated badges <cite>``9a07712`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/9a07712809fd4849bd0d11ea329a06728891092a">https://github.com/hexonet/python-sdk/commit/9a07712809fd4849bd0d11ea329a06728891092a</a>&gt;`_</p></li>
-<li><p>Update CONTRIBUTING.md <cite>``edc480c`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/edc480c6f5ee5c67d4810241126f2a61b609b962">https://github.com/hexonet/python-sdk/commit/edc480c6f5ee5c67d4810241126f2a61b609b962</a>&gt;`_</p></li>
-<li><p>updated badges <cite>``e31581c`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/e31581caf35cd9cca61c4fc776f2cfaa158ea136">https://github.com/hexonet/python-sdk/commit/e31581caf35cd9cca61c4fc776f2cfaa158ea136</a>&gt;`_</p></li>
-<li><p>linted contents.rst.inc <cite>``9f93c48`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/9f93c48d5f112f948320bc50069f404fa02ea607">https://github.com/hexonet/python-sdk/commit/9f93c48d5f112f948320bc50069f404fa02ea607</a>&gt;`_</p></li>
-</ul>
-<ul class="simple">
-<li><p>fix six import path <cite>``a9ec1a1`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/a9ec1a1547637535220b33eb86a8172a53634879">https://github.com/hexonet/python-sdk/commit/a9ec1a1547637535220b33eb86a8172a53634879</a>&gt;`_</p></li>
-<li><p>updated changelog <cite>``9e775a8`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/9e775a850af227ecfd227b3b838f989daf63edff">https://github.com/hexonet/python-sdk/commit/9e775a850af227ecfd227b3b838f989daf63edff</a>&gt;`_</p></li>
-</ul>
-<ul class="simple">
-<li><p>updated changelog <cite>``c5601be`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/c5601beb264c7b7e763e88e11aafcc93da310edd">https://github.com/hexonet/python-sdk/commit/c5601beb264c7b7e763e88e11aafcc93da310edd</a>&gt;`_</p></li>
-<li><p>fix six import paths <cite>``e304262`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/e3042628792eefce6168b93220308b138647c8f0">https://github.com/hexonet/python-sdk/commit/e3042628792eefce6168b93220308b138647c8f0</a>&gt;`_</p></li>
-<li><p>set version 1.2.4 <cite>``655b886`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/655b88658c9c0b1db1be39af8700eb900a19ec87">https://github.com/hexonet/python-sdk/commit/655b88658c9c0b1db1be39af8700eb900a19ec87</a>&gt;`_</p></li>
-</ul>
-<ul class="simple">
-<li><p>import renaming <cite>``bd7dc80`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/bd7dc80c9decaccb480333aa4fe51db0c3722389">https://github.com/hexonet/python-sdk/commit/bd7dc80c9decaccb480333aa4fe51db0c3722389</a>&gt;`_</p></li>
-<li><p>set version to 1.2.2 <cite>``5642b54`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/5642b54c25dd3410f699fb54e0f97a4ee1957109">https://github.com/hexonet/python-sdk/commit/5642b54c25dd3410f699fb54e0f97a4ee1957109</a>&gt;`_</p></li>
-</ul>
-<ul class="simple">
-<li><p>try import renaming <cite>``d3fa6ae`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/d3fa6ae84e8bc0c6ec941964445085b5ea3f3da6">https://github.com/hexonet/python-sdk/commit/d3fa6ae84e8bc0c6ec941964445085b5ea3f3da6</a>&gt;`_</p></li>
-</ul>
-<ul class="simple">
-<li><p>test renamed imports <cite>``0999708`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/09997081ddf7c65a6f25fa1827cfb07fd68f82c5">https://github.com/hexonet/python-sdk/commit/09997081ddf7c65a6f25fa1827cfb07fd68f82c5</a>&gt;`_</p></li>
-<li><p>updated changelog <cite>``eb5e6d4`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/eb5e6d408f088b34172414ed9283fb0fc20e3df3">https://github.com/hexonet/python-sdk/commit/eb5e6d408f088b34172414ed9283fb0fc20e3df3</a>&gt;`_</p></li>
-<li><p>set version 1.2.1 <cite>``2d98115`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/2d9811500081c0940e3f340af9265b1c66f36893">https://github.com/hexonet/python-sdk/commit/2d9811500081c0940e3f340af9265b1c66f36893</a>&gt;`_</p></li>
-</ul>
-<ul class="simple">
-<li><p>introduced six for py2 and py3 support <cite>``fa7403a`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/fa7403a9b18dc11b9cf8c74da603c12cee01477a">https://github.com/hexonet/python-sdk/commit/fa7403a9b18dc11b9cf8c74da603c12cee01477a</a>&gt;`_</p></li>
-<li><p>updated changelog <cite>``a0f7e2f`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/a0f7e2f3418d238f2d4884d786c0d62383d3d0c9">https://github.com/hexonet/python-sdk/commit/a0f7e2f3418d238f2d4884d786c0d62383d3d0c9</a>&gt;`_</p></li>
-<li><p>apiconnector version 1.2.0 <cite>``85ec52f`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/85ec52f18007de6a9d37889cd1b20711968749fa">https://github.com/hexonet/python-sdk/commit/85ec52f18007de6a9d37889cd1b20711968749fa</a>&gt;`_</p></li>
-</ul>
-<ul class="simple">
-<li><p>added pep8 scripts and code refactoring <cite>``95e0199`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/95e0199073c19f842778d133ceea8d11a7f64ded">https://github.com/hexonet/python-sdk/commit/95e0199073c19f842778d133ceea8d11a7f64ded</a>&gt;`_</p></li>
-<li><p>added sdk documentation and generator script <cite>``01fe1e0`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/01fe1e0b858690ad95a3e611b9871067af3132be">https://github.com/hexonet/python-sdk/commit/01fe1e0b858690ad95a3e611b9871067af3132be</a>&gt;`_</p></li>
-<li><p>added changelog and changelog generator script <cite>``a4bd960`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/a4bd9606e5590388fac9f96c5621a9e03fd125c6">https://github.com/hexonet/python-sdk/commit/a4bd9606e5590388fac9f96c5621a9e03fd125c6</a>&gt;`_</p></li>
-<li><p>update apiconnector version <cite>``f1804eb`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/f1804eb7bbb48c6e338f5b065dc935820ddcc595">https://github.com/hexonet/python-sdk/commit/f1804eb7bbb48c6e338f5b065dc935820ddcc595</a>&gt;`_</p></li>
-</ul>
-<ul class="simple">
-<li><p>initial PyPi package release <cite>``eb2ac4c`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/eb2ac4c6458a3620938e429878582e0b1ab93f00">https://github.com/hexonet/python-sdk/commit/eb2ac4c6458a3620938e429878582e0b1ab93f00</a>&gt;`_</p></li>
-<li><p>ignore .vscode subfolder <cite>``67430e3`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/67430e3419237823839b2946c324a93d7d8de22c">https://github.com/hexonet/python-sdk/commit/67430e3419237823839b2946c324a93d7d8de22c</a>&gt;`_</p></li>
-<li><p>added .gitignore <cite>``946bc01`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/946bc01b7c3505c28400aca50b9d9d4d4de33684">https://github.com/hexonet/python-sdk/commit/946bc01b7c3505c28400aca50b9d9d4d4de33684</a>&gt;`_</p></li>
-<li><p>Add files via upload <cite>``aa2bc4d`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/aa2bc4d5f92720c22b7853371ade371e1f95b9dd">https://github.com/hexonet/python-sdk/commit/aa2bc4d5f92720c22b7853371ade371e1f95b9dd</a>&gt;`_</p></li>
-<li><p>Create README.md <cite>``400e58b`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/400e58b5d2c0db4102ad207c65845a537d95aa93">https://github.com/hexonet/python-sdk/commit/400e58b5d2c0db4102ad207c65845a537d95aa93</a>&gt;`_</p></li>
-<li><p>fix encoding problem (JIRA: HM-22) + fix in properties() results <cite>``5dc88d4`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/5dc88d4a85f90a7154d0ccde4df33faff0874591">https://github.com/hexonet/python-sdk/commit/5dc88d4a85f90a7154d0ccde4df33faff0874591</a>&gt;`_</p></li>
-<li><p>support for python2.5, use HTTP instead of HTTPS for the URL <cite>``88cedbf`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/88cedbf82075e19a957349dbc14b2836d99f2117">https://github.com/hexonet/python-sdk/commit/88cedbf82075e19a957349dbc14b2836d99f2117</a>&gt;`_</p></li>
-<li><p>support for python &gt; 3; also backward compatible <cite>``2756429`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/27564296dcd0e0a388ce45b0e77c467e6d927a31">https://github.com/hexonet/python-sdk/commit/27564296dcd0e0a388ce45b0e77c467e6d927a31</a>&gt;`_</p></li>
-<li><p>Initial commit <cite>``c89c917`</cite> &lt;<a class="reference external" href="https://github.com/hexonet/python-sdk/commit/c89c917845cda5cef9e4f3a4fb5dc9d022e48006">https://github.com/hexonet/python-sdk/commit/c89c917845cda5cef9e4f3a4fb5dc9d022e48006</a>&gt;`_</p></li>
-</ul>
-</section>
-</section>
-
-
+          <div class="sidebar-block">
+            <div class="sidebar-wrapper">
+              <h2>Contents</h2>
+              <div class="sidebar-localtoc">
+                <ul>
+                  <li><a class="reference internal" href="#">Changelog</a></li>
+                  <li>
+                    <a class="reference internal" href="#id3"
+                      >4.0.0 (2022-06-08)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#chore">chore</a>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#breaking-changes"
+                          >BREAKING CHANGES</a
+                        >
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id5"
+                              >3.8.4 (2022-04-01)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#bug-fixes"
+                          >Bug Fixes</a
+                        >
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id7"
+                              >3.8.3 (2022-03-23)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id8">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id10"
+                              >3.8.2 (2021-01-22)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id11">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id13"
+                              >3.8.1 (2020-05-23)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id14">Bug Fixes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id16"
+                      >3.8.0 (2020-05-07)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#features"
+                          >Features</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id18"
+                      >3.7.0 (2020-05-07)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#id19">Features</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id21"
+                      >3.6.0 (2020-05-07)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#id22">Features</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id25"
+                              >3.5.1 (2020-04-30)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id26">Bug Fixes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id28"
+                      >3.5.0 (2020-04-30)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#id29">Features</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id31"
+                              >3.4.2 (2020-04-29)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id32">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id34"
+                              >3.4.1 (2020-04-29)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id35">Bug Fixes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id37"
+                      >3.4.0 (2020-04-29)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#id38">Features</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id40"
+                      >3.3.0 (2020-04-29)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#id41">Features</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id43"
+                              >3.2.2 (2020-03-11)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id44">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id46"
+                              >3.2.1 (2020-03-11)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id47">Bug Fixes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id49"
+                      >3.2.0 (2020-03-11)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#id50">Features</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id52"
+                              >3.1.4 (2019-10-04)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id53">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id55"
+                              >3.1.3 (2019-09-24)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id56">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id59"
+                              >3.1.2 (2019-09-19)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id60">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id62"
+                              >3.1.1 (2019-08-16)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id63">Bug Fixes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id65"
+                      >3.1.0 (2019-04-16)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#id66">Features</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id68"
+                              >3.0.2 (2019-04-04)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id69">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id72"
+                              >3.0.1 (2019-04-01)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id73">Bug Fixes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id75"
+                      >3.0.0 (2019-04-01)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#code-refactoring"
+                          >Code Refactoring</a
+                        >
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id76"
+                          >BREAKING CHANGES</a
+                        >
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id78"
+                              >2.1.2 (2019-04-01)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id79">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id81"
+                              >2.1.1 (2019-03-29)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id82">Bug Fixes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id84"
+                      >2.1.0 (2019-03-29)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#id85">Features</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id87"
+                              >2.0.2 (2019-03-06)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id88">Bug Fixes</a>
+                        <ul>
+                          <li>
+                            <a class="reference internal" href="#id90"
+                              >2.0.1 (2018-10-31)</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id91">Bug Fixes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="reference internal" href="#id93"
+                      >2.0.0 (2018-10-31)</a
+                    >
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#id94">Bug Fixes</a>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id95"
+                          >Code Refactoring</a
+                        >
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#id96"
+                          >BREAKING CHANGES</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-            
-  <div class="footer-relations">
-    
-      <div class="pull-left">
-        <a class="btn btn-default" href="upgrading.html" title="previous chapter (use the left arrow)">Upgrading to Newer Releases</a>
-      </div>
-    
-      <div class="pull-right">
-        <a class="btn btn-default" href="contributing.html" title="next chapter (use the right arrow)">Contributing</a>
-      </div>
-    </div>
-    <div class="clearer"></div>
-  
+          <div class="sidebar-block">
+            <div class="sidebar-wrapper">
+              <div id="main-search">
+                <form
+                  class="form-inline"
+                  action="search.html"
+                  method="GET"
+                  role="form"
+                >
+                  <div class="input-group">
+                    <input
+                      name="q"
+                      type="text"
+                      class="form-control"
+                      placeholder="Search..."
+                    />
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="clearfix"></div>
+      </div>
+      <div id="right-column">
+        <div role="navigation" aria-label="breadcrumbs navigation">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Docs</a></li>
+
+            <li>Changelog</li>
+          </ol>
+        </div>
+
+        <div class="document clearer body">
+          <section id="changelog">
+            <span id="id1"></span>
+            <h1>
+              Changelog<a
+                class="headerlink"
+                href="#changelog"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+          </section>
+          <section id="id3">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.8.4...v4.0.0"
+                >4.0.0</a
+              >
+              (2022-06-08)<a
+                class="headerlink"
+                href="#id3"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="chore">
+              <h2>
+                chore<a
+                  class="headerlink"
+                  href="#chore"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>dep-bump:</strong> upgrade dev-deps and test release
+                    process (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/33f4309e44eb141e6577d5199f69bb220c8d94bb"
+                      >33f4309</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+            <section id="breaking-changes">
+              <h2>
+                BREAKING CHANGES<a
+                  class="headerlink"
+                  href="#breaking-changes"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p><strong>dep-bump:</strong> semantic-release v19</p>
+                </li>
+              </ul>
+              <section id="id5">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.8.3...v3.8.4"
+                    >3.8.4</a
+                  >
+                  (2022-04-01)<a
+                    class="headerlink"
+                    href="#id5"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="bug-fixes">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#bug-fixes"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>dep bump:</strong> trigger new version as of twine
+                    4.0 (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/abd34724f36574cb5119b0ab9f13c8139186a206"
+                      >abd3472</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id7">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.8.2...v3.8.3"
+                    >3.8.3</a
+                  >
+                  (2022-03-23)<a
+                    class="headerlink"
+                    href="#id7"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id8">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id8"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>ot&amp;e:</strong> url updated for OT&amp;E
+                    environment (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/6bdebc8427cb7f55495fc831f7a42a5baa7e9ae8"
+                      >6bdebc8</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id10">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.8.1...v3.8.2"
+                    >3.8.2</a
+                  >
+                  (2021-01-22)<a
+                    class="headerlink"
+                    href="#id10"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id11">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id11"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>ci:</strong> migration from Travis CI to github
+                    actions (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/d74edcd5dbfaf010d2fc91f2525dcc4c65955b79"
+                      >d74edcd</a
+                    >)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>ci:</strong> missing replacement of m2r with m2r2 in
+                    docs/conf.py (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/4a1ec7416a66a0cafb9b710b71687322ab9d3600"
+                      >4a1ec74</a
+                    >)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>ci:</strong> replace m2r (abandoned) with m2r2 (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/1e048c5b017fd7d476b4f883c714e24bb70e0b3a"
+                      >1e048c5</a
+                    >)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>test &amp; coverage:</strong> reviewed dependency
+                    management, coverage reporting and configs (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/2bd868a9c40cb9d5dbb48328e4c1344702d2f022"
+                      >2bd868a</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id13">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.8.0...v3.8.1"
+                    >3.8.1</a
+                  >
+                  (2020-05-23)<a
+                    class="headerlink"
+                    href="#id13"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id14">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id14"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>apiclient:</strong> fixed empty ConvertIDN request
+                    (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/8d4e96df2600069fb78d2c098a8219a4fed730cc"
+                      >8d4e96d</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id16">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.7.0...v3.8.0"
+                >3.8.0</a
+              >
+              (2020-05-07)<a
+                class="headerlink"
+                href="#id16"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="features">
+              <h2>
+                Features<a
+                  class="headerlink"
+                  href="#features"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>logger:</strong> possibility to override debug
+                    mode’s default logging mechanism (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/944d9de24e9f391511ace3ce582bb49b0d8be347"
+                      >944d9de</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id18">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.6.0...v3.7.0"
+                >3.7.0</a
+              >
+              (2020-05-07)<a
+                class="headerlink"
+                href="#id18"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="id19">
+              <h2>
+                Features<a
+                  class="headerlink"
+                  href="#id19"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>response:</strong> possibility of placeholder vars
+                    in standard responses to improve error details (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/393f20cd48dbb5e88a08114eca4b972f395ce805"
+                      >393f20c</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id21">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.5.1...v3.6.0"
+                >3.6.0</a
+              >
+              (2020-05-07)<a
+                class="headerlink"
+                href="#id21"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="id22">
+              <h2>
+                Features<a
+                  class="headerlink"
+                  href="#id22"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>apiclient:</strong> allow to specify additional
+                    libraries via setUserAgent (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/310065612ac70376c93d93dc6fecb257bd6340b1"
+                      >3100656</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id25">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.5.0...v3.5.1"
+                    >3.5.1</a
+                  >
+                  (2020-04-30)<a
+                    class="headerlink"
+                    href="#id25"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id26">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id26"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>security:</strong> replace passwords whereever they
+                    could be used for output (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9215b87e5353cbd2c9ce43c24099b1732104a879"
+                      >9215b87</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id28">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.4.2...v3.5.0"
+                >3.5.0</a
+              >
+              (2020-04-30)<a
+                class="headerlink"
+                href="#id28"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="id29">
+              <h2>
+                Features<a
+                  class="headerlink"
+                  href="#id29"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>response:</strong> added getCommandPlain (getting
+                    used command in plain text) (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/2efab17a99402a849ad6ef712458b32a9b4594b9"
+                      >2efab17</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id31">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.4.1...v3.4.2"
+                    >3.4.2</a
+                  >
+                  (2020-04-29)<a
+                    class="headerlink"
+                    href="#id31"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id32">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id32"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>responsetemplatemanager:</strong> fixed
+                    namingconventions self vs. cls (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/b52b22d4a51c1a498870bf5b0e9a9ab73ab8ddbd"
+                      >b52b22d</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id34">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.4.0...v3.4.1"
+                    >3.4.1</a
+                  >
+                  (2020-04-29)<a
+                    class="headerlink"
+                    href="#id34"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id35">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id35"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>messaging:</strong> return a specific error template
+                    if API response’ code or description are missing (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/7cd33b4cae237ae1657599a1f662ec69388971a3"
+                      >7cd33b4</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id37">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.3.0...v3.4.0"
+                >3.4.0</a
+              >
+              (2020-04-29)<a
+                class="headerlink"
+                href="#id37"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="id38">
+              <h2>
+                Features<a
+                  class="headerlink"
+                  href="#id38"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>apiclient:</strong> support the
+                    <code class="docutils literal notranslate"
+                      ><span class="pre">High</span>
+                      <span class="pre">Performance</span>
+                      <span class="pre">Proxy</span>
+                      <span class="pre">Setup</span></code
+                    >. see README.md (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/d66d495b0033bb9e6adcf7e9b7adb27c4eda63dd"
+                      >d66d495</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id40">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.2.2...v3.3.0"
+                >3.3.0</a
+              >
+              (2020-04-29)<a
+                class="headerlink"
+                href="#id40"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="id41">
+              <h2>
+                Features<a
+                  class="headerlink"
+                  href="#id41"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>apiclient:</strong> automatic IDN conversion of API
+                    command parameters to punycode (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/6562f26c8741efa54bcf293331b8a6687b198828"
+                      >6562f26</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id43">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.2.1...v3.2.2"
+                    >3.2.2</a
+                  >
+                  (2020-03-11)<a
+                    class="headerlink"
+                    href="#id43"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id44">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id44"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>travis:</strong> remove branch verification in
+                    updateVersion.sh as releasing happens on master (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/4eb327e85e22f78d24048edaae3a175f74b3f314"
+                      >4eb327e</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id46">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.2.0...v3.2.1"
+                    >3.2.1</a
+                  >
+                  (2020-03-11)<a
+                    class="headerlink"
+                    href="#id46"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id47">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id47"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>travis:</strong> fixed node env usage in ci/release
+                    process (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/6e8f9e0ee483e3d3d053805982e1d14647a07cc7"
+                      >6e8f9e0</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id49">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.1.4...v3.2.0"
+                >3.2.0</a
+              >
+              (2020-03-11)<a
+                class="headerlink"
+                href="#id49"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="id50">
+              <h2>
+                Features<a
+                  class="headerlink"
+                  href="#id50"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>apiclient:</strong> support bulk parameters through
+                    nested array in API command (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/1e4b8e76f0f695e5e2780619b26aa0017b419b46"
+                      >1e4b8e7</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id52">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.1.3...v3.1.4"
+                    >3.1.4</a
+                  >
+                  (2019-10-04)<a
+                    class="headerlink"
+                    href="#id52"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id53">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id53"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>responsetemplate/mgr:</strong> improve description
+                    for
+                    <code class="docutils literal notranslate"
+                      ><span class="pre">423</span>
+                      <span class="pre">Empty</span>
+                      <span class="pre">API</span>
+                      <span class="pre">response</span></code
+                    >
+                    [HM-577] (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/7bbcee9"
+                      >7bbcee9</a
+                    >)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>responsetemplate/mgr:</strong> pep8 review of
+                    response description usage (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/1410e58"
+                      >1410e58</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id55">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.1.2...v3.1.3"
+                    >3.1.3</a
+                  >
+                  (2019-09-24)<a
+                    class="headerlink"
+                    href="#id55"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id56">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id56"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>Travis:</strong> fixed pip calls (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/479cd06"
+                      >479cd06</a
+                    >)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Travis:</strong> upgrade packages in build (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/3756193"
+                      >3756193</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id59">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.1.1...v3.1.2"
+                    >3.1.2</a
+                  >
+                  (2019-09-19)<a
+                    class="headerlink"
+                    href="#id59"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id60">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id60"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>release process:</strong> migrate configuration (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9fcd7d1"
+                      >9fcd7d1</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id62">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.1.0...v3.1.1"
+                    >3.1.1</a
+                  >
+                  (2019-08-16)<a
+                    class="headerlink"
+                    href="#id62"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id63">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id63"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>APIClient:</strong> update default SDK url (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/758bf13"
+                      >758bf13</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id65">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.0.2...v3.1.0"
+                >3.1.0</a
+              >
+              (2019-04-16)<a
+                class="headerlink"
+                href="#id65"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="id66">
+              <h2>
+                Features<a
+                  class="headerlink"
+                  href="#id66"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>responsetemplate:</strong> add isPending method (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/c429972"
+                      >c429972</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id68">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.0.1...v3.0.2"
+                    >3.0.2</a
+                  >
+                  (2019-04-04)<a
+                    class="headerlink"
+                    href="#id68"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id69">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id69"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>APIClient:</strong> return APIClient instance in
+                    setUserAgent method (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/2169891"
+                      >2169891</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id72">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.0.0...v3.0.1"
+                    >3.0.1</a
+                  >
+                  (2019-04-01)<a
+                    class="headerlink"
+                    href="#id72"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id73">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id73"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>docs:</strong> remove python 2 documentation from
+                    docs (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/81a4586"
+                      >81a4586</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id75">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v2.1.2...v3.0.0"
+                >3.0.0</a
+              >
+              (2019-04-01)<a
+                class="headerlink"
+                href="#id75"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="code-refactoring">
+              <h2>
+                Code Refactoring<a
+                  class="headerlink"
+                  href="#code-refactoring"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>pkg:</strong> python 2 support removal (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/11351aa"
+                      >11351aa</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+            <section id="id76">
+              <h2>
+                BREAKING CHANGES<a
+                  class="headerlink"
+                  href="#id76"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p><strong>pkg:</strong> drop python 2 support</p>
+                </li>
+              </ul>
+              <section id="id78">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v2.1.1...v2.1.2"
+                    >2.1.2</a
+                  >
+                  (2019-04-01)<a
+                    class="headerlink"
+                    href="#id78"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id79">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id79"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>apiclient:</strong> fix usage of user agent header
+                    field (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/bbd9095"
+                      >bbd9095</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id81">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v2.1.0...v2.1.1"
+                    >2.1.1</a
+                  >
+                  (2019-03-29)<a
+                    class="headerlink"
+                    href="#id81"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id82">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id82"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>apiclient:</strong> fix useragent string. missing
+                    semicolon (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/8161b41"
+                      >8161b41</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id84">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v2.0.2...v2.1.0"
+                >2.1.0</a
+              >
+              (2019-03-29)<a
+                class="headerlink"
+                href="#id84"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="id85">
+              <h2>
+                Features<a
+                  class="headerlink"
+                  href="#id85"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>apiclient:</strong> review useragent support (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/4b4d9a7"
+                      >4b4d9a7</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id87">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v2.0.1...v2.0.2"
+                    >2.0.2</a
+                  >
+                  (2019-03-06)<a
+                    class="headerlink"
+                    href="#id87"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id88">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id88"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>response:</strong> remove deprecated debug outputs
+                    (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/70dbe7e"
+                      >70dbe7e</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+              <section id="id90">
+                <h3>
+                  <a
+                    class="reference external"
+                    href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk.git/compare/v2.0.0...v2.0.1"
+                    >2.0.1</a
+                  >
+                  (2018-10-31)<a
+                    class="headerlink"
+                    href="#id90"
+                    title="Permalink to this headline"
+                    >¶</a
+                  >
+                </h3>
+              </section>
+            </section>
+            <section id="id91">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id91"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>releasing:</strong> moved travis deploy step into
+                    semantic release (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk.git/commit/c1a3415"
+                      >c1a3415</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="id93">
+            <h1>
+              <a
+                class="reference external"
+                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk.git/compare/v1.2.7...v2.0.0"
+                >2.0.0</a
+              >
+              (2018-10-31)<a
+                class="headerlink"
+                href="#id93"
+                title="Permalink to this headline"
+                >¶</a
+              >
+            </h1>
+            <section id="id94">
+              <h2>
+                Bug Fixes<a
+                  class="headerlink"
+                  href="#id94"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>semantic-release:</strong> missing setup (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk.git/commit/f100c3e"
+                      >f100c3e</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+            <section id="id95">
+              <h2>
+                Code Refactoring<a
+                  class="headerlink"
+                  href="#id95"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>pkg:</strong> migrate to cross-SDK UML diagram (<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk.git/commit/52a78a2"
+                      >52a78a2</a
+                    >)
+                  </p>
+                </li>
+              </ul>
+            </section>
+            <section id="id96">
+              <h2>
+                BREAKING CHANGES<a
+                  class="headerlink"
+                  href="#id96"
+                  title="Permalink to this headline"
+                  >¶</a
+                >
+              </h2>
+              <ul class="simple">
+                <li>
+                  <p>
+                    <strong>pkg:</strong> rewrite from scratch to align the
+                    structure of our SDKs; downward incompatible
+                  </p>
+                </li>
+              </ul>
+              <p>
+                All notable changes to this project will be documented in this
+                file. Dates are displayed in UTC.
+              </p>
+              <ul class="simple">
+                <li>
+                  <p>
+                    added tests and coverage reporting
+                    <cite>``7440bce`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/7440bce90542b66382d9cee85e84c335286d0e0c"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/7440bce90542b66382d9cee85e84c335286d0e0c</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated docs <cite>``6cacf3f`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/6cacf3f5467fb44743784632ce316b58036fdfef"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/6cacf3f5467fb44743784632ce316b58036fdfef</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    revalidated source code <cite>``8e35832`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/8e35832328091a8574a9038f3ae234f8a8ec1e6f"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/8e35832328091a8574a9038f3ae234f8a8ec1e6f</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    generate version and release dynamically in conf.py
+                    <cite>``de67279`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/de67279491f538e19ef024aeec4b38013a888341"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/de67279491f538e19ef024aeec4b38013a888341</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated sdk reference <cite>``989284e`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/989284e67c039ad5b285d415f8d6b5d98864cbbf"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/989284e67c039ad5b285d415f8d6b5d98864cbbf</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    corrected release version in docs
+                    <cite>``9fd0ed5`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9fd0ed58501349a725de7fb509ee9edad83ff12c"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9fd0ed58501349a725de7fb509ee9edad83ff12c</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated changelog <cite>``b738293`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/b738293d9b313e046382f0ae77801c02f6bb2977"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/b738293d9b313e046382f0ae77801c02f6bb2977</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    finalized tests <cite>``195837f`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/195837f845a299407a69a6436a7e8e69fb20ab1c"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/195837f845a299407a69a6436a7e8e69fb20ab1c</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    increased version number <cite>``fab7e18`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/fab7e18eeef91e0c2c716f560f075e6c187601c6"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/fab7e18eeef91e0c2c716f560f075e6c187601c6</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Update README.md <cite>``97e9500`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/97e950030a63d3ac8c0706a7a30c096957703ae8"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/97e950030a63d3ac8c0706a7a30c096957703ae8</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+              <ul class="simple">
+                <li>
+                  <p>
+                    minor code review; migrated to sphinx documenation
+                    <cite>``da40a40`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/da40a40e81217bc4218d5de95adcc12ab95c3cb7"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/da40a40e81217bc4218d5de95adcc12ab95c3cb7</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    added development guide <cite>``ffb6b7c`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/ffb6b7cd129e794f75dcf6bbc3b2ca32248fb736"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/ffb6b7cd129e794f75dcf6bbc3b2ca32248fb736</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    linted .rst files; reviewed development guide
+                    <cite>``ba27b08`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/ba27b080ccaba06c49c159fde11bd8336ef86714"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/ba27b080ccaba06c49c159fde11bd8336ef86714</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    use of m2r and mdincludes - WOW
+                    <cite>``82e5e3c`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/82e5e3c6454d8d736a10dca61b19624490d00733"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/82e5e3c6454d8d736a10dca61b19624490d00733</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    reviewed headline issues <cite>``a0a644f`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/a0a644fe750215937f3aa28e0a4c9d0477d7322f"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/a0a644fe750215937f3aa28e0a4c9d0477d7322f</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    freezed deps into requirements.txt
+                    <cite>``4312f11`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/4312f114524880af0ae498dbed67c711c75d0fa8"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/4312f114524880af0ae498dbed67c711c75d0fa8</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    cleaned requirements.txt <cite>``d4c3671`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/d4c36712fe3b813e9e719e9d2fb9103d3b0a8683"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/d4c36712fe3b813e9e719e9d2fb9103d3b0a8683</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Update README.md <cite>``295445b`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/295445b91ddc626161f70b0770d17fbbf2645654"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/295445b91ddc626161f70b0770d17fbbf2645654</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Update README.md <cite>``ebbe309`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/ebbe3098bca572f337208310e8872be21e9b2184"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/ebbe3098bca572f337208310e8872be21e9b2184</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated docs <cite>``9829d01`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9829d015ec9ad72bee40defe05d32ca4b21136ed"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9829d015ec9ad72bee40defe05d32ca4b21136ed</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    added index.html for github pages
+                    <cite>``bfeebcb`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/bfeebcb05e5023a7f7415b8b9d30dd118144e19d"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/bfeebcb05e5023a7f7415b8b9d30dd118144e19d</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    try out setup.py update for readthedocs.org
+                    <cite>``5a9659f`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/5a9659f2290de0fa282d9f350c12c4f4aefd92d8"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/5a9659f2290de0fa282d9f350c12c4f4aefd92d8</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated changelog <cite>``b92ab41`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/b92ab41eff6a6e5f963830d4064096e5db488ead"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/b92ab41eff6a6e5f963830d4064096e5db488ead</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    added requirements.txt <cite>``4e28994`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/4e289943ee9297c7485f7b894e9025fbdbe84da7"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/4e289943ee9297c7485f7b894e9025fbdbe84da7</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    migrate from pep9 to pycodestyle
+                    <cite>``8f5019d`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/8f5019d130e7c10c599d2d0897b92e48ad59e2f0"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/8f5019d130e7c10c599d2d0897b92e48ad59e2f0</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    added .nojekyll file to allow folders starting with
+                    underline <cite>``c4fe9bf`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/c4fe9bf78fe3a0505ad56e9e037adb6ce7887844"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/c4fe9bf78fe3a0505ad56e9e037adb6ce7887844</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    minor change to trigger github pages update
+                    <cite>``7bd035c`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/7bd035c04c5f6b114e15f6ccf4bc6ba781146649"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/7bd035c04c5f6b114e15f6ccf4bc6ba781146649</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated badges <cite>``9a07712`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9a07712809fd4849bd0d11ea329a06728891092a"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9a07712809fd4849bd0d11ea329a06728891092a</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Update CONTRIBUTING.md <cite>``edc480c`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/edc480c6f5ee5c67d4810241126f2a61b609b962"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/edc480c6f5ee5c67d4810241126f2a61b609b962</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated badges <cite>``e31581c`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/e31581caf35cd9cca61c4fc776f2cfaa158ea136"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/e31581caf35cd9cca61c4fc776f2cfaa158ea136</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    linted contents.rst.inc <cite>``9f93c48`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9f93c48d5f112f948320bc50069f404fa02ea607"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9f93c48d5f112f948320bc50069f404fa02ea607</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+              <ul class="simple">
+                <li>
+                  <p>
+                    fix six import path <cite>``a9ec1a1`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/a9ec1a1547637535220b33eb86a8172a53634879"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/a9ec1a1547637535220b33eb86a8172a53634879</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated changelog <cite>``9e775a8`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9e775a850af227ecfd227b3b838f989daf63edff"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/9e775a850af227ecfd227b3b838f989daf63edff</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+              <ul class="simple">
+                <li>
+                  <p>
+                    updated changelog <cite>``c5601be`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/c5601beb264c7b7e763e88e11aafcc93da310edd"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/c5601beb264c7b7e763e88e11aafcc93da310edd</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    fix six import paths <cite>``e304262`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/e3042628792eefce6168b93220308b138647c8f0"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/e3042628792eefce6168b93220308b138647c8f0</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    set version 1.2.4 <cite>``655b886`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/655b88658c9c0b1db1be39af8700eb900a19ec87"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/655b88658c9c0b1db1be39af8700eb900a19ec87</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+              <ul class="simple">
+                <li>
+                  <p>
+                    import renaming <cite>``bd7dc80`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/bd7dc80c9decaccb480333aa4fe51db0c3722389"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/bd7dc80c9decaccb480333aa4fe51db0c3722389</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    set version to 1.2.2 <cite>``5642b54`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/5642b54c25dd3410f699fb54e0f97a4ee1957109"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/5642b54c25dd3410f699fb54e0f97a4ee1957109</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+              <ul class="simple">
+                <li>
+                  <p>
+                    try import renaming <cite>``d3fa6ae`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/d3fa6ae84e8bc0c6ec941964445085b5ea3f3da6"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/d3fa6ae84e8bc0c6ec941964445085b5ea3f3da6</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+              <ul class="simple">
+                <li>
+                  <p>
+                    test renamed imports <cite>``0999708`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/09997081ddf7c65a6f25fa1827cfb07fd68f82c5"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/09997081ddf7c65a6f25fa1827cfb07fd68f82c5</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated changelog <cite>``eb5e6d4`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/eb5e6d408f088b34172414ed9283fb0fc20e3df3"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/eb5e6d408f088b34172414ed9283fb0fc20e3df3</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    set version 1.2.1 <cite>``2d98115`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/2d9811500081c0940e3f340af9265b1c66f36893"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/2d9811500081c0940e3f340af9265b1c66f36893</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+              <ul class="simple">
+                <li>
+                  <p>
+                    introduced six for py2 and py3 support
+                    <cite>``fa7403a`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/fa7403a9b18dc11b9cf8c74da603c12cee01477a"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/fa7403a9b18dc11b9cf8c74da603c12cee01477a</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    updated changelog <cite>``a0f7e2f`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/a0f7e2f3418d238f2d4884d786c0d62383d3d0c9"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/a0f7e2f3418d238f2d4884d786c0d62383d3d0c9</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    apiconnector version 1.2.0 <cite>``85ec52f`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/85ec52f18007de6a9d37889cd1b20711968749fa"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/85ec52f18007de6a9d37889cd1b20711968749fa</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+              <ul class="simple">
+                <li>
+                  <p>
+                    added pep8 scripts and code refactoring
+                    <cite>``95e0199`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/95e0199073c19f842778d133ceea8d11a7f64ded"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/95e0199073c19f842778d133ceea8d11a7f64ded</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    added sdk documentation and generator script
+                    <cite>``01fe1e0`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/01fe1e0b858690ad95a3e611b9871067af3132be"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/01fe1e0b858690ad95a3e611b9871067af3132be</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    added changelog and changelog generator script
+                    <cite>``a4bd960`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/a4bd9606e5590388fac9f96c5621a9e03fd125c6"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/a4bd9606e5590388fac9f96c5621a9e03fd125c6</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    update apiconnector version <cite>``f1804eb`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/f1804eb7bbb48c6e338f5b065dc935820ddcc595"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/f1804eb7bbb48c6e338f5b065dc935820ddcc595</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+              <ul class="simple">
+                <li>
+                  <p>
+                    initial PyPi package release <cite>``eb2ac4c`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/eb2ac4c6458a3620938e429878582e0b1ab93f00"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/eb2ac4c6458a3620938e429878582e0b1ab93f00</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    ignore .vscode subfolder <cite>``67430e3`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/67430e3419237823839b2946c324a93d7d8de22c"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/67430e3419237823839b2946c324a93d7d8de22c</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    added .gitignore <cite>``946bc01`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/946bc01b7c3505c28400aca50b9d9d4d4de33684"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/946bc01b7c3505c28400aca50b9d9d4d4de33684</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Add files via upload <cite>``aa2bc4d`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/aa2bc4d5f92720c22b7853371ade371e1f95b9dd"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/aa2bc4d5f92720c22b7853371ade371e1f95b9dd</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Create README.md <cite>``400e58b`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/400e58b5d2c0db4102ad207c65845a537d95aa93"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/400e58b5d2c0db4102ad207c65845a537d95aa93</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    fix encoding problem (JIRA: HM-22) + fix in properties()
+                    results <cite>``5dc88d4`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/5dc88d4a85f90a7154d0ccde4df33faff0874591"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/5dc88d4a85f90a7154d0ccde4df33faff0874591</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    support for python2.5, use HTTP instead of HTTPS for the URL
+                    <cite>``88cedbf`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/88cedbf82075e19a957349dbc14b2836d99f2117"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/88cedbf82075e19a957349dbc14b2836d99f2117</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    support for python &gt; 3; also backward compatible
+                    <cite>``2756429`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/27564296dcd0e0a388ce45b0e77c467e6d927a31"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/27564296dcd0e0a388ce45b0e77c467e6d927a31</a
+                    >&gt;`_
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Initial commit <cite>``c89c917`</cite> &lt;<a
+                      class="reference external"
+                      href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/c89c917845cda5cef9e4f3a4fb5dc9d022e48006"
+                      >https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/c89c917845cda5cef9e4f3a4fb5dc9d022e48006</a
+                    >&gt;`_
+                  </p>
+                </li>
+              </ul>
+            </section>
+          </section>
+        </div>
+
+        <div class="footer-relations">
+          <div class="pull-left">
+            <a
+              class="btn btn-default"
+              href="upgrading.html"
+              title="previous chapter (use the left arrow)"
+              >Upgrading to Newer Releases</a
+            >
+          </div>
+
+          <div class="pull-right">
+            <a
+              class="btn btn-default"
+              href="contributing.html"
+              title="next chapter (use the right arrow)"
+              >Contributing</a
+            >
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+      <div class="clearfix"></div>
     </div>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="contributing.html" title="Contributing"
-             >next</a> |</li>
-        <li class="right" >
+          <a href="genindex.html" title="General Index">index</a>
+        </li>
+        <li class="right">
+          <a href="py-modindex.html" title="Python Module Index">modules</a> |
+        </li>
+        <li class="right">
+          <a href="contributing.html" title="Contributing">next</a> |
+        </li>
+        <li class="right">
           <a href="upgrading.html" title="Upgrading to Newer Releases"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 4.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Changelog</a></li> 
+            >previous</a
+          >
+          |
+        </li>
+        <li class="nav-item nav-item-0">
+          <a href="index.html">hexonet.apiconnector 4.0 documentation</a> &#187;
+        </li>
+        <li class="nav-item nav-item-this"><a href="">Changelog</a></li>
       </ul>
     </div>
-<script type="text/javascript">
-  $("#mobile-toggle a").click(function () {
-    $("#left-column").toggle();
-  });
-</script>
-<script type="text/javascript" src="_static/js/bootstrap.js"></script>
-  <div class="footer">
-    &copy; Copyright 2018 by HEXONET GmbH. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
-  </div>
+    <script type="text/javascript">
+      $("#mobile-toggle a").click(function () {
+        $("#left-column").toggle();
+      });
+    </script>
+    <script type="text/javascript" src="_static/js/bootstrap.js"></script>
+    <div class="footer">
+      &copy; Copyright 2018 by HEXONET GmbH. Created using
+      <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    </div>
   </body>
 </html>

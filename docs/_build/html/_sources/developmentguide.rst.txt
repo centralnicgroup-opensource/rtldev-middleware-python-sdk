@@ -23,7 +23,7 @@ You can install all you need by
 NOTE: Make sure to have also all the extensions listed in the `docs/conf.py`
 that are required for the SDK Documentation.
 
-.. _docs/conf.py: https://rawgit.com/hexonet/python-sdk/master/docs/conf.py
+.. _docs/conf.py: https://rawgit.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/master/docs/conf.py
 
 We suggest to use `Visual Studio Code`_ with installed plugins for Python
 Development described here_. But if you prefer any other IDE / Editor, it

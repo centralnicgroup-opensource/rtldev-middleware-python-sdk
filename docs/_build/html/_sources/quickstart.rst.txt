@@ -22,7 +22,7 @@ session-based communication.
 
 You can find this code also on github_.
 
-.. _github: https://github.com/hexonet/python-sdk-demo
+.. _github: https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk-demo
 
 What to do if the backend system just returns an error
 ------------------------------------------------------

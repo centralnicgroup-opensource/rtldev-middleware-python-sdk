@@ -19,4 +19,4 @@ installation by providing the ``--upgrade`` parameter::
 See the how to migrate your code by reading the `release notes`_.
 We publish there any information on how to migrate.
 
-.. _release notes: https://github.com/hexonet/python-sdk/releases
+.. _release notes: https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/releases

@@ -39,7 +39,7 @@ setup(
     author_email="kschwarz@hexonet.net",
     maintainer="Kai Schwarz",
     maintainer_email="kschwarz@hexonet.net",
-    url="https://github.com/hexonet/python-sdk/",
+    url="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/",
     install_requires=[
         "docutils>=0,<1",
         "guzzle-sphinx-theme>=0,<1",

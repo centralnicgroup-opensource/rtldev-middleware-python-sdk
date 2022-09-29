@@ -12,7 +12,7 @@ Welcome to hexonet.apiconnector's documentation. Get started with
 There is also a Demo App available for  any of our SDK libraries. The
 one for hexonet.apiconnector (python-sdk) is available at github_.
 
-.. _github: https://github.com/hexonet/python-sdk-demo
+.. _github: https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk-demo
 
 The rest of the docs describe each component of hexonet.apiconnector in
 detail, with a full reference in the :ref:`api` section.

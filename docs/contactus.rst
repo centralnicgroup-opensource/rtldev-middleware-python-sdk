@@ -22,4 +22,4 @@ Please file Bugs / Issues / Problems as `new github issue`_ to us.
 Please read our :ref:`contributing` first and use the search to check
 if this is already a known issue.
 
-.. _new github issue: https://github.com/hexonet/python-sdk/issues/new
+.. _new github issue: https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/issues/new
