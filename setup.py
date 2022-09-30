@@ -44,7 +44,7 @@ setup(
         "docutils>=0,<1",
         "guzzle-sphinx-theme>=0,<1",
         "m2r2>=0,<1",
-        "pytest-cov>=2,<4",
+        "pytest-cov>=2,<5",
         "sphinx>=3,<5",
         "sphinxcontrib-log-cabinet>=1,<2",
         "sphinxcontrib-websupport>=1,<2",
