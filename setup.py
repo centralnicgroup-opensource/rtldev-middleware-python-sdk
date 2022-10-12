@@ -45,7 +45,7 @@ setup(
         "guzzle-sphinx-theme>=0,<1",
         "m2r2>=0,<1",
         "pytest-cov>=2,<5",
-        "sphinx>=3,<5",
+        "sphinx>=3,<6",
         "sphinxcontrib-log-cabinet>=1,<2",
         "sphinxcontrib-websupport>=1,<2",
         "twine>=4,<5",
