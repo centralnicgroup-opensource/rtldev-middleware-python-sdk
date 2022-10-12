@@ -1,4 +1,7 @@
 [run]
+concurrency = multiprocessing
+parallel = true
+sigterm = true
 omit = 
     hexonet/__init__.py
     hexonet/apiconnector/__init__.py
