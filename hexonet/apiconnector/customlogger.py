@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     hexonet.apiconnector.customlogger
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This module provides all necessary functionality for
     debug outputs
     :copyright: © 2020 by HEXONET GmbH.

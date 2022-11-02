@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
@@ -150,10 +149,10 @@
           
           <div class="document clearer body">
             
-  <section id="development-guide">
+  <div class="section" id="development-guide">
 <span id="developmentguide"></span><h1>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h1>
 <p>Please read our <a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">Contributing guide lines</span></a> first.</p>
-<section id="requirements">
+<div class="section" id="requirements">
 <span id="id1"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>You can find any required library for this project listed in the <em>setup.cfg</em>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">bdist_wheel</span><span class="p">]</span>
@@ -184,8 +183,8 @@ that are required for the SDK Documentation.</p>
 <p>We suggest to use <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a> with installed plugins for Python
 Development described <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">here</a>. But if you prefer any other IDE / Editor, it
 is fine.</p>
-</section>
-<section id="run-tests-and-code-validation">
+</div>
+<div class="section" id="run-tests-and-code-validation">
 <span id="testsnvalidation"></span><h2>Run Tests and Code Validation<a class="headerlink" href="#run-tests-and-code-validation" title="Permalink to this headline">¶</a></h2>
 <p>If you open a Pull Request (PR), we will trigger automated tests and pep8 style
 check in CI process. So nothing you have to worry about in your development.
@@ -204,8 +203,8 @@ these checks in advance.</p>
 ./scripts/coverage.sh
 </pre></div>
 </div>
-</section>
-<section id="pull-request-pr-procedure">
+</div>
+<div class="section" id="pull-request-pr-procedure">
 <h2>Pull Request (PR) Procedure<a class="headerlink" href="#pull-request-pr-procedure" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>fork our project and create a new branch</p></li>
@@ -227,8 +226,8 @@ if we can role out that PR as we want to keep all our SDKs aligned.</p>
 <a class="reference external" href="https://hexonet-python-sdk.readthedocs.io">readthedocs.org</a>.</p>
 <p>The module can be accessed on the <a class="reference external" href="https://pypi.org/project/hexonet.apiconnector/">PyPi (Live) Index</a> and the
 <a class="reference external" href="https://test.pypi.org/project/hexonet.apiconnector/">PyPi (Test) Index</a>.</p>
-</section>
-<section id="sdk-documentation">
+</div>
+<div class="section" id="sdk-documentation">
 <h2>SDK Documentation<a class="headerlink" href="#sdk-documentation" title="Permalink to this headline">¶</a></h2>
 <p>Have an eye on the generated <a class="reference internal" href="api.html#api"><span class="std std-ref">SDK Documentation</span></a>.</p>
 <p>If you want to generate it from scratch out of the sources, please use
@@ -239,8 +238,8 @@ the below script:</p>
 <p>The generated files are then available in subfolder “docs/_build/html”.
 We regenerate the SDK Documentation whenever a new tag commit reaches
 the master branch.</p>
-</section>
-</section>
+</div>
+</div>
 
 
           </div>

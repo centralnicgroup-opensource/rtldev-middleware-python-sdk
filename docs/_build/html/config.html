@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
@@ -152,7 +151,7 @@
           
           <div class="document clearer body">
             
-  <section id="configuration-handling">
+  <div class="section" id="configuration-handling">
 <span id="config"></span><h1>Configuration Handling<a class="headerlink" href="#configuration-handling" title="Permalink to this headline">¶</a></h1>
 <p>Applications need some kind of configuration. There are different settings
 you might want to change depending on the application environment like
@@ -163,7 +162,7 @@ can hardcode the configuration in the code, which for many small scripts is
 for sure sufficient. Realtime applications and frontends need to cover some
 application logic around using this SDK like a login form and session
 management.</p>
-<section id="configuration-basics">
+<div class="section" id="configuration-basics">
 <h2>Configuration Basics<a class="headerlink" href="#configuration-basics" title="Permalink to this headline">¶</a></h2>
 <p>The configuration can be provided in two ways.
 Using the <code class="xref py py-class docutils literal notranslate"><span class="pre">APIClient</span></code>:</p>
@@ -239,8 +238,8 @@ Using the <code class="xref py py-class docutils literal notranslate"><span clas
 </pre></div>
 </div>
 </div>
-</section>
-<section id="environment-and-debug-features">
+</div>
+<div class="section" id="environment-and-debug-features">
 <h2>Environment and Debug Features<a class="headerlink" href="#environment-and-debug-features" title="Permalink to this headline">¶</a></h2>
 <p>Debug Features are also available in our Python SDK:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># activate debug mode</span>
@@ -254,7 +253,7 @@ Using the <code class="xref py py-class docutils literal notranslate"><span clas
 Both require a separate Registration:
 - <a class="reference external" href="https://www.hexonet.net/sign-up">Live System Registration</a> and
 - <a class="reference external" href="https://www.hexonet.net/signup-ote">OT&amp;E System Registration</a>.</p>
-<section id="ot-e-system">
+<div class="section" id="ot-e-system">
 <h3>OT&amp;E System<a class="headerlink" href="#ot-e-system" title="Permalink to this headline">¶</a></h3>
 <p>OT&amp;E Sytem stands for Operational Test &amp; Evaluation System.
 No costs, just for playing around with things. This system can be seen as a
@@ -263,22 +262,22 @@ live with it. This system and the use of our products and services is
 completely free of charge.
 To use this system, use APIClient’s method <cite>cl.useOTESystem()</cite>.
 Otherwise Live System will be used by default.</p>
-</section>
-<section id="live-system">
+</div>
+<div class="section" id="live-system">
 <h3>LIVE System<a class="headerlink" href="#live-system" title="Permalink to this headline">¶</a></h3>
 <p>The real world system - This system and the use our services and products can
 lead to real costs depending on what you’re exactly doing.
 Live System will be used by default, but you can also use APIClient’s method
 <cite>cl.useLIVESystem()</cite> to add it in source code for reference.</p>
-</section>
-</section>
-<section id="builtin-configuration-values">
+</div>
+</div>
+<div class="section" id="builtin-configuration-values">
 <h2>Builtin Configuration Values<a class="headerlink" href="#builtin-configuration-values" title="Permalink to this headline">¶</a></h2>
 <p>The following configuration values are used internally by hexonet.apiconnector:</p>
 <p>Up to now - none, but this might change in future as we are continously
 improving our SDKs.</p>
-</section>
-</section>
+</div>
+</div>
 
 
           </div>
