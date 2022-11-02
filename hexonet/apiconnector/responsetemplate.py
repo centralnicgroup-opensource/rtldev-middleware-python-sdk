@@ -20,7 +20,7 @@ class ResponseTemplate(object):
     def __init__(self, response=""):
         #: Holds the response as plain text / string
         self._raw = response
-        if (response is "") or (response is None):
+        if (response == "") or (response is None):
             descr = "Empty API response. Probably unreachable API end point {CONNECTION_URL}"
             self._raw = "[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=%s\r\nEOF\r\n" % (descr)
 

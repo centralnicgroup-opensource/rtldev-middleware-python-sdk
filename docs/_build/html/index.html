@@ -1,933 +1,341 @@
+
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="generator"
-      content="Docutils 0.17.1: http://docutils.sourceforge.net/"
-    />
-
-    <!-- Licensed under the Apache 2.0 License -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="_static/fonts/open-sans/stylesheet.css"
-    />
-    <!-- Licensed under the SIL Open Font License -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="_static/fonts/source-serif-pro/source-serif-pro.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="_static/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="_static/css/bootstrap-theme.min.css"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>
-      Welcome to hexonet.apiconnector &#8212; hexonet.apiconnector 4.0
-      documentation
-    </title>
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Welcome to hexonet.apiconnector &#8212; hexonet.apiconnector 4.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
-    <script
-      data-url_root="./"
-      id="documentation_options"
-      src="_static/documentation_options.js"
-    ></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <link rel="shortcut icon" href="_static/hexonet-favicon.ico" />
+    <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Foreword" href="foreword.html" />
-  </head>
-  <body>
+  
+   
+
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index" accesskey="I">index</a>
-        </li>
-        <li class="right">
-          <a href="py-modindex.html" title="Python Module Index">modules</a> |
-        </li>
-        <li class="right">
-          <a href="foreword.html" title="Foreword" accesskey="N">next</a> |
-        </li>
-        <li class="nav-item nav-item-0">
-          <a href="#">hexonet.apiconnector 4.0 documentation</a> &#187;
-        </li>
-        <li class="nav-item nav-item-this">
-          <a href="">Welcome to hexonet.apiconnector</a>
-        </li>
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="foreword.html" title="Foreword"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">hexonet.apiconnector 4.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to hexonet.apiconnector</a></li> 
       </ul>
     </div>
     <div class="container-wrapper">
+
       <div id="mobile-toggle">
-        <a href="#"
-          ><span
-            class="glyphicon glyphicon-align-justify"
-            aria-hidden="true"
-          ></span
-        ></a>
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
       </div>
-      <div id="left-column">
-        <div class="sphinxsidebar">
-          <a
-            href="
-    #"
-            class="text-logo"
-            >hexonet.apiconnector 4.0.0</a
-          >
-          <div class="sidebar-block">
-            <div class="sidebar-wrapper">
-              <h2>Table Of Contents</h2>
-            </div>
-            <div class="sidebar-toc">
-              <ul>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="foreword.html"
-                    >Foreword</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="installation.html"
-                    >Installation</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="quickstart.html"
-                    >Quickstart</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="debugging.html"
-                    >Debugging</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="config.html"
-                    >Configuration Handling</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="api.html"
-                    >SDK Documentation</a
-                  >
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="upgrading.html"
-                    >Upgrading to Newer Releases</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html"
-                    >Changelog</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id3"
-                    >4.0.0 (2022-06-08)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id16"
-                    >3.8.0 (2020-05-07)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id18"
-                    >3.7.0 (2020-05-07)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id21"
-                    >3.6.0 (2020-05-07)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id28"
-                    >3.5.0 (2020-04-30)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id37"
-                    >3.4.0 (2020-04-29)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id40"
-                    >3.3.0 (2020-04-29)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id49"
-                    >3.2.0 (2020-03-11)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id65"
-                    >3.1.0 (2019-04-16)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id75"
-                    >3.0.0 (2019-04-01)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id84"
-                    >2.1.0 (2019-03-29)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="changelog.html#id93"
-                    >2.0.0 (2018-10-31)</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="contributing.html"
-                    >Contributing</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="developmentguide.html"
-                    >Development Guide</a
-                  >
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="license.html">License</a>
-                </li>
-                <li class="toctree-l1">
-                  <a class="reference internal" href="contactus.html"
-                    >Contact Us</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="sidebar-block">
-            <div class="sidebar-wrapper">
-              <h2>Contents</h2>
-              <div class="sidebar-localtoc">
-                <ul>
-                  <li>
-                    <a class="reference internal" href="#"
-                      >Welcome to hexonet.apiconnector</a
-                    >
-                    <ul>
-                      <li>
-                        <a class="reference internal" href="#usage-guide"
-                          >Usage Guide</a
-                        >
-                      </li>
-                      <li>
-                        <a class="reference internal" href="#sdk-documentation"
-                          >SDK Documentation</a
-                        >
-                      </li>
-                      <li>
-                        <a class="reference internal" href="#additional-notes"
-                          >Additional Notes</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="sidebar-block">
-            <div class="sidebar-wrapper">
-              <div id="main-search">
-                <form
-                  class="form-inline"
-                  action="search.html"
-                  method="GET"
-                  role="form"
-                >
-                  <div class="input-group">
-                    <input
-                      name="q"
-                      type="text"
-                      class="form-control"
-                      placeholder="Search..."
-                    />
-                  </div>
-                  <input type="hidden" name="check_keywords" value="yes" />
-                  <input type="hidden" name="area" value="default" />
-                </form>
-              </div>
-            </div>
-          </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    #" class="text-logo">hexonet.apiconnector 4.0.0</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Handling</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">SDK Documentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id3">4.0.0 (2022-06-08)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id16">3.8.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id18">3.7.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id21">3.6.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id28">3.5.0 (2020-04-30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id37">3.4.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id40">3.3.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id49">3.2.0 (2020-03-11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id65">3.1.0 (2019-04-16)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id75">3.0.0 (2019-04-01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id84">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id93">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developmentguide.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contactus.html">Contact Us</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Contents</h2>
+    <div class="sidebar-localtoc">
+      <ul>
+<li><a class="reference internal" href="#">Welcome to hexonet.apiconnector</a><ul>
+<li><a class="reference internal" href="#usage-guide">Usage Guide</a></li>
+<li><a class="reference internal" href="#sdk-documentation">SDK Documentation</a></li>
+<li><a class="reference internal" href="#additional-notes">Additional Notes</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
         </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="#">Docs</a></li>
+              
+              <li>Welcome to hexonet.apiconnector</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="welcome-to-hexonet-apiconnector">
+<h1>Welcome to hexonet.apiconnector<a class="headerlink" href="#welcome-to-hexonet-apiconnector" title="Permalink to this headline">¶</a></h1>
+<img alt="hexonet.apiconnector: Connector library for the insanely fast HEXONET Backend API" class="align-right" src="_images/hexonet.png" />
+<p>Welcome to hexonet.apiconnector’s documentation. Get started with
+<a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a> and then get an overview with the <a class="reference internal" href="quickstart.html#quickstart"><span class="std std-ref">Quickstart</span></a>.
+There is also a Demo App available for  any of our SDK libraries. The
+one for hexonet.apiconnector (python-sdk) is available at <a class="reference external" href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk-demo">github</a>.</p>
+<p>The rest of the docs describe each component of hexonet.apiconnector in
+detail, with a full reference in the <a class="reference internal" href="api.html#api"><span class="std std-ref">SDK Documentation</span></a> section.</p>
+<div class="section" id="usage-guide">
+<h2>Usage Guide<a class="headerlink" href="#usage-guide" title="Permalink to this headline">¶</a></h2>
+<p>This part of the documentation, which is mostly prose, begins with some
+background information about HEXONET and it’s Backend API, then focuses
+on step-by-step instructions for getting started with our connector library
+hexonet.apiconnector.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">Foreword</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#hexonet">HEXONET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreword.html#hexonet-backend-api">HEXONET Backend API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#python-version">Python Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id2">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#a-minimal-application">A Minimal Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#what-to-do-if-the-backend-system-just-returns-an-error">What to do if the backend system just returns an error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#sessions">Sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config.html#configuration-basics">Configuration Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html#environment-and-debug-features">Environment and Debug Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html#builtin-configuration-values">Builtin Configuration Values</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="sdk-documentation">
+<h2>SDK Documentation<a class="headerlink" href="#sdk-documentation" title="Permalink to this headline">¶</a></h2>
+<p>If you are looking for information on a specific function, class or
+method, this part of the documentation is for you.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">SDK Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/hexonet.html">hexonet package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hexonet.apiconnector.html">hexonet.apiconnector package</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="additional-notes">
+<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this headline">¶</a></h2>
+<p>Design notes, legal information and changelog are here for the interested.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id3">4.0.0 (2022-06-08)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#chore">chore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#breaking-changes">BREAKING CHANGES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id16">3.8.0 (2020-05-07)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id18">3.7.0 (2020-05-07)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id19">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id21">3.6.0 (2020-05-07)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id22">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id26">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id28">3.5.0 (2020-04-30)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id29">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id32">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id35">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id37">3.4.0 (2020-04-29)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id38">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id40">3.3.0 (2020-04-29)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id41">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id44">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id47">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id49">3.2.0 (2020-03-11)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id50">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id53">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id56">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id60">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id63">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id65">3.1.0 (2019-04-16)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id66">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id69">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id73">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id75">3.0.0 (2019-04-01)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#code-refactoring">Code Refactoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id76">BREAKING CHANGES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id79">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id82">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id84">2.1.0 (2019-03-29)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id85">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id88">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id91">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id93">2.0.0 (2018-10-31)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id94">Bug Fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id95">Code Refactoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id96">BREAKING CHANGES</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-process">Pull Request Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-of-conduct">Code of Conduct</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developmentguide.html">Development Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developmentguide.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developmentguide.html#run-tests-and-code-validation">Run Tests and Code Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developmentguide.html#pull-request-pr-procedure">Pull Request (PR) Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developmentguide.html#sdk-documentation">SDK Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="license.html#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html#general-license-definitions">General License Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html#mit-license">MIT License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contactus.html">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="foreword.html" title="next chapter (use the right arrow)">Foreword</a>
       </div>
-      <div id="right-column">
-        <div role="navigation" aria-label="breadcrumbs navigation">
-          <ol class="breadcrumb">
-            <li><a href="#">Docs</a></li>
-
-            <li>Welcome to hexonet.apiconnector</li>
-          </ol>
+    </div>
+    <div class="clearer"></div>
+  
         </div>
-
-        <div class="document clearer body">
-          <section id="welcome-to-hexonet-apiconnector">
-            <h1>
-              Welcome to hexonet.apiconnector<a
-                class="headerlink"
-                href="#welcome-to-hexonet-apiconnector"
-                title="Permalink to this headline"
-                >¶</a
-              >
-            </h1>
-            <img
-              alt="hexonet.apiconnector: Connector library for the insanely fast HEXONET Backend API"
-              class="align-right"
-              src="_images/hexonet.png"
-            />
-            <p>
-              Welcome to hexonet.apiconnector’s documentation. Get started with
-              <a
-                class="reference internal"
-                href="installation.html#installation"
-                ><span class="std std-ref">Installation</span></a
-              >
-              and then get an overview with the
-              <a class="reference internal" href="quickstart.html#quickstart"
-                ><span class="std std-ref">Quickstart</span></a
-              >. There is also a Demo App available for any of our SDK
-              libraries. The one for hexonet.apiconnector (python-sdk) is
-              available at
-              <a
-                class="reference external"
-                href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk-demo"
-                >github</a
-              >.
-            </p>
-            <p>
-              The rest of the docs describe each component of
-              hexonet.apiconnector in detail, with a full reference in the
-              <a class="reference internal" href="api.html#api"
-                ><span class="std std-ref">SDK Documentation</span></a
-              >
-              section.
-            </p>
-            <section id="usage-guide">
-              <h2>
-                Usage Guide<a
-                  class="headerlink"
-                  href="#usage-guide"
-                  title="Permalink to this headline"
-                  >¶</a
-                >
-              </h2>
-              <p>
-                This part of the documentation, which is mostly prose, begins
-                with some background information about HEXONET and it’s Backend
-                API, then focuses on step-by-step instructions for getting
-                started with our connector library hexonet.apiconnector.
-              </p>
-              <div class="toctree-wrapper compound">
-                <ul>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="foreword.html"
-                      >Foreword</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="foreword.html#hexonet"
-                          >HEXONET</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="foreword.html#hexonet-backend-api"
-                          >HEXONET Backend API</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="installation.html"
-                      >Installation</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="installation.html#python-version"
-                          >Python Version</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="installation.html#dependencies"
-                          >Dependencies</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="installation.html#id2"
-                          >Installation</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="quickstart.html"
-                      >Quickstart</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="quickstart.html#a-minimal-application"
-                          >A Minimal Application</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="quickstart.html#what-to-do-if-the-backend-system-just-returns-an-error"
-                          >What to do if the backend system just returns an
-                          error</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="quickstart.html#sessions"
-                          >Sessions</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="debugging.html"
-                      >Debugging</a
-                    >
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="config.html"
-                      >Configuration Handling</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="config.html#configuration-basics"
-                          >Configuration Basics</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="config.html#environment-and-debug-features"
-                          >Environment and Debug Features</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="config.html#builtin-configuration-values"
-                          >Builtin Configuration Values</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </section>
-            <section id="sdk-documentation">
-              <h2>
-                SDK Documentation<a
-                  class="headerlink"
-                  href="#sdk-documentation"
-                  title="Permalink to this headline"
-                  >¶</a
-                >
-              </h2>
-              <p>
-                If you are looking for information on a specific function, class
-                or method, this part of the documentation is for you.
-              </p>
-              <div class="toctree-wrapper compound">
-                <ul>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="api.html"
-                      >SDK Documentation</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="api/hexonet.html"
-                          >hexonet package</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="api/hexonet.apiconnector.html"
-                          >hexonet.apiconnector package</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </section>
-            <section id="additional-notes">
-              <h2>
-                Additional Notes<a
-                  class="headerlink"
-                  href="#additional-notes"
-                  title="Permalink to this headline"
-                  >¶</a
-                >
-              </h2>
-              <p>
-                Design notes, legal information and changelog are here for the
-                interested.
-              </p>
-              <div class="toctree-wrapper compound">
-                <ul>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="upgrading.html"
-                      >Upgrading to Newer Releases</a
-                    >
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html"
-                      >Changelog</a
-                    >
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id3"
-                      >4.0.0 (2022-06-08)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="changelog.html#chore"
-                          >chore</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="changelog.html#breaking-changes"
-                          >BREAKING CHANGES</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="changelog.html#bug-fixes"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id8"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id11"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id14"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id16"
-                      >3.8.0 (2020-05-07)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="changelog.html#features"
-                          >Features</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id18"
-                      >3.7.0 (2020-05-07)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id19"
-                          >Features</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id21"
-                      >3.6.0 (2020-05-07)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id22"
-                          >Features</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id26"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id28"
-                      >3.5.0 (2020-04-30)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id29"
-                          >Features</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id32"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id35"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id37"
-                      >3.4.0 (2020-04-29)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id38"
-                          >Features</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id40"
-                      >3.3.0 (2020-04-29)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id41"
-                          >Features</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id44"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id47"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id49"
-                      >3.2.0 (2020-03-11)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id50"
-                          >Features</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id53"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id56"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id60"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id63"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id65"
-                      >3.1.0 (2019-04-16)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id66"
-                          >Features</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id69"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id73"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id75"
-                      >3.0.0 (2019-04-01)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="changelog.html#code-refactoring"
-                          >Code Refactoring</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id76"
-                          >BREAKING CHANGES</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id79"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id82"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id84"
-                      >2.1.0 (2019-03-29)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id85"
-                          >Features</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id88"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id91"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="changelog.html#id93"
-                      >2.0.0 (2018-10-31)</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id94"
-                          >Bug Fixes</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id95"
-                          >Code Refactoring</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a class="reference internal" href="changelog.html#id96"
-                          >BREAKING CHANGES</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="contributing.html"
-                      >Contributing</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="contributing.html#pull-request-process"
-                          >Pull Request Process</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="contributing.html#code-of-conduct"
-                          >Code of Conduct</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="developmentguide.html"
-                      >Development Guide</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="developmentguide.html#requirements"
-                          >Requirements</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="developmentguide.html#run-tests-and-code-validation"
-                          >Run Tests and Code Validation</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="developmentguide.html#pull-request-pr-procedure"
-                          >Pull Request (PR) Procedure</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="developmentguide.html#sdk-documentation"
-                          >SDK Documentation</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="license.html"
-                      >License</a
-                    >
-                    <ul>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="license.html#authors"
-                          >Authors</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="license.html#general-license-definitions"
-                          >General License Definitions</a
-                        >
-                      </li>
-                      <li class="toctree-l2">
-                        <a
-                          class="reference internal"
-                          href="license.html#mit-license"
-                          >MIT License</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="contactus.html"
-                      >Contact Us</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </section>
-          </section>
-        </div>
-
-        <div class="footer-relations">
-          <div class="pull-right">
-            <a
-              class="btn btn-default"
-              href="foreword.html"
-              title="next chapter (use the right arrow)"
-              >Foreword</a
-            >
-          </div>
-        </div>
-        <div class="clearer"></div>
-      </div>
-      <div class="clearfix"></div>
+        <div class="clearfix"></div>
     </div>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index">index</a>
-        </li>
-        <li class="right">
-          <a href="py-modindex.html" title="Python Module Index">modules</a> |
-        </li>
-        <li class="right">
-          <a href="foreword.html" title="Foreword">next</a> |
-        </li>
-        <li class="nav-item nav-item-0">
-          <a href="#">hexonet.apiconnector 4.0 documentation</a> &#187;
-        </li>
-        <li class="nav-item nav-item-this">
-          <a href="">Welcome to hexonet.apiconnector</a>
-        </li>
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="foreword.html" title="Foreword"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">hexonet.apiconnector 4.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to hexonet.apiconnector</a></li> 
       </ul>
     </div>
-    <script type="text/javascript">
-      $("#mobile-toggle a").click(function () {
-        $("#left-column").toggle();
-      });
-    </script>
-    <script type="text/javascript" src="_static/js/bootstrap.js"></script>
-    <div class="footer">
-      &copy; Copyright 2018 by HEXONET GmbH. Created using
-      <a href="http://sphinx.pocoo.org/">Sphinx</a>.
-    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2018 by HEXONET GmbH. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

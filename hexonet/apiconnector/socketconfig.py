@@ -48,7 +48,7 @@ class SocketConfig(object):
             "__user",
         ]:
             item = getattr(self, "_SocketConfig" + key)
-            if item is not None and item is not "":
+            if item is not None and item != "":
                 data += tpl.format(quote("s_" + key[2:]), quote(item))
         return data
 
