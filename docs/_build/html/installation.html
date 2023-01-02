@@ -1,10 +1,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
@@ -18,9 +19,8 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -56,7 +56,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 4.0.0</a>
+    index.html" class="text-logo">hexonet.apiconnector 4.0.1</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -82,18 +82,18 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id3">4.0.0 (2022-06-08)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id16">3.8.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id18">3.7.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id21">3.6.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id28">3.5.0 (2020-04-30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id5">4.0.0 (2022-06-08)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id19">3.8.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id21">3.7.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id23">3.6.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id29">3.5.0 (2020-04-30)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html#id37">3.4.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id40">3.3.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id49">3.2.0 (2020-03-11)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id65">3.1.0 (2019-04-16)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id75">3.0.0 (2019-04-01)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id84">2.1.0 (2019-03-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id93">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id39">3.3.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id47">3.2.0 (2020-03-11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id62">3.1.0 (2019-04-16)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id71">3.0.0 (2019-04-01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id79">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id87">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developmentguide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -147,37 +147,37 @@
           
           <div class="document clearer body">
             
-  <div class="section" id="installation">
-<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="python-version">
-<h2>Python Version<a class="headerlink" href="#python-version" title="Permalink to this headline">¶</a></h2>
+  <section id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<section id="python-version">
+<h2>Python Version<a class="headerlink" href="#python-version" title="Permalink to this heading">¶</a></h2>
 <p>We recommend using the latest version of Python 3. hexonet.apiconnector
 supports Python 3.x and 2.7.</p>
 <dl class="simple">
 <dt>NOTE: Since v3.x (2019-04-01, yes no joke!), we removed python 2.7</dt><dd><p>compatibility.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
 <p>There are NO dependencies to install. If this changes, we will list them
 here and they will be installed automatically when hexonet.apiconnector
 is getting installed.</p>
 <p>There are <a class="reference internal" href="developmentguide.html#requirements"><span class="std std-ref">dependencies</span></a> that we just need in steps of
 our build process.</p>
-</div>
-<div class="section" id="id2">
-<h2>Installation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id2">
+<h2>Installation<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p>Within your environment, use the following command to install
 hexonet.apiconnector:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip3 install hexonet.apiconnector
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>hexonet.apiconnector
 </pre></div>
 </div>
 <p>The connector library is now installed. Check out the
 <a class="reference internal" href="quickstart.html"><span class="doc">Quickstart</span></a> or go to the
 <a class="reference internal" href="index.html"><span class="doc">Documentation Overview</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>

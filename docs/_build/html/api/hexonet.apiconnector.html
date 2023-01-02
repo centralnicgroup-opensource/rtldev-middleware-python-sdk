@@ -1,10 +1,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
@@ -18,9 +19,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/guzzle.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../_static/hexonet-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -58,7 +58,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../index.html" class="text-logo">hexonet.apiconnector 4.0.0</a>
+    ../index.html" class="text-logo">hexonet.apiconnector 4.0.1</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -83,18 +83,18 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id3">4.0.0 (2022-06-08)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id16">3.8.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id18">3.7.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id21">3.6.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id28">3.5.0 (2020-04-30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id5">4.0.0 (2022-06-08)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id19">3.8.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id21">3.7.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id23">3.6.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id29">3.5.0 (2020-04-30)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html#id37">3.4.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id40">3.3.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id49">3.2.0 (2020-03-11)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id65">3.1.0 (2019-04-16)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id75">3.0.0 (2019-04-01)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id84">2.1.0 (2019-03-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id93">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id39">3.3.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id47">3.2.0 (2020-03-11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id62">3.1.0 (2019-04-16)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id71">3.0.0 (2019-04-01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id79">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html#id87">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developmentguide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
@@ -113,15 +113,141 @@
 <li><a class="reference internal" href="#hexonet-apiconnector">hexonet.apiconnector</a></li>
 <li><a class="reference internal" href="#module-hexonet.apiconnector.apiclient">Submodules</a><ul>
 <li><a class="reference internal" href="#hexonet-apiconnector-apiclient">hexonet.apiconnector.apiclient</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient"><code class="docutils literal notranslate"><span class="pre">APIClient</span></code></a><ul>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.disableDebugMode"><code class="docutils literal notranslate"><span class="pre">APIClient.disableDebugMode()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.enableDebugMode"><code class="docutils literal notranslate"><span class="pre">APIClient.enableDebugMode()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.getPOSTData"><code class="docutils literal notranslate"><span class="pre">APIClient.getPOSTData()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.getProxy"><code class="docutils literal notranslate"><span class="pre">APIClient.getProxy()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.getReferer"><code class="docutils literal notranslate"><span class="pre">APIClient.getReferer()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.getSession"><code class="docutils literal notranslate"><span class="pre">APIClient.getSession()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.getURL"><code class="docutils literal notranslate"><span class="pre">APIClient.getURL()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.getUserAgent"><code class="docutils literal notranslate"><span class="pre">APIClient.getUserAgent()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.getVersion"><code class="docutils literal notranslate"><span class="pre">APIClient.getVersion()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.login"><code class="docutils literal notranslate"><span class="pre">APIClient.login()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.loginExtended"><code class="docutils literal notranslate"><span class="pre">APIClient.loginExtended()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.logout"><code class="docutils literal notranslate"><span class="pre">APIClient.logout()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.request"><code class="docutils literal notranslate"><span class="pre">APIClient.request()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.requestAllResponsePages"><code class="docutils literal notranslate"><span class="pre">APIClient.requestAllResponsePages()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.requestNextResponsePage"><code class="docutils literal notranslate"><span class="pre">APIClient.requestNextResponsePage()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.resetUserView"><code class="docutils literal notranslate"><span class="pre">APIClient.resetUserView()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.reuseSession"><code class="docutils literal notranslate"><span class="pre">APIClient.reuseSession()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.saveSession"><code class="docutils literal notranslate"><span class="pre">APIClient.saveSession()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setCredentials"><code class="docutils literal notranslate"><span class="pre">APIClient.setCredentials()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setCustomLogger"><code class="docutils literal notranslate"><span class="pre">APIClient.setCustomLogger()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setDefaultLogger"><code class="docutils literal notranslate"><span class="pre">APIClient.setDefaultLogger()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setOTP"><code class="docutils literal notranslate"><span class="pre">APIClient.setOTP()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setProxy"><code class="docutils literal notranslate"><span class="pre">APIClient.setProxy()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setReferer"><code class="docutils literal notranslate"><span class="pre">APIClient.setReferer()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setRemoteIPAddress"><code class="docutils literal notranslate"><span class="pre">APIClient.setRemoteIPAddress()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setRoleCredentials"><code class="docutils literal notranslate"><span class="pre">APIClient.setRoleCredentials()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setSession"><code class="docutils literal notranslate"><span class="pre">APIClient.setSession()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setURL"><code class="docutils literal notranslate"><span class="pre">APIClient.setURL()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setUserAgent"><code class="docutils literal notranslate"><span class="pre">APIClient.setUserAgent()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.setUserView"><code class="docutils literal notranslate"><span class="pre">APIClient.setUserView()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.useDefaultConnectionSetup"><code class="docutils literal notranslate"><span class="pre">APIClient.useDefaultConnectionSetup()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.useHighPerformanceConnectionSetup"><code class="docutils literal notranslate"><span class="pre">APIClient.useHighPerformanceConnectionSetup()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.useLIVESystem"><code class="docutils literal notranslate"><span class="pre">APIClient.useLIVESystem()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.apiclient.APIClient.useOTESystem"><code class="docutils literal notranslate"><span class="pre">APIClient.useOTESystem()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hexonet-apiconnector-column">hexonet.apiconnector.column</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.column.Column"><code class="docutils literal notranslate"><span class="pre">Column</span></code></a><ul>
+<li><a class="reference internal" href="#hexonet.apiconnector.column.Column.getData"><code class="docutils literal notranslate"><span class="pre">Column.getData()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.column.Column.getDataByIndex"><code class="docutils literal notranslate"><span class="pre">Column.getDataByIndex()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.column.Column.getKey"><code class="docutils literal notranslate"><span class="pre">Column.getKey()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.column.Column.hasDataIndex"><code class="docutils literal notranslate"><span class="pre">Column.hasDataIndex()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hexonet-apiconnector-customlogger">hexonet.apiconnector.customlogger</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.customlogger.CustomLogger"><code class="docutils literal notranslate"><span class="pre">CustomLogger</span></code></a><ul>
+<li><a class="reference internal" href="#hexonet.apiconnector.customlogger.CustomLogger.log"><code class="docutils literal notranslate"><span class="pre">CustomLogger.log()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hexonet-apiconnector-logger">hexonet.apiconnector.logger</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.logger.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a><ul>
+<li><a class="reference internal" href="#hexonet.apiconnector.logger.Logger.log"><code class="docutils literal notranslate"><span class="pre">Logger.log()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hexonet-apiconnector-record">hexonet.apiconnector.record</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.record.Record"><code class="docutils literal notranslate"><span class="pre">Record</span></code></a><ul>
+<li><a class="reference internal" href="#hexonet.apiconnector.record.Record.getData"><code class="docutils literal notranslate"><span class="pre">Record.getData()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.record.Record.getDataByKey"><code class="docutils literal notranslate"><span class="pre">Record.getDataByKey()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hexonet-apiconnector-response">hexonet.apiconnector.response</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response"><code class="docutils literal notranslate"><span class="pre">Response</span></code></a><ul>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.addColumn"><code class="docutils literal notranslate"><span class="pre">Response.addColumn()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.addRecord"><code class="docutils literal notranslate"><span class="pre">Response.addRecord()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getColumn"><code class="docutils literal notranslate"><span class="pre">Response.getColumn()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getColumnIndex"><code class="docutils literal notranslate"><span class="pre">Response.getColumnIndex()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getColumnKeys"><code class="docutils literal notranslate"><span class="pre">Response.getColumnKeys()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getColumns"><code class="docutils literal notranslate"><span class="pre">Response.getColumns()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getCommand"><code class="docutils literal notranslate"><span class="pre">Response.getCommand()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getCommandPlain"><code class="docutils literal notranslate"><span class="pre">Response.getCommandPlain()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getCurrentPageNumber"><code class="docutils literal notranslate"><span class="pre">Response.getCurrentPageNumber()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getCurrentRecord"><code class="docutils literal notranslate"><span class="pre">Response.getCurrentRecord()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getFirstRecordIndex"><code class="docutils literal notranslate"><span class="pre">Response.getFirstRecordIndex()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getLastRecordIndex"><code class="docutils literal notranslate"><span class="pre">Response.getLastRecordIndex()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getListHash"><code class="docutils literal notranslate"><span class="pre">Response.getListHash()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getNextPageNumber"><code class="docutils literal notranslate"><span class="pre">Response.getNextPageNumber()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getNextRecord"><code class="docutils literal notranslate"><span class="pre">Response.getNextRecord()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getNumberOfPages"><code class="docutils literal notranslate"><span class="pre">Response.getNumberOfPages()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getPagination"><code class="docutils literal notranslate"><span class="pre">Response.getPagination()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getPreviousPageNumber"><code class="docutils literal notranslate"><span class="pre">Response.getPreviousPageNumber()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getPreviousRecord"><code class="docutils literal notranslate"><span class="pre">Response.getPreviousRecord()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getRecord"><code class="docutils literal notranslate"><span class="pre">Response.getRecord()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getRecords"><code class="docutils literal notranslate"><span class="pre">Response.getRecords()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getRecordsCount"><code class="docutils literal notranslate"><span class="pre">Response.getRecordsCount()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getRecordsLimitation"><code class="docutils literal notranslate"><span class="pre">Response.getRecordsLimitation()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.getRecordsTotalCount"><code class="docutils literal notranslate"><span class="pre">Response.getRecordsTotalCount()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.hasNextPage"><code class="docutils literal notranslate"><span class="pre">Response.hasNextPage()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.hasPreviousPage"><code class="docutils literal notranslate"><span class="pre">Response.hasPreviousPage()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.response.Response.rewindRecordList"><code class="docutils literal notranslate"><span class="pre">Response.rewindRecordList()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hexonet-apiconnector-responseparser">hexonet.apiconnector.responseparser</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responseparser.parse"><code class="docutils literal notranslate"><span class="pre">parse()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responseparser.serialize"><code class="docutils literal notranslate"><span class="pre">serialize()</span></code></a></li>
 <li><a class="reference internal" href="#hexonet-apiconnector-responsetemplate">hexonet.apiconnector.responsetemplate</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate</span></code></a><ul>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getCode"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.getCode()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getDescription"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.getDescription()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getHash"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.getHash()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getPlain"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.getPlain()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getQueuetime"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.getQueuetime()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.getRuntime"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.getRuntime()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.isError"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.isError()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.isPending"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.isPending()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.isSuccess"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.isSuccess()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate.isTmpError"><code class="docutils literal notranslate"><span class="pre">ResponseTemplate.isTmpError()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hexonet-apiconnector-responsetemplatemanager">hexonet.apiconnector.responsetemplatemanager</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager"><code class="docutils literal notranslate"><span class="pre">ResponseTemplateManager</span></code></a><ul>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.addTemplate"><code class="docutils literal notranslate"><span class="pre">ResponseTemplateManager.addTemplate()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.generateTemplate"><code class="docutils literal notranslate"><span class="pre">ResponseTemplateManager.generateTemplate()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.getInstance"><code class="docutils literal notranslate"><span class="pre">ResponseTemplateManager.getInstance()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.getTemplate"><code class="docutils literal notranslate"><span class="pre">ResponseTemplateManager.getTemplate()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.getTemplates"><code class="docutils literal notranslate"><span class="pre">ResponseTemplateManager.getTemplates()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.hasTemplate"><code class="docutils literal notranslate"><span class="pre">ResponseTemplateManager.hasTemplate()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.isTemplateMatchHash"><code class="docutils literal notranslate"><span class="pre">ResponseTemplateManager.isTemplateMatchHash()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager.isTemplateMatchPlain"><code class="docutils literal notranslate"><span class="pre">ResponseTemplateManager.isTemplateMatchPlain()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hexonet-apiconnector-socketconfig">hexonet.apiconnector.socketconfig</a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig"><code class="docutils literal notranslate"><span class="pre">SocketConfig</span></code></a><ul>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.getPOSTData"><code class="docutils literal notranslate"><span class="pre">SocketConfig.getPOSTData()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.getSession"><code class="docutils literal notranslate"><span class="pre">SocketConfig.getSession()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.getSystemEntity"><code class="docutils literal notranslate"><span class="pre">SocketConfig.getSystemEntity()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.setLogin"><code class="docutils literal notranslate"><span class="pre">SocketConfig.setLogin()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.setOTP"><code class="docutils literal notranslate"><span class="pre">SocketConfig.setOTP()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.setPassword"><code class="docutils literal notranslate"><span class="pre">SocketConfig.setPassword()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.setRemoteAddress"><code class="docutils literal notranslate"><span class="pre">SocketConfig.setRemoteAddress()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.setSession"><code class="docutils literal notranslate"><span class="pre">SocketConfig.setSession()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.setSystemEntity"><code class="docutils literal notranslate"><span class="pre">SocketConfig.setSystemEntity()</span></code></a></li>
+<li><a class="reference internal" href="#hexonet.apiconnector.socketconfig.SocketConfig.setUser"><code class="docutils literal notranslate"><span class="pre">SocketConfig.setUser()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,22 +289,23 @@
           
           <div class="document clearer body">
             
-  <div class="section" id="module-hexonet.apiconnector">
-<span id="hexonet-apiconnector-package"></span><h1>hexonet.apiconnector package<a class="headerlink" href="#module-hexonet.apiconnector" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="hexonet-apiconnector">
-<h2>hexonet.apiconnector<a class="headerlink" href="#hexonet-apiconnector" title="Permalink to this headline">¶</a></h2>
+  <section id="module-hexonet.apiconnector">
+<span id="hexonet-apiconnector-package"></span><h1>hexonet.apiconnector package<a class="headerlink" href="#module-hexonet.apiconnector" title="Permalink to this heading">¶</a></h1>
+<section id="hexonet-apiconnector">
+<h2>hexonet.apiconnector<a class="headerlink" href="#hexonet-apiconnector" title="Permalink to this heading">¶</a></h2>
 <p>A connector library for the insanely fast HEXONET Backend API.
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
-</div>
-<div class="section" id="module-hexonet.apiconnector.apiclient">
-<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-hexonet.apiconnector.apiclient" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="hexonet-apiconnector-apiclient">
-<h3>hexonet.apiconnector.apiclient<a class="headerlink" href="#hexonet-apiconnector-apiclient" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="module-hexonet.apiconnector.apiclient">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-hexonet.apiconnector.apiclient" title="Permalink to this heading">¶</a></h2>
+<section id="hexonet-apiconnector-apiclient">
+<h3>hexonet.apiconnector.apiclient<a class="headerlink" href="#hexonet-apiconnector-apiclient" title="Permalink to this heading">¶</a></h3>
 <p>This module covers all necessary functionality for http communicatiton
 with our Backend System.
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="hexonet.apiconnector.apiclient.APIClient">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.apiclient.</span></span><span class="sig-name descname"><span class="pre">APIClient</span></span><a class="headerlink" href="#hexonet.apiconnector.apiclient.APIClient" title="Permalink to this definition">¶</a></dt>
@@ -393,13 +520,13 @@ To be used in case you have an active ip filter setting.</p>
 
 </dd></dl>
 
-</div>
-<span class="target" id="module-hexonet.apiconnector.column"></span><div class="section" id="hexonet-apiconnector-column">
-<h3>hexonet.apiconnector.column<a class="headerlink" href="#hexonet-apiconnector-column" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-hexonet.apiconnector.column"></span><section id="hexonet-apiconnector-column">
+<h3>hexonet.apiconnector.column<a class="headerlink" href="#hexonet-apiconnector-column" title="Permalink to this heading">¶</a></h3>
 <p>This module covers all necessary functionality to
 work with a column and wrapped data.
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="hexonet.apiconnector.column.Column">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.column.</span></span><span class="sig-name descname"><span class="pre">Column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.column.Column" title="Permalink to this definition">¶</a></dt>
@@ -431,17 +558,17 @@ work with a column and wrapped data.
 
 </dd></dl>
 
-</div>
-<span class="target" id="module-hexonet.apiconnector.customlogger"></span><div class="section" id="hexonet-apiconnector-customlogger">
-<h3>hexonet.apiconnector.customlogger<a class="headerlink" href="#hexonet-apiconnector-customlogger" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-hexonet.apiconnector.customlogger"></span><section id="hexonet-apiconnector-customlogger">
+<h3>hexonet.apiconnector.customlogger<a class="headerlink" href="#hexonet-apiconnector-customlogger" title="Permalink to this heading">¶</a></h3>
 <p>This module provides all necessary functionality for
 debug outputs
 :copyright: © 2020 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="hexonet.apiconnector.customlogger.CustomLogger">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.customlogger.</span></span><span class="sig-name descname"><span class="pre">CustomLogger</span></span><a class="headerlink" href="#hexonet.apiconnector.customlogger.CustomLogger" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hexonet.apiconnector.logger.Logger" title="hexonet.apiconnector.logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">hexonet.apiconnector.logger.Logger</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#hexonet.apiconnector.logger.Logger" title="hexonet.apiconnector.logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The Logger class covers all you need to cover debug outputs of the API communication.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hexonet.apiconnector.customlogger.CustomLogger.log">
@@ -451,13 +578,13 @@ debug outputs
 
 </dd></dl>
 
-</div>
-<span class="target" id="module-hexonet.apiconnector.logger"></span><div class="section" id="hexonet-apiconnector-logger">
-<h3>hexonet.apiconnector.logger<a class="headerlink" href="#hexonet-apiconnector-logger" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-hexonet.apiconnector.logger"></span><section id="hexonet-apiconnector-logger">
+<h3>hexonet.apiconnector.logger<a class="headerlink" href="#hexonet-apiconnector-logger" title="Permalink to this heading">¶</a></h3>
 <p>This module provides all necessary functionality for
 debug outputs see the customlogger class on how to override this
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="hexonet.apiconnector.logger.Logger">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.logger.</span></span><span class="sig-name descname"><span class="pre">Logger</span></span><a class="headerlink" href="#hexonet.apiconnector.logger.Logger" title="Permalink to this definition">¶</a></dt>
@@ -471,13 +598,13 @@ debug outputs see the customlogger class on how to override this
 
 </dd></dl>
 
-</div>
-<span class="target" id="module-hexonet.apiconnector.record"></span><div class="section" id="hexonet-apiconnector-record">
-<h3>hexonet.apiconnector.record<a class="headerlink" href="#hexonet-apiconnector-record" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-hexonet.apiconnector.record"></span><section id="hexonet-apiconnector-record">
+<h3>hexonet.apiconnector.record<a class="headerlink" href="#hexonet-apiconnector-record" title="Permalink to this heading">¶</a></h3>
 <p>This module covers all necessary functionality to
 work with a record and wrapped data.
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="hexonet.apiconnector.record.Record">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.record.</span></span><span class="sig-name descname"><span class="pre">Record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.record.Record" title="Permalink to this definition">¶</a></dt>
@@ -497,17 +624,17 @@ work with a record and wrapped data.
 
 </dd></dl>
 
-</div>
-<span class="target" id="module-hexonet.apiconnector.response"></span><div class="section" id="hexonet-apiconnector-response">
-<h3>hexonet.apiconnector.response<a class="headerlink" href="#hexonet-apiconnector-response" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-hexonet.apiconnector.response"></span><section id="hexonet-apiconnector-response">
+<h3>hexonet.apiconnector.response<a class="headerlink" href="#hexonet-apiconnector-response" title="Permalink to this heading">¶</a></h3>
 <p>This module covers all necessary functionality to
 work with Backend API responses.
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="hexonet.apiconnector.response.Response">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.response.</span></span><span class="sig-name descname"><span class="pre">Response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.response.Response" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate" title="hexonet.apiconnector.responsetemplate.ResponseTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">hexonet.apiconnector.responsetemplate.ResponseTemplate</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate" title="hexonet.apiconnector.responsetemplate.ResponseTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResponseTemplate</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The Response class covers all necessary functionality to cover access to
 Backend API response data in a useful way.</p>
 <dl class="py method">
@@ -674,13 +801,13 @@ Backend API response data in a useful way.</p>
 
 </dd></dl>
 
-</div>
-<span class="target" id="module-hexonet.apiconnector.responseparser"></span><div class="section" id="hexonet-apiconnector-responseparser">
-<h3>hexonet.apiconnector.responseparser<a class="headerlink" href="#hexonet-apiconnector-responseparser" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-hexonet.apiconnector.responseparser"></span><section id="hexonet-apiconnector-responseparser">
+<h3>hexonet.apiconnector.responseparser<a class="headerlink" href="#hexonet-apiconnector-responseparser" title="Permalink to this heading">¶</a></h3>
 <p>This module covers all necessary functionality to
 parse a raw Backend API response and to serialize it back.
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py function">
 <dt class="sig sig-object py" id="hexonet.apiconnector.responseparser.parse">
 <span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.responseparser.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responseparser.parse" title="Permalink to this definition">¶</a></dt>
@@ -693,13 +820,13 @@ parse a raw Backend API response and to serialize it back.
 <dd><p>Returns the dictionary represenation serialized back to plain text</p>
 </dd></dl>
 
-</div>
-<span class="target" id="module-hexonet.apiconnector.responsetemplate"></span><div class="section" id="hexonet-apiconnector-responsetemplate">
-<h3>hexonet.apiconnector.responsetemplate<a class="headerlink" href="#hexonet-apiconnector-responsetemplate" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-hexonet.apiconnector.responsetemplate"></span><section id="hexonet-apiconnector-responsetemplate">
+<h3>hexonet.apiconnector.responsetemplate<a class="headerlink" href="#hexonet-apiconnector-responsetemplate" title="Permalink to this heading">¶</a></h3>
 <p>This module covers all basic functionality to
 deal with Backend API responses.
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="hexonet.apiconnector.responsetemplate.ResponseTemplate">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.responsetemplate.</span></span><span class="sig-name descname"><span class="pre">ResponseTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hexonet.apiconnector.responsetemplate.ResponseTemplate" title="Permalink to this definition">¶</a></dt>
@@ -768,13 +895,13 @@ covers basic functionality to work with Backend API responses.</p>
 
 </dd></dl>
 
-</div>
-<span class="target" id="module-hexonet.apiconnector.responsetemplatemanager"></span><div class="section" id="hexonet-apiconnector-responsetemplatemanager">
-<h3>hexonet.apiconnector.responsetemplatemanager<a class="headerlink" href="#hexonet-apiconnector-responsetemplatemanager" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-hexonet.apiconnector.responsetemplatemanager"></span><section id="hexonet-apiconnector-responsetemplatemanager">
+<h3>hexonet.apiconnector.responsetemplatemanager<a class="headerlink" href="#hexonet-apiconnector-responsetemplatemanager" title="Permalink to this heading">¶</a></h3>
 <p>This module covers all functionality to
 manage response templates.
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.responsetemplatemanager.</span></span><span class="sig-name descname"><span class="pre">ResponseTemplateManager</span></span><a class="headerlink" href="#hexonet.apiconnector.responsetemplatemanager.ResponseTemplateManager" title="Permalink to this definition">¶</a></dt>
@@ -831,13 +958,13 @@ Response Templates.</p>
 
 </dd></dl>
 
-</div>
-<span class="target" id="module-hexonet.apiconnector.socketconfig"></span><div class="section" id="hexonet-apiconnector-socketconfig">
-<h3>hexonet.apiconnector.socketconfig<a class="headerlink" href="#hexonet-apiconnector-socketconfig" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-hexonet.apiconnector.socketconfig"></span><section id="hexonet-apiconnector-socketconfig">
+<h3>hexonet.apiconnector.socketconfig<a class="headerlink" href="#hexonet-apiconnector-socketconfig" title="Permalink to this heading">¶</a></h3>
 <p>This module covers all necessary functionality to
 pre-configure http communication with our Backend System.
 :copyright: © 2018 by HEXONET GmbH.
 :license: MIT, see LICENSE for more details.</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="hexonet.apiconnector.socketconfig.SocketConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hexonet.apiconnector.socketconfig.</span></span><span class="sig-name descname"><span class="pre">SocketConfig</span></span><a class="headerlink" href="#hexonet.apiconnector.socketconfig.SocketConfig" title="Permalink to this definition">¶</a></dt>
@@ -905,9 +1032,8 @@ pre-configure http communication with our Backend System.
 
 </dd></dl>
 
-</div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>

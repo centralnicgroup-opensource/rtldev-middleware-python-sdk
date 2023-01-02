@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.0...v4.0.1) (2023-01-02)
+
+
+### Bug Fixes
+
+* **sphinx:** upgraded to latest version and condition syntax fix ([0f8e4f3](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/0f8e4f3f6af999b77878615c560ad88a2eaeda1f))
+
 # [4.0.0](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v3.8.4...v4.0.0) (2022-06-08)
 
 ### chore

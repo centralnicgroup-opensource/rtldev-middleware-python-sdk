@@ -1,10 +1,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
@@ -18,9 +19,8 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -56,7 +56,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 4.0.0</a>
+    index.html" class="text-logo">hexonet.apiconnector 4.0.1</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
@@ -82,18 +82,18 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id3">4.0.0 (2022-06-08)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id16">3.8.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id18">3.7.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id21">3.6.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id28">3.5.0 (2020-04-30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id5">4.0.0 (2022-06-08)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id19">3.8.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id21">3.7.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id23">3.6.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id29">3.5.0 (2020-04-30)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html#id37">3.4.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id40">3.3.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id49">3.2.0 (2020-03-11)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id65">3.1.0 (2019-04-16)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id75">3.0.0 (2019-04-01)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id84">2.1.0 (2019-03-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id93">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id39">3.3.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id47">3.2.0 (2020-03-11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id62">3.1.0 (2019-04-16)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id71">3.0.0 (2019-04-01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id79">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id87">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developmentguide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -147,13 +147,13 @@
           
           <div class="document clearer body">
             
-  <div class="section" id="quickstart">
-<span id="id1"></span><h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+  <section id="quickstart">
+<span id="id1"></span><h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading">¶</a></h1>
 <p>Eager to get started?  This page gives a good introduction to
 hexonet.apiconnector. It assumes you already have it installed.
 If you do not, head over to the <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a> section.</p>
-<div class="section" id="a-minimal-application">
-<h2>A Minimal Application<a class="headerlink" href="#a-minimal-application" title="Permalink to this headline">¶</a></h2>
+<section id="a-minimal-application">
+<h2>A Minimal Application<a class="headerlink" href="#a-minimal-application" title="Permalink to this heading">¶</a></h2>
 <p>A minimal application using hexonet.apiconnector looks something like follows.
 We provided two short examples: one for sessionless communication and one for
 session-based communication.</p>
@@ -230,9 +230,9 @@ session-based communication.</p>
 </div>
 </div>
 <p>You can find this code also on <a class="reference external" href="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk-demo">github</a>.</p>
-</div>
-<div class="section" id="what-to-do-if-the-backend-system-just-returns-an-error">
-<h2>What to do if the backend system just returns an error<a class="headerlink" href="#what-to-do-if-the-backend-system-just-returns-an-error" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-to-do-if-the-backend-system-just-returns-an-error">
+<h2>What to do if the backend system just returns an error<a class="headerlink" href="#what-to-do-if-the-backend-system-just-returns-an-error" title="Permalink to this heading">¶</a></h2>
 <p>Well this in general needs some further analysis. Reasons might be that you
 have an ip filter defined and you do not provide your ip address through
 configuration option “remoteaddr”.
@@ -240,15 +240,15 @@ It could also be that you provided an ip address that is blocked.
 Another issue can be that you connect using a role user that is not allowed
 to request this command as it got blocked by role user configuration.</p>
 <p>Feel free to <a class="reference internal" href="contactus.html#contact-us"><span class="std std-ref">Contact Us</span></a> if you need help.</p>
-</div>
-<div class="section" id="sessions">
-<h2>Sessions<a class="headerlink" href="#sessions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sessions">
+<h2>Sessions<a class="headerlink" href="#sessions" title="Permalink to this heading">¶</a></h2>
 <p>Session-based communication is available in this SDK, see above.
 Use <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.apiclient.APIClient.saveSession" title="hexonet.apiconnector.apiclient.APIClient.saveSession"><code class="xref py py-meth docutils literal notranslate"><span class="pre">saveSession()</span></code></a> and
 <a class="reference internal" href="api/hexonet.apiconnector.html#hexonet.apiconnector.apiclient.APIClient.reuseSession" title="hexonet.apiconnector.apiclient.APIClient.reuseSession"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reuseSession()</span></code></a> if you
 plan to build your own frontend on top using session handling.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
