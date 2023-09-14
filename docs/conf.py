@@ -28,8 +28,8 @@ def find_version(*file_paths):
 
 
 project = "hexonet.apiconnector"
-copyright = "2018 by HEXONET GmbH"
-author = "Anthony Schneider, Kai Schwarz"
+copyright = "2023 by HEXONET"
+author = "Kai Schwarz"
 version = find_version("..", "hexonet", "apiconnector", "__init__.py")
 release = re.sub(r"\.[0-9]+$", "", version)
 
@@ -42,6 +42,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinxcontrib.log_cabinet",
     "m2r2",
+    "sphinx_rtd_theme"
 ]
 exclude_patterns = ["_build", "/docs/api/*.rst"]
 
@@ -49,19 +50,23 @@ source_suffix = [".rst", ".md"]
 
 intersphinx_mapping = {}
 
-# HTML -----------------------------------------------------------------
-import guzzle_sphinx_theme
+html_theme = "sphinx_rtd_theme"
 
-html_theme_path = guzzle_sphinx_theme.html_theme_path()
-html_theme = "guzzle_sphinx_theme"
-
-# Register the theme as an extension to generate a sitemap.xml
-extensions.append("guzzle_sphinx_theme")
-
-# Guzzle theme options (see theme.conf for more information)
+# sphinx_rtd_theme config options
+# https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#theme-options
 html_theme_options = {
-    "base_url": "https://rawgit.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/master/docs/",
-    "project_nav_name": "hexonet.apiconnector " + version,
+    'logo_only': False,
+    'display_version': True,
+    'prev_next_buttons_location': 'bottom',
+    'style_external_links': False,
+    'vcs_pageview_mode': '',
+    'style_nav_header_background': 'white',
+    # Toc options
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+    'includehidden': True,
+    'titles_only': False
 }
 
 html_sidebars = {

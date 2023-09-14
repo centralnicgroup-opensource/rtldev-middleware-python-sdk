@@ -1,70 +1,53 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
-  
-  <!-- Licensed under the Apache 2.0 License -->
-  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
-  <!-- Licensed under the SIL Open Font License -->
-  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
-  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <title>Development Guide &#8212; hexonet.apiconnector 4.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development Guide &mdash; hexonet.apiconnector 4.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="_static/hexonet-favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=9f5556dd"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="License" href="license.html" />
-    <link rel="prev" title="Contributing" href="contributing.html" />
-  
-   
+    <link rel="prev" title="Contributing" href="contributing.html" /> 
+</head>
 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="license.html" title="License"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="contributing.html" title="Contributing"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 4.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Development Guide</a></li> 
-      </ul>
-    </div>
-    <div class="container-wrapper">
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
 
-      <div id="mobile-toggle">
-        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
-      </div>
-  <div id="left-column">
-    <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">hexonet.apiconnector 4.0.1</a>
-<div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <h2>Table Of Contents</h2>
-  </div>
-  <div class="sidebar-toc">
-    
-    
-      <ul>
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hexonet.apiconnector
+              <img src="_static/hexonet.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                4.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="foreword.html">Foreword</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
@@ -101,65 +84,39 @@
 <li class="toctree-l1"><a class="reference internal" href="contactus.html">Contact Us</a></li>
 </ul>
 
-    
-  </div>
-</div>
-<div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <h2>Contents</h2>
-    <div class="sidebar-localtoc">
-      <ul>
-<li><a class="reference internal" href="#">Development Guide</a><ul>
-<li><a class="reference internal" href="#requirements">Requirements</a></li>
-<li><a class="reference internal" href="#run-tests-and-code-validation">Run Tests and Code Validation</a></li>
-<li><a class="reference internal" href="#pull-request-pr-procedure">Pull Request (PR) Procedure</a></li>
-<li><a class="reference internal" href="#sdk-documentation">SDK Documentation</a></li>
-</ul>
-</li>
-</ul>
-
-    </div>
-  </div>
-</div>
-<div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <div id="main-search">
-      <form class="form-inline" action="search.html" method="GET" role="form">
-        <div class="input-group">
-          <input name="q" type="text" class="form-control" placeholder="Search...">
         </div>
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
-    </div>
-  </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hexonet.apiconnector</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Development Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/developmentguide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
 </div>
-      
-    </div>
-  </div>
-        <div id="right-column">
-          
-          <div role="navigation" aria-label="breadcrumbs navigation">
-            <ol class="breadcrumb">
-              <li><a href="index.html">Docs</a></li>
-              
-              <li>Development Guide</li>
-            </ol>
-          </div>
-          
-          <div class="document clearer body">
-            
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="development-guide">
-<span id="developmentguide"></span><h1>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this heading">¶</a></h1>
+<span id="developmentguide"></span><h1>Development Guide<a class="headerlink" href="#development-guide" title="Link to this heading"></a></h1>
 <p>Please read our <a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">Contributing guide lines</span></a> first.</p>
 <section id="requirements">
-<span id="id1"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
 <p>You can find any required library for this project listed in the <em>setup.cfg</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">bdist_wheel</span><span class="p">]</span>
-<span class="n">universal</span><span class="o">=</span><span class="mi">1</span>
-
-<span class="p">[</span><span class="n">metadata</span><span class="p">]</span>
-<span class="n">license_file</span> <span class="o">=</span> <span class="n">LICENSE</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">metadata</span><span class="p">]</span>
+<span class="n">license_files</span> <span class="o">=</span> 
+    <span class="n">LICENSE</span>
 
 <span class="p">[</span><span class="n">flake8</span><span class="p">]</span>
 <span class="nb">max</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">length</span> <span class="o">=</span> <span class="mi">120</span>
@@ -169,9 +126,6 @@
 <span class="p">[</span><span class="n">tool</span><span class="p">:</span><span class="n">pytest</span><span class="p">]</span>
 <span class="n">addopts</span> <span class="o">=</span> <span class="o">--</span><span class="n">strict</span> <span class="o">--</span><span class="n">cov</span><span class="o">-</span><span class="n">config</span><span class="o">=.</span><span class="n">coveragerc</span> <span class="o">--</span><span class="n">cov</span><span class="o">=</span><span class="n">hexonet</span> <span class="o">--</span><span class="n">cov</span><span class="o">-</span><span class="n">report</span> <span class="n">html</span> <span class="o">--</span><span class="n">cache</span><span class="o">-</span><span class="n">clear</span> <span class="o">-</span><span class="n">v</span>
 <span class="n">testpaths</span> <span class="o">=</span> <span class="n">tests</span><span class="o">/</span>
-
-<span class="p">[</span><span class="n">aliases</span><span class="p">]</span>
-<span class="n">test</span><span class="o">=</span><span class="n">pytest</span>
 </pre></div>
 </div>
 <p>You can install all you need by</p>
@@ -185,7 +139,7 @@ Development described <a class="reference external" href="https://code.visualstu
 is fine.</p>
 </section>
 <section id="run-tests-and-code-validation">
-<span id="testsnvalidation"></span><h2>Run Tests and Code Validation<a class="headerlink" href="#run-tests-and-code-validation" title="Permalink to this heading">¶</a></h2>
+<span id="testsnvalidation"></span><h2>Run Tests and Code Validation<a class="headerlink" href="#run-tests-and-code-validation" title="Link to this heading"></a></h2>
 <p>If you open a Pull Request (PR), we will trigger automated tests and pep8 style
 check in CI process. So nothing you have to worry about in your development.
 You can open your PR and prefix its title with WIP “Work In Progress” to access
@@ -205,7 +159,7 @@ these checks in advance.</p>
 </div>
 </section>
 <section id="pull-request-pr-procedure">
-<h2>Pull Request (PR) Procedure<a class="headerlink" href="#pull-request-pr-procedure" title="Permalink to this heading">¶</a></h2>
+<h2>Pull Request (PR) Procedure<a class="headerlink" href="#pull-request-pr-procedure" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>fork our project and create a new branch</p></li>
 <li><p>clone it and check this branch out</p></li>
@@ -228,7 +182,7 @@ if we can role out that PR as we want to keep all our SDKs aligned.</p>
 <a class="reference external" href="https://test.pypi.org/project/hexonet.apiconnector/">PyPi (Test) Index</a>.</p>
 </section>
 <section id="sdk-documentation">
-<h2>SDK Documentation<a class="headerlink" href="#sdk-documentation" title="Permalink to this heading">¶</a></h2>
+<h2>SDK Documentation<a class="headerlink" href="#sdk-documentation" title="Link to this heading"></a></h2>
 <p>Have an eye on the generated <a class="reference internal" href="api.html#api"><span class="std std-ref">SDK Documentation</span></a>.</p>
 <p>If you want to generate it from scratch out of the sources, please use
 the below script:</p>
@@ -242,50 +196,34 @@ the master branch.</p>
 </section>
 
 
+           </div>
           </div>
-            
-  <div class="footer-relations">
-    
-      <div class="pull-left">
-        <a class="btn btn-default" href="contributing.html" title="previous chapter (use the left arrow)">Contributing</a>
-      </div>
-    
-      <div class="pull-right">
-        <a class="btn btn-default" href="license.html" title="next chapter (use the right arrow)">License</a>
-      </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-    <div class="clearer"></div>
-  
-        </div>
-        <div class="clearfix"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="license.html" title="License"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="contributing.html" title="Contributing"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">hexonet.apiconnector 4.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Development Guide</a></li> 
-      </ul>
-    </div>
-<script type="text/javascript">
-  $("#mobile-toggle a").click(function () {
-    $("#left-column").toggle();
-  });
-</script>
-<script type="text/javascript" src="_static/js/bootstrap.js"></script>
-  <div class="footer">
-    &copy; Copyright 2018 by HEXONET GmbH. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 by HEXONET.</p>
   </div>
-  </body>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

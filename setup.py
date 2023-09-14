@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import io
@@ -42,7 +42,7 @@ setup(
     url="https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/",
     install_requires=[
         "docutils>=0,<1",
-        "guzzle-sphinx-theme>=0,<1",
+        "sphinx-rtd-theme>=1,<2",
         "m2r2>=0,<1",
         "pytest-cov>=2,<5",
         "sphinx>=3,<8",
@@ -51,17 +51,16 @@ setup(
         "twine>=4,<5",
         "black",
     ],
-    setup_requires=["pytest-runner"],
+    setup_requires=["build", "pytest-runner", "virtualenv"],
     tests_require=["pytest", "pytest-cov"],
     license="MIT",
     scripts=[],
     zip_safe=True,
-    classifiers=(
+    classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-    ),
-    namespace_packages=["hexonet"],
+    ],
     packages=find_packages(),
     dependency_links=["git+git://github.com/psf/black.git@stable#egg=black"],
 )
