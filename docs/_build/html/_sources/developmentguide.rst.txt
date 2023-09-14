@@ -20,6 +20,10 @@ You can install all you need by
 
     pip install --user --upgrade -e .
 
+Consider doing that using a virtual environment. Read the `docs`.
+
+.. _docs: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/.
+
 NOTE: Make sure to have also all the extensions listed in the `docs/conf.py`
 that are required for the SDK Documentation.
 
