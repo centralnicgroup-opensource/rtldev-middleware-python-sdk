@@ -12,7 +12,8 @@
       "@semantic-release/exec",
       {
         "prepareCmd": "./updateVersion.sh ${nextRelease.version} && ./scripts/generatedocs.sh && ./scripts/createdistribution.sh",
-        "publishCmd": "./scripts/uploaddistribution_test.sh && ./scripts/uploaddistribution_live.sh"
+        "publishCmd": "./scripts/uploaddistribution_test.sh && ./scripts/uploaddistribution_live.sh",
+        "successCmd": "gulp publish --notes \"${encodeURIComponent(nextRelease.notes)}\""
       }
     ],
     [
