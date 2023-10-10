@@ -18,10 +18,6 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Python version
-        run: |
-          echo "Python version: "
-          echo ${{ secrets.PYTHON_MIN_VERSION }} | sed 's/./&‎/g'
       - name: Super Linter Code Base
         uses: github/super-linter/slim@v4
         env:
@@ -36,8 +32,10 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - "3.9"
           - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
     runs-on: ubuntu-latest
     needs: test
     name: Test @ Python ${{ matrix.python-version }}
