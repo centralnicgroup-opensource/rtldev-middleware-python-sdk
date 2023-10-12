@@ -16,14 +16,15 @@ jobs:
       - build
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: actions/setup-python@v4
+      - name: Install Python ${{ vars.RTLDEV_MW_CI_PYTHON_VERSION }}
+        uses: actions/setup-python@v4
         with:
           check-latest: true
-          python-version: ${{ vars.RTLDEV_MW_CI_PYTHON_VERSION }}
+          python-version: '${{ vars.RTLDEV_MW_CI_PYTHON_VERSION }}'
       - name: Install dependencies
         run: |
           pip install --upgrade pip testresources setuptools wheel
