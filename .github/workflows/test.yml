@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Super Linter Code Base
-        uses: github/super-linter/slim@v4
+        uses: github/super-linter/slim@v5
         env:
           FILTER_REGEX_INCLUDE: "/hexonet/*|/scripts/*|updateVersion.sh|setup.py"
           DEFAULT_BRANCH: master
@@ -31,18 +31,15 @@ jobs:
   test_matrix:
     strategy:
       matrix:
-        python-version:
-          - "3.8"
-          - "3.9"
-          - "3.10"
-          - "3.11"
+        python-version: ${{ fromJson(vars.RTLDEV_MW_CI_PYTHON_MATRIX) }}
+
     runs-on: ubuntu-latest
     needs: test
     name: Test @ Python ${{ matrix.python-version }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
