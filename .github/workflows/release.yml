@@ -32,7 +32,7 @@ jobs:
           python-version: '${{ vars.RTLDEV_MW_CI_PYTHON_VERSION }}'
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
+          pip install --upgrade pip build
           pip -V
           pip install --upgrade -e .
       - name: Setup NodeJS ${{ vars.RTLDEV_MW_CI_NODE_VERSION }}
