@@ -5,30 +5,30 @@ on:
       - opened
       - synchronize
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   tests:
     uses: ./.github/workflows/test.yml
     secrets: inherit
+    permissions:
+      contents: read
 
   dependabot:
     name: Auto-merge Dependabot PR
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
     needs: tests
+    permissions:
+      contents: write
+      pull-requests: write
+
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
         id: metadata
         uses: dependabot/fetch-metadata@v1
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Enable auto-merge for Dependabot PRs
         # (fixes, features but not major upgrades!)
         if: ${{steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'}}
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

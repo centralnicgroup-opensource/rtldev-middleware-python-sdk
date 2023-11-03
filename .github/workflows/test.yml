@@ -6,7 +6,9 @@ on:
 jobs:
   test:
     name: 🧪 Linting
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,20 +19,21 @@ jobs:
         uses: github/super-linter/slim@v5
         env:
           FILTER_REGEX_INCLUDE: "/hexonet/*|/scripts/*|updateVersion.sh|setup.py"
-          DEFAULT_BRANCH: master
           VALIDATE_PYTHON_BLACK: true
           VALIDATE_BASH: true
           VALIDATE_ALL_CODEBASE: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          
   test_matrix:
     strategy:
       matrix:
         python-version: ${{ fromJson(vars.RTLDEV_MW_CI_PYTHON_MATRIX) }}
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
     needs: test
     name: 🧪 Testing
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout

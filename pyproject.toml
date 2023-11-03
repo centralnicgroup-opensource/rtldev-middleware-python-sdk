@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools >= 68.2.2", "wheel", "setuptools_scm[toml] >= 8.0.4"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hexonet.apiconnector"
+version = "4.0.1"
+description = "hexonet.apiconnector is a connector library for the insanely fast HEXONET Backend API"
+readme = "README.md"
+authors = [{name = "Kai Schwarz", email = "kschwarz@hexonet.net"}]
+maintainers = [{name = "Kai Schwarz", email = "kschwarz@hexonet.net"}]
+license = {file = "LICENSE"}
+urls = {homepage = "https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/"}
+dependencies = [
+    "docutils>=0,<1",
+    "sphinx-rtd-theme>=1,<2",
+    "m2r2>=0,<1",
+    "pytest-cov>=2,<5",
+    "sphinx>=3,<8",
+    "sphinxcontrib-log-cabinet>=1,<2",
+    "sphinxcontrib-websupport>=1,<2",
+    "twine>=4,<5",
+    "black>=23,<24"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["hexonet.*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+addopts = "--strict --cov-config=.coveragerc --cov=hexonet --cov-report html --cache-clear -v"
+testpaths = ["tests/"]
