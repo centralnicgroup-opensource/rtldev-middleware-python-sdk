@@ -20,6 +20,7 @@
       "@semantic-release/git",
       {
         "assets": [
+          "pyproject.toml",
           "HISTORY.md",
           "package?(-lock).json",
           "docs",
