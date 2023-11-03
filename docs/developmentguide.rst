@@ -10,9 +10,9 @@ Please read our :ref:`Contributing guide lines <contributing>` first.
 Requirements
 ------------
 
-You can find any required library for this project listed in the *setup.cfg*:
+You can find any required library for this project listed in the *pyproject.toml*:
 
-.. literalinclude:: ../setup.cfg
+.. literalinclude:: ../pyproject.toml
 
 You can install all you need by
 
