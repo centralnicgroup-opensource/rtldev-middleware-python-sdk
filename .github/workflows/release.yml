@@ -18,6 +18,7 @@ jobs:
     permissions:
       contents: write
       issues: write
+      deployments: write
 
     steps:
       - name: Checkout
