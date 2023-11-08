@@ -15,7 +15,10 @@ jobs:
     name: Release @ ${{ vars.RTLDEV_MW_CI_OS }}
     runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
     needs: tests
-    permissions: write-all
+    permissions:
+      contents: write    
+      deployments: write
+      issues: write
 
     steps:
       - name: Checkout
@@ -51,5 +54,5 @@ jobs:
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
           RTLDEV_MW_NOTIFICATION_URI: ${{ secrets.RTLDEV_MW_NOTIFICATION_URI }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
+          GITHUB_TOKEN: ${{ secrets.RTLDEV_MW_CI_TOKEN }}
         run: npx semantic-release
