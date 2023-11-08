@@ -5,8 +5,8 @@ on:
       - master
 
 jobs:
-  build:
-    name: Build
+  tests:
+    name: Tests
     uses: ./.github/workflows/test.yml
     permissions:
       contents: read
@@ -14,10 +14,11 @@ jobs:
   release:
     name: Release @ ${{ vars.RTLDEV_MW_CI_OS }}
     runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
-    needs: build
+    needs: tests
     permissions:
       contents: write    
-      
+      deployments: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
