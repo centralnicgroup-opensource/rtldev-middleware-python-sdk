@@ -60,18 +60,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="upgrading.html">Upgrading to Newer Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id5">4.0.0 (2022-06-08)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id19">3.8.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id21">3.7.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id23">3.6.0 (2020-05-07)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id29">3.5.0 (2020-04-30)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id37">3.4.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id39">3.3.0 (2020-04-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id47">3.2.0 (2020-03-11)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id62">3.1.0 (2019-04-16)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id71">3.0.0 (2019-04-01)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id79">2.1.0 (2019-03-29)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html#id87">2.0.0 (2018-10-31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id9">4.0.0 (2022-06-08)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id23">3.8.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id25">3.7.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id27">3.6.0 (2020-05-07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id33">3.5.0 (2020-04-30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id41">3.4.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id43">3.3.0 (2020-04-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id51">3.2.0 (2020-03-11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id66">3.1.0 (2019-04-16)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id75">3.0.0 (2019-04-01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id83">2.1.0 (2019-03-29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id91">2.0.0 (2018-10-31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Development Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
@@ -113,19 +113,45 @@
 <p>Please read our <a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">Contributing guide lines</span></a> first.</p>
 <section id="requirements">
 <span id="id1"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
-<p>You can find any required library for this project listed in the <em>setup.cfg</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">metadata</span><span class="p">]</span>
-<span class="n">license_files</span> <span class="o">=</span> 
-    <span class="n">LICENSE</span>
+<p>You can find any required library for this project listed in the <em>pyproject.toml</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">build</span><span class="o">-</span><span class="n">system</span><span class="p">]</span>
+<span class="n">requires</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;setuptools &gt;= 68.2.2&quot;</span><span class="p">,</span> <span class="s2">&quot;setuptools_scm[toml] &gt;= 8.0.4&quot;</span><span class="p">,</span> <span class="s2">&quot;wheel&quot;</span><span class="p">,</span> <span class="s2">&quot;build&quot;</span><span class="p">]</span>
+<span class="n">build</span><span class="o">-</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;setuptools.build_meta&quot;</span>
 
-<span class="p">[</span><span class="n">flake8</span><span class="p">]</span>
-<span class="nb">max</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">length</span> <span class="o">=</span> <span class="mi">120</span>
-<span class="n">ignore</span> <span class="o">=</span> <span class="n">F401</span><span class="p">,</span><span class="n">E402</span><span class="p">,</span><span class="n">F403</span>
-<span class="n">exclude</span> <span class="o">=</span> <span class="n">venv</span>
+<span class="p">[</span><span class="n">project</span><span class="p">]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;hexonet.apiconnector&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;4.0.1&quot;</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;hexonet.apiconnector is a connector library for the insanely fast HEXONET Backend API&quot;</span>
+<span class="n">readme</span> <span class="o">=</span> <span class="s2">&quot;README.md&quot;</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="p">[{</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Kai Schwarz&quot;</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;kschwarz@hexonet.net&quot;</span><span class="p">}]</span>
+<span class="n">maintainers</span> <span class="o">=</span> <span class="p">[{</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Kai Schwarz&quot;</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;kschwarz@hexonet.net&quot;</span><span class="p">}]</span>
+<span class="n">license</span> <span class="o">=</span> <span class="p">{</span><span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;LICENSE&quot;</span><span class="p">}</span>
+<span class="n">urls</span> <span class="o">=</span> <span class="p">{</span><span class="n">homepage</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/&quot;</span><span class="p">}</span>
+<span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;docutils&gt;=0,&lt;1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx-rtd-theme&gt;=1,&lt;2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;m2r2&gt;=0,&lt;1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pytest-cov&gt;=2,&lt;5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx&gt;=3,&lt;8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinxcontrib-log-cabinet&gt;=1,&lt;2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinxcontrib-websupport&gt;=1,&lt;2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;twine&gt;=4,&lt;5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;black&gt;=23,&lt;24&quot;</span>
+<span class="p">]</span>
+<span class="n">classifiers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Programming Language :: Python :: 3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;License :: OSI Approved :: MIT License&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Operating System :: OS Independent&quot;</span>
+<span class="p">]</span>
 
-<span class="p">[</span><span class="n">tool</span><span class="p">:</span><span class="n">pytest</span><span class="p">]</span>
-<span class="n">addopts</span> <span class="o">=</span> <span class="o">--</span><span class="n">strict</span> <span class="o">--</span><span class="n">cov</span><span class="o">-</span><span class="n">config</span><span class="o">=.</span><span class="n">coveragerc</span> <span class="o">--</span><span class="n">cov</span><span class="o">=</span><span class="n">hexonet</span> <span class="o">--</span><span class="n">cov</span><span class="o">-</span><span class="n">report</span> <span class="n">html</span> <span class="o">--</span><span class="n">cache</span><span class="o">-</span><span class="n">clear</span> <span class="o">-</span><span class="n">v</span>
-<span class="n">testpaths</span> <span class="o">=</span> <span class="n">tests</span><span class="o">/</span>
+<span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">setuptools</span><span class="o">.</span><span class="n">packages</span><span class="o">.</span><span class="n">find</span><span class="p">]</span>
+<span class="n">where</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.&quot;</span><span class="p">]</span>
+<span class="n">include</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hexonet.*&quot;</span><span class="p">]</span>
+<span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tests*&quot;</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">pytest</span><span class="o">.</span><span class="n">ini_options</span><span class="p">]</span>
+<span class="n">addopts</span> <span class="o">=</span> <span class="s2">&quot;--strict --cov-config=.coveragerc --cov=hexonet --cov-report html --cache-clear -v&quot;</span>
+<span class="n">testpaths</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tests/&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>You can install all you need by</p>

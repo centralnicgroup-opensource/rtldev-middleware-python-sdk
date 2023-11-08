@@ -1,3 +1,15 @@
+## [4.0.1](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.0...v4.0.1) (2023-11-08)
+
+
+### Bug Fixes
+
+* **developmentguide.rst:** Cleanup of setup.cfg and updated with pyproject.toml ([8895d54](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/8895d54757f9737d17ddeefd4af9e25b7cc0480f))
+* **github actions:** extend release process ([cf63206](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/cf63206e9986e768a1d1cfde65ab4d08b93840f6))
+* **github actions:** extend release process permissions ([c7ef2df](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/c7ef2df2604a1a1defc8734ead3bbffcbd895940))
+* **pyproject.toml:** Cleanup of setup.py in favour of pyproject.toml ([52f05a8](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/52f05a8252e3e1e6d0e2b05187199eee13e646fc))
+* **releaserc.json:** included pyproject.toml in release git assets ([f54a85e](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/f54a85e23b5553df63e046661a9cd58f4e8f5d9e))
+* **sphinx:** upgraded to latest version and condition syntax fix ([0f8e4f3](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/0f8e4f3f6af999b77878615c560ad88a2eaeda1f))
+
 ## [4.0.1](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.0...v4.0.1) (2023-01-02)
 
 
