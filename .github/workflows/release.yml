@@ -15,10 +15,7 @@ jobs:
     name: Release @ ${{ vars.RTLDEV_MW_CI_OS }}
     runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
     needs: tests
-    permissions:
-      contents: write    
-      deployments: write
-      issues: write
+    permissions: write-all
 
     steps:
       - name: Checkout
