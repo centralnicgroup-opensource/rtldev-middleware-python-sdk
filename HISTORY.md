@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.1...v4.0.2) (2023-11-09)
+
+
+### Bug Fixes
+
+* **README:** remove 4.0.1 duplicates and test releasing again ([bfb1057](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/bfb10577bdbcbb8e8e613e5facf435f5928c92e9))
+
 ## [4.0.1](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.0...v4.0.1) (2023-11-09)
 
 ### Bug Fixes
