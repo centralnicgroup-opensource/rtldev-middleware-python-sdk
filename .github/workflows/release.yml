@@ -5,13 +5,8 @@ on:
       - master
 
 jobs:
-  tests:
-    name: Tests
-    uses: ./.github/workflows/test.yml
-    permissions:
-      contents: read
-
   release:
+<<<<<<< HEAD
     name: Release @ ${{ vars.RTLDEV_MW_CI_OS }}
     runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
     needs: tests
@@ -58,3 +53,9 @@ jobs:
           COMMIT_SHA: ${{ github.sha }}
           GITHUB_TOKEN: ${{ secrets.RTLDEV_MW_CI_TOKEN }}
         run: npx semantic-release
+=======
+    uses: centralnicgroup-opensource/rtldev-middleware-shareable-workflows/.github/workflows/release.yml
+    secrets: inherit
+    with:
+      repository: ${{ github.repository }}
+>>>>>>> 840b2c7 (ci(workflows): Reviewed and replaced contents of workflows with shareable workflow repo)
