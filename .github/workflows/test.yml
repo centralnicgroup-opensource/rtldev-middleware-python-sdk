@@ -1,61 +1,13 @@
-name: Linting & Coverage
-
+name: Dependabot auto-merge & tests
 on:
-  workflow_call:
+  pull_request:
+    types:
+      - opened
+      - synchronize
 
 jobs:
-  test:
-    name: 🧪 Linting
-    runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Super Linter Code Base
-        uses: github/super-linter/slim@v5
-        env:
-          FILTER_REGEX_INCLUDE: "/hexonet/*|/scripts/*|updateVersion.sh|setup.py"
-          VALIDATE_PYTHON_BLACK: true
-          VALIDATE_BASH: true
-          VALIDATE_ALL_CODEBASE: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-  test_matrix:
-    strategy:
-      matrix:
-        python-version: ${{ fromJson(vars.RTLDEV_MW_CI_PYTHON_MATRIX) }}
-
-    runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
-    needs: test
-    name: 🧪 Testing
-    permissions:
-      contents: read
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Python @ ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          check-latest: true
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip -V
-          pip install --upgrade -e .
-      - name: Unit & Coverage Report
-        run: "./scripts/coverage.sh"
-      - name: Upload htmlcov folder
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-folder-${{ matrix.python-version }}
-          path: htmlcov
-          retention-days: 1
+  tests:
+    uses: centralnicgroup-opensource/rtldev-middleware-shareable-workflows/.github/workflows/auto-merge-dependabot-pr.yml
+    secrets: inherit
+    with:
+      repository: ${{ github.repository }}
