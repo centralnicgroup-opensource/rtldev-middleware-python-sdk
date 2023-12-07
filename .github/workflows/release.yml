@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Install Python ${{ vars.RTLDEV_MW_CI_PYTHON_VERSION }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           check-latest: true
           python-version: '${{ vars.RTLDEV_MW_CI_PYTHON_VERSION }}'
