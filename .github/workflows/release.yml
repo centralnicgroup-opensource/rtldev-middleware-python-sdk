@@ -47,7 +47,8 @@ jobs:
       - name: Download htmlcov folder from previous job
         uses: actions/download-artifact@v4
         with:
-          name: coverage-folder
+          pattern: coverage-folder-*
+          merge-multiple: true
           path: htmlcov
       - name: Release
         env:
