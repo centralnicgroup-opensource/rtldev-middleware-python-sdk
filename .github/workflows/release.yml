@@ -6,56 +6,7 @@ on:
 
 jobs:
   release:
-<<<<<<< HEAD
-    name: Release @ ${{ vars.RTLDEV_MW_CI_OS }}
-    runs-on: ${{ vars.RTLDEV_MW_CI_OS }}
-    needs: tests
-    permissions:
-      contents: write
-      issues: write
-      deployments: write
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Install Python ${{ vars.RTLDEV_MW_CI_PYTHON_VERSION }}
-        uses: actions/setup-python@v5
-        with:
-          check-latest: true
-          python-version: '${{ vars.RTLDEV_MW_CI_PYTHON_VERSION }}'
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip build
-          pip -V
-          pip install --upgrade -e .
-      - name: Setup NodeJS ${{ vars.RTLDEV_MW_CI_NODE_VERSION }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ vars.RTLDEV_MW_CI_NODE_VERSION }}
-          check-latest: true
-          cache: "npm"
-      - name: Install dependencies
-        run: npm ci
-      - name: Download htmlcov folder from previous job
-        uses: actions/download-artifact@v4
-        with:
-          pattern: coverage-folder-*
-          merge-multiple: true
-          path: htmlcov
-      - name: Release
-        env:
-          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
-          TEAMS_NOTIFICATION_URI: ${{ secrets.RTLDEV_MW_NOTIFICATION_URI }}
-          COMMIT_SHA: ${{ github.sha }}
-          GITHUB_TOKEN: ${{ secrets.RTLDEV_MW_CI_TOKEN }}
-        run: npx semantic-release
-=======
-    uses: centralnicgroup-opensource/rtldev-middleware-shareable-workflows/.github/workflows/release.yml
+    uses: centralnicgroup-opensource/rtldev-middleware-shareable-workflows/.github/workflows/release.yml@main
     secrets: inherit
     with:
       repository: ${{ github.repository }}
->>>>>>> 840b2c7 (ci(workflows): Reviewed and replaced contents of workflows with shareable workflow repo)
