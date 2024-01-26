@@ -20,7 +20,7 @@ dependencies = [
     "sphinxcontrib-log-cabinet>=1,<2",
     "sphinxcontrib-websupport>=1,<2",
     "twine>=4,<5",
-    "black>=23,<24"
+    "black>=23,<25"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
