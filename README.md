@@ -12,7 +12,8 @@ This module is a connector library for the insanely fast HEXONET Backend API. Fo
 
 ## Resources
 
-- [Documentation](https://centralnicgroup-public.github.io/rtldev-middleware-documentation/docs/hexonet/sdks/python-sdk/)
+- Documentation:
+  - [HEXONET](https://www.hexonet.support/hc/en-gb/articles/13648020541981-Self-Development-Kit-for-Python)
 - [Release Notes](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/releases)
 
 ## Authors
