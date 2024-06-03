@@ -1,0 +1,13 @@
+version: '4.1'
+services:
+  pythonsdkdemo:
+    stdin_open: true
+    tty: true
+    container_name: dstack-python-sdk
+    volumes:
+      - ..:/usr/share/rtldev-middleware-python-sdk:cached
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PYTHON_MIN_VERSION: 3

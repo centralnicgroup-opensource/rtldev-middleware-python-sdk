@@ -1,0 +1,39 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.2/containers/jekyll
+{
+	"name": "dstack-python-sdk",
+	"dockerComposeFile": ["docker-compose.yml"],
+	"service": "pythonsdkdemo",
+	"workspaceFolder": "/usr/share/rtldev-middleware-python-sdk/",
+	"shutdownAction": "stopCompose",
+	"customizations": {
+	  "vscode": {
+		"extensions": [
+			"GitHub.vscode-pull-request-github",
+			"ms-vscode-remote.remote-containers",
+			"mrmlnc.vscode-apache",
+			"ms-azuretools.vscode-docker",
+			"eamodio.gitlens"
+		],
+		"settings": {
+		  "terminal.integrated.defaultProfile.linux": "zsh",
+		  "terminal.integrated.profiles.linux": {
+			"zsh": {
+			  "path": "/bin/zsh"
+			}
+		  }
+		}
+	  }
+	},
+	"remoteUser": "vscode",
+	"mounts": [
+	  "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/WSL_USER,type=bind,consistency=cached"
+	],
+	"features": {
+	  "ghcr.io/devcontainers/features/node:1": {
+		"version": "latest"
+	  }
+	},
+	"postCreateCommand": "zsh /post-create.sh"
+  }
+  
