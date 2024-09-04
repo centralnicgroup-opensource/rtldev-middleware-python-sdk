@@ -1,3 +1,11 @@
+## [4.0.3](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.2...v4.0.3) (2024-09-04)
+
+
+### Bug Fixes
+
+* **deps:** update sphinx requirement from <8,>=3 to >=3,<9 ([71f6e91](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/71f6e9111298285b3b11c898862e4c5154317855))
+* **deps:** update sphinxcontrib-websupport requirement ([b00095c](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/b00095c5019b43b66df22593a375703cc5362ad8))
+
 ## [4.0.2](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.1...v4.0.2) (2023-11-09)
 
 
