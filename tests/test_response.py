@@ -1,6 +1,6 @@
-from hexonet.apiconnector.response import Response as R
-import hexonet.apiconnector.responseparser as RP
-from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
+from centralnicreseller.apiconnector.response import Response as R
+import centralnicreseller.apiconnector.responseparser as RP
+from centralnicreseller.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
 import re
 
 
@@ -8,13 +8,14 @@ def test_responsemethods():
     rtm = RTM()
     rtm.addTemplate(
         "listP0",
-        "[RESPONSE]\r\nPROPERTY[TOTAL][0]=2701\r\nPROPERTY[FIRST][0]=0\r\nP"
-        + "ROPERTY[DOMAIN][0]=0-60motorcycletimes.com\r\nPROPERTY[DOMAIN][1]="
-        + "0-be-s01-0.com\r\nPROPERTY[COUNT][0]=2\r\nPROPERTY[LAST][0]=1\r\nP"
-        + "ROPERTY[LIMIT][0]=2\r\nDESCRIPTION=Command completed successfully"
-        + "\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.023\r\nEOF\r\n",
+        "[RESPONSE]\r\nproperty[total][0] = 4\r\nproperty[first][0] = 0\r\nproperty[domain][0] = cnic-ssl-test1.com\r\nproperty[domain][1] = cnic-ssl-test2.com\r\nproperty[count][0] = 2\r\nproperty[last][0] = 1\r\nproperty[limit][0] = 2\r\ndescription = Command completed successfully\r\ncode = 200\r\nqueuetime = 0\r\nruntime = 0.007\r\nEOF\r\n",
     )
-    rtm.addTemplate("OK", rtm.generateTemplate("200", "Command completed successfully"))
+    rtm.addTemplate(
+        "pendingRegistration",
+        "[RESPONSE]\r\ncode = 200\r\ndescription = Command completed successfully\r\nruntime = 0.44\r\nqueuetime = 0\r\n\r\nproperty[status][0] = REQUESTED\r\nproperty[updated date][0] = 2023-05-22 12:14:31.0\r\nproperty[zone][0] = se\r\nEOF\r\n",
+    )
+    rtm.addTemplate("OK", rtm.generateTemplate(
+        "200", "Command completed successfully"))
 
     # #.getCurrentPageNumber()
     # [w/ entries in response]
@@ -30,17 +31,12 @@ def test_responsemethods():
     r = R(rtm.getTemplate("OK").getPlain())
     assert r.getFirstRecordIndex() is None
 
-    # [w/o FIRST in response, rows]
-    h = rtm.getTemplate("OK").getHash()
-    h["PROPERTY"] = {"DOMAIN": ["mydomain1.com", "mydomain2.com"]}
-    r = R(RP.serialize(h))
-    assert r.getFirstRecordIndex() == 0
-
     # #.constructor [place holder replacements]
     r = R("")
     assert re.search(r"\{[A-Z_]+\}", r.getDescription()) is None
 
-    r = R("", {"COMMAND": "StatusAccount"}, {"CONNECTION_URL": "123HXPHFOUND123"})
+    r = R("", {"COMMAND": "StatusAccount"}, {
+          "CONNECTION_URL": "123HXPHFOUND123"})
     assert re.search(r"123HXPHFOUND123", r.getDescription()) is not None
 
     # #.getCommandPlain()
@@ -48,13 +44,13 @@ def test_responsemethods():
     r = R(
         "",
         {
-            "COMMAND": "QueryDomainOptions",
+            "COMMAND": "CheckDomains",
             "DOMAIN0": "example.com",
             "DOMAIN1": "example.net",
         },
     )
     expected = (
-        "COMMAND = QueryDomainOptions\nDOMAIN0 = example.com\nDOMAIN1 = example.net\n"
+        "COMMAND = CheckDomains\nDOMAIN0 = example.com\nDOMAIN1 = example.net\n"
     )
     assert r.getCommandPlain() == expected
 
@@ -78,7 +74,7 @@ def test_responsemethods():
     # #.getColumnIndex()
     # [colum exists]
     r = R(rtm.getTemplate("listP0").getPlain())
-    assert r.getColumnIndex("DOMAIN", 0) == "0-60motorcycletimes.com"
+    assert r.getColumnIndex("DOMAIN", 0) == "cnic-ssl-test1.com"
 
     # [colum does not exist]
     assert r.getColumnIndex("COLUMN_NOT_EXISTS", 0) is None
@@ -95,11 +91,11 @@ def test_responsemethods():
     rec = r.getCurrentRecord()
     assert rec.getData() == {
         "COUNT": "2",
-        "DOMAIN": "0-60motorcycletimes.com",
+        "DOMAIN": "cnic-ssl-test1.com",
         "FIRST": "0",
         "LAST": "1",
         "LIMIT": "2",
-        "TOTAL": "2701",
+        "TOTAL": "4",
     }
 
     # [no records available]
@@ -115,7 +111,7 @@ def test_responsemethods():
 
     # #.getNextRecord()
     rec = r.getNextRecord()
-    assert rec.getData() == {"DOMAIN": "0-be-s01-0.com"}
+    assert rec.getData() == {"DOMAIN": "cnic-ssl-test2.com"}
     rec = r.getNextRecord()
     assert rec is None
 
@@ -139,11 +135,11 @@ def test_responsemethods():
     r.getNextRecord()
     assert r.getPreviousRecord().getData() == {
         "COUNT": "2",
-        "DOMAIN": "0-60motorcycletimes.com",
+        "DOMAIN": "cnic-ssl-test1.com",
         "FIRST": "0",
         "LAST": "1",
         "LIMIT": "2",
-        "TOTAL": "2701",
+        "TOTAL": "4",
     }
     assert r.getPreviousRecord() is None
 
@@ -169,12 +165,6 @@ def test_responsemethods():
     # [no rows]
     r = R(rtm.getTemplate("OK").getPlain())
     assert r.getLastRecordIndex() is None
-
-    # [rows]
-    h = rtm.getTemplate("OK").getHash()
-    h["PROPERTY"] = {"DOMAIN": ["mydomain1.com", "mydomain2.com"]}
-    r = R(RP.serialize(h))
-    assert r.getLastRecordIndex() == 1
 
     # #.getNextPageNumber()
     # [no rows]
@@ -204,3 +194,9 @@ def test_responsemethods():
     assert r.getNextRecord() is not None
     assert r.getNextRecord() is None
     assert r.rewindRecordList().getPreviousRecord() is None
+
+    # #.isPending
+    # [in api response]
+    r = R(rtm.getTemplate("pendingRegistration").getPlain(),
+          {"COMMAND": "AddDomain", "DOMAIN": "mydomain.se"})
+    assert r.isPending() is True

@@ -1,4 +1,4 @@
-from hexonet.apiconnector.record import Record
+from centralnicreseller.apiconnector.record import Record
 
 
 def test_recordmethods():
