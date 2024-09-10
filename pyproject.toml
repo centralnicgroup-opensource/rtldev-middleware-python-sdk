@@ -3,12 +3,23 @@ requires = ["setuptools >= 68.2.2", "setuptools_scm[toml] >= 8.0.4", "wheel", "b
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "hexonet.apiconnector"
-version = "4.0.4"
-description = "hexonet.apiconnector is a connector library for the insanely fast HEXONET Backend API"
+name = "centralnicreseller.apiconnector"
+version = "4.0.3"
+description = """
+centralnicreseller.apiconnector is an API connector library for the insanely fast CentralNic Reseller (fka. RRPProxy) Backend API.
+With this connector, you can easily resell over 1,100 TLDs, including many rare ccTLDs and hundreds of popular domain extensions. The CentralNic Reseller API and WHMCS plug-in solutions provide a fully automated real-time system and white-labeled reselling options, allowing you to reach your reselling goals in no time.
+Trusted by resellers worldwide, CentralNic Reseller (formerly RRPproxy) is your one-stop solution for reselling domains and lucrative related products, such as domain security, domain aftermarket and auction sales, SSL certificates, and more. All services are resalable, and we offer numerous additional features to simplify your reselling business.
+In October 2022, we proudly updated our RRPproxy brand to CentralNic Reseller. With a legacy of over 20 years as RRPproxy, we're still the same team, technology, and leaders in the domain reselling industry - simply with an updated name and look!
+"""
 readme = "README.md"
-authors = [{name = "Kai Schwarz", email = "kschwarz@hexonet.net"}]
-maintainers = [{name = "Kai Schwarz", email = "kschwarz@hexonet.net"}]
+authors = [
+    {name = "Kai Schwarz", email = "kai.schwarz@centralnic.com"},
+    {name = "Asif Nawaz", email = "asif.nawaz@centralnic.com"}
+]
+maintainers = [
+    {name = "Kai Schwarz", email = "kai.schwarz@centralnic.com"},
+    {name = "Asif Nawaz", email = "asif.nawaz@centralnic.com"}
+]
 license = {file = "LICENSE"}
 urls = {homepage = "https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/"}
 dependencies = [
@@ -20,7 +31,8 @@ dependencies = [
     "sphinxcontrib-log-cabinet>=1,<2",
     "sphinxcontrib-websupport>=1,<3",
     "twine>=4,<6",
-    "black>=23,<25"
+    "black>=23,<25",
+    "idna>=3"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -30,9 +42,9 @@ classifiers = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["hexonet.*"]
+include = ["centralnicreseller.*"]
 exclude = ["tests*"]
 
 [tool.pytest.ini_options]
-addopts = "--strict --cov-config=.coveragerc --cov=hexonet --cov-report html --cache-clear -v"
+addopts = "--strict --cov-config=.coveragerc --cov=centralnicreseller --cov-report html --cache-clear -v"
 testpaths = ["tests/"]
