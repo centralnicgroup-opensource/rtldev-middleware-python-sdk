@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-    hexonet.apiconnector.logger
+    centralnicreseller.apiconnector.logger
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This module provides all necessary functionality for
     debug outputs see the customlogger class on how to override this
-    :copyright: © 2018 by HEXONET GmbH.
+    :copyright: © 2024 Team Internet Group PLC.
     :license: MIT, see LICENSE for more details.
 """
 

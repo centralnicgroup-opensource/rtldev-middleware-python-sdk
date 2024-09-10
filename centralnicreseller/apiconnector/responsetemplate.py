@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-    hexonet.apiconnector.responsetemplate
+    centralnicreseller.apiconnector.responsetemplate
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This module covers all basic functionality to
     deal with Backend API responses.
-    :copyright: © 2018 by HEXONET GmbH.
+    :copyright: © 2024 Team Internet Group PLC.
     :license: MIT, see LICENSE for more details.
 """
 
-import hexonet.apiconnector.responseparser as RP
+import centralnicreseller.apiconnector.responseparser as RP
 
 
 class ResponseTemplate(object):
@@ -22,7 +22,8 @@ class ResponseTemplate(object):
         self._raw = response
         if (response == "") or (response is None):
             descr = "Empty API response. Probably unreachable API end point {CONNECTION_URL}"
-            self._raw = "[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=%s\r\nEOF\r\n" % (descr)
+            self._raw = "[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=%s\r\nEOF\r\n" % (
+                descr)
 
         # try/except to support old versions of python (python2.5)
         try:
@@ -102,11 +103,3 @@ class ResponseTemplate(object):
         Check if current API response represents a temporary error case (4xx)
         """
         return self.__hash["CODE"][0] == "4"
-
-    def isPending(self):
-        """
-        Check if current operation is returned as pending
-        """
-        if "PENDING" in self.__hash:
-            return self.__hash["PENDING"] == "1"
-        return False

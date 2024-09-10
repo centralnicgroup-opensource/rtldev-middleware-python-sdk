@@ -1,5 +1,5 @@
-from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
-from hexonet.apiconnector.responsetemplate import ResponseTemplate as RT
+from centralnicreseller.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
+from centralnicreseller.apiconnector.responsetemplate import ResponseTemplate as RT
 
 
 def test_rtmmethods():
@@ -20,6 +20,7 @@ def test_rtmmethods():
             "empty",
             "unauthorized",
             "expired",
+            "notfound",
         ]
     )
     availableones = sorted(rtm.getTemplates().keys())

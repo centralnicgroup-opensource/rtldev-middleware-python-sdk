@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-    hexonet.apiconnector.apiclient
+    centralnicreseller.apiconnector.apiclient
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This module covers all necessary functionality for http communicatiton
     with our Backend System.
-    :copyright: © 2018 by HEXONET GmbH.
+    :copyright: © 2024 Team Internet Group PLC.
     :license: MIT, see LICENSE for more details.
 """
 
-from hexonet.apiconnector.logger import Logger
-from hexonet.apiconnector.response import Response
-from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
-from hexonet.apiconnector.socketconfig import SocketConfig
+from centralnicreseller.apiconnector.logger import Logger
+from centralnicreseller.apiconnector.response import Response
+from centralnicreseller.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
+from centralnicreseller.apiconnector.socketconfig import SocketConfig
+from centralnicreseller.apiconnector.idnaconverter import IDNAConverter
 from urllib.parse import quote, unquote, urlparse, urlencode
 from urllib.request import urlopen, Request
 import re
@@ -20,21 +21,21 @@ import platform
 
 rtm = RTM()
 
-ISPAPI_CONNECTION_URL_PROXY = "http://127.0.0.1/api/call.cgi"
-ISPAPI_CONNECTION_URL_LIVE = "https://api.ispapi.net/api/call.cgi"
-ISPAPI_CONNECTION_URL_OTE = "https://api-ote.ispapi.net/api/call.cgi"
+CNR_CONNECTION_URL_PROXY = "http://127.0.0.1/api/call.cgi"
+CNR_CONNECTION_URL_LIVE = "https://api.rrpproxy.net/api/call.cgi"
+CNR_CONNECTION_URL_OTE = "https://api-ote.rrpproxy.net/api/call.cgi"
 
 
 class APIClient(object):
     def __init__(self):
         # API connection url
-        self.setURL(ISPAPI_CONNECTION_URL_LIVE)
+        self.setURL(CNR_CONNECTION_URL_LIVE)
         # Object covering API connection data
         self.__socketConfig = SocketConfig()
         # activity flag for debug mode
         self.__debugMode = False
         # API connection timeout setting
-        self.__socketTimeout = 300000
+        self.__socketTimeout = 300 * 1000
         self.useLIVESystem()
         # user agent setting
         self.__ua = ""
@@ -42,6 +43,10 @@ class APIClient(object):
         self.__curlopts = {}
         # logger class instance
         self.setDefaultLogger()
+        # subuser account name (subuser specific data view)
+        self.__subUser = None
+        # login role seperator
+        self.__roleSeparator = ":"
 
     def setCustomLogger(self, logger):
         """
@@ -114,21 +119,22 @@ class APIClient(object):
         data = self.__socketConfig.getPOSTData()
         if secured:
             data = re.sub(r"s_pw=[^&]+", "s_pw=***", data)
-        tmp = ""
-        if not isinstance(cmd, str):
-            for key in sorted(cmd.keys()):
-                if cmd[key] is not None:
-                    tmp += ("{0}={1}\n").format(
-                        key, re.sub("[\r\n]", "", str(cmd[key]))
-                    )
+
+        if isinstance(cmd, str):
+            tmp = cmd.rstrip("\n")
         else:
-            tmp = cmd
-        tmp = tmp.rstrip("\n")
+            tmp = "\n".join(
+                "{}={}".format(key, re.sub(r'[\r\n]', '', str(cmd[key])))
+                for key in sorted(cmd.keys()) if cmd[key] is not None
+            )
+
         if secured:
             tmp = re.sub(r"PASSWORD=[^\n]+", "PASSWORD=***", tmp)
-        return ("{0}{1}={2}").format(
-            data, quote("s_command"), quote(re.sub("\n$", "", tmp))
-        )
+
+        if tmp:
+            return f"{data}{quote('s_command')}={quote(tmp)}"
+        else:
+            return data if not data.endswith('&') else data.rstrip('&')
 
     def getSession(self):
         """
@@ -193,7 +199,7 @@ class APIClient(object):
         Apply session data (session id and system entity) to given client request session
         """
         session["socketcfg"] = {
-            "entity": self.__socketConfig.getSystemEntity(),
+            "login": self.__socketConfig.getLogin(),
             "session": self.__socketConfig.getSession(),
         }
         return self
@@ -203,7 +209,7 @@ class APIClient(object):
         Use existing configuration out of session
         to rebuild and reuse connection settings
         """
-        self.__socketConfig.setSystemEntity(session["socketcfg"]["entity"])
+        self.setCredentials(session["socketcfg"]["login"])
         self.setSession(session["socketcfg"]["session"])
         return self
 
@@ -214,13 +220,6 @@ class APIClient(object):
         self.__socketURL = value
         return self
 
-    def setOTP(self, value):
-        """
-        Set one time password to be used for API communication
-        """
-        self.__socketConfig.setOTP(value)
-        return self
-
     def setSession(self, value):
         """
         Set an API session id to be used for API communication
@@ -228,15 +227,14 @@ class APIClient(object):
         self.__socketConfig.setSession(value)
         return self
 
-    def setRemoteIPAddress(self, value):
+    def setPersistent(self):
+        """echo 
+        Set persistent connection to be used for API communication
         """
-        Set an Remote IP Address to be used for API communication.
-        To be used in case you have an active ip filter setting.
-        """
-        self.__socketConfig.setRemoteAddress(value)
+        self.__socketConfig.setPersistent()
         return self
 
-    def setCredentials(self, uid, pw):
+    def setCredentials(self, uid, pw=""):
         """
         Set Credentials to be used for API communication
         """
@@ -244,36 +242,23 @@ class APIClient(object):
         self.__socketConfig.setPassword(pw)
         return self
 
-    def setRoleCredentials(self, uid, role, pw):
+    def setRoleCredentials(self, uid, role, pw = ""):
         """
         Set Credentials to be used for API communication
         """
         if role == "":
             return self.setCredentials(uid, pw)
-        return self.setCredentials(("{0}!{1}").format(uid, role), pw)
+        return self.setCredentials(("{0}{1}{2}").format(uid, self.__roleSeparator, role), pw)
 
-    def login(self, otp=""):
+    def login(self):
         """
         Perform API login to start session-based communication
         """
-        self.setOTP(otp)
-        rr = self.request({"COMMAND": "StartSession"})
+        self.setPersistent()
+        rr = self.request([], False)
+        self.setSession(None) # clean up all session related data
         if rr.isSuccess():
-            col = rr.getColumn("SESSION")
-            self.setSession(col.getData()[0] if (col is not None) else None)
-        return rr
-
-    def loginExtended(self, params, otp=""):
-        """
-        Perform API login to start session-based communication.
-        Use given specific command parameters.
-        """
-        self.setOTP(otp)
-        cmd = {"COMMAND": "StartSession"}
-        cmd.update(params)
-        rr = self.request(cmd)
-        if rr.isSuccess():
-            col = rr.getColumn("SESSION")
+            col = rr.getColumn("SESSIONID")
             self.setSession(col.getData()[0] if (col is not None) else None)
         return rr
 
@@ -283,21 +268,27 @@ class APIClient(object):
         """
         rr = self.request(
             {
-                "COMMAND": "EndSession",
+                "COMMAND": "StopSession",
             }
         )
         if rr.isSuccess():
             self.setSession(None)
         return rr
 
-    def request(self, cmd):
+    def request(self, cmd=[], setUserView=True):
         """
         Perform API request using the given command
         """
-        # flatten nested api command bulk parameters
-        newcmd = self.__flattenCommand(cmd)
-        # auto convert umlaut names to punycode
-        newcmd = self.__autoIDNConvert(newcmd)
+        newcmd = {}
+        if (cmd is not None) and (len(cmd) > 0):
+            # if subuser is set, add it to the command
+            if setUserView and self.__subUser is not None:
+                cmd["SUBUSER"] = self.__subUser
+
+            # flatten nested api command bulk parameters
+            newcmd = self.__flattenCommand(cmd)
+            # auto convert umlaut names to punycode
+            newcmd = self.__autoIDNConvert(newcmd)
 
         # request command to API
         cfg = {"CONNECTION_URL": self.__socketURL}
@@ -364,44 +355,42 @@ class APIClient(object):
         """
         Set a data view to a given subuser
         """
-        self.__socketConfig.setUser(uid)
+        self.__subUser = uid
         return self
 
     def resetUserView(self):
         """
         Reset data view back from subuser to user
         """
-        self.__socketConfig.setUser(None)
+        self.__subUser = None
         return self
 
     def useHighPerformanceConnectionSetup(self):
         """
         Activate High Performance Setup
         """
-        self.setURL(ISPAPI_CONNECTION_URL_PROXY)
+        self.setURL(CNR_CONNECTION_URL_PROXY)
         return self
 
     def useDefaultConnectionSetup(self):
         """
         Activate Default Connection Setup (which is the default anyways)
         """
-        self.setURL(ISPAPI_CONNECTION_URL_LIVE)
+        self.setURL(CNR_CONNECTION_URL_LIVE)
         return self
 
     def useOTESystem(self):
         """
         Set OT&E System for API communication
         """
-        self.setURL(ISPAPI_CONNECTION_URL_OTE)
-        self.__socketConfig.setSystemEntity("1234")
+        self.setURL(CNR_CONNECTION_URL_OTE)
         return self
 
     def useLIVESystem(self):
         """
         Set LIVE System for API communication (this is the default setting)
         """
-        self.setURL(ISPAPI_CONNECTION_URL_LIVE)
-        self.__socketConfig.setSystemEntity("54cd")
+        self.setURL(CNR_CONNECTION_URL_LIVE)
         return self
 
     def __flattenCommand(self, cmd):
@@ -425,32 +414,28 @@ class APIClient(object):
 
     def __autoIDNConvert(self, cmd):
         """
-        Auto convert API command parameters to punycode, if necessary.
+        Converts domain names in the cmd dictionary to their ASCII (Punycode) representations.
         """
-        # don't convert for convertidn command to avoid endless loop
-        # and ignore commands in string format(even deprecated)
-        if isinstance(cmd, str) or re.match(
-            r"^CONVERTIDN$", cmd["COMMAND"], re.IGNORECASE
-        ):
-            return cmd
+        key_pattern = re.compile(r"(?i)^(NAMESERVER|NS|DNSZONE)([0-9]*)$")
+        obj_class_pattern = re.compile(
+            r"(?i)^(DOMAIN(APPLICATION|BLOCKING)?|NAMESERVER|NS|DNSZONE)$")
+        ascii_pattern = re.compile(r"^[A-Za-z0-9.\-]+$")
 
-        toconvert = []
-        keys = []
-        for key in cmd:
-            if re.match(r"^(DOMAIN|NAMESERVER|DNSZONE)([0-9]*)$", key, re.IGNORECASE):
-                keys.append(key)
+        to_convert = []
         idxs = []
-        for key in keys:
-            if not re.match(r"^[a-z0-9.-]+$", cmd[key], re.IGNORECASE):
-                toconvert.append(cmd[key])
-                idxs.append(key)
-        if not toconvert:
-            return cmd
 
-        r = self.request({"COMMAND": "ConvertIDN", "DOMAIN": toconvert})
-        if r.isSuccess():
-            col = r.getColumn("ACE")
-            if col is not None:
-                for idx, pc in enumerate(col.getData()):
-                    cmd[idxs[idx]] = pc
+        for key, val in cmd.items():
+            if ((key_pattern.match(key) or
+                (key.upper() == "OBJECTID" and obj_class_pattern.match(cmd.get("OBJECTCLASS", ""))))
+                    and not ascii_pattern.match(val)):
+                to_convert.append(val)
+                idxs.append(key)
+
+        if to_convert:
+            result = IDNAConverter.convert_list(to_convert)
+            pc_list = result.get_pc_list()
+
+            for idx, converted_value in zip(idxs, pc_list):
+                cmd[idx] = converted_value
+
         return cmd

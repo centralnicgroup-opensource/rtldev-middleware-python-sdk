@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-    hexonet.apiconnector.responseparser
+    centralnicreseller.apiconnector.responseparser
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This module covers all necessary functionality to
     parse a raw Backend API response and to serialize it back.
-    :copyright: © 2018 by HEXONET GmbH.
+    :copyright: © 2024 Team Internet Group PLC.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -40,19 +40,3 @@ def parse(raw):
         else:
             r[attr.upper()] = value
     return r
-
-
-def serialize(r):
-    """
-    Returns the dictionary represenation serialized back to plain text
-    """
-    d = ""
-    if "PROPERTY" in r:
-        keys = sorted(r["PROPERTY"].keys())
-        for key in keys:
-            for index, val in enumerate(r["PROPERTY"][key]):
-                d += ("\r\nPROPERTY[{0}][{1}]={2}").format(key, index, val)
-    for prop in ["CODE", "DESCRIPTION", "QUEUETIME", "RUNTIME"]:
-        if prop in r:
-            d += ("\r\n{0}={1}").format(prop, r[prop])
-    return ("[RESPONSE]{0}\r\nEOF\r\n").format(d)
