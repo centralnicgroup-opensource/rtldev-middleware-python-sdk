@@ -1,4 +1,4 @@
-from hexonet.apiconnector.column import Column
+from centralnicreseller.apiconnector.column import Column
 
 
 def test_columnmethods():

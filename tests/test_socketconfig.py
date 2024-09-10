@@ -1,4 +1,4 @@
-from hexonet.apiconnector.socketconfig import SocketConfig
+from centralnicreseller.apiconnector.socketconfig import SocketConfig
 
 
 def test_socketconfigmethods():
