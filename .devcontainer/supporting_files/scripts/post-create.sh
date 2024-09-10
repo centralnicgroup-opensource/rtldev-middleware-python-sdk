@@ -10,7 +10,7 @@ source ~/.zshrc
 pip install --upgrade pip
 pip install --upgrade setuptools
 pip -V
-pip install -r requirements.txt
+#pip install -r requirements.txt
 
 echo "=> Generating Symlinks for Zsh History and Git config"
 # Create symlink for gitconfig and zsh history file

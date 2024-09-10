@@ -13,7 +13,8 @@
 			"ms-vscode-remote.remote-containers",
 			"mrmlnc.vscode-apache",
 			"ms-azuretools.vscode-docker",
-			"eamodio.gitlens"
+			"eamodio.gitlens",
+			"GitHub.copilot"
 		],
 		"settings": {
 		  "terminal.integrated.defaultProfile.linux": "zsh",

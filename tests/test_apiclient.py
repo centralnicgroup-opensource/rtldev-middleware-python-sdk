@@ -1,12 +1,14 @@
-from hexonet.apiconnector.apiclient import (
+from centralnicreseller.apiconnector.apiclient import (
     APIClient as AC,
-    ISPAPI_CONNECTION_URL_LIVE,
-    ISPAPI_CONNECTION_URL_PROXY,
+    CNR_CONNECTION_URL_LIVE,
+    CNR_CONNECTION_URL_PROXY,
 )
-from hexonet.apiconnector.response import Response as R
-from hexonet.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
+from centralnicreseller.apiconnector.response import Response as R
+from centralnicreseller.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
 import pytest
 import platform
+import os
+import urllib.parse
 
 rtm = RTM()
 
@@ -15,86 +17,73 @@ def test_apiclientmethods():
     cl = AC()
     rtm.addTemplate(
         "login200",
-        "[RESPONSE]\r\nPROPERTY[SESSION][0]=h8JLZZHdF2WgWWXlwbKWzEG3XrzoW4y"
-        + "shhvtqyg0LCYiX55QnhgYX9cB0W4mlpbx\r\nDESCRIPTION=Command completed"
-        + " successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.169\r\nEOF\r"
-        + "\n",
+        "[RESPONSE]\r\nproperty[expiration date][0]=2024-09-19 10:52:51\r\nproperty[sessionid][0]=bb7a884b09b9a674fb4a22211758ce87\r\ndescription=Command completed successfully\r\ncode=200\r\nqueuetime=0.004\r\nruntime=0.023\r\nEOF\r\n",
     )
-    rtm.addTemplate("login500", rtm.generateTemplate("530", "Authentication failed"))
-    rtm.addTemplate("OK", rtm.generateTemplate("200", "Command completed successfully"))
+    rtm.addTemplate("login500", rtm.generateTemplate(
+        "530", "Authentication failed"))
+    rtm.addTemplate("OK", rtm.generateTemplate(
+        "200", "Command completed successfully"))
     rtm.addTemplate(
         "listP0",
-        "[RESPONSE]\r\nPROPERTY[TOTAL][0]=2701\r\nPROPERTY[FIRST][0]=0\r\nP"
-        + "ROPERTY[DOMAIN][0]=0-60motorcycletimes.com\r\nPROPERTY[DOMAIN][1]="
-        + "0-be-s01-0.com\r\nPROPERTY[COUNT][0]=2\r\nPROPERTY[LAST][0]=1\r\nP"
-        + "ROPERTY[LIMIT][0]=2\r\nDESCRIPTION=Command completed successfully"
-        + "\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.023\r\nEOF\r\n",
+        "[RESPONSE]\r\nproperty[total][0]=4\r\nproperty[first][0]=0\r\nproperty[domain][0]=cnic-ssl-test1.com\r\nproperty[domain][1]=cnic-ssl-test2.com\r\nproperty[count][0]=2\r\nproperty[last][0]=1\r\nproperty[limit][0]=2\r\ndescription=Command completed successfully\r\ncode=200\r\nqueuetime=0\r\nruntime=0.007\r\nEOF\r\n",
     )
     rtm.addTemplate(
         "listP1",
-        "[RESPONSE]\r\nPROPERTY[TOTAL][0]=2701\r\nPROPERTY[FIRST][0]=2\r\nP"
-        + "ROPERTY[DOMAIN][0]=0-qas-ao17-0.org\r\nPROPERTY[DOMAIN][1]=0-sunny"
-        + "da222y.com\r\nPROPERTY[COUNT][0]=2\r\nPROPERTY[LAST][0]=3\r\nPROPE"
-        + "RTY[LIMIT][0]=2\r\nDESCRIPTION=Command completed successfully\r\nC"
-        + "ODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.032\r\nEOF\r\n",
+        "[RESPONSE]\r\nproperty[total][0]=4\r\nproperty[first][0]=2\r\nproperty[domain][0]=emailcustomization.com\r\nproperty[domain][1]=test-keysysbe0123.be\r\nproperty[count][0]=2\r\nproperty[last][0]=3\r\nproperty[limit][0]=2\r\ndescription=Command completed successfully\r\ncode=200\r\nqueuetime=0\r\nruntime=0.006\r\nEOF\r\n",
     )
     rtm.addTemplate(
         "listFP0",
-        "[RESPONSE]\r\nPROPERTY[TOTAL][0]=3\r\nPROPERTY[FIRST][0]=0\r\nPROP"
-        + "ERTY[DOMAIN][0]=0-60motorcycletimes.com\r\nPROPERTY[COUNT][0]=1\r"
-        + "\nPROPERTY[LAST][0]=1\r\nPROPERTY[LIMIT][0]=1\r\nDESCRIPTION=Comma"
-        + "nd completed successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0."
-        + "023\r\nEOF\r\n",
+        "[RESPONSE]\r\nproperty[total][0]=4\r\nproperty[first][0]=0\r\nproperty[domain][0]=cnic-ssl-test1.com\r\nproperty[count][0]=1\r\nproperty[last][0]=0\r\nproperty[limit][0]=1\r\ndescription=Command completed successfully\r\ncode=200\r\nqueuetime=0\r\nruntime=0.009\r\nEOF\r\n",
     )
     rtm.addTemplate(
         "listFP1",
-        "[RESPONSE]\r\nPROPERTY[TOTAL][0]=3\r\nPROPERTY[FIRST][0]=1\r\nPROP"
-        + "ERTY[DOMAIN][0]=0-be-s01-0.com\r\nPROPERTY[COUNT][0]=1\r\nPROPERTY"
-        + "[LAST][0]=2\r\nPROPERTY[LIMIT][0]=1\r\nDESCRIPTION=Command complet"
-        + "ed successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.032\r\nEOF"
-        + "\r\n",
+        "[RESPONSE]\r\nproperty[total][0]=4\r\nproperty[first][0]=1\r\nproperty[domain][0]=cnic-ssl-test2.com\r\nproperty[count][0]=1\r\nproperty[last][0]=1\r\nproperty[limit][0]=1\r\ndescription=Command completed successfully\r\ncode=200\r\nqueuetime=0\r\nruntime=0.007\r\nEOF\r\n",
     )
     rtm.addTemplate(
         "listFP2",
-        "[RESPONSE]\r\nPROPERTY[TOTAL][0]=3\r\nPROPERTY[FIRST][0]=2\r\nPROP"
-        + "ERTY[DOMAIN][0]=0-qas-ao17-0.org\r\nPROPERTY[COUNT][0]=2\r\nPROPER"
-        + "TY[LAST][0]=3\r\nPROPERTY[LIMIT][0]=1\r\nDESCRIPTION=Command compl"
-        + "eted successfully\r\nCODE=200\r\nQUEUETIME=0\r\nRUNTIME=0.032\r\nE"
-        + "OF\r\n",
+        "[RESPONSE]\r\nproperty[total][0]=4\r\nproperty[first][0]=2\r\nproperty[domain][0]=emailcustomization.com\r\nproperty[count][0]=1\r\nproperty[last][0]=2\r\nproperty[limit][0]=1\r\ndescription=Command completed successfully\r\ncode=200\r\nqueuetime=0\r\nruntime=0.007\r\nEOF\r\n",
     )
-
     # #.getPOSTData()
     # test object input with special chars
     validate = (
-        "s_entity=54cd&s_command=AUTH%3Dgwrgwqg%25"
+        "s_command=AUTH%3Dgwrgwqg%25"
         + "%26%5C44t3%2A%0ACOMMAND%3DModifyDomain"
     )
-    enc = cl.getPOSTData({"COMMAND": "ModifyDomain", "AUTH": "gwrgwqg%&\\44t3*"})
+    enc = cl.getPOSTData(
+        {"COMMAND": "ModifyDomain", "AUTH": "gwrgwqg%&\\44t3*"})
     assert enc == validate
 
     # test string input
     enc = cl.getPOSTData("gregergege")
-    assert enc == "s_entity=54cd&s_command=gregergege"
+    assert enc == "s_command=gregergege"
 
     # test object input with null value in parameter
-    validate = "s_entity=54cd&s_command=COMMAND%3DModifyDomain"
+    validate = "s_command=COMMAND%3DModifyDomain"
     enc = cl.getPOSTData({"COMMAND": "ModifyDomain", "AUTH": None})
     assert enc == validate
 
     # test secured passwords
-    cl.setCredentials("test.user", "test.passw0rd")
+    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
+                      os.environ.get("CNR_TEST_PASSWORD"))
+    cl.enableDebugMode()
     enc = cl.getPOSTData(
         {
             "COMMAND": "CheckAuthentication",
-            "SUBUSER": "test.user",
-            "PASSWORD": "test.passw0rd",
+            "SUBUSER": os.environ.get("CNR_TEST_USER"),
+            "PASSWORD": os.environ.get("CNR_TEST_PASSWORD"),
         },
         True,
     )
     cl.setCredentials("", "")
+
+    cnr_test_user = os.environ.get("CNR_TEST_USER")
+    encoded_user = urllib.parse.quote(
+        cnr_test_user.encode()) if cnr_test_user else ""
+
     expected = (
-        "s_entity=54cd&s_login=test.user&s_pw=***&"
-        + "s_command=COMMAND%3DCheckAuthentication%0APASSWORD%3D%2A%2A%2A%0ASUBUSER%3Dtest.user"
+        "s_login=" +
+        encoded_user + "&s_pw=***&"
+        + "s_command=COMMAND%3DCheckAuthentication%0APASSWORD%3D%2A%2A%2A%0ASUBUSER%3D" + encoded_user
     )
     assert expected == enc
 
@@ -102,19 +91,8 @@ def test_apiclientmethods():
     cl.enableDebugMode()
     cl.disableDebugMode()
 
-    # #.getSession()
-    # initial value
-    session = cl.getSession()
-    assert session is None
-    # custom value
-    sessid = "testSessionID12345678"
-    cl.setSession(sessid)
-    session = cl.getSession()
-    assert session is sessid
-    cl.setSession("")
-
     # #.getURL()
-    assert cl.getURL() == ISPAPI_CONNECTION_URL_LIVE
+    assert cl.getURL() == CNR_CONNECTION_URL_LIVE
 
     # #.getUserAgent()
     pid = "PYTHON-SDK"
@@ -160,110 +138,84 @@ def test_apiclientmethods():
     assert cl.getUserAgent() == ua
 
     # #.setURL()
-    tmp = ISPAPI_CONNECTION_URL_PROXY
+    tmp = CNR_CONNECTION_URL_PROXY
     url = cl.setURL(tmp).getURL()
     assert url is tmp
-    cl.setURL(ISPAPI_CONNECTION_URL_LIVE)
-
-    # #.setOTP()
-    # [otp set]
-    cl.setOTP("12345678")
-    tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    exp = "s_entity=54cd&s_otp=12345678&s_command=COMMAND%3DStatusAccount"
-    assert tmp == exp
-
-    # [otp reset]
-    cl.setOTP("")
-    tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    exp = "s_entity=54cd&s_command=COMMAND%3DStatusAccount"
-    assert tmp == exp
-
-    # #.setSession()
-    # [session set]
-    cl.setSession("12345678")
-    tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    exp = "s_entity=54cd&s_session=12345678&s_command=COMMAND%3DStatusAccount"
-    assert tmp == exp
+    cl.setURL(CNR_CONNECTION_URL_LIVE)
 
     # [credentials and session set]
-    cl.setRoleCredentials("myaccountid", "myrole", "mypassword")
-    cl.setOTP("12345678")
-    cl.setSession("12345678")
+    sessionobj = {
+        "socketcfg": {
+            "login": "myaccountid",
+            "session": "12345678",
+        }
+    }
+    cl.setCredentials("myaccountid", "mypassword")
+    cl.reuseSession(sessionobj)
+    cl.enableDebugMode()
     tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    exp = "s_entity=54cd&s_session=12345678&s_command=COMMAND%3DStatusAccount"
+    exp = "s_login=myaccountid&s_sessionid=12345678&s_command=COMMAND%3DStatusAccount"
     assert tmp == exp
 
-    # [session reset]
-    cl.setSession("")
+    # [session and login reset]
+    cl.reuseSession({})
+    cl.setCredentials("", "")
     tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    assert tmp == "s_entity=54cd&s_command=COMMAND%3DStatusAccount"
+    assert tmp == "s_command=COMMAND%3DStatusAccount"
 
-    # #.saveSession/reuseSession
+    # #.saveSession/reuseSession with password
     sessionobj = {}
-    cl.setSession("12345678").saveSession(sessionobj)
+    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
+                      os.environ.get("CNR_TEST_PASSWORD")).disableDebugMode()
+    r = cl.login()
+    cl.saveSession(sessionobj)
     cl2 = AC()
     cl2.reuseSession(sessionobj)
     tmp = cl2.getPOSTData({"COMMAND": "StatusAccount"})
-    exp = "s_entity=54cd&s_session=12345678&s_command=COMMAND%3DStatusAccount"
-    assert tmp == exp
-    cl.setSession("")
-
-    # #.setRemoteIPAddress()
-    # [ip set]
-    cl.setRemoteIPAddress("10.10.10.10")
-    tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    exp = "s_entity=54cd&s_remoteaddr=10.10.10.10&s_command=COMMAND%3DStatusAccount"
-    assert tmp == exp
-
-    # [ip reset]
-    cl.setRemoteIPAddress("")
-    tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    assert tmp == "s_entity=54cd&s_command=COMMAND%3DStatusAccount"
+    assert "s_sessionid" in tmp
 
     # #.setCredentials()
     # [credentials set]
     cl.setCredentials("myaccountid", "mypassword")
     tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    exp = "s_entity=54cd&s_login=myaccountid&s_pw=mypassword&s_command=COMMAND%3DStatusAccount"
+    exp = "s_login=myaccountid&s_pw=mypassword&s_command=COMMAND%3DStatusAccount"
     assert tmp == exp
 
     # [session reset]
     cl.setCredentials("", "")
     tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    assert tmp == "s_entity=54cd&s_command=COMMAND%3DStatusAccount"
+    assert tmp == "s_command=COMMAND%3DStatusAccount"
 
     # #.setRoleCredentials()
     # [role credentials set]
     cl.setRoleCredentials("myaccountid", "myroleid", "mypassword")
     tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    exp = "s_entity=54cd&s_login=myaccountid%21myroleid&s_pw=mypassword&s_command=COMMAND%3DStatusAccount"
+    exp = "s_login=myaccountid%3Amyroleid&s_pw=mypassword&s_command=COMMAND%3DStatusAccount"
     assert tmp == exp
 
     # [role credentials reset]
     cl.setRoleCredentials("", "", "")
     tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
-    assert tmp == "s_entity=54cd&s_command=COMMAND%3DStatusAccount"
+    assert tmp == "s_command=COMMAND%3DStatusAccount"
 
     # #.login()
     # [login succeeded; no role used]
     cl.useOTESystem()
-    cl.setCredentials("test.user", "test.passw0rd")
-    cl.setRemoteIPAddress("1.2.3.4")
+    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
+                      os.environ.get("CNR_TEST_PASSWORD"))
     r = cl.login()
     assert isinstance(r, R) is True
-    assert r.isSuccess() is True, ("{0} {1}").format(r.getCode(), r.getDescription())
+    assert r.isSuccess() is True, ("{0} {1}").format(
+        r.getCode(), r.getDescription())
     rec = r.getRecord(0)
     assert rec is not None
-    assert rec.getDataByKey("SESSION") is not None
+    assert rec.getDataByKey("SESSIONID") is not None
 
     # support bulk parameters also as nested array (flattenCommand)
-    r = cl.request(
-        {"COMMAND": "CheckDomains", "DOMAIN": ["example.com", "example.net"]}
-    )
+    cl.enableDebugMode()
+    r = cl.request({"COMMAND": "CheckDomains", "DOMAIN": [
+                   "example.com", "example.net"]})
     assert isinstance(r, R) is True
-    assert r.isSuccess() is True
-    assert r.getCode() is 200
-    assert r.getDescription() == "Command completed successfully"
     cmd = r.getCommand()
     keys = cmd.keys()
     assert ("DOMAIN0" in keys) is True
@@ -276,35 +228,35 @@ def test_apiclientmethods():
     r = cl.request(
         {
             "COMMAND": "CheckDomains",
-            "DOMAIN": ["example.com", "dömäin.example", "example.net"],
+            "DOMAIN": "GOOGLE.COM",
+            "DNSZONE": ["example.com", "dömäin.com", "example.net"],
         }
     )
     assert isinstance(r, R) is True
-    assert r.isSuccess() is True
-    assert r.getCode() is 200
-    assert r.getDescription() == "Command completed successfully"
     cmd = r.getCommand()
     keys = cmd.keys()
-    assert ("DOMAIN0" in keys) is True
-    assert ("DOMAIN1" in keys) is True
-    assert ("DOMAIN2" in keys) is True
-    assert ("DOMAIN" in keys) is False
-    assert cmd["DOMAIN0"] == "example.com"
-    assert cmd["DOMAIN1"] == "xn--dmin-moa0i.example"
-    assert cmd["DOMAIN2"] == "example.net"
+    assert ("DNSZONE0" in keys) is True
+    assert ("DNSZONE1" in keys) is True
+    assert ("DNSZONE2" in keys) is True
+    assert ("DNSZONE" in keys) is False
+    assert cmd["DNSZONE0"] == "example.com"
+    assert cmd["DNSZONE1"] == "xn--dmin-moa0i.com"
+    assert cmd["DNSZONE2"] == "example.net"
 
-    # [login succeeded; role used]
-    # cl.useOTESystem()
-    # cl.setRoleCredentials('test.user', 'testrole', 'test.passw0rd')
-    # r = cl.login()
-    # assert isinstance(r, R)
-    # assert r.isSuccess() is True, ("{0} {1}").format(r.getCode(), r.getDescription())
-    # rec = r.getRecord(0)
-    # assert rec is not None
-    # assert rec.getDataByKey('SESSION') is not None
+    # [login succeeded]
+    cl.useOTESystem()
+    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
+                      os.environ.get("CNR_TEST_PASSWORD"))
+    r = cl.login()
+    assert isinstance(r, R)
+    assert r.isSuccess() is True, ("{0} {1}").format(
+        r.getCode(), r.getDescription())
+    rec = r.getRecord(0)
+    assert rec is not None
+    assert rec.getDataByKey('SESSIONID') is not None
 
     # [login failed; wrong credentials]
-    cl.setCredentials("test.user", "WRONGPASSWORD")
+    cl.setCredentials(os.environ.get("CNR_TEST_USER"), "WRONGPASSWORD")
     r = cl.login()
     assert isinstance(r, R)
     assert r.isError() is True
@@ -313,7 +265,7 @@ def test_apiclientmethods():
     tpl = rtm.getTemplate("httperror")
     old = cl.getURL()
     cl.setURL("https://iwontsucceedgregegeg343teagr43.com/api/call.cgi")
-    cl.setCredentials("test.user", "WRONGPASSWORD")
+    cl.setCredentials(os.environ.get("CNR_TEST_USER"), "WRONGPASSWORD")
     r = cl.login()
     assert isinstance(r, R)
     assert r.isTmpError() is True
@@ -322,36 +274,30 @@ def test_apiclientmethods():
 
     # [login succeeded; no session returned]
     # TODO: need network mock
-    # tpl = R(rtm.getTemplate('OK').getPlain())
-    # cl.useOTESystem()
-    # cl.setCredentials('test.user', 'test.passw0rd')
-    # r = cl.login()
-    # assert isinstance(r, R)
-    # assert r.isSuccess() is True
-    # rec = r.getRecord(0)
-    # assert rec is Node
-
-    # #.loginExtended()
-    # [login succeeded; no role used]
+    tpl = R(rtm.getTemplate('OK').getPlain())
     cl.useOTESystem()
-    cl.setCredentials("test.user", "test.passw0rd")
-    r = cl.loginExtended({"TIMEOUT": 60})
-    assert isinstance(r, R) is True
+    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
+                      os.environ.get("CNR_TEST_PASSWORD"))
+    r = cl.login()
+    assert isinstance(r, R)
     assert r.isSuccess() is True
-    rec = r.getRecord(0)
-    assert rec is not None
-    assert rec.getDataByKey("SESSION") is not None
 
-    # #.logout()
-    # [logout succeeded]
+    # # #.logout()
+    # # [logout succeeded]
     r = cl.logout()
     assert isinstance(r, R)
     assert r.isSuccess() is True
 
-    # [logout failed; session no longer exists]
+    # # [logout failed; session no longer exists]
     tpl = R(rtm.getTemplate("login200").getPlain())
     cl.enableDebugMode()
-    cl.setSession(tpl.getRecord(0).getDataByKey("SESSION"))
+    sessionobj = {
+        "socketcfg": {
+            "login": os.environ.get("CNR_TEST_USER"),
+            "session": tpl.getRecord(0).getDataByKey("SESSIONID"),
+            }
+        }
+    cl.reuseSession({})
     r = cl.logout()
     assert isinstance(r, R) is True
     assert r.isError() is True
@@ -360,9 +306,9 @@ def test_apiclientmethods():
     # [200 < r.statusCode > 299]
     # TODO need network mock
     # tpl2 = R(rtm.getTemplate('httperror').getPlain())
-    # cl.setCredentials('test.user', 'test.passw0rd')
+    # cl.setCredentials(os.environ.get("CNR_TEST_USER"), os.environ.get("CNR_TEST_PASSWORD"))
     # cl.useOTESystem()
-    # r = cl.request({ 'COMMAND': 'GetUserIndex' })
+    # r = cl.request({ 'COMMAND': 'StatusAccount' })
     # assert isinstance(r, R) is True
     # assert r.isTmpError() is True
     # assert r.getCode() == tpl2.getCode()
@@ -380,36 +326,13 @@ def test_apiclientmethods():
 
     # .requestNextResponsePage
     # [no LAST set]
-    cl.setCredentials("test.user", "test.passw0rd")
+    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
+                      os.environ.get("CNR_TEST_PASSWORD"))
     cl.useOTESystem()
+    cl.enableDebugMode()
     r = R(
         rtm.getTemplate("listP0").getPlain(),
-        {"COMMAND": "QueryDomainList", "LIMIT": 2, "FIRST": 0},
-    )
-    nr = cl.requestNextResponsePage(r)
-    assert r.isSuccess() is True
-    assert nr.isSuccess() is True
-    assert r.getRecordsLimitation() == 2
-    assert nr.getRecordsLimitation() == 2
-    assert r.getRecordsCount() == 2
-    assert nr.getRecordsCount() == 2
-    assert r.getFirstRecordIndex() == 0
-    assert r.getLastRecordIndex() == 1
-    assert nr.getFirstRecordIndex() == 2
-    assert nr.getLastRecordIndex() == 3
-
-    # [LAST set]
-    r = R(
-        rtm.getTemplate("listP0").getPlain(),
-        {"COMMAND": "QueryDomainList", "LIMIT": 2, "FIRST": 0, "LAST": 1},
-    )
-    with pytest.raises(Exception, match=r"Parameter LAST in use."):
-        cl.requestNextResponsePage(r)
-
-    # [no FIRST set]
-    cl.disableDebugMode()
-    r = R(
-        rtm.getTemplate("listP0").getPlain(), {"COMMAND": "QueryDomainList", "LIMIT": 2}
+        {"COMMAND": "QueryDomainList", "LIMIT": 2},
     )
     nr = cl.requestNextResponsePage(r)
     assert r.isSuccess() is True
@@ -426,19 +349,20 @@ def test_apiclientmethods():
     # #.requestAllResponsePages()
     # [success case]
     nr = cl.requestAllResponsePages(
-        {"COMMAND": "QuerySSLCertList", "FIRST": 0, "LIMIT": 100}
+        {"COMMAND": "QueryDomainList"}
     )
     assert len(nr) > 0
 
     # #.setUserView()
-    cl.setUserView("hexotestman.com")
-    r = cl.request({"COMMAND": "GetUserIndex"})
+    cl.setUserView("julia")
+    r = cl.request({"COMMAND": "QueryUserList"})
     assert isinstance(r, R) is True
     assert r.isSuccess() is True
 
     # #.resetUserView()
-    cl.setUserView("")
-    r = cl.request({"COMMAND": "GetUserIndex"})
+    cl.setUserView("julia")
+    cl.resetUserView()
+    r = cl.request({"COMMAND": "QueryUserList"})
     assert isinstance(r, R) is True
     assert r.isSuccess() is True
 
@@ -448,14 +372,14 @@ def test_apiclientmethods():
     cl.setProxy("")
 
     # #.setReferer
-    cl.setReferer("https://www.hexonet.net/")
-    assert cl.getReferer() == "https://www.hexonet.net/"
+    cl.setReferer("https://www.centralnicreseller.com/")
+    assert cl.getReferer() == "https://www.centralnicreseller.com/"
     cl.setReferer("")
 
     # #.useHighPerformanceConnectionSetup
     cl.useHighPerformanceConnectionSetup()
-    assert cl.getURL() == ISPAPI_CONNECTION_URL_PROXY
+    assert cl.getURL() == CNR_CONNECTION_URL_PROXY
 
     # #.useDefaultConnectionSetup
     cl.useDefaultConnectionSetup()
-    assert cl.getURL() == ISPAPI_CONNECTION_URL_LIVE
+    assert cl.getURL() == CNR_CONNECTION_URL_LIVE

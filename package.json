@@ -1,11 +1,11 @@
 {
   "name": "python-sdk",
-  "description": "Python SDK for the insanely fast HEXONET API",
+  "description": "Python SDK for the insanely fast CentralNicReseller (fka. RRPProxy) API",
   "version": "0.0.0-development",
   "private": true,
   "author": {
     "name": "Kai Schwarz",
-    "email": "kschwarz@hexonet.net"
+    "email": "kai.schwarz@centralnic.com"
   },
   "license": "MIT",
   "engines": {
@@ -17,16 +17,21 @@
   "maintainers": [
     {
       "name": "Kai Schwarz",
-      "email": "kschwarz@hexonet.net"
+      "email": "kai.schwarz@centralnic.com"
+    },
+    {
+      "name": "Asif Nawaz",
+      "email": "asif.nawaz@centralnic.com"
     }
   ],
   "keywords": [
-    "hexonet",
+    "centralnic",
+    "centralnic reseller",
     "domain",
     "api",
     "connector",
-    "isp",
-    "ispapi",
+    "cnr",
+    "cnic",
     "ssl",
     "cert",
     "dns",
@@ -36,7 +41,9 @@
     "registration",
     "application"
   ],
-
+  "scripts": {
+    "test-demo": "python ./tests/app.py"
+  },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^6.0.3",
