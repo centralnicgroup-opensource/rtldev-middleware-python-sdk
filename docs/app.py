@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # Import the ispapi library
-from hexonet.apiconnector.apiclient import APIClient as AC
+from centralnicreseller.apiconnector.apiclient import APIClient as AC
 
 # -------- SESSIONLESS COMMUNICATION -----------
 

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-    hexonet.apiconnector.responsetemplatemanager
+    centralnicreseller.apiconnector.responsetemplatemanager
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This module covers all functionality to
     manage response templates.
-    :copyright: © 2018 by HEXONET GmbH.
+    :copyright: © 2024 Team Internet Group PLC.
     :license: MIT, see LICENSE for more details.
 """
 
-import hexonet.apiconnector.responseparser as RP
-from hexonet.apiconnector.responsetemplate import ResponseTemplate as RT
+import centralnicreseller.apiconnector.responseparser as RP
+from centralnicreseller.apiconnector.responsetemplate import ResponseTemplate as RT
 
 
 class ResponseTemplateManager(object):
@@ -44,7 +44,8 @@ class ResponseTemplateManager(object):
             "invalid": rtm.generateTemplate(
                 "423", "Invalid API response. Contact Support"
             ),
-            "unauthorized": rtm.generateTemplate("530", "Unauthorized"),
+            "unauthorized": rtm.generateTemplate("500", "Unauthorized"),
+            "notfound": rtm.generateTemplate("500", "Response Template not found"),
         }
         return rtm
 
@@ -76,7 +77,7 @@ class ResponseTemplateManager(object):
         """
         if self.hasTemplate(id):
             return RT(self.__templates[id])
-        return RT(self.generateTemplate("500", "Response Template not found"))
+        return RT(self.__templates["notfound"])
 
     def getTemplates(self):
         """

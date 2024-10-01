@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-    hexonet.apiconnector.response
+    centralnicreseller.apiconnector.response
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This module covers all necessary functionality to
     work with Backend API responses.
-    :copyright: © 2018 by HEXONET GmbH.
+    :copyright: © 2024 Team Internet Group PLC.
     :license: MIT, see LICENSE for more details.
 """
-from hexonet.apiconnector.responsetemplate import ResponseTemplate as RT
-from hexonet.apiconnector.column import Column
-from hexonet.apiconnector.record import Record
+from centralnicreseller.apiconnector.responsetemplate import ResponseTemplate as RT
+from centralnicreseller.apiconnector.column import Column
+from centralnicreseller.apiconnector.record import Record
 
 import math
 import re
@@ -138,7 +138,8 @@ class Response(RT, object):
         Get Record of current record index
         """
         return (
-            self.__records[self.__recordIndex] if (self.__hasCurrentRecord()) else None
+            self.__records[self.__recordIndex] if (
+                self.__hasCurrentRecord()) else None
         )
 
     def getFirstRecordIndex(self):
@@ -345,3 +346,21 @@ class Response(RT, object):
         current record index in use
         """
         return self.__recordIndex > 0 and self.__hasCurrentRecord()
+
+    def isPending(self):
+        """
+        Check if current operation is returned as pending
+        """
+        # Check if the COMMAND is AddDomain (case-insensitive)
+        cmd = self.getCommand()
+        if cmd is None or not cmd.get("COMMAND") or cmd["COMMAND"].lower() != "adddomain":
+            return False
+
+        # Retrieve the STATUS column and check if its data equals REQUESTED (case-insensitive)
+        status = self.getColumn("STATUS")
+        if status:
+            status_data = status.getDataByIndex(0)
+            if status_data and status_data.lower() == "requested":
+                return True
+
+        return False

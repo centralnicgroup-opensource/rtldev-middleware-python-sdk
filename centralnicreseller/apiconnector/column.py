@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-    hexonet.apiconnector.column
+    centralnicreseller.apiconnector.column
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This module covers all necessary functionality to
     work with a column and wrapped data.
-    :copyright: © 2018 by HEXONET GmbH.
+    :copyright: © 2024 Team Internet Group PLC.
     :license: MIT, see LICENSE for more details.
 """
-
 
 class Column(object):
     """

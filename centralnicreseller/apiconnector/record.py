@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-    hexonet.apiconnector.record
+    centralnicreseller.apiconnector.record
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     This module covers all necessary functionality to
     work with a record and wrapped data.
-    :copyright: © 2018 by HEXONET GmbH.
+    :copyright: © 2024 Team Internet Group PLC.
     :license: MIT, see LICENSE for more details.
 """
 
