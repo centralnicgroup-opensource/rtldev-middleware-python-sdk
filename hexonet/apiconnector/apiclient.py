@@ -186,7 +186,7 @@ class APIClient(object):
         """
         Get the current module version
         """
-        return "4.0.3"
+        return "4.0.4"
 
     def saveSession(self, session):
         """

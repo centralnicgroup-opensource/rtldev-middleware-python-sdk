@@ -1,3 +1,10 @@
+## [4.0.4](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.3...v4.0.4) (2024-10-21)
+
+
+### Bug Fixes
+
+* **deps:** update sphinx-rtd-theme requirement from <3,>=1 to >=1,<4 ([f4749f6](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/f4749f6fd34550cc3f7cfe4a1565715c8051c56c))
+
 ## [4.0.3](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.2...v4.0.3) (2024-09-04)
 
 

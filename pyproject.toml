@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hexonet.apiconnector"
-version = "4.0.3"
+version = "4.0.4"
 description = "hexonet.apiconnector is a connector library for the insanely fast HEXONET Backend API"
 readme = "README.md"
 authors = [{name = "Kai Schwarz", email = "kschwarz@hexonet.net"}]
