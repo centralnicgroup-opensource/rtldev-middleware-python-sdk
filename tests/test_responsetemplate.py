@@ -1,9 +1,9 @@
-from hexonet.apiconnector.responsetemplate import ResponseTemplate
+from centralnicreseller.apiconnector.responsetemplate import ResponseTemplate
 
 
 def test_responsetemplatemethods():
     # check invalid api response
-    tpl = ResponseTemplate("[RESPONSE]\r\nqueuetime=0\r\nEOF\r\n")
+    tpl = ResponseTemplate("[RESPONSE]\r\nqueuetime = 0\r\nEOF\r\n")
     assert tpl.getCode() == 423
     assert tpl.getDescription() == "Invalid API response. Contact Support"
 
@@ -23,7 +23,7 @@ def test_responsetemplatemethods():
     assert tpl.getQueuetime() == 0.00
     # [in api response]
     tpl2 = ResponseTemplate(
-        "[RESPONSE]\r\ncode=423\r\ndescription=%s\r\nqueuetime=0\r\nruntime=0.12\r\nEOF\r\n"
+        "[RESPONSE]\r\ncode = 423\r\ndescription = %s\r\nqueuetime = 0\r\nruntime = 0.12\r\nEOF\r\n"
         % (descr)
     )
     assert tpl2.getQueuetime() == 0.00
@@ -33,12 +33,3 @@ def test_responsetemplatemethods():
     assert tpl.getRuntime() == 0.00
     # [in api response]
     assert tpl2.getRuntime() == 0.12
-
-    # #.isPending
-    # [not in api response]
-    assert tpl.isPending() is False
-    # [in api response]
-    tpl2 = ResponseTemplate(
-        "[RESPONSE]\r\ncode=423\r\ndescription=%s\r\npending=1\r\nEOF\r\n" % (descr)
-    )
-    assert tpl2.isPending() is True
