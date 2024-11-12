@@ -1,3 +1,16 @@
+# [5.0.0](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.4...v5.0.0) (2024-11-12)
+
+
+### Features
+
+* **centralnic reseller python sdk:** Introducing CentralNic Reseller Python SDK API Connector ([a78900c](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/a78900cd6488f77dbd722fca66f58599eff6348e))
+
+
+### BREAKING CHANGES
+
+* **centralnic reseller python sdk:** This release deprecates the Hexonet Python SDK and introduces the CentralNic Reseller Python SDK.
+- Note: To continue using the Hexonet SDK, please install version 4.0.2 or earlier.
+
 ## [4.0.4](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.3...v4.0.4) (2024-10-21)
 
 

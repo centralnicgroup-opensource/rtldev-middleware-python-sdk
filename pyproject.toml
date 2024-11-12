@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "centralnicreseller.apiconnector"
-version = "4.0.3"
+version = "5.0.0"
 description = """
 centralnicreseller.apiconnector is an API connector library for the insanely fast CentralNic Reseller (fka. RRPProxy) Backend API.
 With this connector, you can easily resell over 1,100 TLDs, including many rare ccTLDs and hundreds of popular domain extensions. The CentralNic Reseller API and WHMCS plug-in solutions provide a fully automated real-time system and white-labeled reselling options, allowing you to reach your reselling goals in no time.
