@@ -1,2 +1,2 @@
 #!/bin/bash
-twine upload --skip-existing dist/*
+twine upload --skip-existing -u "${TWINE_LIVE_USERNAME}" -p "${TWINE_LIVE_USERNAME}" dist/*
