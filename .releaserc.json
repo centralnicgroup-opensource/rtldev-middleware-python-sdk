@@ -9,13 +9,6 @@
       }
     ],
     [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "./scripts/createdistribution.sh",
-        "publishCmd": "./scripts/uploaddistribution_live.sh"
-      }
-    ],
-    [
       "semantic-release-replace-plugin",
       {
         "replacements": [
@@ -30,6 +23,13 @@
             "countMatches": true
           }
         ]
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "./scripts/createdistribution.sh",
+        "publishCmd": "./scripts/uploaddistribution_live.sh"
       }
     ],
     [
