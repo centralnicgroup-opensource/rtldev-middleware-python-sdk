@@ -30,7 +30,7 @@ dependencies = [
     "sphinx>=3,<9",
     "sphinxcontrib-log-cabinet>=1,<2",
     "sphinxcontrib-websupport>=1,<3",
-    "twine>=4,<6",
+    "twine>=4,<7",
     "black>=23,<25",
     "idna>=3"
 ]
