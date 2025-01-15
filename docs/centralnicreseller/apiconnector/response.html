@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>centralnicreseller.apiconnector.response API documentation</title>
+<meta name="description" content="centralnicreseller.apiconnector.response
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This module covers all necessary functionality to
+work with Backend API …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>centralnicreseller.apiconnector.response</code></h1>
+</header>
+<section id="section-intro">
+<p>centralnicreseller.apiconnector.response
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This module covers all necessary functionality to
+work with Backend API responses.
+:copyright: © 2024 Team Internet Group PLC.
+:license: MIT, see LICENSE for more details.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="centralnicreseller.apiconnector.response.Response"><code class="flex name class">
+<span>class <span class="ident">Response</span></span>
+<span>(</span><span>raw, cmd=None, cfg={})</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Response(RT, object):
+    &#34;&#34;&#34;
+    The Response class covers all necessary functionality to cover access to
+    Backend API response data in a useful way.
+    &#34;&#34;&#34;
+
+    def __init__(self, raw, cmd=None, cfg={}):
+        super(Response, self).__init__(raw)
+
+        if re.search(r&#34;\{[A-Z_]+\}&#34;, self._raw):
+            for key, value in cfg.items():
+                self._raw = self._raw.replace(&#34;{%s}&#34; % (key), value)
+            self._raw = re.sub(r&#34;\{[A-Z_]+\}&#34;, &#34;&#34;, self._raw)
+            super(Response, self).__init__(self._raw)
+
+        # The API Command used within this request
+        self.__command = cmd
+        if (self.__command is not None) and (&#34;PASSWORD&#34; in self.__command):
+            self.__command[&#34;PASSWORD&#34;] = &#34;***&#34;
+        # Column names available in this responsse.
+        # NOTE: this includes also FIRST, LAST, LIMIT, COUNT, TOTAL
+        # and maybe further specific columns in case of a list query
+        self.__columnkeys = []
+        # Container of Column Instances
+        self.__columns = []
+        # Record Index we currently point to in record list
+        self.__recordIndex = 0
+        # Record List (List of rows)
+        self.__records = []
+
+        h = self.getHash()
+        if &#34;PROPERTY&#34; in h:
+            colKeys = list(h[&#34;PROPERTY&#34;].keys())
+            count = 0
+            for c in colKeys:
+                d = h[&#34;PROPERTY&#34;][c]
+                self.addColumn(c, d)
+                mylen = len(d)
+                if mylen &gt; count:
+                    count = mylen
+            for i in range(count):
+                d = {}
+                for k in colKeys:
+                    col = self.getColumn(k)
+                    if col is not None:
+                        v = col.getDataByIndex(i)
+                        if v is not None:
+                            d[k] = v
+                self.addRecord(d)
+
+    def addColumn(self, key, data):
+        &#34;&#34;&#34;
+        Add a column to the column list
+        &#34;&#34;&#34;
+        col = Column(key, data)
+        self.__columns.append(col)
+        self.__columnkeys.append(key)
+        return self
+
+    def addRecord(self, h):
+        &#34;&#34;&#34;
+        Add a record to the record list
+        &#34;&#34;&#34;
+        self.__records.append(Record(h))
+        return self
+
+    def getColumn(self, key):
+        &#34;&#34;&#34;
+        Get column by column name
+        &#34;&#34;&#34;
+        if self.__hasColumn(key):
+            return self.__columns[self.__columnkeys.index(key)]
+        return None
+
+    def getColumnIndex(self, colkey, index):
+        &#34;&#34;&#34;
+        Get Data by Column Name and Index
+        &#34;&#34;&#34;
+        col = self.getColumn(colkey)
+        return col.getDataByIndex(index) if (col is not None) else None
+
+    def getColumnKeys(self):
+        &#34;&#34;&#34;
+        Get Column Names
+        &#34;&#34;&#34;
+        return self.__columnkeys
+
+    def getColumns(self):
+        &#34;&#34;&#34;
+        Get List of Columns
+        &#34;&#34;&#34;
+        return self.__columns
+
+    def getCommand(self):
+        &#34;&#34;&#34;
+        Get Command used in this request
+        &#34;&#34;&#34;
+        return self.__command
+
+    def getCommandPlain(self):
+        &#34;&#34;&#34;
+        Get Command used in this request in plain text
+        &#34;&#34;&#34;
+        tmp = &#34;&#34;
+        for key, val in self.__command.items():
+            tmp += &#34;%s = %s\n&#34; % (key, val)
+        return tmp
+
+    def getCurrentPageNumber(self):
+        &#34;&#34;&#34;
+        Get Page Number of current List Query
+        &#34;&#34;&#34;
+        first = self.getFirstRecordIndex()
+        limit = self.getRecordsLimitation()
+        if (first is not None) and (limit):
+            return math.floor(first / limit) + 1
+        return None
+
+    def getCurrentRecord(self):
+        &#34;&#34;&#34;
+        Get Record of current record index
+        &#34;&#34;&#34;
+        return (
+            self.__records[self.__recordIndex] if (
+                self.__hasCurrentRecord()) else None
+        )
+
+    def getFirstRecordIndex(self):
+        &#34;&#34;&#34;
+        Get Index of first row in this response
+        &#34;&#34;&#34;
+        col = self.getColumn(&#34;FIRST&#34;)
+        if col is not None:
+            f = col.getDataByIndex(0)
+            if f is not None:
+                return int(f)
+        if len(self.__records):
+            return 0
+        return None
+
+    def getLastRecordIndex(self):
+        &#34;&#34;&#34;
+        Get last record index of the current list query
+        &#34;&#34;&#34;
+        col = self.getColumn(&#34;LAST&#34;)
+        if col is not None:
+            data = col.getDataByIndex(0)
+            if data is not None:
+                return int(data)
+        len = self.getRecordsCount()
+        if len:
+            return len - 1
+        return None
+
+    def getListHash(self):
+        &#34;&#34;&#34;
+        Get Response as List Hash including useful meta data for tables
+        &#34;&#34;&#34;
+        lh = []
+        for rec in self.getRecords():
+            lh.append(rec.getData())
+        return {
+            &#34;LIST&#34;: lh,
+            &#34;meta&#34;: {&#34;columns&#34;: self.getColumnKeys(), &#34;pg&#34;: self.getPagination()},
+        }
+
+    def getNextRecord(self):
+        &#34;&#34;&#34;
+        Get next record in record list
+        &#34;&#34;&#34;
+        if self.__hasNextRecord():
+            self.__recordIndex += 1
+            return self.__records[self.__recordIndex]
+        return None
+
+    def getNextPageNumber(self):
+        &#34;&#34;&#34;
+        Get Page Number of next list query
+        &#34;&#34;&#34;
+        cp = self.getCurrentPageNumber()
+        if cp is None:
+            return None
+        page = cp + 1
+        pages = self.getNumberOfPages()
+        return page if (page &lt;= pages) else pages
+
+    def getNumberOfPages(self):
+        &#34;&#34;&#34;
+        Get the number of pages available for this list query
+        &#34;&#34;&#34;
+        t = self.getRecordsTotalCount()
+        limit = self.getRecordsLimitation()
+        if t and limit:
+            return math.ceil(t / self.getRecordsLimitation())
+        return 0
+
+    def getPagination(self):
+        &#34;&#34;&#34;
+        Get object containing all paging data
+        &#34;&#34;&#34;
+        return {
+            &#34;COUNT&#34;: self.getRecordsCount(),
+            &#34;CURRENTPAGE&#34;: self.getCurrentPageNumber(),
+            &#34;FIRST&#34;: self.getFirstRecordIndex(),
+            &#34;LAST&#34;: self.getLastRecordIndex(),
+            &#34;LIMIT&#34;: self.getRecordsLimitation(),
+            &#34;NEXTPAGE&#34;: self.getNextPageNumber(),
+            &#34;PAGES&#34;: self.getNumberOfPages(),
+            &#34;PREVIOUSPAGE&#34;: self.getPreviousPageNumber(),
+            &#34;TOTAL&#34;: self.getRecordsTotalCount(),
+        }
+
+    def getPreviousPageNumber(self):
+        &#34;&#34;&#34;
+        Get Page Number of previous list query
+        &#34;&#34;&#34;
+        cp = self.getCurrentPageNumber()
+        if cp is not None:
+            cp = cp - 1
+            if cp:
+                return cp
+        return None
+
+    def getPreviousRecord(self):
+        &#34;&#34;&#34;
+        Get previous record in record list
+        &#34;&#34;&#34;
+        if self.__hasPreviousRecord():
+            self.__recordIndex -= 1
+            return self.__records[self.__recordIndex]
+        return None
+
+    def getRecord(self, idx):
+        &#34;&#34;&#34;
+        Get Record at given index
+        &#34;&#34;&#34;
+        if idx &gt;= 0 and len(self.__records) &gt; idx:
+            return self.__records[idx]
+        return None
+
+    def getRecords(self):
+        &#34;&#34;&#34;
+        Get all Records
+        &#34;&#34;&#34;
+        return self.__records
+
+    def getRecordsCount(self):
+        &#34;&#34;&#34;
+        Get count of rows in this response
+        &#34;&#34;&#34;
+        return len(self.__records)
+
+    def getRecordsTotalCount(self):
+        &#34;&#34;&#34;
+        Get total count of records available for the list query
+        &#34;&#34;&#34;
+        col = self.getColumn(&#34;TOTAL&#34;)
+        if col is not None:
+            t = col.getDataByIndex(0)
+            if t is not None:
+                return int(t)
+        return self.getRecordsCount()
+
+    def getRecordsLimitation(self):
+        &#34;&#34;&#34;
+        Get limit(ation) setting of the current list query
+        &#34;&#34;&#34;
+        col = self.getColumn(&#34;LIMIT&#34;)
+        if col is not None:
+            data = col.getDataByIndex(0)
+            if data is not None:
+                return int(data)
+        return self.getRecordsCount()
+
+    def hasNextPage(self):
+        &#34;&#34;&#34;
+        Check if this list query has a next page
+        &#34;&#34;&#34;
+        cp = self.getCurrentPageNumber()
+        if cp is None:
+            return False
+        return (cp + 1) &lt;= self.getNumberOfPages()
+
+    def hasPreviousPage(self):
+        &#34;&#34;&#34;
+        Check if this list query has a previous page
+        &#34;&#34;&#34;
+        cp = self.getCurrentPageNumber()
+        if cp is None:
+            return False
+        return (cp - 1) &gt; 0
+
+    def rewindRecordList(self):
+        &#34;&#34;&#34;
+        Reset index in record list back to zero
+        &#34;&#34;&#34;
+        self.__recordIndex = 0
+        return self
+
+    def __hasColumn(self, key):
+        &#34;&#34;&#34;
+        Check if column exists in response
+        &#34;&#34;&#34;
+        try:
+            self.__columnkeys.index(key)
+        except ValueError:
+            return False
+        return True
+
+    def __hasCurrentRecord(self):
+        &#34;&#34;&#34;
+        Check if the record list contains a record for the
+        current record index in use
+        &#34;&#34;&#34;
+        tlen = len(self.__records)
+        return tlen &gt; 0 and self.__recordIndex &gt;= 0 and self.__recordIndex &lt; tlen
+
+    def __hasNextRecord(self):
+        &#34;&#34;&#34;
+        Check if the record list contains a next record for the
+        current record index in use
+        &#34;&#34;&#34;
+        next = self.__recordIndex + 1
+        return self.__hasCurrentRecord() and (next &lt; len(self.__records))
+
+    def __hasPreviousRecord(self):
+        &#34;&#34;&#34;
+        Check if the record list contains a previous record for the
+        current record index in use
+        &#34;&#34;&#34;
+        return self.__recordIndex &gt; 0 and self.__hasCurrentRecord()
+
+    def isPending(self):
+        &#34;&#34;&#34;
+        Check if current operation is returned as pending
+        &#34;&#34;&#34;
+        # Check if the COMMAND is AddDomain (case-insensitive)
+        cmd = self.getCommand()
+        if cmd is None or not cmd.get(&#34;COMMAND&#34;) or cmd[&#34;COMMAND&#34;].lower() != &#34;adddomain&#34;:
+            return False
+
+        # Retrieve the STATUS column and check if its data equals REQUESTED (case-insensitive)
+        status = self.getColumn(&#34;STATUS&#34;)
+        if status:
+            status_data = status.getDataByIndex(0)
+            if status_data and status_data.lower() == &#34;requested&#34;:
+                return True
+
+        return False</code></pre>
+</details>
+<div class="desc"><p>The Response class covers all necessary functionality to cover access to
+Backend API response data in a useful way.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate">ResponseTemplate</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="centralnicreseller.apiconnector.response.Response.addColumn"><code class="name flex">
+<span>def <span class="ident">addColumn</span></span>(<span>self, key, data)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addColumn(self, key, data):
+    &#34;&#34;&#34;
+    Add a column to the column list
+    &#34;&#34;&#34;
+    col = Column(key, data)
+    self.__columns.append(col)
+    self.__columnkeys.append(key)
+    return self</code></pre>
+</details>
+<div class="desc"><p>Add a column to the column list</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.addRecord"><code class="name flex">
+<span>def <span class="ident">addRecord</span></span>(<span>self, h)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addRecord(self, h):
+    &#34;&#34;&#34;
+    Add a record to the record list
+    &#34;&#34;&#34;
+    self.__records.append(Record(h))
+    return self</code></pre>
+</details>
+<div class="desc"><p>Add a record to the record list</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getColumn"><code class="name flex">
+<span>def <span class="ident">getColumn</span></span>(<span>self, key)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getColumn(self, key):
+    &#34;&#34;&#34;
+    Get column by column name
+    &#34;&#34;&#34;
+    if self.__hasColumn(key):
+        return self.__columns[self.__columnkeys.index(key)]
+    return None</code></pre>
+</details>
+<div class="desc"><p>Get column by column name</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getColumnIndex"><code class="name flex">
+<span>def <span class="ident">getColumnIndex</span></span>(<span>self, colkey, index)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getColumnIndex(self, colkey, index):
+    &#34;&#34;&#34;
+    Get Data by Column Name and Index
+    &#34;&#34;&#34;
+    col = self.getColumn(colkey)
+    return col.getDataByIndex(index) if (col is not None) else None</code></pre>
+</details>
+<div class="desc"><p>Get Data by Column Name and Index</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getColumnKeys"><code class="name flex">
+<span>def <span class="ident">getColumnKeys</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getColumnKeys(self):
+    &#34;&#34;&#34;
+    Get Column Names
+    &#34;&#34;&#34;
+    return self.__columnkeys</code></pre>
+</details>
+<div class="desc"><p>Get Column Names</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getColumns"><code class="name flex">
+<span>def <span class="ident">getColumns</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getColumns(self):
+    &#34;&#34;&#34;
+    Get List of Columns
+    &#34;&#34;&#34;
+    return self.__columns</code></pre>
+</details>
+<div class="desc"><p>Get List of Columns</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getCommand"><code class="name flex">
+<span>def <span class="ident">getCommand</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCommand(self):
+    &#34;&#34;&#34;
+    Get Command used in this request
+    &#34;&#34;&#34;
+    return self.__command</code></pre>
+</details>
+<div class="desc"><p>Get Command used in this request</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getCommandPlain"><code class="name flex">
+<span>def <span class="ident">getCommandPlain</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCommandPlain(self):
+    &#34;&#34;&#34;
+    Get Command used in this request in plain text
+    &#34;&#34;&#34;
+    tmp = &#34;&#34;
+    for key, val in self.__command.items():
+        tmp += &#34;%s = %s\n&#34; % (key, val)
+    return tmp</code></pre>
+</details>
+<div class="desc"><p>Get Command used in this request in plain text</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getCurrentPageNumber"><code class="name flex">
+<span>def <span class="ident">getCurrentPageNumber</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCurrentPageNumber(self):
+    &#34;&#34;&#34;
+    Get Page Number of current List Query
+    &#34;&#34;&#34;
+    first = self.getFirstRecordIndex()
+    limit = self.getRecordsLimitation()
+    if (first is not None) and (limit):
+        return math.floor(first / limit) + 1
+    return None</code></pre>
+</details>
+<div class="desc"><p>Get Page Number of current List Query</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getCurrentRecord"><code class="name flex">
+<span>def <span class="ident">getCurrentRecord</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCurrentRecord(self):
+    &#34;&#34;&#34;
+    Get Record of current record index
+    &#34;&#34;&#34;
+    return (
+        self.__records[self.__recordIndex] if (
+            self.__hasCurrentRecord()) else None
+    )</code></pre>
+</details>
+<div class="desc"><p>Get Record of current record index</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getFirstRecordIndex"><code class="name flex">
+<span>def <span class="ident">getFirstRecordIndex</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getFirstRecordIndex(self):
+    &#34;&#34;&#34;
+    Get Index of first row in this response
+    &#34;&#34;&#34;
+    col = self.getColumn(&#34;FIRST&#34;)
+    if col is not None:
+        f = col.getDataByIndex(0)
+        if f is not None:
+            return int(f)
+    if len(self.__records):
+        return 0
+    return None</code></pre>
+</details>
+<div class="desc"><p>Get Index of first row in this response</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getLastRecordIndex"><code class="name flex">
+<span>def <span class="ident">getLastRecordIndex</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getLastRecordIndex(self):
+    &#34;&#34;&#34;
+    Get last record index of the current list query
+    &#34;&#34;&#34;
+    col = self.getColumn(&#34;LAST&#34;)
+    if col is not None:
+        data = col.getDataByIndex(0)
+        if data is not None:
+            return int(data)
+    len = self.getRecordsCount()
+    if len:
+        return len - 1
+    return None</code></pre>
+</details>
+<div class="desc"><p>Get last record index of the current list query</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getListHash"><code class="name flex">
+<span>def <span class="ident">getListHash</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getListHash(self):
+    &#34;&#34;&#34;
+    Get Response as List Hash including useful meta data for tables
+    &#34;&#34;&#34;
+    lh = []
+    for rec in self.getRecords():
+        lh.append(rec.getData())
+    return {
+        &#34;LIST&#34;: lh,
+        &#34;meta&#34;: {&#34;columns&#34;: self.getColumnKeys(), &#34;pg&#34;: self.getPagination()},
+    }</code></pre>
+</details>
+<div class="desc"><p>Get Response as List Hash including useful meta data for tables</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getNextPageNumber"><code class="name flex">
+<span>def <span class="ident">getNextPageNumber</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNextPageNumber(self):
+    &#34;&#34;&#34;
+    Get Page Number of next list query
+    &#34;&#34;&#34;
+    cp = self.getCurrentPageNumber()
+    if cp is None:
+        return None
+    page = cp + 1
+    pages = self.getNumberOfPages()
+    return page if (page &lt;= pages) else pages</code></pre>
+</details>
+<div class="desc"><p>Get Page Number of next list query</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getNextRecord"><code class="name flex">
+<span>def <span class="ident">getNextRecord</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNextRecord(self):
+    &#34;&#34;&#34;
+    Get next record in record list
+    &#34;&#34;&#34;
+    if self.__hasNextRecord():
+        self.__recordIndex += 1
+        return self.__records[self.__recordIndex]
+    return None</code></pre>
+</details>
+<div class="desc"><p>Get next record in record list</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getNumberOfPages"><code class="name flex">
+<span>def <span class="ident">getNumberOfPages</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNumberOfPages(self):
+    &#34;&#34;&#34;
+    Get the number of pages available for this list query
+    &#34;&#34;&#34;
+    t = self.getRecordsTotalCount()
+    limit = self.getRecordsLimitation()
+    if t and limit:
+        return math.ceil(t / self.getRecordsLimitation())
+    return 0</code></pre>
+</details>
+<div class="desc"><p>Get the number of pages available for this list query</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getPagination"><code class="name flex">
+<span>def <span class="ident">getPagination</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPagination(self):
+    &#34;&#34;&#34;
+    Get object containing all paging data
+    &#34;&#34;&#34;
+    return {
+        &#34;COUNT&#34;: self.getRecordsCount(),
+        &#34;CURRENTPAGE&#34;: self.getCurrentPageNumber(),
+        &#34;FIRST&#34;: self.getFirstRecordIndex(),
+        &#34;LAST&#34;: self.getLastRecordIndex(),
+        &#34;LIMIT&#34;: self.getRecordsLimitation(),
+        &#34;NEXTPAGE&#34;: self.getNextPageNumber(),
+        &#34;PAGES&#34;: self.getNumberOfPages(),
+        &#34;PREVIOUSPAGE&#34;: self.getPreviousPageNumber(),
+        &#34;TOTAL&#34;: self.getRecordsTotalCount(),
+    }</code></pre>
+</details>
+<div class="desc"><p>Get object containing all paging data</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getPreviousPageNumber"><code class="name flex">
+<span>def <span class="ident">getPreviousPageNumber</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPreviousPageNumber(self):
+    &#34;&#34;&#34;
+    Get Page Number of previous list query
+    &#34;&#34;&#34;
+    cp = self.getCurrentPageNumber()
+    if cp is not None:
+        cp = cp - 1
+        if cp:
+            return cp
+    return None</code></pre>
+</details>
+<div class="desc"><p>Get Page Number of previous list query</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getPreviousRecord"><code class="name flex">
+<span>def <span class="ident">getPreviousRecord</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPreviousRecord(self):
+    &#34;&#34;&#34;
+    Get previous record in record list
+    &#34;&#34;&#34;
+    if self.__hasPreviousRecord():
+        self.__recordIndex -= 1
+        return self.__records[self.__recordIndex]
+    return None</code></pre>
+</details>
+<div class="desc"><p>Get previous record in record list</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getRecord"><code class="name flex">
+<span>def <span class="ident">getRecord</span></span>(<span>self, idx)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getRecord(self, idx):
+    &#34;&#34;&#34;
+    Get Record at given index
+    &#34;&#34;&#34;
+    if idx &gt;= 0 and len(self.__records) &gt; idx:
+        return self.__records[idx]
+    return None</code></pre>
+</details>
+<div class="desc"><p>Get Record at given index</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getRecords"><code class="name flex">
+<span>def <span class="ident">getRecords</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getRecords(self):
+    &#34;&#34;&#34;
+    Get all Records
+    &#34;&#34;&#34;
+    return self.__records</code></pre>
+</details>
+<div class="desc"><p>Get all Records</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getRecordsCount"><code class="name flex">
+<span>def <span class="ident">getRecordsCount</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getRecordsCount(self):
+    &#34;&#34;&#34;
+    Get count of rows in this response
+    &#34;&#34;&#34;
+    return len(self.__records)</code></pre>
+</details>
+<div class="desc"><p>Get count of rows in this response</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getRecordsLimitation"><code class="name flex">
+<span>def <span class="ident">getRecordsLimitation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getRecordsLimitation(self):
+    &#34;&#34;&#34;
+    Get limit(ation) setting of the current list query
+    &#34;&#34;&#34;
+    col = self.getColumn(&#34;LIMIT&#34;)
+    if col is not None:
+        data = col.getDataByIndex(0)
+        if data is not None:
+            return int(data)
+    return self.getRecordsCount()</code></pre>
+</details>
+<div class="desc"><p>Get limit(ation) setting of the current list query</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.getRecordsTotalCount"><code class="name flex">
+<span>def <span class="ident">getRecordsTotalCount</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getRecordsTotalCount(self):
+    &#34;&#34;&#34;
+    Get total count of records available for the list query
+    &#34;&#34;&#34;
+    col = self.getColumn(&#34;TOTAL&#34;)
+    if col is not None:
+        t = col.getDataByIndex(0)
+        if t is not None:
+            return int(t)
+    return self.getRecordsCount()</code></pre>
+</details>
+<div class="desc"><p>Get total count of records available for the list query</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.hasNextPage"><code class="name flex">
+<span>def <span class="ident">hasNextPage</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hasNextPage(self):
+    &#34;&#34;&#34;
+    Check if this list query has a next page
+    &#34;&#34;&#34;
+    cp = self.getCurrentPageNumber()
+    if cp is None:
+        return False
+    return (cp + 1) &lt;= self.getNumberOfPages()</code></pre>
+</details>
+<div class="desc"><p>Check if this list query has a next page</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.hasPreviousPage"><code class="name flex">
+<span>def <span class="ident">hasPreviousPage</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hasPreviousPage(self):
+    &#34;&#34;&#34;
+    Check if this list query has a previous page
+    &#34;&#34;&#34;
+    cp = self.getCurrentPageNumber()
+    if cp is None:
+        return False
+    return (cp - 1) &gt; 0</code></pre>
+</details>
+<div class="desc"><p>Check if this list query has a previous page</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.isPending"><code class="name flex">
+<span>def <span class="ident">isPending</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isPending(self):
+    &#34;&#34;&#34;
+    Check if current operation is returned as pending
+    &#34;&#34;&#34;
+    # Check if the COMMAND is AddDomain (case-insensitive)
+    cmd = self.getCommand()
+    if cmd is None or not cmd.get(&#34;COMMAND&#34;) or cmd[&#34;COMMAND&#34;].lower() != &#34;adddomain&#34;:
+        return False
+
+    # Retrieve the STATUS column and check if its data equals REQUESTED (case-insensitive)
+    status = self.getColumn(&#34;STATUS&#34;)
+    if status:
+        status_data = status.getDataByIndex(0)
+        if status_data and status_data.lower() == &#34;requested&#34;:
+            return True
+
+    return False</code></pre>
+</details>
+<div class="desc"><p>Check if current operation is returned as pending</p></div>
+</dd>
+<dt id="centralnicreseller.apiconnector.response.Response.rewindRecordList"><code class="name flex">
+<span>def <span class="ident">rewindRecordList</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rewindRecordList(self):
+    &#34;&#34;&#34;
+    Reset index in record list back to zero
+    &#34;&#34;&#34;
+    self.__recordIndex = 0
+    return self</code></pre>
+</details>
+<div class="desc"><p>Reset index in record list back to zero</p></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate">ResponseTemplate</a></b></code>:
+<ul class="hlist">
+<li><code><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getCode" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getCode">getCode</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getDescription" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getDescription">getDescription</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getHash" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getHash">getHash</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getPlain" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getPlain">getPlain</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getQueuetime" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getQueuetime">getQueuetime</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getRuntime" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.getRuntime">getRuntime</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.isError" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.isError">isError</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.isSuccess" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.isSuccess">isSuccess</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.isTmpError" href="responsetemplate.html#centralnicreseller.apiconnector.responsetemplate.ResponseTemplate.isTmpError">isTmpError</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="centralnicreseller.apiconnector" href="index.html">centralnicreseller.apiconnector</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="centralnicreseller.apiconnector.response.Response" href="#centralnicreseller.apiconnector.response.Response">Response</a></code></h4>
+<ul class="">
+<li><code><a title="centralnicreseller.apiconnector.response.Response.addColumn" href="#centralnicreseller.apiconnector.response.Response.addColumn">addColumn</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.addRecord" href="#centralnicreseller.apiconnector.response.Response.addRecord">addRecord</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getColumn" href="#centralnicreseller.apiconnector.response.Response.getColumn">getColumn</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getColumnIndex" href="#centralnicreseller.apiconnector.response.Response.getColumnIndex">getColumnIndex</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getColumnKeys" href="#centralnicreseller.apiconnector.response.Response.getColumnKeys">getColumnKeys</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getColumns" href="#centralnicreseller.apiconnector.response.Response.getColumns">getColumns</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getCommand" href="#centralnicreseller.apiconnector.response.Response.getCommand">getCommand</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getCommandPlain" href="#centralnicreseller.apiconnector.response.Response.getCommandPlain">getCommandPlain</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getCurrentPageNumber" href="#centralnicreseller.apiconnector.response.Response.getCurrentPageNumber">getCurrentPageNumber</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getCurrentRecord" href="#centralnicreseller.apiconnector.response.Response.getCurrentRecord">getCurrentRecord</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getFirstRecordIndex" href="#centralnicreseller.apiconnector.response.Response.getFirstRecordIndex">getFirstRecordIndex</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getLastRecordIndex" href="#centralnicreseller.apiconnector.response.Response.getLastRecordIndex">getLastRecordIndex</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getListHash" href="#centralnicreseller.apiconnector.response.Response.getListHash">getListHash</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getNextPageNumber" href="#centralnicreseller.apiconnector.response.Response.getNextPageNumber">getNextPageNumber</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getNextRecord" href="#centralnicreseller.apiconnector.response.Response.getNextRecord">getNextRecord</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getNumberOfPages" href="#centralnicreseller.apiconnector.response.Response.getNumberOfPages">getNumberOfPages</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getPagination" href="#centralnicreseller.apiconnector.response.Response.getPagination">getPagination</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getPreviousPageNumber" href="#centralnicreseller.apiconnector.response.Response.getPreviousPageNumber">getPreviousPageNumber</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getPreviousRecord" href="#centralnicreseller.apiconnector.response.Response.getPreviousRecord">getPreviousRecord</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getRecord" href="#centralnicreseller.apiconnector.response.Response.getRecord">getRecord</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getRecords" href="#centralnicreseller.apiconnector.response.Response.getRecords">getRecords</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getRecordsCount" href="#centralnicreseller.apiconnector.response.Response.getRecordsCount">getRecordsCount</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getRecordsLimitation" href="#centralnicreseller.apiconnector.response.Response.getRecordsLimitation">getRecordsLimitation</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.getRecordsTotalCount" href="#centralnicreseller.apiconnector.response.Response.getRecordsTotalCount">getRecordsTotalCount</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.hasNextPage" href="#centralnicreseller.apiconnector.response.Response.hasNextPage">hasNextPage</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.hasPreviousPage" href="#centralnicreseller.apiconnector.response.Response.hasPreviousPage">hasPreviousPage</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.isPending" href="#centralnicreseller.apiconnector.response.Response.isPending">isPending</a></code></li>
+<li><code><a title="centralnicreseller.apiconnector.response.Response.rewindRecordList" href="#centralnicreseller.apiconnector.response.Response.rewindRecordList">rewindRecordList</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>
