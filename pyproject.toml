@@ -27,7 +27,7 @@ dependencies = [
     "pdoc3>=0.11.5",
     "pytest-cov>=2,<7",
     "twine>=4,<7",
-    "black>=23,<25",
+    "black>=23,<26",
     "idna>=3"
 ]
 classifiers = [
