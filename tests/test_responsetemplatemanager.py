@@ -1,4 +1,6 @@
-from centralnicreseller.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
+from centralnicreseller.apiconnector.responsetemplatemanager import (
+    ResponseTemplateManager as RTM,
+)
 from centralnicreseller.apiconnector.responsetemplate import ResponseTemplate as RT
 
 

@@ -1,4 +1,6 @@
 from centralnicreseller.apiconnector.idnaprocessor import IDNAProcessor
+
+
 class IDNAConverter:
     def __init__(self, idn=None, pc=None, idn_list=None, pc_list=None):
         self.idn = idn
@@ -23,7 +25,9 @@ class IDNAConverter:
         for domain_name in domain_names:
             try:
                 pc_results.append(IDNAProcessor.to_ascii(domain_name, use_transitional))
-                idn_results.append(IDNAProcessor.to_unicode(domain_name, use_transitional))
+                idn_results.append(
+                    IDNAProcessor.to_unicode(domain_name, use_transitional)
+                )
             except Exception:
                 pc_results.append(domain_name)
                 idn_results.append(domain_name)

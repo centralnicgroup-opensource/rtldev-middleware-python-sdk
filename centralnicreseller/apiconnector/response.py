@@ -138,8 +138,7 @@ class Response(RT, object):
         Get Record of current record index
         """
         return (
-            self.__records[self.__recordIndex] if (
-                self.__hasCurrentRecord()) else None
+            self.__records[self.__recordIndex] if (self.__hasCurrentRecord()) else None
         )
 
     def getFirstRecordIndex(self):
@@ -353,7 +352,11 @@ class Response(RT, object):
         """
         # Check if the COMMAND is AddDomain (case-insensitive)
         cmd = self.getCommand()
-        if cmd is None or not cmd.get("COMMAND") or cmd["COMMAND"].lower() != "adddomain":
+        if (
+            cmd is None
+            or not cmd.get("COMMAND")
+            or cmd["COMMAND"].lower() != "adddomain"
+        ):
             return False
 
         # Retrieve the STATUS column and check if its data equals REQUESTED (case-insensitive)

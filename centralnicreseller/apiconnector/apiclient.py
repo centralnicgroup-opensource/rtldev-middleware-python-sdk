@@ -10,7 +10,9 @@
 
 from centralnicreseller.apiconnector.logger import Logger
 from centralnicreseller.apiconnector.response import Response
-from centralnicreseller.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
+from centralnicreseller.apiconnector.responsetemplatemanager import (
+    ResponseTemplateManager as RTM,
+)
 from centralnicreseller.apiconnector.socketconfig import SocketConfig
 from centralnicreseller.apiconnector.idnaconverter import IDNAConverter
 from urllib.parse import quote, unquote, urlparse, urlencode
@@ -124,8 +126,9 @@ class APIClient(object):
             tmp = cmd.rstrip("\n")
         else:
             tmp = "\n".join(
-                "{}={}".format(key, re.sub(r'[\r\n]', '', str(cmd[key])))
-                for key in sorted(cmd.keys()) if cmd[key] is not None
+                "{}={}".format(key, re.sub(r"[\r\n]", "", str(cmd[key])))
+                for key in sorted(cmd.keys())
+                if cmd[key] is not None
             )
 
         if secured:
@@ -134,7 +137,7 @@ class APIClient(object):
         if tmp:
             return f"{data}{quote('s_command')}={quote(tmp)}"
         else:
-            return data if not data.endswith('&') else data.rstrip('&')
+            return data if not data.endswith("&") else data.rstrip("&")
 
     def getURL(self):
         """
@@ -203,7 +206,12 @@ class APIClient(object):
         Use existing configuration out of session
         to rebuild and reuse connection settings
         """
-        if not session or "socketcfg" not in session or "login" not in session["socketcfg"] or "session" not in session["socketcfg"]:
+        if (
+            not session
+            or "socketcfg" not in session
+            or "login" not in session["socketcfg"]
+            or "session" not in session["socketcfg"]
+        ):
             return self
         self.setCredentials(session["socketcfg"]["login"])
         self.__socketConfig.setSession(session["socketcfg"]["session"])
@@ -217,7 +225,7 @@ class APIClient(object):
         return self
 
     def setPersistent(self):
-        """echo 
+        """echo
         Set persistent connection to be used for API communication
         """
         self.__socketConfig.setPersistent()
@@ -231,13 +239,15 @@ class APIClient(object):
         self.__socketConfig.setPassword(pw)
         return self
 
-    def setRoleCredentials(self, uid, role, pw = ""):
+    def setRoleCredentials(self, uid, role, pw=""):
         """
         Set Credentials to be used for API communication
         """
         if role == "":
             return self.setCredentials(uid, pw)
-        return self.setCredentials(("{0}{1}{2}").format(uid, self.__roleSeparator, role), pw)
+        return self.setCredentials(
+            ("{0}{1}{2}").format(uid, self.__roleSeparator, role), pw
+        )
 
     def login(self):
         """
@@ -245,10 +255,13 @@ class APIClient(object):
         """
         self.setPersistent()
         rr = self.request([], False)
-        self.__socketConfig.setSession(None) # clean up all session related data
+        self.__socketConfig.setSession(None)  # clean up all session related data
         if rr.isSuccess():
             col = rr.getColumn("SESSIONID")
-            self.__socketConfig.setSession(col.getData()[0] if (col is not None) else None)
+            print("session id", col)
+            self.__socketConfig.setSession(
+                col.getData()[0] if (col is not None) else None
+            )
         return rr
 
     def logout(self):
@@ -261,7 +274,7 @@ class APIClient(object):
             }
         )
         if rr.isSuccess():
-            self.__socketConfig.setSession(None) # clean up all session related data
+            self.__socketConfig.setSession(None)  # clean up all session related data
         return rr
 
     def request(self, cmd=[], setUserView=True):
@@ -407,16 +420,21 @@ class APIClient(object):
         """
         key_pattern = re.compile(r"(?i)^(NAMESERVER|NS|DNSZONE)([0-9]*)$")
         obj_class_pattern = re.compile(
-            r"(?i)^(DOMAIN(APPLICATION|BLOCKING)?|NAMESERVER|NS|DNSZONE)$")
+            r"(?i)^(DOMAIN(APPLICATION|BLOCKING)?|NAMESERVER|NS|DNSZONE)$"
+        )
         ascii_pattern = re.compile(r"^[A-Za-z0-9.\-]+$")
 
         to_convert = []
         idxs = []
 
         for key, val in cmd.items():
-            if ((key_pattern.match(key) or
-                (key.upper() == "OBJECTID" and obj_class_pattern.match(cmd.get("OBJECTCLASS", ""))))
-                    and not ascii_pattern.match(val)):
+            if (
+                key_pattern.match(key)
+                or (
+                    key.upper() == "OBJECTID"
+                    and obj_class_pattern.match(cmd.get("OBJECTCLASS", ""))
+                )
+            ) and not ascii_pattern.match(val):
                 to_convert.append(val)
                 idxs.append(key)
 

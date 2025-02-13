@@ -1,6 +1,8 @@
 from centralnicreseller.apiconnector.response import Response as R
 import centralnicreseller.apiconnector.responseparser as RP
-from centralnicreseller.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
+from centralnicreseller.apiconnector.responsetemplatemanager import (
+    ResponseTemplateManager as RTM,
+)
 import re
 
 
@@ -14,8 +16,7 @@ def test_responsemethods():
         "pendingRegistration",
         "[RESPONSE]\r\ncode = 200\r\ndescription = Command completed successfully\r\nruntime = 0.44\r\nqueuetime = 0\r\n\r\nproperty[status][0] = REQUESTED\r\nproperty[updated date][0] = 2023-05-22 12:14:31.0\r\nproperty[zone][0] = se\r\nEOF\r\n",
     )
-    rtm.addTemplate("OK", rtm.generateTemplate(
-        "200", "Command completed successfully"))
+    rtm.addTemplate("OK", rtm.generateTemplate("200", "Command completed successfully"))
 
     # #.getCurrentPageNumber()
     # [w/ entries in response]
@@ -35,8 +36,7 @@ def test_responsemethods():
     r = R("")
     assert re.search(r"\{[A-Z_]+\}", r.getDescription()) is None
 
-    r = R("", {"COMMAND": "StatusAccount"}, {
-          "CONNECTION_URL": "123HXPHFOUND123"})
+    r = R("", {"COMMAND": "StatusAccount"}, {"CONNECTION_URL": "123HXPHFOUND123"})
     assert re.search(r"123HXPHFOUND123", r.getDescription()) is not None
 
     # #.getCommandPlain()
@@ -49,9 +49,7 @@ def test_responsemethods():
             "DOMAIN1": "example.net",
         },
     )
-    expected = (
-        "COMMAND = CheckDomains\nDOMAIN0 = example.com\nDOMAIN1 = example.net\n"
-    )
+    expected = "COMMAND = CheckDomains\nDOMAIN0 = example.com\nDOMAIN1 = example.net\n"
     assert r.getCommandPlain() == expected
 
     # case secured
@@ -197,6 +195,8 @@ def test_responsemethods():
 
     # #.isPending
     # [in api response]
-    r = R(rtm.getTemplate("pendingRegistration").getPlain(),
-          {"COMMAND": "AddDomain", "DOMAIN": "mydomain.se"})
+    r = R(
+        rtm.getTemplate("pendingRegistration").getPlain(),
+        {"COMMAND": "AddDomain", "DOMAIN": "mydomain.se"},
+    )
     assert r.isPending() is True

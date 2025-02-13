@@ -10,7 +10,18 @@ source ~/.zshrc
 pip install --upgrade pip
 pip install --upgrade setuptools
 pip -V
-#pip install -r requirements.txt
+
+# Install pip-tools
+pip install pip-tools
+
+# Generate requirements.txt from pyproject.toml
+pip-compile pyproject.toml
+
+# Install dependencies from requirements.txt
+pip install -r requirements.txt
+
+# Install the local centralnicreseller module as an editable package
+pip install -e .
 
 echo "=> Generating Symlinks for Zsh History and Git config"
 # Create symlink for gitconfig and zsh history file
