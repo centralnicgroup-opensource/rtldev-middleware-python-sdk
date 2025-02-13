@@ -3,6 +3,7 @@
 # Import the cnr library
 from centralnicreseller.apiconnector.apiclient import APIClient as AC
 import os
+
 # -------- SESSIONLESS COMMUNICATION -----------
 
 # Create a connection using the APIClient class and the appropriate
@@ -10,8 +11,7 @@ import os
 print("---- SESSIONLESS COMMUNICATION ----")
 cl = AC()
 cl.useOTESystem()
-cl.setCredentials(os.environ.get("CNR_TEST_USER"),
-                      os.environ.get("CNR_TEST_PASSWORD"))
+cl.setCredentials(os.environ.get("CNR_TEST_USER"), os.environ.get("CNR_TEST_PASSWORD"))
 # use the below method in case you have an active
 # ip filter setting
 

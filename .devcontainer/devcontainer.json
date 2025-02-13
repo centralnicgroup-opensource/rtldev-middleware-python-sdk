@@ -14,7 +14,8 @@
 			"mrmlnc.vscode-apache",
 			"ms-azuretools.vscode-docker",
 			"eamodio.gitlens",
-			"GitHub.copilot"
+			"GitHub.copilot",
+			"bmewburn.vscode-intelephense-client"
 		],
 		"settings": {
 		  "terminal.integrated.defaultProfile.linux": "zsh",

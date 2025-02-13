@@ -22,8 +22,7 @@ class ResponseTemplate(object):
         self._raw = response
         if (response == "") or (response is None):
             descr = "Empty API response. Probably unreachable API end point {CONNECTION_URL}"
-            self._raw = "[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=%s\r\nEOF\r\n" % (
-                descr)
+            self._raw = "[RESPONSE]\r\nCODE=423\r\nDESCRIPTION=%s\r\nEOF\r\n" % (descr)
 
         # try/except to support old versions of python (python2.5)
         try:

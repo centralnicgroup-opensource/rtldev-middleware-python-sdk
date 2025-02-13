@@ -4,7 +4,9 @@ from centralnicreseller.apiconnector.apiclient import (
     CNR_CONNECTION_URL_PROXY,
 )
 from centralnicreseller.apiconnector.response import Response as R
-from centralnicreseller.apiconnector.responsetemplatemanager import ResponseTemplateManager as RTM
+from centralnicreseller.apiconnector.responsetemplatemanager import (
+    ResponseTemplateManager as RTM,
+)
 import pytest
 import platform
 import os
@@ -19,10 +21,8 @@ def test_apiclientmethods():
         "login200",
         "[RESPONSE]\r\nproperty[expiration date][0]=2024-09-19 10:52:51\r\nproperty[sessionid][0]=bb7a884b09b9a674fb4a22211758ce87\r\ndescription=Command completed successfully\r\ncode=200\r\nqueuetime=0.004\r\nruntime=0.023\r\nEOF\r\n",
     )
-    rtm.addTemplate("login500", rtm.generateTemplate(
-        "530", "Authentication failed"))
-    rtm.addTemplate("OK", rtm.generateTemplate(
-        "200", "Command completed successfully"))
+    rtm.addTemplate("login500", rtm.generateTemplate("530", "Authentication failed"))
+    rtm.addTemplate("OK", rtm.generateTemplate("200", "Command completed successfully"))
     rtm.addTemplate(
         "listP0",
         "[RESPONSE]\r\nproperty[total][0]=4\r\nproperty[first][0]=0\r\nproperty[domain][0]=cnic-ssl-test1.com\r\nproperty[domain][1]=cnic-ssl-test2.com\r\nproperty[count][0]=2\r\nproperty[last][0]=1\r\nproperty[limit][0]=2\r\ndescription=Command completed successfully\r\ncode=200\r\nqueuetime=0\r\nruntime=0.007\r\nEOF\r\n",
@@ -45,12 +45,8 @@ def test_apiclientmethods():
     )
     # #.getPOSTData()
     # test object input with special chars
-    validate = (
-        "s_command=AUTH%3Dgwrgwqg%25"
-        + "%26%5C44t3%2A%0ACOMMAND%3DModifyDomain"
-    )
-    enc = cl.getPOSTData(
-        {"COMMAND": "ModifyDomain", "AUTH": "gwrgwqg%&\\44t3*"})
+    validate = "s_command=AUTH%3Dgwrgwqg%25" + "%26%5C44t3%2A%0ACOMMAND%3DModifyDomain"
+    enc = cl.getPOSTData({"COMMAND": "ModifyDomain", "AUTH": "gwrgwqg%&\\44t3*"})
     assert enc == validate
 
     # test string input
@@ -63,8 +59,9 @@ def test_apiclientmethods():
     assert enc == validate
 
     # test secured passwords
-    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
-                      os.environ.get("CNR_TEST_PASSWORD"))
+    cl.setCredentials(
+        os.environ.get("CNR_TEST_USER"), os.environ.get("CNR_TEST_PASSWORD")
+    )
     cl.enableDebugMode()
     enc = cl.getPOSTData(
         {
@@ -77,13 +74,14 @@ def test_apiclientmethods():
     cl.setCredentials("", "")
 
     cnr_test_user = os.environ.get("CNR_TEST_USER")
-    encoded_user = urllib.parse.quote(
-        cnr_test_user.encode()) if cnr_test_user else ""
+    encoded_user = urllib.parse.quote(cnr_test_user.encode()) if cnr_test_user else ""
 
     expected = (
-        "s_login=" +
-        encoded_user + "&s_pw=***&"
-        + "s_command=COMMAND%3DCheckAuthentication%0APASSWORD%3D%2A%2A%2A%0ASUBUSER%3D" + encoded_user
+        "s_login="
+        + encoded_user
+        + "&s_pw=***&"
+        + "s_command=COMMAND%3DCheckAuthentication%0APASSWORD%3D%2A%2A%2A%0ASUBUSER%3D"
+        + encoded_user
     )
     assert expected == enc
 
@@ -165,8 +163,10 @@ def test_apiclientmethods():
 
     # #.saveSession/reuseSession with password
     sessionobj = {}
-    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
-                      os.environ.get("CNR_TEST_PASSWORD")).disableDebugMode()
+    cl.useOTESystem()
+    cl.setCredentials(
+        os.environ.get("CNR_TEST_USER"), os.environ.get("CNR_TEST_PASSWORD")
+    ).disableDebugMode()
     r = cl.login()
     cl.saveSession(sessionobj)
     cl2 = AC()
@@ -201,20 +201,21 @@ def test_apiclientmethods():
     # #.login()
     # [login succeeded; no role used]
     cl.useOTESystem()
-    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
-                      os.environ.get("CNR_TEST_PASSWORD"))
+    cl.setCredentials(
+        os.environ.get("CNR_TEST_USER"), os.environ.get("CNR_TEST_PASSWORD")
+    )
     r = cl.login()
     assert isinstance(r, R) is True
-    assert r.isSuccess() is True, ("{0} {1}").format(
-        r.getCode(), r.getDescription())
+    assert r.isSuccess() is True, ("{0} {1}").format(r.getCode(), r.getDescription())
     rec = r.getRecord(0)
     assert rec is not None
     assert rec.getDataByKey("SESSIONID") is not None
 
     # support bulk parameters also as nested array (flattenCommand)
     cl.enableDebugMode()
-    r = cl.request({"COMMAND": "CheckDomains", "DOMAIN": [
-                   "example.com", "example.net"]})
+    r = cl.request(
+        {"COMMAND": "CheckDomains", "DOMAIN": ["example.com", "example.net"]}
+    )
     assert isinstance(r, R) is True
     cmd = r.getCommand()
     keys = cmd.keys()
@@ -245,15 +246,15 @@ def test_apiclientmethods():
 
     # [login succeeded]
     cl.useOTESystem()
-    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
-                      os.environ.get("CNR_TEST_PASSWORD"))
+    cl.setCredentials(
+        os.environ.get("CNR_TEST_USER"), os.environ.get("CNR_TEST_PASSWORD")
+    )
     r = cl.login()
     assert isinstance(r, R)
-    assert r.isSuccess() is True, ("{0} {1}").format(
-        r.getCode(), r.getDescription())
+    assert r.isSuccess() is True, ("{0} {1}").format(r.getCode(), r.getDescription())
     rec = r.getRecord(0)
     assert rec is not None
-    assert rec.getDataByKey('SESSIONID') is not None
+    assert rec.getDataByKey("SESSIONID") is not None
 
     # [login failed; wrong credentials]
     cl.setCredentials(os.environ.get("CNR_TEST_USER"), "WRONGPASSWORD")
@@ -274,10 +275,11 @@ def test_apiclientmethods():
 
     # [login succeeded; no session returned]
     # TODO: need network mock
-    tpl = R(rtm.getTemplate('OK').getPlain())
+    tpl = R(rtm.getTemplate("OK").getPlain())
     cl.useOTESystem()
-    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
-                      os.environ.get("CNR_TEST_PASSWORD"))
+    cl.setCredentials(
+        os.environ.get("CNR_TEST_USER"), os.environ.get("CNR_TEST_PASSWORD")
+    )
     r = cl.login()
     assert isinstance(r, R)
     assert r.isSuccess() is True
@@ -295,8 +297,8 @@ def test_apiclientmethods():
         "socketcfg": {
             "login": os.environ.get("CNR_TEST_USER"),
             "session": tpl.getRecord(0).getDataByKey("SESSIONID"),
-            }
         }
+    }
     cl.reuseSession({})
     r = cl.logout()
     assert isinstance(r, R) is True
@@ -326,8 +328,9 @@ def test_apiclientmethods():
 
     # .requestNextResponsePage
     # [no LAST set]
-    cl.setCredentials(os.environ.get("CNR_TEST_USER"),
-                      os.environ.get("CNR_TEST_PASSWORD"))
+    cl.setCredentials(
+        os.environ.get("CNR_TEST_USER"), os.environ.get("CNR_TEST_PASSWORD")
+    )
     cl.useOTESystem()
     cl.enableDebugMode()
     r = R(
@@ -348,9 +351,7 @@ def test_apiclientmethods():
 
     # #.requestAllResponsePages()
     # [success case]
-    nr = cl.requestAllResponsePages(
-        {"COMMAND": "QueryDomainList"}
-    )
+    nr = cl.requestAllResponsePages({"COMMAND": "QueryDomainList"})
     assert len(nr) > 0
 
     # #.setUserView()

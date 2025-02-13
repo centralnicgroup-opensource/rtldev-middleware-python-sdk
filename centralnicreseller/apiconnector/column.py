@@ -8,6 +8,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
+
 class Column(object):
     """
     The Column class covers all you need to access column data of a Backend API response.
