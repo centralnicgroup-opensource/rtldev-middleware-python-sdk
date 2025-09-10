@@ -25,7 +25,7 @@ urls = {homepage = "https://github.com/centralnicgroup-opensource/rtldev-middlew
 dependencies = [
     "docutils>=0,<1",
     "pdoc3>=0.11.5",
-    "pytest-cov>=2,<7",
+    "pytest-cov>=2,<8",
     "twine>=4,<7",
     "black>=23,<26",
     "idna>=3"
