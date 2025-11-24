@@ -2,7 +2,8 @@
 # NOTE: This file will be executed as remoteUser (devcontainer.json)
 echo "=> Script: post-create.sh Executed by: $(whoami)"
 
-npm install --silent --global gulp-cli commitizen@latest cz-conventional-changelog@latest
+npm install -g pnpm
+pnpm add -g gulp-cli commitizen@latest cz-conventional-changelog@latest
 
 # shellcheck source=/dev/null
 source ~/.zshrc
