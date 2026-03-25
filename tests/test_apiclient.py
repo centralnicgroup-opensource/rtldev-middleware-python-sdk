@@ -1,8 +1,10 @@
 from centralnicreseller.apiconnector.apiclient import (
     APIClient as AC,
     CNR_CONNECTION_URL_LIVE,
+    CNR_CONNECTION_URL_OTE,
     CNR_CONNECTION_URL_PROXY,
 )
+import centralnicreseller.apiconnector.apiclient as apiclient_module
 from centralnicreseller.apiconnector.response import Response as R
 from centralnicreseller.apiconnector.responsetemplatemanager import (
     ResponseTemplateManager as RTM,
@@ -15,7 +17,7 @@ import urllib.parse
 rtm = RTM()
 
 
-def test_apiclientmethods():
+def test_apiclientmethods(monkeypatch):
     cl = AC()
     rtm.addTemplate(
         "login200",
@@ -43,6 +45,45 @@ def test_apiclientmethods():
         "listFP2",
         "[RESPONSE]\r\nproperty[total][0]=4\r\nproperty[first][0]=2\r\nproperty[domain][0]=emailcustomization.com\r\nproperty[count][0]=1\r\nproperty[last][0]=2\r\nproperty[limit][0]=1\r\ndescription=Command completed successfully\r\ncode=200\r\nqueuetime=0\r\nruntime=0.007\r\nEOF\r\n",
     )
+
+    class FakeHTTPResponse(object):
+        def __init__(self, body):
+            self._body = body.encode("utf-8") if isinstance(body, str) else body
+
+        def read(self):
+            return self._body
+
+    def fake_urlopen(req, timeout=None):
+        if req.full_url == "https://iwontsucceedgregegeg343teagr43.com/api/call.cgi":
+            raise OSError("Name or service not known")
+
+        data = req.data.decode("utf-8") if req.data else ""
+
+        if "persistent=1" in data:
+            if "s_pw=WRONGPASSWORD" in data:
+                return FakeHTTPResponse(rtm.getTemplate("login500").getPlain())
+            return FakeHTTPResponse(rtm.getTemplate("login200").getPlain())
+
+        if "s_command=COMMAND%3DStopSession" in data:
+            if "s_sessionid=" in data:
+                return FakeHTTPResponse(rtm.getTemplate("OK").getPlain())
+            return FakeHTTPResponse(rtm.getTemplate("login500").getPlain())
+
+        if "s_command=COMMAND%3DQueryDomainList%0AFIRST%3D2%0ALIMIT%3D2" in data:
+            return FakeHTTPResponse(rtm.getTemplate("listP1").getPlain())
+
+        if "s_command=COMMAND%3DQueryDomainList%0AFIRST%3D0" in data:
+            return FakeHTTPResponse(rtm.getTemplate("listP0").getPlain())
+
+        if "s_command=COMMAND%3DQueryUserList" in data:
+            return FakeHTTPResponse(rtm.getTemplate("OK").getPlain())
+
+        if "s_command=COMMAND%3DCheckDomains" in data:
+            return FakeHTTPResponse(rtm.getTemplate("OK").getPlain())
+
+        return FakeHTTPResponse(rtm.getTemplate("OK").getPlain())
+
+    monkeypatch.setattr(apiclient_module, "urlopen", fake_urlopen)
     # #.getPOSTData()
     # test object input with special chars
     validate = "s_command=AUTH%3Dgwrgwqg%25" + "%26%5C44t3%2A%0ACOMMAND%3DModifyDomain"
@@ -161,18 +202,35 @@ def test_apiclientmethods():
     tmp = cl.getPOSTData({"COMMAND": "StatusAccount"})
     assert tmp == "s_command=COMMAND%3DStatusAccount"
 
+    # [incomplete sessions are ignored]
+    sessionobj = {}
+    cl.setCredentials("myaccountid", "mypassword")
+    cl.saveSession(sessionobj)
+    assert sessionobj == {}
+
+    cl2 = AC()
+    cl2.reuseSession({"socketcfg": {"login": "myaccountid", "session": None}})
+    tmp = cl2.getPOSTData({"COMMAND": "StatusAccount"})
+    assert tmp == "s_command=COMMAND%3DStatusAccount"
+
     # #.saveSession/reuseSession with password
     sessionobj = {}
-    cl.useOTESystem()
-    cl.setCredentials(
-        os.environ.get("CNR_TEST_USER"), os.environ.get("CNR_TEST_PASSWORD")
-    ).disableDebugMode()
-    r = cl.login()
-    cl.saveSession(sessionobj)
+    cl3 = AC()
+    cl3.useOTESystem()
+    cl3.setCredentials("myaccountid", "mypassword")
+    assert cl3.getURL() == CNR_CONNECTION_URL_OTE
+    r = cl3.login()
+    assert isinstance(r, R) is True
+    assert r.isSuccess() is True
+    cl3.saveSession(sessionobj)
     cl2 = AC()
     cl2.reuseSession(sessionobj)
     tmp = cl2.getPOSTData({"COMMAND": "StatusAccount"})
-    assert "s_sessionid" in tmp
+    assert tmp == (
+        "s_login=myaccountid"
+        "&s_sessionid=bb7a884b09b9a674fb4a22211758ce87"
+        "&s_command=COMMAND%3DStatusAccount"
+    )
 
     # #.setCredentials()
     # [credentials set]
