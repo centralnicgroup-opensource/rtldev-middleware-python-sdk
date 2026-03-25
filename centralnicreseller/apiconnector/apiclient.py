@@ -195,9 +195,15 @@ class APIClient(object):
         """
         Apply session data (session id and user login) to given client request session
         """
+        login = self.__socketConfig.getLogin()
+        session_id = self.__socketConfig.getSession()
+        if not login or not session_id:
+            session.pop("socketcfg", None)
+            return self
+
         session["socketcfg"] = {
-            "login": self.__socketConfig.getLogin(),
-            "session": self.__socketConfig.getSession(),
+            "login": login,
+            "session": session_id,
         }
         return self
 
@@ -206,15 +212,15 @@ class APIClient(object):
         Use existing configuration out of session
         to rebuild and reuse connection settings
         """
+        socketcfg = session.get("socketcfg") if session else None
         if (
-            not session
-            or "socketcfg" not in session
-            or "login" not in session["socketcfg"]
-            or "session" not in session["socketcfg"]
+            not socketcfg
+            or not socketcfg.get("login")
+            or not socketcfg.get("session")
         ):
             return self
-        self.setCredentials(session["socketcfg"]["login"])
-        self.__socketConfig.setSession(session["socketcfg"]["session"])
+        self.setCredentials(socketcfg["login"])
+        self.__socketConfig.setSession(socketcfg["session"])
         return self
 
     def setURL(self, value):
@@ -258,10 +264,9 @@ class APIClient(object):
         self.__socketConfig.setSession(None)  # clean up all session related data
         if rr.isSuccess():
             col = rr.getColumn("SESSIONID")
-            print("session id", col)
-            self.__socketConfig.setSession(
-                col.getData()[0] if (col is not None) else None
-            )
+            session_id = col.getData()[0] if (col is not None) else None
+            if session_id:
+                self.__socketConfig.setSession(session_id)
         return rr
 
     def logout(self):
