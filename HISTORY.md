@@ -1,3 +1,12 @@
+## [5.0.1](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.0...v5.0.1) (2026-03-26)
+
+
+### Bug Fixes
+
+* **cnr apiclient:** improved login session management and bumped dependencies ([b5a060f](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/b5a060f407e92ad682f271a64486f3adbb6aafae))
+* **deps:** bump glob from 10.4.5 to 10.5.0 ([c8c6c50](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/c8c6c509cabbd9361e3e5a83a3b9b3106a6d4171))
+* **deps:** update pytest-cov requirement from <7,>=2 to >=2,<8 ([6c97063](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/6c97063899d152e8eef8f9feb02df5f8f7465c36))
+
 # [5.0.0](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v4.0.4...v5.0.0) (2024-11-12)
 
 
