@@ -1,3 +1,13 @@
+## [5.0.2](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.1...v5.0.2) (2026-04-21)
+
+
+### Bug Fixes
+
+* **deps:** update black requirement from <27,>=23 to >=26.3.1,<27 ([e52d466](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/e52d466ddc6df12f457c1c7e20a5996677e89778))
+* **deps:** update docutils requirement from <1,>=0 to >=0.22.4,<1 ([531d691](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/531d691bc2bbc9c477c2d6856e18c334d1d8d6dd))
+* **deps:** update pdoc3 requirement from >=0.11.5 to >=0.11.6 ([f9d1ca7](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/f9d1ca7342fc3906d70855707ed80848e8503372))
+* **deps:** update pytest-cov requirement from <8,>=2 to >=7.1.0,<8 ([5dbd216](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/5dbd216d8bcdb25cead01799394fcf1ecd612b5f))
+
 ## [5.0.1](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.0...v5.0.1) (2026-03-26)
 
 
