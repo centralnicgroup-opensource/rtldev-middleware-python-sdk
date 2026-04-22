@@ -26,7 +26,7 @@ dependencies = [
     "docutils>=0.22.4,<1",
     "pdoc3>=0.11.6",
     "pytest-cov>=7.1.0,<8",
-    "twine>=4,<7",
+    "twine>=6.2.0,<7",
     "black>=26.3.1,<27",
     "idna>=3"
 ]
