@@ -1,3 +1,11 @@
+## [5.0.3](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.2...v5.0.3) (2026-05-18)
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion from 5.0.5 to 5.0.6 ([7945b20](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/7945b2036a964cdd9618550def02c27148954f1c))
+* **deps:** bump lodash-es from 4.17.23 to 4.18.1 ([821dd2e](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/821dd2eb659950aa8c6e9459ae1b0dcb72fe810a))
+
 ## [5.0.2](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.1...v5.0.2) (2026-04-21)
 
 
