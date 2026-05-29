@@ -1,3 +1,10 @@
+## [5.0.5](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.4...v5.0.5) (2026-05-29)
+
+
+### Bug Fixes
+
+* **deps:** update idna requirement from >=3.16 to >=3.17 ([b1ef39d](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/b1ef39d32428cb35a86c65550e9479574450244d))
+
 ## [5.0.4](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.3...v5.0.4) (2026-05-22)
 
 
