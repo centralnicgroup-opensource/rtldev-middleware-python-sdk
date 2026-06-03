@@ -28,7 +28,7 @@ dependencies = [
     "pytest-cov>=7.1.0,<8",
     "twine>=6.2.0,<7",
     "black>=26.5.1,<27",
-    "idna>=3.17"
+    "idna>=3.18"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
