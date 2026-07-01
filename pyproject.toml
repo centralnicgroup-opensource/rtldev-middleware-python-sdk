@@ -23,9 +23,9 @@ maintainers = [
 license = {file = "LICENSE"}
 urls = {homepage = "https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/"}
 dependencies = [
-    "docutils>=0.23,<1",
+    "docutils>=0.23",
     "pdoc3>=0.11.6",
-    "pytest-cov>=7.1.0,<8",
+    "pytest-cov>=7.1.0",
     "twine>=6.2.0,<7",
     "black>=26.5.1,<27",
     "idna>=3.18"
