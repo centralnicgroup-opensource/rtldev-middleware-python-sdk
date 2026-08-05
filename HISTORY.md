@@ -1,3 +1,10 @@
+## [5.0.8](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.7...v5.0.8) (2026-08-05)
+
+
+### Bug Fixes
+
+* **deps:** update twine requirement from <7,>=6.2.0 to >=7.0.0,<8 ([6e65a09](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/6e65a09bb177efcfb90d624ef8e11b302cba345b))
+
 ## [5.0.7](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.6...v5.0.7) (2026-06-03)
 
 
