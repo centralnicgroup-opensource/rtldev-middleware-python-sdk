@@ -14,7 +14,6 @@
 			"mrmlnc.vscode-apache",
 			"ms-azuretools.vscode-docker",
 			"eamodio.gitlens",
-			"GitHub.copilot",
 			"bmewburn.vscode-intelephense-client",
 			"anthropic.claude-code"
 		],
@@ -29,8 +28,20 @@
 	  }
 	},
 	"remoteUser": "vscode",
+	// The history bind below names a *file*, and Docker creates a missing bind source
+	// itself, as a directory on the host, where it outlives the container.
+	"initializeCommand": "touch ${localEnv:HOME}/.zsh_history",
+	// Narrowed from a mount of the whole host home at /WSL_USER, which handed this
+	// container read-write reach over the host's SSH keys, credentials and every other
+	// repository on the machine in order to reach one history file. (RSRMID-3052)
+	//
+	// Be aware that path currently feeds nothing here. post-create.sh says symlinking
+	// ~/.zsh_history out of /WSL_USER "is devbase's job now", but this frame never
+	// lists the devbase Feature, so nothing does it: the script stopped and the Feature
+	// never started. Completing that migration is a separate change; this one only
+	// stops the mount being wider than it needs to be.
 	"mounts": [
-	  "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/WSL_USER,type=bind,consistency=cached"
+	  "source=${localEnv:HOME}/.zsh_history,target=/WSL_USER/.zsh_history,type=bind,consistency=cached"
 	],
 	"features": {
 	  "ghcr.io/devcontainers/features/node:1": {
