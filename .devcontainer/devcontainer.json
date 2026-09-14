@@ -1,53 +1,141 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.2/containers/jekyll
 {
-	"name": "dstack-python-sdk",
-	"dockerComposeFile": ["docker-compose.yml"],
-	"service": "pythonsdkdemo",
-	"workspaceFolder": "/usr/share/rtldev-middleware-python-sdk/",
-	"shutdownAction": "stopCompose",
-	"customizations": {
-	  "vscode": {
-		"extensions": [
-			"GitHub.vscode-pull-request-github",
-			"ms-vscode-remote.remote-containers",
-			"mrmlnc.vscode-apache",
-			"ms-azuretools.vscode-docker",
-			"eamodio.gitlens",
-			"bmewburn.vscode-intelephense-client",
-			"anthropic.claude-code"
-		],
-		"settings": {
-		  "terminal.integrated.defaultProfile.linux": "zsh",
-		  "terminal.integrated.profiles.linux": {
-			"zsh": {
-			  "path": "/bin/zsh"
-			}
-		  }
-		}
-	  }
-	},
-	"remoteUser": "vscode",
-	// The history bind below names a *file*, and Docker creates a missing bind source
-	// itself, as a directory on the host, where it outlives the container.
-	"initializeCommand": "touch ${localEnv:HOME}/.zsh_history",
-	// Narrowed from a mount of the whole host home at /WSL_USER, which handed this
-	// container read-write reach over the host's SSH keys, credentials and every other
-	// repository on the machine in order to reach one history file. (RSRMID-3052)
-	//
-	// Be aware that path currently feeds nothing here. post-create.sh says symlinking
-	// ~/.zsh_history out of /WSL_USER "is devbase's job now", but this frame never
-	// lists the devbase Feature, so nothing does it: the script stopped and the Feature
-	// never started. Completing that migration is a separate change; this one only
-	// stops the mount being wider than it needs to be.
-	"mounts": [
-	  "source=${localEnv:HOME}/.zsh_history,target=/WSL_USER/.zsh_history,type=bind,consistency=cached"
-	],
-	"features": {
-	  "ghcr.io/devcontainers/features/node:1": {
-		"version": "latest"
-	  }
-	},
-	"postCreateCommand": "zsh /post-create.sh"
-  }
-  
+  // Everything shared with the other RTLDEV middleware repositories lives in the
+  // devbase Feature, not here: zsh with the team prompt, commitizen, pnpm, Node
+  // LTS, the GitHub CLI, the gh credential helper, persistent shell history, the
+  // shared VS Code extension set and the on-attach toolchain banner.
+  //
+  // What stays in this file is what a Feature cannot set -- the name, the
+  // workspace paths, the remote user, initializeCommand and the host mounts --
+  // plus what is genuinely specific to *this* repository: the Python runtime and
+  // the pip install this SDK needs (pip-compile plus an editable install), which
+  // devbase's own dependency step does not cover.
+  //
+  // The compose frame this replaced ran a single service (pythonsdkdemo) with no
+  // backing services, so it is now the single-container shape -- one container
+  // built from ./Dockerfile, as php-sdk and dnscontrol-dnsconfig use.
+  //
+  // Feature options and troubleshooting:
+  // https://github.com/centralnicgroup-opensource/rtldev-middleware-devcontainer-features
+  "name": "dstack-python-sdk",
+  "build": {
+    "context": ".",
+    "dockerfile": "Dockerfile"
+  },
+
+  // localWorkspaceFolderBasename is the repository directory name, so these two
+  // cannot drift apart from it or from each other. Resolves to the same
+  // /usr/share/rtldev-middleware-python-sdk as the compose volume did.
+  "workspaceMount": "source=${localWorkspaceFolder},target=/usr/share/${localWorkspaceFolderBasename},type=bind,consistency=cached",
+  "workspaceFolder": "/usr/share/${localWorkspaceFolderBasename}",
+  "shutdownAction": "stopContainer",
+
+  // Host-side preflight for the binds at the bottom of this file: Docker creates
+  // a missing bind source itself, as a root-owned *directory*. For ~/.ssh and
+  // ~/.claude that yields a directory nobody in the container can write to; for
+  // ~/.gitconfig and ~/.zsh_history it yields a directory where a file is expected,
+  // on the host too, where the damage outlives the container.
+  // Runs on the host, so it cannot move into a Feature.
+  "initializeCommand": {
+    "claude-state": "mkdir -p ${localEnv:HOME}/.claude",
+    "ssh-dir": "mkdir -p ${localEnv:HOME}/.ssh",
+    "gitconfig": "touch ${localEnv:HOME}/.gitconfig",
+    "zsh-history": "touch ${localEnv:HOME}/.zsh_history"
+  },
+
+  "features": {
+    // The language this repository is written in stays with the repository.
+    //
+    // 3.14 is RTLDEV_MW_CI_PYTHON_VERSION — the interpreter
+    // python-sdk-release.yml actually builds and publishes with — so the
+    // container runs what ships. That is the rule php-sdk's 8.3 follows too: it
+    // tracks RTLDEV_MW_CI_PHP_VERSION, not the floor of
+    // RTLDEV_MW_CI_PHP_MATRIX (['8.3','8.4','8.5']).
+    //
+    // Not the matrix floor, deliberately, but it does mean the container will
+    // not catch syntax newer than the 3.10 leg of RTLDEV_MW_CI_PYTHON_MATRIX
+    // (['3.10'...'3.14']) accepts — CI's own floor leg is what catches that.
+    // pyproject.toml declares no `requires-python` at all, which is why the
+    // number has to come from an organisation variable rather than the manifest;
+    // giving it one is RSRMID-3070.
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.14"
+    },
+
+    // The shared behaviour layer. It declares Node LTS and the GitHub CLI as its
+    // own dependencies, so neither is listed here. The Claude Code CLI was a
+    // third until devbase 2.0.0 dropped it -- the VS Code extension runs its own
+    // bundled runtime (RSRMID-3053). Do NOT re-declare node:2 to change its
+    // version: one Feature id with two option sets counts as two Features under
+    // the spec's equality rule, so Node would install twice into the same nvm
+    // path.
+    //
+    // There is a package.json here (the semantic-release toolchain) but no
+    // composer.json, so the default dependency install still has real work to
+    // do -- installProjectDependencies stays on. It does not reach pip, which is
+    // why post-create.sh below still owns this repository's Python dependency
+    // install.
+    "ghcr.io/centralnicgroup-opensource/rtldev-middleware-devcontainer-features/devbase:2": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      // Python tooling only. devbase contributes the shared layer -- GitHub
+      // Actions, GitHub PRs, Remote Containers, Containers, both Claude
+      // extensions, shellcheck / shell-format / vscode-yaml -- plus the zsh
+      // terminal profile and the shellcheck/npm settings that go with them.
+      //
+      // The previous list (mrmlnc.vscode-apache, bmewburn.vscode-intelephense-client)
+      // was an Apache config extension and a PHP language server -- copy-paste
+      // leftovers in a Python repository -- replaced here with actual Python
+      // tooling: the language server, and the black formatter super-linter
+      // already validates this codebase against (VALIDATE_PYTHON_BLACK in
+      // python-sdk-test.yml). gitlens is dropped: devbase does not contribute
+      // it, and neither php-sdk nor dnscontrol-dnsconfig carry a generic editor
+      // extension in their own repository-specific list either.
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter"
+      ]
+    }
+  },
+
+  "remoteUser": "vscode",
+
+  // .ssh and .gitconfig make git work as it does on the host, both readonly: the
+  // container reads that identity, it does not maintain it. devbase writes its
+  // credential and signing config with `git config --local`, never `--global`,
+  // exactly so the host's file stays untouched, so readonly costs nothing here.
+  // /WSL_USER/.zsh_history is the single file devbase's history persistence
+  // reads; .claude carries the Claude Code session state.
+  //
+  // This frame declared only the history mount before. That is why the old
+  // post-create.sh's symlinking of ~/.gitconfig and ~/.zsh_history out of
+  // /WSL_USER never did anything: nothing mounted /WSL_USER for anything but the
+  // history file, and nothing ran devbase to do the symlinking anyway.
+  // Completing the migration -- declaring devbase above and widening these
+  // mounts to what it expects -- is what makes that path do something again.
+  //
+  // The history entry binds that one file and never the host home. Mounting
+  // ${localEnv:HOME} at /WSL_USER to reach a single file inside it handed the
+  // container read-write reach over the host's SSH keys, credentials and every
+  // other repository on the machine -- and in the workspace repository it made
+  // the readonly flag on the GitHub tokens decorative, since the same inodes
+  // were writable by that second path. (RSRMID-3052)
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,readonly",
+    "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,readonly",
+    "source=${localEnv:HOME}/.zsh_history,target=/WSL_USER/.zsh_history,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind,consistency=cached"
+  ],
+
+  // postCreateCommand, NOT onCreateCommand -- unlike php-sdk's composer, this
+  // repository's pip work (pip-compile, then an editable install) needs nothing
+  // that devbase's own postCreateCommand installs: no shared extension, no
+  // shared toolchain dependency between the two. A Feature's hooks run before
+  // the consuming devcontainer.json's hooks of the same phase, so
+  // postCreateCommand here already lands after devbase's pnpm/dependency step --
+  // exactly the ordering dnscontrol-dnsconfig's Go build relies on, and there is
+  // no reason to reach for onCreateCommand's earlier phase instead.
+  "postCreateCommand": "zsh .devcontainer/post-create.sh"
+}
