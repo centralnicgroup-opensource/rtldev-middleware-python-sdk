@@ -27,7 +27,7 @@ dependencies = [
     "pdoc3>=0.11.6",
     "pytest-cov>=7.1.0",
     "twine>=7.0.0,<8",
-    "black>=26.5.1,<27",
+    "black>=26.10.1,<27",
     # idna 3.19 ignores uts46_remap(transitional=True), which IDNAProcessor relies on
     # for the registries that still expect transitional processing. (RSRMID-3125)
     "idna>=3.18,<3.19"
