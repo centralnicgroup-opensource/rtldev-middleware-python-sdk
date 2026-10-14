@@ -25,3 +25,7 @@ updates:
       prefix: "fix"
       prefix-development: "chore"
       include: "scope"
+    ignore:
+      # idna 3.20 dropped transitional processing; pinned in pyproject.toml. (RSRMID-3125)
+      - dependency-name: "idna"
+        versions: [">=3.20"]
