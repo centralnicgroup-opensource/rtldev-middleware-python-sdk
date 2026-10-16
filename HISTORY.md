@@ -1,3 +1,10 @@
+## [5.0.10](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.9...v5.0.10) (2026-10-16)
+
+
+### Bug Fixes
+
+* **deps:** update black requirement from <27,>=26.5.1 to >=26.10.1,<27 ([b749aec](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/b749aec86ab9522dca97c9ca2121e871d99b6b49))
+
 ## [5.0.9](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.8...v5.0.9) (2026-10-14)
 
 
