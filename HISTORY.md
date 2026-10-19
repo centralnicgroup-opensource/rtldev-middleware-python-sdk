@@ -1,3 +1,20 @@
+# [6.0.0](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.10...v6.0.0) (2026-10-19)
+
+
+### Bug Fixes
+
+* **idna:** keep ß for the TLDs that require non-transitional processing ([618d8a4](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/commit/618d8a47e31a83a8b27f01f8eded6aa50b4f88bf))
+
+
+### BREAKING CHANGES
+
+* **idna:** IDNAConverter.convert() and IDNAProcessor.to_ascii() now
+return xn--fa-hia.de for faß.de (was fass.de) and fass.com for faß.com (was
+xn--fa-hia.com); the same applies to ς, ZWJ and ZWNJ under these TLDs.
+Callers that need the previous result pass use_transitional explicitly.
+
+Refs: RSRMID-3015
+
 ## [5.0.10](https://github.com/centralnicgroup-opensource/rtldev-middleware-python-sdk/compare/v5.0.9...v5.0.10) (2026-10-16)
 
 

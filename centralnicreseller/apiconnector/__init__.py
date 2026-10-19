@@ -7,5 +7,5 @@
     :license: MIT, see LICENSE for more details.
 """
 
-__version__ = "5.0.10"
+__version__ = "6.0.0"
 name = "centralnicreseller.apiconnector"
