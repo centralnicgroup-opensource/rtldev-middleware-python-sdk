@@ -50,15 +50,45 @@ def test_convert_single_domain():
     assert converter.get_idn() == "exämple.com"
 
 
-# Pins current behaviour, which RSRMID-3015 found to be inverted (idna-uts46 and
-# php-idna-translator keep ß for .de), so it is expected to change with that fix.
-def test_convert_de_domain_maps_sharp_s_to_ss():
+def test_convert_de_domain_keeps_sharp_s():
     domain_name = "faß.de"
     converter = IDNAConverter.convert(domain_name)
 
     assert converter is not None
-    assert converter.get_pc() == "fass.de"
+    assert converter.get_pc() == "xn--fa-hia.de"
     assert converter.get_idn() == "faß.de"
+
+
+def test_convert_com_domain_maps_sharp_s_to_ss_by_default():
+    converter = IDNAConverter.convert("faß.com")
+
+    assert converter is not None
+    assert converter.get_pc() == "fass.com"
+
+
+@pytest.mark.parametrize("tld", NON_TRANSITIONAL_TLDS)
+def test_convert_listed_tld_keeps_sharp_s(tld):
+    converter = IDNAConverter.convert(f"faß.{tld}")
+
+    assert converter.get_pc() == f"xn--fa-hia.{tld}"
+
+
+def test_to_ascii_uppercase_tld_is_matched_case_insensitively():
+    result = IDNAProcessor.to_ascii("faß.DE")
+
+    assert second_level_label(result) == "xn--fa-hia"
+
+
+@pytest.mark.parametrize(
+    "domain, expected",
+    [("faß.de.com", "fass.de.com"), ("faß.dealer", "fass.dealer")],
+)
+def test_to_ascii_tld_is_matched_only_at_the_end(domain, expected):
+    assert IDNAProcessor.to_ascii(domain) == expected
+
+
+def test_to_unicode_listed_tld_keeps_sharp_s():
+    assert IDNAProcessor.to_unicode("xn--fa-hia.de") == "faß.de"
 
 
 def test_convert_domain_list():

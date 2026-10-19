@@ -4,15 +4,18 @@ import re
 
 class IDNAProcessor:
     NON_TRANSITIONAL_TLDS = re.compile(
-        r"\.(?:art|be|ca|de|swiss|fr|pm|re|tf|wf|yt)\.?$"
+        r"\.(?:art|be|ca|de|swiss|fr|pm|re|tf|wf|yt)\.?$", re.IGNORECASE
     )
 
     @staticmethod
     def is_transitional_processing(domain_name: str) -> bool:
         """
-        Determines if the domain name's TLD should use transitional processing.
+        Returns True when the domain name should use transitional processing, which
+        is every TLD except those in NON_TRANSITIONAL_TLDS (matched case-insensitively
+        at the end of the name). Those keep the deviation characters (ß, ς, ZWJ,
+        ZWNJ) instead of mapping them.
         """
-        return bool(IDNAProcessor.NON_TRANSITIONAL_TLDS.search(domain_name))
+        return not bool(IDNAProcessor.NON_TRANSITIONAL_TLDS.search(domain_name))
 
     @staticmethod
     def to_ascii(domain_name, use_transitional=None):
